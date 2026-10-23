@@ -51,6 +51,11 @@ def _broadcast(path: Path) -> dict[str, Any]:
     return {"data": data, "receipts": by_hash}
 
 
+def _run_on_chain(run: dict[str, Any], rpc: Callable[[str, list[Any]], Any]) -> bool:
+    hashes = [tx_hash for tx_hash in run["receipts"] if tx_hash.startswith("0x")]
+    return bool(hashes) and isinstance(rpc("eth_getTransactionReceipt", [hashes[0]]), dict)
+
+
 def _block_for(tx: dict[str, Any], receipts: dict[str, Any]) -> int:
     receipt = receipts.get(str(tx.get("hash", "")).lower())
     if not isinstance(receipt, dict) or not receipt.get("blockNumber"):
@@ -126,6 +131,11 @@ def build_catalog_manifest(
     target = targets.pop()
     runs = [_broadcast(path) for path in sorted(directory.glob("run-*.json"))]
     runs.sort(key=lambda run: int(run["data"].get("timestamp", 0)))
+    # Foundry keeps every run. After a chain reset the same deployer and nonce rebuild the factory
+    # at the same address under new hashes, so only runs the connected chain knows are reconciled.
+    runs = [run for run in runs if _run_on_chain(run, rpc)]
+    if not runs:
+        raise ValueError("no catalog broadcast is known to the connected chain")
     txs, receipts, seen = [], {}, set()
     for run in runs:
         for tx in run["data"]["transactions"]:

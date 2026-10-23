@@ -113,7 +113,12 @@
   // it: the public testnet answers under the same chain id, and its empty history would be cached
   // as this chain's.
   function localRpcUnverified() {
-    return Boolean(testnetWorkspace()?.local) && state.wallet.status === STATUS.WRONG_NETWORK_RPC;
+    if (!testnetWorkspace()?.local || !state.provider || state.wallet.chainId !== BASE_SEPOLIA.chainId) return false;
+    if (state.wallet.status === STATUS.WRONG_NETWORK_RPC) return true;
+    // The answer belongs to the provider, not the account: a signer that disconnects leaves its
+    // provider behind for a watched book, still on whichever network it was last found on.
+    const verified = state.localRpcVerified;
+    return !(verified && verified.provider === state.provider && verified.valid === true);
   }
 
   function verifyLocalWalletRpc(provider = state.provider) {
@@ -144,6 +149,7 @@
     }
     if (generation !== state.walletGeneration || sequence !== state.localRpcSequence) return false;
     if (state.wallet.chainId !== BASE_SEPOLIA.chainId) return false;
+    state.localRpcVerified = {provider, valid};
     state.wallet.status = valid ? STATUS.CONNECTED : STATUS.WRONG_NETWORK_RPC;
     state.wallet.message = valid ? `${walletChainLabel(state.wallet.chainId)} · connected` : localRpcRefusal().errorMessage;
     renderWallet();
@@ -3504,6 +3510,7 @@
     if (testnetWorkspace()?.local && normalizedAccount && normalizedChain === BASE_SEPOLIA.chainId) {
       state.wallet.status = STATUS.WRONG_NETWORK_RPC;
       state.wallet.message = localRpcRefusal().errorMessage;
+      state.localRpcVerified = null;
       state.localWalletCheck = verifyLocalWalletRpc();
     } else state.localWalletCheck = null;
     renderWallet();
