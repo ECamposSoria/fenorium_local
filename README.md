@@ -50,7 +50,10 @@ make up
 
 When it finishes it prints the URL. `make status` shows the deployed addresses, `make logs`
 follows the platform, `make down` stops everything but keeps the chain, `make reset` wipes the
-chain so the next `make up` deploys again.
+chain so the next `make up` deploys again. After a reset, MetaMask still remembers the old chain's
+transaction count for each account: open the account's Settings → Advanced → "Clear activity tab
+data" before sending again, or the first transaction fails with a nonce error. The terminal itself
+notices the reset (it reads the chain, not its own memory of it) and rereads the wallet's history.
 
 ## Use it with a wallet
 
