@@ -15,8 +15,11 @@ export UPSTREAM_COMMIT := $(shell cat UPSTREAM 2>/dev/null || echo unknown)
 
 .PHONY: up down reset status logs test doctor assistant model assistant-down
 
+# One image at a time: building both in one bake has crashed Docker 29's BuildKit on a
+# concurrent-map race (the second build shares the first's base stage, so it costs seconds).
 up: doctor
-	$(COMPOSE) build builder platform
+	$(COMPOSE) build builder
+	$(COMPOSE) build platform
 	$(COMPOSE) up -d anvil
 	$(COMPOSE) up deployer
 	$(COMPOSE) up builder

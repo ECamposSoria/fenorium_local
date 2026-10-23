@@ -129,11 +129,19 @@ def build_catalog_manifest(
     txs, receipts, seen = [], {}, set()
     for run in runs:
         for tx in run["data"]["transactions"]:
+            tx_hash = str(tx.get("hash", "")).lower()
+            if target_address(tx) == target and tx_hash in run["receipts"]:
+                receipts[tx_hash] = run["receipts"][tx_hash]
+    for run in runs:
+        for tx in run["data"]["transactions"]:
             if target_address(tx) != target:
                 continue
             tx_hash = str(tx.get("hash", "")).lower()
-            if tx_hash in run["receipts"]:
-                receipts[tx_hash] = run["receipts"][tx_hash]
+            # A batch that reverted and its retry carry different hashes; only confirmed
+            # transactions describe the deployment.
+            receipt = receipts.get(tx_hash)
+            if not isinstance(receipt, dict) or receipt.get("status") not in (None, "0x1", 1):
+                continue
             if tx_hash not in seen:
                 txs.append(tx)
                 seen.add(tx_hash)

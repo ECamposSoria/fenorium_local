@@ -109,15 +109,39 @@
       errorMessage: `Your wallet's Base Sepolia network points at the public testnet. Edit that network's RPC URL to ${deploymentEndpoints().rpcUrl} (chain id 84532) and reconnect.`};
   }
 
-  async function verifyLocalWalletRpc(provider = state.provider) {
-    if (!testnetWorkspace()?.local) return true;
-    const generation = state.walletGeneration;
+  // Until a local workspace's wallet has proved it reads the local chain, nothing is read through
+  // it: the public testnet answers under the same chain id, and its empty history would be cached
+  // as this chain's.
+  function localRpcUnverified() {
+    return Boolean(testnetWorkspace()?.local) && state.wallet.status === STATUS.WRONG_NETWORK_RPC;
+  }
+
+  function verifyLocalWalletRpc(provider = state.provider) {
+    if (!testnetWorkspace()?.local) return Promise.resolve(true);
+    // One check per wallet and provider: the purchase panel asks beside the wallet change, and a
+    // second check superseding the first would hand the first caller a false answer.
+    const pending = state.localRpcPending;
+    if (pending && pending.generation === state.walletGeneration && pending.provider === provider) return pending.promise;
+    const entry = {generation: state.walletGeneration, provider, promise: null};
+    entry.promise = readLocalWalletRpc(provider, entry.generation).finally(() => {
+      if (state.localRpcPending === entry) state.localRpcPending = null;
+    });
+    state.localRpcPending = entry;
+    return entry.promise;
+  }
+
+  async function readLocalWalletRpc(provider, generation) {
     const sequence = state.localRpcSequence = (state.localRpcSequence || 0) + 1;
+    // Only an address the deployment data names: the built-in fallback is the public testnet's
+    // own mock, whose code would pass this check on the very network it exists to refuse.
+    const sale = state.config?.deployment?.sales?.mGT || state.config?.deployment?.sales?.mgt;
     let valid = false;
-    try {
-      const code = await provider.request({method: "eth_getCode", params: [demoInstruments().mGT, "latest"]});
-      valid = typeof code === "string" && /^0x[0-9a-fA-F]+$/.test(code);
-    } catch (_) { /* Keep local actions blocked until the provider can prove the deployment. */ }
+    if (configuredAddress(sale?.instrument_address)) {
+      try {
+        const code = await provider.request({method: "eth_getCode", params: [sale.instrument_address, "latest"]});
+        valid = typeof code === "string" && /^0x[0-9a-fA-F]+$/.test(code);
+      } catch (_) { /* Keep local actions blocked until the provider can prove the deployment. */ }
+    }
     if (generation !== state.walletGeneration || sequence !== state.localRpcSequence) return false;
     if (state.wallet.chainId !== BASE_SEPOLIA.chainId) return false;
     state.wallet.status = valid ? STATUS.CONNECTED : STATUS.WRONG_NETWORK_RPC;
@@ -2217,7 +2241,7 @@
     const deployment = deploymentInfo(row);
     const format = (value, decimals = 6) => value == null ? null : formatUnits(value, decimals);
     const readsCurrent = current.readsStale !== true;
-    const wrongRpc = testnetWorkspace()?.local && state.wallet.status === STATUS.WRONG_NETWORK_RPC;
+    const wrongRpc = localRpcUnverified();
     const actionLocked = wrongRpc || current.inFlightAction != null || current.unresolvedTransaction != null;
     return {
       ...current,
@@ -2720,9 +2744,14 @@
     };
   }
 
-  async function sendTransaction(to, data, from = state.wallet.account) {
+  // `current` is the caller's own staleness rule: the local-chain check below awaits the wallet,
+  // and an amount edited meanwhile would otherwise still go out with the old calldata.
+  async function sendTransaction(to, data, from = state.wallet.account, current = null) {
     if (!configuredAddress(to)) throw makeCodeError("INVALID_TRANSACTION_TARGET", "transaction target is not configured");
-    if (testnetWorkspace()?.local && !await verifyLocalWalletRpc()) throw makeCodeError(STATUS.WRONG_NETWORK_RPC, localRpcRefusal().errorMessage);
+    if (testnetWorkspace()?.local) {
+      if (!await verifyLocalWalletRpc()) throw makeCodeError(STATUS.WRONG_NETWORK_RPC, localRpcRefusal().errorMessage);
+      if (current && !current()) throw makeCodeError("ACTION_SUPERSEDED", "The request changed while the wallet's network was being checked; nothing was sent.");
+    }
     const hash = await state.provider.request({
       method: "eth_sendTransaction",
       params: [{ from, to, data }],
@@ -2827,7 +2856,7 @@
       let approvalConfirmed = false;
       try {
         const approvalData = encodeApprove(deployment.saleAddress, displayedQuote);
-        attemptApprovalTx = await sendTransaction(deployment.paymentAddress, approvalData, submittingAccount);
+        attemptApprovalTx = await sendTransaction(deployment.paymentAddress, approvalData, submittingAccount, () => purchaseRequestIsCurrent(row, purchaseRequest));
         approvalTx = attemptApprovalTx;
         retainUnresolvedTransaction(row, { kind: "approval", label: "Approval", hash: approvalTx, account: submittingAccount });
         setPurchaseState(row, { approvalTx, approvalUrl: transactionExplorerUrl(approvalTx, deployment.explorerUrl), status: STATUS.PENDING, stage: TRANSACTION_STAGES.approval.receipt, canPurchase: false, canSell: false }, submittingAccount);
@@ -2931,7 +2960,7 @@
     let purchaseConfirmed = false;
     try {
       const purchaseData = encodePurchase(instrumentAmount, displayedQuote, deployment.purchaseSignature);
-      purchaseTx = await sendTransaction(deployment.saleAddress, purchaseData, submittingAccount);
+      purchaseTx = await sendTransaction(deployment.saleAddress, purchaseData, submittingAccount, () => purchaseRequestIsCurrent(row, purchaseRequest));
       retainUnresolvedTransaction(row, { kind: "purchase", label: "Purchase", hash: purchaseTx, account: submittingAccount, amountRaw: instrumentAmount.toString() });
       setPurchaseState(row, { purchaseTx, purchaseUrl: transactionExplorerUrl(purchaseTx, deployment.explorerUrl), status: STATUS.PENDING, stage: TRANSACTION_STAGES.purchase.receipt, canPurchase: false, canSell: false }, submittingAccount);
       const purchaseReceipt = await waitForReceipt(state.provider, purchaseTx);
@@ -3098,7 +3127,7 @@
       let approvalConfirmed = false;
       try {
         const approvalData = encodeApprove(deployment.saleAddress, instrumentAmount);
-        attemptApprovalTx = await sendTransaction(deployment.instrumentAddress, approvalData, submittingAccount);
+        attemptApprovalTx = await sendTransaction(deployment.instrumentAddress, approvalData, submittingAccount, () => purchaseRequestIsCurrent(row, saleRequest));
         instrumentApprovalTx = attemptApprovalTx;
         retainUnresolvedTransaction(row, { kind: "instrumentApproval", label: "Instrument approval", hash: instrumentApprovalTx, account: submittingAccount });
         setPurchaseState(row, { instrumentApprovalTx, instrumentApprovalUrl: transactionExplorerUrl(instrumentApprovalTx, deployment.explorerUrl), status: STATUS.PENDING, stage: TRANSACTION_STAGES.instrumentApproval.receipt, canPurchase: false, canSell: false }, submittingAccount);
@@ -3202,7 +3231,7 @@
     let saleConfirmed = false;
     try {
       const saleData = encodeSell(instrumentAmount, displayedSellQuote, deployment.sellSignature);
-      saleTx = await sendTransaction(deployment.saleAddress, saleData, submittingAccount);
+      saleTx = await sendTransaction(deployment.saleAddress, saleData, submittingAccount, () => purchaseRequestIsCurrent(row, saleRequest));
       retainUnresolvedTransaction(row, { kind: "sale", label: "Sale", hash: saleTx, account: submittingAccount, amountRaw: instrumentAmount.toString() });
       setPurchaseState(row, { saleTx, saleUrl: transactionExplorerUrl(saleTx, deployment.explorerUrl), status: STATUS.PENDING, stage: TRANSACTION_STAGES.sale.receipt, canPurchase: false, canSell: false }, submittingAccount);
       const saleReceipt = await waitForReceipt(state.provider, saleTx);
@@ -3345,7 +3374,7 @@
     let faucetTx = null;
     let faucetConfirmed = false;
     try {
-      faucetTx = await sendTransaction(deployment.faucetAddress, encodeMint(submittingAccount, amount), submittingAccount);
+      faucetTx = await sendTransaction(deployment.faucetAddress, encodeMint(submittingAccount, amount), submittingAccount, () => purchaseRequestIsCurrent(row, faucetRequest));
       retainUnresolvedTransaction(row, { kind: "faucet", label: "Faucet", hash: faucetTx, account: submittingAccount });
       setPurchaseState(row, { faucetTx, faucetUrl: transactionExplorerUrl(faucetTx, deployment.explorerUrl), status: STATUS.PENDING, stage: TRANSACTION_STAGES.faucet.receipt, canPurchase: false, canSell: false, canFaucet: false }, submittingAccount);
       const receipt = await waitForReceipt(state.provider, faucetTx);
@@ -3483,7 +3512,16 @@
     // The viewed book is re-read on every wallet change, a watched one even when the signer has
     // gone (its pending read was invalidated and would otherwise stay "Reading…"); the signer's
     // own book is read beside it when another wallet is on screen, for pay options and receipts.
-    if (state.universe.length && ((normalizedAccount && state.provider) || !viewedWallet().connected)) {
+    if (state.localWalletCheck) {
+      const generation = state.walletGeneration;
+      void state.localWalletCheck.then(valid => {
+        if (generation !== state.walletGeneration) return;
+        if (valid && state.universe.length && state.provider) {
+          void refreshPortfolio();
+          if (!viewedWallet().connected) void refreshPortfolio({scope: "connected"});
+        } else void refreshVenuePositions();
+      });
+    } else if (state.universe.length && ((normalizedAccount && state.provider) || !viewedWallet().connected)) {
       void refreshPortfolio();
       if (normalizedAccount && state.provider && !viewedWallet().connected) void refreshPortfolio({scope: "connected"});
     } else void refreshVenuePositions();
@@ -3929,6 +3967,7 @@
   }
 
   function writeTransferCache(wallet, chainId, history) {
+    if (localRpcUnverified()) return false;
     if (history?.status !== "COMPLETE") return false;
     const payload = JSON.stringify({
       // The scan's own status, not a hardcoded one: stamping COMPLETE on whatever was passed
@@ -3950,6 +3989,7 @@
   // How deep a scan goes is decided in one place -- readTransferHistory, from the chain -- so
   // there is no second copy of the policy here to drift from it.
   async function refreshTransfers(depth) {
+    if (localRpcUnverified()) return null;
     const viewed = viewedWallet();
     if (state.sampleVisible || !state.provider?.request || !viewed.account || viewed.chainId !== state.wallet.chainId) return null;
     const provider = state.provider, wallet = viewed.account, chainId = viewed.chainId;
@@ -3959,6 +3999,7 @@
     const walletGeneration = state.walletGeneration, viewGeneration = state.viewGeneration;
     const record = portfolioRecord(wallet, chainId);
     if (record?.promise) await record.promise;
+    if (localRpcUnverified()) return null;
     if (walletGeneration !== state.walletGeneration || viewGeneration !== state.viewGeneration || provider !== state.provider) return null;
     const generation = ++state.transferGeneration;
     const isCurrent = () => generation === state.transferGeneration && walletGeneration === state.walletGeneration
@@ -4937,6 +4978,7 @@
           + (redeemables.length ? '<h3>Matured tokens</h3><ul>' + redeemables.join("") + '</ul>' : '') + unread;
         return;
       }
+      if (localRpcUnverified()) throw new Error(localRpcRefusal().errorMessage);
       if (!provider?.request || normalizeChainId(await provider.request({method: "eth_chainId"})) !== chainId) {
         throw new Error(viewed.connected
           ? "The wallet is not on the selected chain."
@@ -6697,6 +6739,7 @@
 
   function refreshPortfolio({preserveExitRequests = false, scope: requestedScope = "viewed"} = {}) {
     if (isTestnetBlocked()) return Promise.resolve(null);
+    if (localRpcUnverified()) return Promise.resolve(null);
     const provider = state.provider;
     let scope = requestedScope;
     // "connected" reads the signing wallet's own book whatever is on screen: a receipt-triggered
@@ -6806,6 +6849,7 @@
           record.error = { code: "PORTFOLIO_READ_UNAVAILABLE", message: `The platform could not read this wallet, and a browser read needs a connected wallet on ${routeChainName(chainId)}.` };
           return null;
         }
+        if (localRpcUnverified()) return null;
         const read = await readPortfolioObservations(provider, capture.account, chainId, assets);
         if (!portfolioCaptureCurrent(capture)) return null;
         const asOf = new Date().toISOString();
@@ -7202,6 +7246,7 @@
   }
 
   function ensureTransferScan() {
+    if (localRpcUnverified()) return;
     const viewed = viewedWallet();
     if (state.sampleVisible || !viewed.account || state.transferScanSuppressed) return;
     const record = portfolioRecord(viewed.account, viewed.chainId);
