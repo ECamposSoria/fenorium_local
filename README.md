@@ -17,7 +17,8 @@ Fenorium exists in three places:
 - Docker with Compose v2 (Docker Desktop on macOS or Windows, Docker Engine on Linux).
 - `make` (ships with macOS and Linux; on Windows use WSL).
 - A browser wallet such as MetaMask, for buying and selling.
-- About 3 GB of disk for the images and 2 GB of free memory while it runs.
+- About 3 GB of disk for the images and 2 GB of free memory while it runs; the optional Explain
+  assistant needs 2 GB more disk for its model and about 2.5 GB of memory while it answers.
 
 The first `make up` downloads the images (Foundry, Python) and compiles the contracts; later runs
 reuse them.
