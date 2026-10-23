@@ -90,11 +90,19 @@ instruments, no transactions behind them.
 
 ## Explain (optional)
 
-The **Explain** button asks a small local language model (Qwen3 1.7B through the QVAC runtime) to
-paraphrase facts the platform has already computed; it never computes anything itself, and a
-grounding check rejects anything the model adds. It runs on your machine only. Start it with
-`make assistant` after `make model` has fetched the model (about 1 GB); without it the button
-shows the selected facts and says no assistant answered.
+The **Explain** button asks a small language model to paraphrase facts the platform has already
+computed; it never computes anything itself, and a grounding check rejects anything the model adds.
+It runs on your machine only, as a separate container:
+
+```bash
+make assistant      # starts it at http://127.0.0.1:8787 and prints the pairing token
+make model          # optional: fetches Qwen3 1.7B (about 1 GB) through the QVAC runtime
+```
+
+In the terminal, open Explain, paste the pairing token printed by `make assistant` (it is also in
+`.env`, since the assistant is reachable only from this machine), select facts and ask. Without the
+model fetched, or on a machine where the QVAC runtime cannot run, the assistant still answers with
+the selected facts and says that no model answered.
 
 ## How this repository is built
 

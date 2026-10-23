@@ -140,6 +140,27 @@ services:
     networks:
       - local
 
+  # Optional: the Explain assistant. `make assistant` starts it, `make model` fetches its model.
+  assistant:
+    build:
+      context: .
+      dockerfile: images/assistant.Dockerfile
+    image: fenorium-local-assistant:${UPSTREAM_COMMIT:-dev}
+    container_name: fenorium-local-assistant
+    profiles: ["assistant"]
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      FENORIUM_ASSISTANT_PORT: "8787"
+      FENORIUM_ASSISTANT_ORIGINS: http://127.0.0.1:${LOCAL_PLATFORM_PORT:-8517},http://localhost:${LOCAL_PLATFORM_PORT:-8517}
+      FENORIUM_ASSISTANT_PAIRING_TOKEN: ${LOCAL_ASSISTANT_PAIRING_TOKEN:?set LOCAL_ASSISTANT_PAIRING_TOKEN in .env}
+    volumes:
+      - assistant-home:/home/node
+    restart: unless-stopped
+    mem_limit: 4g
+    networks:
+      - local
+
 networks:
   local:
     name: fenorium-local-net
@@ -153,3 +174,4 @@ volumes:
   curve:
   web-local:
   evidence:
+  assistant-home:

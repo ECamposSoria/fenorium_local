@@ -6,12 +6,14 @@
 #   make status  what is running and what was deployed
 #   make logs    follow the platform's log
 #   make test    run the contract test suite in the Foundry image
+#   make assistant  start the optional Explain assistant (http://127.0.0.1:8787)
+#   make model   fetch the assistant's language model once (about 1 GB)
 #   make doctor  check the prerequisites
 SHELL := /bin/sh
 COMPOSE := docker compose -p fenorium-local --env-file .env
 export UPSTREAM_COMMIT := $(shell cat UPSTREAM 2>/dev/null || echo unknown)
 
-.PHONY: up down reset status logs test doctor deploy build
+.PHONY: up down reset status logs test doctor assistant model assistant-down
 
 up: doctor
 	$(COMPOSE) build builder platform
@@ -25,10 +27,10 @@ up: doctor
 	@echo "See README.md for the wallet setup and the development accounts."
 
 down:
-	$(COMPOSE) down
+	$(COMPOSE) --profile assistant down
 
 reset:
-	$(COMPOSE) down -v
+	$(COMPOSE) --profile assistant down -v
 
 status:
 	$(COMPOSE) ps
@@ -46,3 +48,14 @@ doctor:
 	@test -f .env || { echo ".env is missing (it ships with the repo)"; exit 1; }
 	@test -d contracts/lib/forge-std || { echo "contracts/lib is missing; clone with --recurse-submodules or run: git submodule update --init"; exit 1; }
 	@echo "prerequisites ok"
+
+assistant:
+	$(COMPOSE) --profile assistant up -d --build assistant
+	@echo "Explain assistant: http://127.0.0.1:8787 · pairing token: $$(grep -E '^LOCAL_ASSISTANT_PAIRING_TOKEN=' .env | cut -d= -f2)"
+
+model:
+	$(COMPOSE) --profile assistant build assistant
+	$(COMPOSE) --profile assistant run --rm --entrypoint node assistant /app/chain/assistant-warm.mjs
+
+assistant-down:
+	$(COMPOSE) --profile assistant stop assistant

@@ -1,0 +1,8 @@
+{
+  "name": "fenorium-local-assistant",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@qvac/sdk": "0.22.0"
+  }
+}
