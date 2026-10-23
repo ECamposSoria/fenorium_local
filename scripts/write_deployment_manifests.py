@@ -51,6 +51,13 @@ def _broadcast(path: Path) -> dict[str, Any]:
     return {"data": data, "receipts": by_hash}
 
 
+def _nonce(tx: dict[str, Any]) -> int:
+    nonce = (tx.get("transaction") or {}).get("nonce")
+    if nonce is None:
+        raise ValueError(f"broadcast transaction {tx.get('hash')} has no nonce")
+    return int(str(nonce), 0)
+
+
 def _block_for(tx: dict[str, Any], receipts: dict[str, Any]) -> int:
     receipt = receipts.get(str(tx.get("hash", "")).lower())
     if not isinstance(receipt, dict) or not receipt.get("blockNumber"):
@@ -129,12 +136,12 @@ def build_catalog_manifest(
     # Foundry keeps every run. After a chain reset the same deployer and nonce rebuild the factory
     # at the same address, and a replayed transaction keeps its hash while a changed batch does
     # not, so each transaction is reconciled only when the connected chain has its receipt.
-    known: dict[str, bool] = {}
+    known: dict[str, Any] = {}
 
     def on_chain(tx_hash: str) -> bool:
         if tx_hash not in known:
-            known[tx_hash] = isinstance(rpc("eth_getTransactionReceipt", [tx_hash]), dict)
-        return known[tx_hash]
+            known[tx_hash] = rpc("eth_getTransactionReceipt", [tx_hash])
+        return isinstance(known[tx_hash], dict)
 
     txs, receipts, seen = [], {}, set()
     for run in runs:
@@ -153,10 +160,18 @@ def build_catalog_manifest(
             if not isinstance(receipt, dict) or receipt.get("status") not in (None, "0x1", 1):
                 continue
             if tx_hash not in seen and on_chain(tx_hash):
+                # The chain's receipt over the broadcast's: a replayed transaction keeps its hash
+                # but lands in another block.
+                receipts[tx_hash] = {**receipt, **known[tx_hash]}
                 txs.append(tx)
                 seen.add(tx_hash)
     if not txs:
         raise ValueError("no catalog broadcast is known to the connected chain")
+    # Run order is not send order once a replay keeps some batches and redoes others; one
+    # deployer's nonces are, and they are the order the chain executed the batches in. (The
+    # receipts' block and index are not: Anvil with a block time packs several batches into one
+    # block and reports them in another order.)
+    txs.sort(key=_nonce)
     creations = [tx for tx in txs if tx.get("transactionType") == "CREATE" and tx.get("contractName") == "DemoCatalogFactory"]
     if len(creations) != 1:
         raise ValueError("expected exactly one DemoCatalogFactory creation in broadcast")
