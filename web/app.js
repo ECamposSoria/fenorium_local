@@ -593,6 +593,12 @@
   // The chain registry (engine/registry/chains.json), carried by portfolio.js.
   const REGISTRY_CHAINS = Array.isArray(P.REGISTRY_CHAINS) ? P.REGISTRY_CHAINS : [];
   const chainIds = (role) => REGISTRY_CHAINS.filter((chain) => chain.roles.includes(role)).map((chain) => chain.chain_id);
+  // The platform's index of chain 84532 is the public testnet's. In a local workspace that chain id
+  // names the local node, whose history only the browser scan can read.
+  function historyIndexed(chainId) {
+    if (testnetWorkspace()?.local && chainId === BASE_SEPOLIA.chainId) return false;
+    return (Array.isArray(P.REGISTRY_CHAINS) ? P.REGISTRY_CHAINS : []).some((chain) => chain.chain_id === chainId && chain.history_index);
+  }
   // Chains whose registered instruments this terminal reads in a wallet. There it is connected for
   // reading; only the testnet demo's own purchase asks for Base Sepolia. A purchase can be quoted to
   // any chain the platform can buy on, which includes chains this terminal never reads a wallet on;
@@ -7275,7 +7281,7 @@
     const viewed = viewedWallet();
     if (state.sampleVisible || !viewed.account || state.transferScanSuppressed) return;
     const record = portfolioRecord(viewed.account, viewed.chainId);
-    const indexed = REGISTRY_CHAINS.some((chain) => chain.chain_id === viewed.chainId && chain.history_index);
+    const indexed = historyIndexed(viewed.chainId);
     // What the browser can scan: a provider on the viewed chain, and only chains this page scans
     // transfers on (a pay-only chain is never read through the provider).
     const scannable = Boolean(state.provider?.request) && viewed.chainId === state.wallet.chainId
@@ -7447,7 +7453,7 @@
         .filter((reason) => typeof reason === "string" && reason.length > 0),
     };
     const record = portfolioRecord(wallet, chainId);
-    const indexed = P.REGISTRY_CHAINS.some((chain) => chain.chain_id === chainId && chain.history_index) ? [chainId] : [];
+    const indexed = historyIndexed(chainId) ? [chainId] : [];
     const held = record?.heldValueByChain || {};
     const heldChains = new Set(record?.heldChains || []);
     const others = P.REGISTRY_CHAINS.filter((chain) => heldChains.has(chain.chain_id) && chain.chain_id !== chainId && !chain.testnet && chain.history_index)
