@@ -51,11 +51,6 @@ def _broadcast(path: Path) -> dict[str, Any]:
     return {"data": data, "receipts": by_hash}
 
 
-def _run_on_chain(run: dict[str, Any], rpc: Callable[[str, list[Any]], Any]) -> bool:
-    hashes = [tx_hash for tx_hash in run["receipts"] if tx_hash.startswith("0x")]
-    return bool(hashes) and isinstance(rpc("eth_getTransactionReceipt", [hashes[0]]), dict)
-
-
 def _block_for(tx: dict[str, Any], receipts: dict[str, Any]) -> int:
     receipt = receipts.get(str(tx.get("hash", "")).lower())
     if not isinstance(receipt, dict) or not receipt.get("blockNumber"):
@@ -132,10 +127,15 @@ def build_catalog_manifest(
     runs = [_broadcast(path) for path in sorted(directory.glob("run-*.json"))]
     runs.sort(key=lambda run: int(run["data"].get("timestamp", 0)))
     # Foundry keeps every run. After a chain reset the same deployer and nonce rebuild the factory
-    # at the same address under new hashes, so only runs the connected chain knows are reconciled.
-    runs = [run for run in runs if _run_on_chain(run, rpc)]
-    if not runs:
-        raise ValueError("no catalog broadcast is known to the connected chain")
+    # at the same address, and a replayed transaction keeps its hash while a changed batch does
+    # not, so each transaction is reconciled only when the connected chain has its receipt.
+    known: dict[str, bool] = {}
+
+    def on_chain(tx_hash: str) -> bool:
+        if tx_hash not in known:
+            known[tx_hash] = isinstance(rpc("eth_getTransactionReceipt", [tx_hash]), dict)
+        return known[tx_hash]
+
     txs, receipts, seen = [], {}, set()
     for run in runs:
         for tx in run["data"]["transactions"]:
@@ -152,9 +152,11 @@ def build_catalog_manifest(
             receipt = receipts.get(tx_hash)
             if not isinstance(receipt, dict) or receipt.get("status") not in (None, "0x1", 1):
                 continue
-            if tx_hash not in seen:
+            if tx_hash not in seen and on_chain(tx_hash):
                 txs.append(tx)
                 seen.add(tx_hash)
+    if not txs:
+        raise ValueError("no catalog broadcast is known to the connected chain")
     creations = [tx for tx in txs if tx.get("transactionType") == "CREATE" and tx.get("contractName") == "DemoCatalogFactory"]
     if len(creations) != 1:
         raise ValueError("expected exactly one DemoCatalogFactory creation in broadcast")

@@ -150,6 +150,7 @@
     if (generation !== state.walletGeneration || sequence !== state.localRpcSequence) return false;
     if (state.wallet.chainId !== BASE_SEPOLIA.chainId) return false;
     state.localRpcVerified = {provider, valid};
+    if (!state.wallet.account) return valid;
     state.wallet.status = valid ? STATUS.CONNECTED : STATUS.WRONG_NETWORK_RPC;
     state.wallet.message = valid ? `${walletChainLabel(state.wallet.chainId)} · connected` : localRpcRefusal().errorMessage;
     renderWallet();
@@ -3507,31 +3508,34 @@
         ? "Switch to the Base Sepolia testnet to use the demo."
         : status === STATUS.CONNECTED ? `${walletChainLabel(normalizedChain)} · connected` : "Wallet optional · read-only market"),
     };
-    if (testnetWorkspace()?.local && normalizedAccount && normalizedChain === BASE_SEPOLIA.chainId) {
+    const localChain = Boolean(testnetWorkspace()?.local) && normalizedChain === BASE_SEPOLIA.chainId;
+    if (localChain && normalizedAccount) {
       state.wallet.status = STATUS.WRONG_NETWORK_RPC;
       state.wallet.message = localRpcRefusal().errorMessage;
-      state.localRpcVerified = null;
-      state.localWalletCheck = verifyLocalWalletRpc();
-    } else state.localWalletCheck = null;
+    }
+    // Every wallet event retires the last answer: the provider may have moved network while no
+    // account was exposed, and a watched book is still read through it.
+    state.localRpcVerified = null;
+    state.localWalletCheck = localChain && (normalizedAccount || state.provider) ? verifyLocalWalletRpc() : null;
     renderWallet();
     void refreshLendingOrders();
     void refreshRouteQuotes();
     // The viewed book is re-read on every wallet change, a watched one even when the signer has
     // gone (its pending read was invalidated and would otherwise stay "Reading…"); the signer's
     // own book is read beside it when another wallet is on screen, for pay options and receipts.
+    const readBook = () => {
+      if (state.universe.length && ((normalizedAccount && state.provider) || !viewedWallet().connected)) {
+        void refreshPortfolio();
+        if (normalizedAccount && state.provider && !viewedWallet().connected) void refreshPortfolio({scope: "connected"});
+      } else void refreshVenuePositions();
+    };
     if (state.localWalletCheck) {
       const generation = state.walletGeneration;
       void state.localWalletCheck.then(valid => {
         if (generation !== state.walletGeneration) return;
-        if (valid && state.universe.length && state.provider) {
-          void refreshPortfolio();
-          if (!viewedWallet().connected) void refreshPortfolio({scope: "connected"});
-        } else void refreshVenuePositions();
+        if (valid) readBook(); else void refreshVenuePositions();
       });
-    } else if (state.universe.length && ((normalizedAccount && state.provider) || !viewedWallet().connected)) {
-      void refreshPortfolio();
-      if (normalizedAccount && state.provider && !viewedWallet().connected) void refreshPortfolio({scope: "connected"});
-    } else void refreshVenuePositions();
+    } else readBook();
     if (state.selected?.is_demo) {
       renderSelectedAsset();
       void refreshPurchase(state.selected);
@@ -3727,9 +3731,18 @@
       // `<=`, not `<`: a scan already at this exact block has nothing new to read, and saying
       // so costs no requests at all.
       if (previousTo <= toBlock && previousTo >= fromBlock) {
-        for (const record of range.previous.assets || []) {
-          const token = String(record?.asset?.address || "").toLowerCase();
-          if (record?.status === "COMPLETE" && token) earlier.set(token, {record, previousTo});
+        // The earlier scan names the block it ended at. A chain without that block -- a local
+        // chain reset and rebuilt at the same addresses -- is not the chain it was read from,
+        // and its rows would live on as the history of transactions that no longer exist.
+        if (!blocks.has(previousTo)) blocks.set(previousTo, request("eth_getBlockByNumber", [hex(previousTo), false]));
+        const ended = await blocks.get(previousTo);
+        current();
+        if (/^0x[0-9a-f]{64}$/i.test(range.previous.to_block_hash || "")
+            && String(ended?.hash || "").toLowerCase() === String(range.previous.to_block_hash).toLowerCase()) {
+          for (const record of range.previous.assets || []) {
+            const token = String(record?.asset?.address || "").toLowerCase();
+            if (record?.status === "COMPLETE" && token) earlier.set(token, {record, previousTo});
+          }
         }
       }
     }
@@ -3941,8 +3954,11 @@
         member.result.status = "COMPLETE";
       }
     }
+    if (!blocks.has(toBlock)) blocks.set(toBlock, request("eth_getBlockByNumber", [hex(toBlock), false]));
+    const endBlock = await blocks.get(toBlock);
+    const endHash = /^0x[0-9a-f]{64}$/i.test(endBlock?.hash || "") ? String(endBlock.hash).toLowerCase() : null;
     return {status: results.length && results.every(item => item.status === "COMPLETE") ? "COMPLETE" : "UNKNOWN",
-      declared_depth: depth, from_block: fromBlock, to_block: toBlock, assets: results,
+      declared_depth: depth, from_block: fromBlock, to_block: toBlock, to_block_hash: endHash, assets: results,
       rows: results.flatMap(item => item.rows)};
   }
 
@@ -3962,6 +3978,8 @@
         || record.rows.some(row => !configuredAddress(row?.from) || !configuredAddress(row?.to)
           || typeof row.id !== "string" || !row.id.startsWith(`${Number(chainId)}:`)))) return null;
       if (!Number.isSafeInteger(cachedTo) || cachedTo < 0) return null;
+      // A cache without the hash of its last block cannot be told from another chain instance's.
+      if (!/^0x[0-9a-f]{64}$/i.test(cached.to_block_hash || "")) return null;
       // Never ahead of the block being scanned to: a cache from a longer chain is not evidence
       // about this one, and extending from it would leave a hole.
       if (Number.isSafeInteger(toBlock) && cachedTo > toBlock) return null;
@@ -3975,12 +3993,12 @@
 
   function writeTransferCache(wallet, chainId, history) {
     if (localRpcUnverified()) return false;
-    if (history?.status !== "COMPLETE") return false;
+    if (history?.status !== "COMPLETE" || !/^0x[0-9a-f]{64}$/i.test(history.to_block_hash || "")) return false;
     const payload = JSON.stringify({
       // The scan's own status, not a hardcoded one: stamping COMPLETE on whatever was passed
       // would let an unfinished scan come back as a finished one on the next load.
       status: history.status, wallet: String(wallet).toLowerCase(), chain_id: Number(chainId),
-      to_block: history.to_block, declared_depth: history.declared_depth,
+      to_block: history.to_block, to_block_hash: history.to_block_hash, declared_depth: history.declared_depth,
       assets: (history.assets || []).map((record) => ({
         asset: {address: record.asset?.address, chain_id: record.asset?.chain_id},
         status: record.status, scanned_blocks: record.scanned_blocks,
