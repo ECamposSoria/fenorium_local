@@ -115,6 +115,7 @@
     "NO QUOTE": ["Not scored", SCORE_TOOLTIP],
     "NO_WALLET": ["Connect a wallet", "Connect your wallet to read balances on the Base Sepolia testnet."],
     "WRONG_CHAIN": ["Switch to Base Sepolia testnet", "Use the wallet network control to switch to the demo testnet."],
+    "WRONG_NETWORK_RPC": ["Wallet RPC does not match the local chain", "Edit the wallet network RPC URL and reconnect."],
     "UNCONFIGURED_DEPLOYMENT": ["Demo unavailable", "Contact the demo operator to configure the testnet deployment."],
     "INSUFFICIENT_MUSDC": ["Not enough testnet mUSDC", "Get mUSDC from the faucet to cover the displayed quote."],
     "INSUFFICIENT_INSTRUMENT": ["Not enough of the instrument", "Reduce the amount to the instrument balance this wallet holds."],
@@ -1974,10 +1975,11 @@
   }
 
   function transferExplorer(row) {
-    const base = TRANSFER_EXPLORERS[Number(row?.chain_id)];
+    const base = Number(row?.chain_id) === 84532 && root.FenoriumApp?.deploymentEndpoints
+      ? root.FenoriumApp.deploymentEndpoints().explorerUrl : TRANSFER_EXPLORERS[Number(row?.chain_id)];
     const hash = typeof row?.tx_hash === "string" ? row.tx_hash.trim() : "";
     if (!base || !/^0x[0-9a-fA-F]{64}$/.test(hash)) return null;
-    return `${base}/tx/${encodeURIComponent(hash)}`;
+    return `${base.replace(/\/$/, "")}/tx/${encodeURIComponent(hash)}`;
   }
 
   function transferHash(row) {

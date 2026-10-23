@@ -104,6 +104,29 @@
     };
   }
 
+  function localRpcRefusal() {
+    return {status: STATUS.WRONG_NETWORK_RPC, canPurchase: false, canSell: false, canFaucet: false,
+      errorMessage: `Your wallet's Base Sepolia network points at the public testnet. Edit that network's RPC URL to ${deploymentEndpoints().rpcUrl} (chain id 84532) and reconnect.`};
+  }
+
+  async function verifyLocalWalletRpc(provider = state.provider) {
+    if (!testnetWorkspace()?.local) return true;
+    const generation = state.walletGeneration;
+    const sequence = state.localRpcSequence = (state.localRpcSequence || 0) + 1;
+    let valid = false;
+    try {
+      const code = await provider.request({method: "eth_getCode", params: [demoInstruments().mGT, "latest"]});
+      valid = typeof code === "string" && /^0x[0-9a-fA-F]+$/.test(code);
+    } catch (_) { /* Keep local actions blocked until the provider can prove the deployment. */ }
+    if (generation !== state.walletGeneration || sequence !== state.localRpcSequence) return false;
+    if (state.wallet.chainId !== BASE_SEPOLIA.chainId) return false;
+    state.wallet.status = valid ? STATUS.CONNECTED : STATUS.WRONG_NETWORK_RPC;
+    state.wallet.message = valid ? `${walletChainLabel(state.wallet.chainId)} · connected` : localRpcRefusal().errorMessage;
+    renderWallet();
+    if (state.selected?.is_demo) renderSelectedAsset();
+    return valid;
+  }
+
   function registryUniverse() {
     const addresses = new Set((testnetWorkspace()?.catalog?.instruments || [])
       .map((row) => String(row.instrument).toLowerCase()));
@@ -131,6 +154,7 @@
     CONNECTED: "CONNECTED",
     NO_WALLET: "NO_WALLET",
     WRONG_CHAIN: "WRONG_CHAIN",
+    WRONG_NETWORK_RPC: "WRONG_NETWORK_RPC",
     UNCONFIGURED_DEPLOYMENT: "UNCONFIGURED_DEPLOYMENT",
     INSUFFICIENT_MUSDC: "INSUFFICIENT_MUSDC",
     INSUFFICIENT_INSTRUMENT: "INSUFFICIENT_INSTRUMENT",
@@ -1502,6 +1526,7 @@
     const deployment = deploymentInfo(row, config);
     if (!deployment || !deployment.configured) return { status: STATUS.UNCONFIGURED_DEPLOYMENT, deployment };
     if (!configuredAddress(account)) return { status: STATUS.NO_WALLET, deployment };
+    if (testnetWorkspace()?.local && !await verifyLocalWalletRpc(provider)) return {...localRpcRefusal(), deployment};
     let amountRaw;
     try {
       amountRaw = parseUnits(amountInput, deployment.instrumentDecimals);
@@ -2192,9 +2217,11 @@
     const deployment = deploymentInfo(row);
     const format = (value, decimals = 6) => value == null ? null : formatUnits(value, decimals);
     const readsCurrent = current.readsStale !== true;
-    const actionLocked = current.inFlightAction != null || current.unresolvedTransaction != null;
+    const wrongRpc = testnetWorkspace()?.local && state.wallet.status === STATUS.WRONG_NETWORK_RPC;
+    const actionLocked = wrongRpc || current.inFlightAction != null || current.unresolvedTransaction != null;
     return {
       ...current,
+      ...(wrongRpc ? localRpcRefusal() : {}),
       maturity: deployment?.maturity ?? null,
       matured: deployment?.matured === true,
       gated: deployment?.gated ?? row.gate?.status === "GATED",
@@ -2556,6 +2583,7 @@
     const readRequest = beginPurchaseRequest(row, refreshAccount, null, !hasExplicitAccount);
     const result = await readDemoOnChain(state.provider, row, state.config, refreshAccount, readRequest.amountInput);
     if (!purchaseRequestIsCurrent(row, readRequest)) return discardStalePurchaseRequest(row, readRequest);
+    if (result.status === STATUS.WRONG_NETWORK_RPC) return setPurchaseState(row, result, refreshAccount);
     if (result.status === STATUS.INPUT_ERROR) {
       if (confirmedExecution) {
         return setPurchaseState(row, {
@@ -2694,6 +2722,7 @@
 
   async function sendTransaction(to, data, from = state.wallet.account) {
     if (!configuredAddress(to)) throw makeCodeError("INVALID_TRANSACTION_TARGET", "transaction target is not configured");
+    if (testnetWorkspace()?.local && !await verifyLocalWalletRpc()) throw makeCodeError(STATUS.WRONG_NETWORK_RPC, localRpcRefusal().errorMessage);
     const hash = await state.provider.request({
       method: "eth_sendTransaction",
       params: [{ from, to, data }],
@@ -3443,6 +3472,11 @@
         ? "Switch to the Base Sepolia testnet to use the demo."
         : status === STATUS.CONNECTED ? `${walletChainLabel(normalizedChain)} · connected` : "Wallet optional · read-only market"),
     };
+    if (testnetWorkspace()?.local && normalizedAccount && normalizedChain === BASE_SEPOLIA.chainId) {
+      state.wallet.status = STATUS.WRONG_NETWORK_RPC;
+      state.wallet.message = localRpcRefusal().errorMessage;
+      state.localWalletCheck = verifyLocalWalletRpc();
+    } else state.localWalletCheck = null;
     renderWallet();
     void refreshLendingOrders();
     void refreshRouteQuotes();
@@ -6987,6 +7021,7 @@
         ? "Connection preference remembered · click Connect to re-authorize this wallet."
         : "No wallet connected · click Connect to request access.";
       setWallet(snapshot.account, snapshot.chainId, snapshot.account ? "Silent reconnect complete." : disconnectedMessage);
+      if (state.localWalletCheck) await state.localWalletCheck;
     } catch (error) {
       if (error?.walletSnapshotSuperseded) return state.wallet;
       setWallet(null, null, "Wallet state could not be read silently. Click Connect to try explicitly.");
@@ -6997,7 +7032,9 @@
 
   async function syncWalletFromProvider(message) {
     const snapshot = await readWalletSnapshot(state.provider, { readChainWithoutAccount: true });
-    return setWallet(snapshot.account, snapshot.chainId, message);
+    setWallet(snapshot.account, snapshot.chainId, message);
+    if (state.localWalletCheck) await state.localWalletCheck;
+    return state.wallet;
   }
 
   // Move the wallet to a chain Fenorium knows, adding it to the wallet first when the wallet does
@@ -7062,6 +7099,7 @@
         readChainWithoutAccount: true,
       });
       setWallet(snapshot.account, snapshot.chainId, snapshot.account ? "Wallet connected." : "No wallet account was returned.");
+      if (state.localWalletCheck) await state.localWalletCheck;
     } catch (error) {
       if (error?.walletSnapshotSuperseded) return state.wallet;
       setWallet(null, state.wallet.chainId, userRejected(error) ? "The wallet connection request was rejected." : "Wallet connection was not completed.");
@@ -8506,6 +8544,7 @@
       return rows.map(normalized).filter((row) => selected.has(row._key)).sort((left, right) => left._key.localeCompare(right._key));
     },
     deploymentInfo,
+    deploymentEndpoints,
     deploymentStatus,
     selectorFor,
     encodeFunctionCall,

@@ -215,6 +215,12 @@ def _eth_call_transfer(
         # the next field included, so a bare selector never looks like one.
         structured = exc.rpc_error if isinstance(exc.rpc_error, dict) else None
         reason = decode_revert(structured if structured is not None else {"error": detail})
+        # Anvil names a custom error inside the message ("custom error 0xe450d38c: <arguments>")
+        # where op-geth leaves only the data; keep the selector form the data decoder produces, so
+        # the same revert classifies the same whichever node answered.
+        described = re.fullmatch(r"custom error (0x[0-9a-fA-F]{8})(?::.*)?", (reason or "").strip(), re.S)
+        if described:
+            reason = f"custom error {described.group(1).lower()}"
         if reason is None or re.fullmatch(r"0x[0-9a-fA-F]+", reason.strip()):
             # Hex-only text is payload, not a decoded Error(string) reason.
             match = re.search(r"0x[0-9a-fA-F]{8,}", detail)

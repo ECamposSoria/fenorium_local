@@ -112,8 +112,31 @@ def build_catalog_manifest(
     rpc_chain = rpc("eth_chainId", [])
     if not isinstance(rpc_chain, str) or int(rpc_chain, 16) != chain_id:
         raise ValueError(f"RPC chain id does not match requested chain id {chain_id}")
-    captured = _broadcast(broadcast_dir / "DeployDemoCatalog.s.sol" / str(chain_id) / "run-latest.json")
-    txs, receipts = captured["data"]["transactions"], captured["receipts"]
+    directory = broadcast_dir / "DeployDemoCatalog.s.sol" / str(chain_id)
+    latest = _broadcast(directory / "run-latest.json")
+
+    def target_address(tx: dict[str, Any]) -> str:
+        return str(tx.get("contractAddress") or (tx.get("transaction") or {}).get("to", "")).lower()
+
+    targets = {target_address(tx) for tx in latest["data"]["transactions"]
+               if (tx.get("contractName") == "DemoCatalogFactory" and tx.get("transactionType") == "CREATE")
+               or tx.get("function") == "list((string,string,bool,uint256)[])"}
+    if len(targets) != 1:
+        raise ValueError("expected exactly one catalog factory in latest broadcast")
+    target = targets.pop()
+    runs = [_broadcast(path) for path in sorted(directory.glob("run-*.json"))]
+    runs.sort(key=lambda run: int(run["data"].get("timestamp", 0)))
+    txs, receipts, seen = [], {}, set()
+    for run in runs:
+        for tx in run["data"]["transactions"]:
+            if target_address(tx) != target:
+                continue
+            tx_hash = str(tx.get("hash", "")).lower()
+            if tx_hash in run["receipts"]:
+                receipts[tx_hash] = run["receipts"][tx_hash]
+            if tx_hash not in seen:
+                txs.append(tx)
+                seen.add(tx_hash)
     creations = [tx for tx in txs if tx.get("transactionType") == "CREATE" and tx.get("contractName") == "DemoCatalogFactory"]
     if len(creations) != 1:
         raise ValueError("expected exactly one DemoCatalogFactory creation in broadcast")
@@ -124,14 +147,13 @@ def build_catalog_manifest(
     factory = creation.get("contractAddress")
     if not isinstance(factory, str) or not factory.startswith("0x"):
         raise ValueError("factory creation has no address")
-    list_txs = [tx for tx in txs if tx.get("contractName") == "DemoCatalogFactory" and
-                tx.get("function") == "list((string,string,bool,uint256)[])"]
+    list_txs = [tx for tx in txs if tx.get("function") == "list((string,string,bool,uint256)[])"]
     from scripts.build_catalog_specs import specs
     declared = specs()
     cursor = 0
     tx_by_index: list[tuple[dict[str, Any], int]] = []
     for tx in list_txs:
-        if str(tx.get("contractAddress", "")).lower() != factory.lower():
+        if target_address(tx) != factory.lower():
             raise ValueError("catalog list transaction targets a different factory")
         batch = _catalog_tuples((tx.get("arguments") or [None])[0])
         expected = declared[cursor:cursor + len(batch)]
