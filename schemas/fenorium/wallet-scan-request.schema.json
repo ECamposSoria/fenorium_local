@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/wallet-scan-request.schema.json",
+  "title": "WalletScanRequest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "as_of",
+    "wallet",
+    "registered_assets",
+    "block_references",
+    "chain_ids",
+    "include_base_sepolia_demo"
+  ],
+  "properties": {
+    "schema_version": {"const": "fenorium/wallet-scan-request/v1"},
+    "method_version": {"type": "string", "minLength": 1},
+    "as_of": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "wallet": {"type": "string", "pattern": "^0x[0-9a-fA-F]{40}$"},
+    "registered_assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identity",
+          "chain_id",
+          "kind",
+          "address",
+          "decimals",
+          "symbol",
+          "category",
+          "protocol",
+          "is_stablecoin",
+          "is_variable_income"
+        ],
+        "properties": {
+          "identity": {"type": "string", "minLength": 1},
+          "chain_id": {"type": "integer", "enum": [1, 10, 56, 100, 130, 137, 143, 146, 196, 324, 480, 999, 1672, 2818, 4326, 5000, 5042, 8453, 42161, 42220, 43114, 57073, 59144, 84532, 534352]},
+          "kind": {"type": "string", "enum": ["NATIVE", "ERC20", "VAULT", "PT"]},
+          "address": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]{40}$"},
+          "decimals": {"type": "integer", "minimum": 0, "maximum": 255},
+          "symbol": {"type": "string"},
+          "category": {"type": "string"},
+          "protocol": {"type": "string"},
+          "is_stablecoin": {"type": "boolean"},
+          "is_variable_income": {"type": "boolean"}
+        }
+      },
+      "uniqueItems": true
+    },
+    "block_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["chain_id", "block_number", "block_hash", "finalized"],
+        "properties": {
+          "chain_id": {"type": "integer", "enum": [1, 10, 56, 100, 130, 137, 143, 146, 196, 324, 480, 999, 1672, 2818, 4326, 5000, 5042, 8453, 42161, 42220, 43114, 57073, 59144, 84532, 534352]},
+          "block_number": {"type": "integer", "minimum": 0},
+          "block_hash": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]+$"},
+          "finalized": {"const": true},
+          "finality": {"const": "finalized"}
+        }
+      }
+    },
+    "chain_ids": {
+      "type": "array",
+      "items": {"type": "integer", "enum": [1, 10, 56, 100, 130, 137, 143, 146, 196, 324, 480, 999, 1672, 2818, 4326, 5000, 5042, 8453, 42161, 42220, 43114, 57073, 59144, 84532, 534352]},
+      "uniqueItems": true
+    },
+    "include_base_sepolia_demo": {"type": "boolean"}
+  }
+}

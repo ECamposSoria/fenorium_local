@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/portfolio-analytics.schema.json",
+  "title": "PortfolioAnalytics v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "as_of",
+    "expected_shortfall_95",
+    "volatility",
+    "drawdown",
+    "correlation",
+    "component_expected_shortfall",
+    "risk_coverage_bps",
+    "aligned_observations",
+    "included_positions",
+    "excluded_positions",
+    "nav_scope",
+    "included_provenance"
+  ],
+  "properties": {
+    "schema_version": {"const": "fenorium/portfolio-analytics/v1"},
+    "method_version": {"type": "string", "minLength": 1},
+    "as_of": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "expected_shortfall_95": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "volatility": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "drawdown": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "correlation": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "component_expected_shortfall": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "risk_coverage_bps": {"type": ["integer", "null"], "minimum": 0, "maximum": 10000},
+    "aligned_observations": {"type": "integer", "minimum": 0},
+    "included_positions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "excluded_positions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "nav_scope": {"enum": ["TOTAL", "VALUED_HOLDINGS"]},
+    "included_provenance": {
+      "type": "object",
+      "additionalProperties": {"enum": ["observed", "modelled", "spliced"]}
+    },
+    "daily_returns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["day", "return_bps"],
+        "properties": {
+          "day": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+          "return_bps": {"type": "string", "pattern": "^-?\\d+\\.\\d{6}$"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "data": {
+    "protocol_orders": {
+      "orders": [
+        {
+          "id": "0x3a63e16f27d1c8d78beacb5112da184dcd5cbf3e6248446b7fa0a18db5ea0349",
+          "offerRate": "70000000000000000",
+          "purchaseTokenAmount": "5000000000",
+          "remainingAmount": "5000000000",
+          "isSynthetic": false
+        }
+      ]
+    }
+  }
+}

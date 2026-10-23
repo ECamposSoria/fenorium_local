@@ -1,0 +1,144 @@
+{
+  "markets": [
+    {
+      "name": "stHYPE",
+      "address": "0xcc681585a2763fb1624d42135509fc5427a92d49",
+      "expiry": "2026-08-27T00:00:00.000Z",
+      "pt": "999-0xc349e9fab3d85033ce5a44237d53c4bf2395500f",
+      "yt": "999-0xbdad989bcbe502c4b1b623520b0af87811f837ab",
+      "sy": "999-0xe24a28fe8ecd859db4280d1291783a10017d6fc4",
+      "underlyingAsset": "999-0xffaa4a3d97fe9107cef8a3f48c069f577ff76cc1",
+      "details": {
+        "liquidity": 1592163.8337175928,
+        "pendleApy": 0,
+        "impliedApy": 0.02562839858356014,
+        "feeRate": 0.0004611403130336811,
+        "yieldRange": {
+          "min": 0.015000000000000003,
+          "max": 0.135
+        },
+        "aggregatedApy": 0.020588892561935565,
+        "maxBoostedApy": 0.020588892561935565
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-02-12T15:24:00.000Z",
+      "categoryIds": [
+        "hype",
+        "points"
+      ]
+    },
+    {
+      "name": "limUSD",
+      "address": "0xfc93d1ada3277e6274c3905db0a2c81ac1252025",
+      "expiry": "2026-11-26T00:00:00.000Z",
+      "pt": "999-0x6b7cea9d070bbffd8205f256897319139cdef399",
+      "yt": "999-0x6df3fbb4373fe1409e4697f214f723ab61640130",
+      "sy": "999-0xcf6b4c156f51818922b98524dc832e352f40d516",
+      "underlyingAsset": "999-0x1822bd335489d84abdd0779a7dcaeda0625e83c8",
+      "details": {
+        "liquidity": 1694712.2960308725,
+        "pendleApy": 0,
+        "impliedApy": 0.09039213769249987,
+        "feeRate": 0.001854873250682898,
+        "yieldRange": {
+          "min": 0.030000000000000006,
+          "max": 0.18
+        },
+        "aggregatedApy": 0.09516478023484609,
+        "maxBoostedApy": 0.09516478023484609
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-05-15T17:53:00.000Z",
+      "categoryIds": [
+        "stables"
+      ]
+    },
+    {
+      "name": "vkHYPE",
+      "address": "0x2257e604c7cbfe6cebeb0d196990bdf430f6676b",
+      "expiry": "2026-09-24T00:00:00.000Z",
+      "pt": "999-0x3a40803d98ea0463041a3e0cd7fd293165f7fa01",
+      "yt": "999-0x1f602d38e83c12facd2c71ba6a0aecaf24fe7cb8",
+      "sy": "999-0x457904b54f47dd7a91253f225237a5b02ca059d6",
+      "underlyingAsset": "999-0x9ba2edc44e0a4632eb4723e81d4142353e1bb160",
+      "details": {
+        "liquidity": 838064.7241835998,
+        "pendleApy": 0,
+        "impliedApy": 0.040840774790015466,
+        "feeRate": 0.0008094648646885805,
+        "yieldRange": {
+          "min": 0.02,
+          "max": 0.12999999999999998
+        },
+        "aggregatedApy": 0.03254079140671223,
+        "maxBoostedApy": 0.03254079140671223
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-05-21T09:48:00.000Z",
+      "categoryIds": [
+        "hype",
+        "points"
+      ]
+    },
+    {
+      "name": "kHYPE",
+      "address": "0xb48b0c95b2ddc464484305b7363fad5bd5b7a683",
+      "expiry": "2026-09-24T00:00:00.000Z",
+      "pt": "999-0x50fc4edc6346f36993bb30fe60e932504ed17391",
+      "yt": "999-0xe45162d03e0475dab556ef1cccefeea2ec27ade2",
+      "sy": "999-0x57fc55dff8ceca86ee94a6bf255af2f0ed90eb9e",
+      "underlyingAsset": "999-0xfd739d4e423301ce9385c1fb8850539d657c296d",
+      "details": {
+        "liquidity": 3905836.628149878,
+        "pendleApy": 0.0026987967269299735,
+        "impliedApy": 0.02354349670319955,
+        "feeRate": 0.0004720101260766718,
+        "yieldRange": {
+          "min": 0.02,
+          "max": 0.09999999999999999
+        },
+        "aggregatedApy": 0.023080166677165854,
+        "maxBoostedApy": 0.027128361767560814
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-05-21T10:04:00.000Z",
+      "categoryIds": [
+        "points",
+        "hype",
+        "lo-incentives"
+      ]
+    },
+    {
+      "name": "haHYPE",
+      "address": "0x5fae3ef835d47ab73dde5b9c6b01cc0bc54e9199",
+      "expiry": "2027-01-28T00:00:00.000Z",
+      "pt": "999-0x5f9b523a4f2f92d991b2ca1faa13f924170a908e",
+      "yt": "999-0xecb466614c26892684fee593b70c83c2c5bd3b44",
+      "sy": "999-0xb335b5a8f260c4e2d4e102d4bf4bbf0fe80b6537",
+      "underlyingAsset": "999-0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c",
+      "details": {
+        "liquidity": 87331.658767287,
+        "pendleApy": 0.0001438709749527791,
+        "impliedApy": 0.034092437982943924,
+        "feeRate": 0.0006818487098541048,
+        "yieldRange": {
+          "min": 0.02,
+          "max": 0.09999999999999999
+        },
+        "aggregatedApy": 0.02190371881585238,
+        "maxBoostedApy": 0.02211952527828155
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-07-29T07:51:00.000Z",
+      "categoryIds": [
+        "hype",
+        "points"
+      ]
+    }
+  ]
+}

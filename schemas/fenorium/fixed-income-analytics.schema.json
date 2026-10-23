@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/fixed-income-analytics.schema.json",
+  "title": "FixedIncomeAnalytics v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "as_of",
+    "ytm",
+    "macaulay_duration",
+    "modified_duration",
+    "dv01",
+    "pv01",
+    "convexity",
+    "pull_to_par",
+    "analytical",
+    "exclusions"
+  ],
+  "properties": {
+    "schema_version": {"const": "fenorium/fixed-income-analytics/v1"},
+    "method_version": {"type": "string", "minLength": 1},
+    "as_of": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "ytm": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "macaulay_duration": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "modified_duration": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "dv01": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "pv01": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "convexity": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "pull_to_par": {"$ref": "common.schema.json#/$defs/metricResult"},
+    "analytical": {"type": "boolean"},
+    "exclusions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    }
+  }
+}

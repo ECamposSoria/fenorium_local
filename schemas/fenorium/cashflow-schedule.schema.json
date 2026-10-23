@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/cashflow-schedule.schema.json",
+  "title": "Verified CashflowSchedule v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "instrument_id",
+    "cashflows",
+    "day_count",
+    "compounding",
+    "verified",
+    "evidence_refs",
+    "method_version"
+  ],
+  "properties": {
+    "instrument_id": {"type": "string", "minLength": 1},
+    "cashflows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["payment_at", "amount_usd_micros"],
+        "properties": {
+          "payment_at": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+          "amount_usd_micros": {"$ref": "common.schema.json#/$defs/usdMicros"}
+        }
+      }
+    },
+    "day_count": {"const": "ACT/365"},
+    "compounding": {"const": "ANNUAL_EFFECTIVE"},
+    "verified": {"const": true},
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "method_version": {"type": "string", "minLength": 1}
+  }
+}

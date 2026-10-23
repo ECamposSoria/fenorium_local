@@ -1,0 +1,1791 @@
+:root {
+  --terminal-border-strong: #3c596d;
+  --terminal-surface: #061522;
+  --terminal-surface-raised: #0d2638;
+  --terminal-focus: #7de8f1;
+}
+
+button,
+input,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The native dropdown list takes its colours from the select's colour scheme, not from the
+   page's: without this the open list is white, with the theme's light text on it. */
+select {
+  color-scheme: dark;
+}
+
+select option {
+  background: var(--terminal-surface-raised);
+  color: #e6edf3;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--terminal-focus);
+  outline-offset: 2px;
+}
+
+.brand-mark {
+  display: block;
+  width: 28px;
+  height: 28px;
+  color: var(--cyan);
+  transform: none;
+}
+
+.brand-mark path,
+.brand-mark circle,
+.brand-mark rect,
+.inline-icon,
+.rail-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.inline-icon,
+.rail-icon {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.account-avatar {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.account-pill {
+  min-height: 40px;
+  max-width: 210px;
+}
+
+.account-pill b,
+.account-pill small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-link-with-state {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.nav-link-with-state small {
+  color: var(--muted);
+  font: 8px var(--mono);
+  letter-spacing: .04em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+.overview-empty {
+  margin: 10px auto;
+  max-width: 720px;
+  padding: clamp(28px, 6vw, 72px);
+  text-align: center;
+}
+
+.overview-empty h1 {
+  font-size: clamp(24px, 4vw, 40px);
+  margin: 8px 0 12px;
+}
+
+.overview-empty > p:not(.eyebrow) {
+  color: var(--muted);
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.overview-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.sample-book-banner {
+  align-items: center;
+  background: #e5a52f12;
+  border: 1px solid #e5a52f80;
+  border-radius: var(--r);
+  color: var(--amber);
+  display: flex;
+  gap: 12px;
+  margin: 10px 0 4px;
+  padding: 10px 12px;
+}
+
+.sample-book-banner[hidden] {
+  display: none;
+}
+
+.sample-book-banner span {
+  color: var(--text);
+}
+
+.sample-book-banner button {
+  margin-left: auto;
+}
+
+.status-indicator {
+  width: 9px;
+  height: 9px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: var(--muted);
+}
+
+.status-indicator.connected {
+  color: var(--green);
+  background: var(--green);
+}
+
+.status-indicator.warning {
+  color: var(--amber);
+  background: var(--amber);
+}
+
+.status-indicator.idle {
+  color: var(--muted);
+  background: transparent;
+}
+
+.utility-rail button {
+  min-height: 68px;
+  border-radius: 6px;
+}
+
+.utility-rail button:hover,
+.utility-rail button:focus-visible {
+  background: #27c7d812;
+}
+
+.utility-rail button span {
+  font-size: 10px;
+  letter-spacing: .04em;
+}
+
+.market-boundary,
+.selection-help,
+.purchase-disclaimer,
+.purchase-help,
+.purchase-error,
+.action-note,
+.faucet-note,
+.compare-note {
+  color: var(--muted);
+}
+
+.market-boundary {
+  max-width: 260px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--amber);
+  background: #e5a52f0d;
+  text-align: right;
+}
+
+.selection-help {
+  min-height: 18px;
+  margin: 6px 0;
+  font: 10px var(--mono);
+}
+
+.columns-menu {
+  right: 150px;
+}
+
+.columns-menu b {
+  display: block;
+  padding: 7px 4px 3px;
+  color: var(--text);
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.column-option,
+.columns-all {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 7px;
+}
+
+.column-option small {
+  display: block;
+  margin-top: 1px;
+  color: var(--muted);
+  font: 9px var(--mono);
+}
+
+.identity-cell,
+.instrument-cell {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  gap: 7px;
+}
+
+.instrument-cell {
+  display: flex;
+  min-width: 170px;
+}
+
+.identity-icon {
+  display: inline-grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.identity-logo {
+  border: 1px solid #ffffff20;
+  background: #edf3f6;
+  overflow: hidden;
+}
+
+.identity-logo img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.identity-monogram {
+  border: 1px dashed #6f8494;
+  border-radius: 6px;
+  background: #182b39;
+  color: #c0ccd4;
+  font: 8px var(--mono);
+  letter-spacing: .02em;
+}
+
+.identity-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.type-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: max-content;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 7px 2px 3px;
+  color: #c9d4da;
+  font: 9px var(--mono);
+}
+
+.type-indicator > span {
+  display: inline-grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  border-radius: 50%;
+  background: #274154;
+  color: #e8f1f4;
+  font-size: 8px;
+}
+
+.type-native > span {
+  background: #135864;
+}
+
+.type-rwa > span {
+  background: #5c4121;
+}
+
+.type-vault > span {
+  background: #433366;
+}
+
+.availability {
+  display: inline-grid;
+  gap: 1px;
+  min-width: 76px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.availability b,
+.availability small {
+  font-family: var(--mono);
+}
+
+.availability b {
+  font-size: 9px;
+}
+
+.availability small {
+  font-size: 8px;
+}
+
+.availability.not-applicable {
+  border: 1px dashed #6f8494;
+  background: transparent;
+  color: #aebbc4;
+}
+
+.availability.not-measured {
+  border-left: 3px solid var(--amber);
+  background: #e5a52f17;
+  color: #f0c56d;
+}
+
+.view[data-view="market"] .chart-grid .panel {
+  height: auto;
+  min-height: 196px;
+  overflow: visible;
+}
+
+.notional-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.notional-heading h2 {
+  font-size: 15px;
+}
+
+.notional-status {
+  color: var(--muted);
+}
+
+.notional-info {
+  position: relative;
+}
+
+.notional-info summary {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  list-style: none;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--cyan);
+}
+
+.notional-info summary::-webkit-details-marker {
+  display: none;
+}
+
+.notional-info > div {
+  position: absolute;
+  z-index: 12;
+  top: 34px;
+  left: 0;
+  width: min(390px, calc(100vw - 48px));
+  padding: 10px;
+  border: 1px solid var(--terminal-border-strong);
+  border-radius: 6px;
+  background: var(--terminal-surface-raised);
+  box-shadow: 0 12px 30px #0009;
+  color: var(--text);
+}
+
+.notional-presets {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+}
+
+.notional-presets button[aria-pressed="true"] {
+  border-color: var(--cyan);
+  background: #27c7d817;
+  color: var(--cyan);
+}
+
+.notional-entry {
+  display: grid;
+  grid-template-columns: auto minmax(100px, 1fr) auto;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #061522;
+}
+
+.notional-entry > span {
+  padding-left: 8px;
+  color: var(--muted);
+}
+
+.notional-entry input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 7px 5px;
+  font-family: var(--mono);
+}
+
+.notional-entry:focus-within {
+  outline: 2px solid var(--terminal-focus);
+  outline-offset: 2px;
+}
+
+.notional-entry .ghost {
+  min-height: 30px;
+  border-block: 0;
+  border-right: 0;
+  border-radius: 0 6px 6px 0;
+}
+
+.notional-status {
+  grid-column: 1 / -1;
+}
+
+.notional-status {
+  min-height: 18px;
+  padding-left: 8px;
+  border-left: 2px solid var(--cyan);
+}
+
+.notional-status.error {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+.market-recomputing {
+  opacity: .62;
+}
+
+.yield-chart-layout,
+.depth-chart-layout {
+  display: grid;
+  gap: 5px;
+}
+
+.chart-grid .yield-chart-layout svg,
+.chart-grid .depth-chart-layout svg {
+  width: 100%;
+  height: 118px;
+}
+
+.chart-target {
+  cursor: help;
+}
+
+.chart-target:focus-visible {
+  outline: 2px solid var(--terminal-focus);
+  outline-offset: 2px;
+}
+
+.chart-tooltip {
+  position: fixed;
+  z-index: 80;
+  max-width: min(270px, calc(100vw - 24px));
+  padding: 8px 10px;
+  border: 1px solid var(--terminal-border-strong);
+  border-radius: 6px;
+  background: #020e18f2;
+  box-shadow: 0 10px 28px #000a;
+  color: var(--text);
+  font: 10px/1.45 var(--mono);
+  pointer-events: none;
+  white-space: pre-line;
+}
+
+.chart-tooltip[hidden] {
+  display: none;
+}
+
+.chart-series-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  color: var(--muted);
+  font: 9px var(--mono);
+}
+
+.chart-series-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.chart-series-legend i {
+  display: inline-block;
+  width: 13px;
+  height: 2px;
+}
+
+.series-p25 {
+  background: #27c7d8;
+}
+
+.series-median {
+  background: #d770cf;
+}
+
+.series-p75 {
+  background: #758cff;
+}
+
+.verdict-chart-layout {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-grid .verdict-chart-layout svg {
+  width: 104px;
+  height: 104px;
+}
+
+.verdict-legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.verdict-legend > span {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0 5px;
+  min-width: 0;
+}
+
+.verdict-legend i {
+  width: 7px;
+  height: 7px;
+  grid-row: span 2;
+  border-radius: 50%;
+}
+
+.verdict-legend b,
+.verdict-legend small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 920px) {
+  .notional-presets {
+    grid-row: auto;
+    flex-wrap: wrap;
+  }
+}
+
+.verdict-legend b {
+  font: 8px var(--mono);
+}
+
+.verdict-legend small {
+  color: var(--muted);
+  font: 8px var(--mono);
+}
+
+.compare-col,
+.compare-cell {
+  width: 62px;
+  text-align: center;
+}
+
+.compare-cell input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--cyan);
+}
+
+.sort-action {
+  min-height: 24px;
+}
+
+.execution-cell {
+  display: inline-block;
+  min-width: 154px;
+  font: 9px var(--mono);
+}
+
+.execution-cell.demo {
+  color: var(--cyan);
+}
+
+.execution-cell.read-only {
+  color: var(--muted);
+}
+
+.value-unavailable,
+.not-computable {
+  color: var(--muted);
+  font-family: var(--mono);
+}
+
+.chip.bid,
+.chip.no-bid {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.inspector-demo-note {
+  display: grid;
+  gap: 3px;
+  margin: 10px 0;
+  padding: 9px;
+  border: 1px solid #27c7d866;
+  border-radius: 6px;
+  background: #27c7d80c;
+}
+
+.inspector-demo-note.muted {
+  border-color: var(--line);
+  background: transparent;
+}
+
+.inspector-summary-action {
+  display: block;
+  margin: 10px 0 12px;
+  width: 100%;
+}
+
+.demo-economics-notice small {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.rating-refusal {
+  margin-top: 7px;
+  padding: 7px 0;
+  border-top: 1px solid var(--soft);
+}
+
+.compare-panel {
+  margin-top: 8px;
+  border: 1px solid var(--terminal-border-strong);
+  border-radius: var(--r);
+  background: linear-gradient(145deg, var(--terminal-surface-raised), var(--terminal-surface));
+  padding: 14px;
+}
+
+.compare-header,
+.purchase-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.compare-empty {
+  padding: 18px 8px 7px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.compare-empty strong {
+  display: block;
+  color: var(--text);
+}
+
+.comparison-scroll {
+  overflow: auto;
+  border: 1px solid var(--soft);
+  border-radius: 6px;
+}
+
+.comparison-table {
+  min-width: 760px;
+}
+
+.comparison-table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  min-width: 154px;
+}
+
+.comparison-table tbody th {
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.comparison-table td,
+.comparison-table tbody th {
+  min-width: 140px;
+  vertical-align: top;
+}
+
+.compare-instrument {
+  display: block;
+  max-width: 180px;
+  overflow-wrap: anywhere;
+  color: var(--text);
+  font: 11px var(--sans);
+  white-space: normal;
+}
+
+.comparison-table th small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font: 9px var(--mono);
+  white-space: normal;
+}
+
+.purchase-card {
+  margin-top: 8px;
+  border: 1px solid #27c7d866;
+  border-radius: var(--r);
+  background: linear-gradient(145deg, #0b2638, #061522);
+  padding: 14px;
+}
+
+.network-badge {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: var(--cyan);
+  font: 9px var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.purchase-header h2 {
+  font-size: 16px;
+}
+
+.purchase-disclaimer {
+  margin-bottom: 12px;
+  padding: 8px;
+  border-left: 2px solid var(--amber);
+  background: #e5a52f0d;
+}
+
+.purchase-addresses,
+.purchase-read-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 14px;
+}
+
+.purchase-read-grid {
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 10px;
+}
+
+.mono-value b,
+.purchase-read-grid b {
+  max-width: 190px;
+  overflow-wrap: anywhere;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.purchase-form {
+  margin-top: 10px;
+}
+
+.purchase-form > label {
+  display: grid;
+  max-width: 260px;
+  gap: 4px;
+  color: var(--muted);
+}
+
+.purchase-form input {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--terminal-surface);
+  padding: 8px;
+}
+
+.purchase-help {
+  min-height: 20px;
+  margin-top: 10px;
+}
+
+.purchase-error {
+  min-height: 16px;
+  margin-top: 5px;
+  color: var(--coral);
+  overflow-wrap: anywhere;
+}
+
+.purchase-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.purchase-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.purchase-steps li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 8px;
+  padding: 10px;
+  border: 1px solid var(--soft);
+  border-radius: 6px;
+  background: #061522;
+}
+
+.purchase-steps span {
+  color: var(--cyan);
+  font: 9px var(--mono);
+}
+
+.purchase-steps small {
+  grid-column: 1 / -1;
+  color: var(--muted);
+}
+
+.primary-action {
+  border: 1px solid var(--cyan);
+  border-radius: 6px;
+  background: var(--cyan);
+  color: #03101b;
+  padding: 8px 12px;
+  font-weight: 700;
+}
+
+.primary-action:disabled,
+.purchase-actions .ghost:disabled {
+  cursor: not-allowed;
+  border-color: var(--line);
+  background: #071725;
+  color: var(--muted);
+  opacity: .85;
+}
+
+.action-note,
+.faucet-note {
+  font: 10px var(--mono);
+}
+
+.faucet-note {
+  margin-top: 9px;
+}
+
+.transaction-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 9px;
+}
+
+.tx-link {
+  color: var(--cyan);
+  font: 10px var(--mono);
+}
+
+.assistant-answer {
+  min-height: 40px;
+  padding: 10px;
+  border: 1px solid var(--soft);
+  border-radius: 6px;
+  background: var(--terminal-surface);
+  color: var(--text) !important;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.assistant-facts {
+  margin-top: 12px;
+}
+
+.assistant-facts h3 {
+  color: var(--text);
+  font-size: 11px;
+}
+
+.facts-list {
+  display: grid;
+  gap: 6px;
+}
+
+.facts-list > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 8px;
+  padding: 7px;
+  border: 1px solid var(--soft);
+  border-radius: 5px;
+}
+
+.facts-list dt {
+  overflow-wrap: anywhere;
+  font: 9px var(--mono);
+}
+
+.facts-list dd {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+
+.facts-list dd b {
+  color: var(--cyan);
+  font: 9px var(--mono);
+}
+
+.facts-list dd span,
+.facts-list dd small {
+  overflow-wrap: anywhere;
+}
+
+.assistant-status {
+  display: grid;
+  gap: 7px;
+}
+
+.assistant-status code {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--amber);
+  font: 10px var(--mono);
+  white-space: normal;
+}
+
+.full-width {
+  width: 100%;
+}
+
+@media (max-width: 1150px) {
+  .purchase-read-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .market-boundary {
+    max-width: none;
+    margin-top: 8px;
+    text-align: left;
+  }
+
+  .purchase-addresses,
+  .purchase-read-grid,
+  .purchase-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .purchase-read-grid .kv:last-child {
+    grid-column: span 2;
+  }
+
+  .purchase-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .facts-list > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Allocation rows. The JS emitted these with no styling, so they collapsed into a
+   run of text; the track restores the proportional read the composition needs. */
+.allocation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.allocation-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(80px, 2fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.allocation-label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.allocation-label b {
+  font-size: 12px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.allocation-label small {
+  color: var(--muted, #8fa3bf);
+  font-size: 11px;
+}
+
+.allocation-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.allocation-track span {
+  background: linear-gradient(90deg, #22d3ee, #6366f1);
+  display: block;
+  height: 100%;
+}
+
+/* An unresolved slice must not read as a measured one. */
+.allocation-track span.unknown {
+  background: repeating-linear-gradient(90deg, #64748b 0 4px, transparent 4px 8px);
+}
+
+.allocation-row > strong {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.allocation-note {
+  margin-top: 12px;
+}
+
+/* styles.css sets the toolbar to a non-wrapping flex row with min-width:0 on its
+   controls, so adding Compare/Columns/Export squeezed the filters until their
+   labels read "Ver", "Cha", "Tie". Wrap instead of truncating. */
+.toolbar {
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow: visible;
+}
+
+.toolbar select {
+  min-width: 132px;
+}
+
+.toolbar > input {
+  flex: 1 1 220px;
+}
+
+@media (max-width: 760px) {
+  .toolbar select,
+  .toolbar > input {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}
+
+/* .icon-button carried no background rule, so it fell through to the user-agent
+   default (rgb(239,239,239)) and rendered as a white block in the dark header. */
+.icon-button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+  border-radius: 6px;
+  color: var(--muted, #8fa3bf);
+  cursor: pointer;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  padding: 0;
+  width: 32px;
+}
+
+.icon-button:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text, #edf3f6);
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid var(--accent, #22d3ee);
+  outline-offset: 2px;
+}
+
+.icon-button .inline-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+/* The header is fixed at 60px, so scrolling the compare view into place put its
+   title underneath it. Reserve the header height when this panel is scrolled to. */
+.compare-panel {
+  scroll-margin-top: 76px;
+}
+
+.compare-header {
+  background: var(--panel, #0a1622);
+  padding-top: 8px;
+  position: sticky;
+  top: 68px;
+  z-index: 5;
+}
+
+@media (max-width: 760px) {
+  .compare-panel {
+    scroll-margin-top: 196px;
+  }
+
+  .compare-header {
+    position: static;
+  }
+}
+
+/* Portfolio information architecture: same terminal palette, no runtime dependencies. */
+/* Rail width measured off the mockup rather than guessed. Comparing ratios rather than pixels,
+   because the mockup is a 2x downscale: there the rail is 0.86 of a KPI card's width and 1.22 of
+   the donut's diameter; at 110px ours were 0.41 and 0.65, which is why "Opportunities" sat
+   cramped against the divider. */
+.app-shell { grid-template-columns: 210px minmax(0, 1fr); }
+.utility-rail { width: auto; align-items: stretch; height: calc(100vh - 160px); }
+.rail-primary, .rail-bottom { display: flex; flex-direction: column; gap: 6px; }
+.rail-bottom { margin-top: auto; }
+.utility-rail button { display: flex; align-items: center; justify-content: flex-start; gap: 9px; padding: 12px 9px; width: 100%; height: auto; flex-wrap: wrap; text-align: left; }
+.utility-rail button span { font-size: 12px; }
+.utility-rail button small { flex-basis: 100%; padding-left: 31px; font-size: 10px; color: var(--muted); }
+.utility-rail [aria-current="page"], .portfolio-tabs [aria-current="page"], .portfolio-tabs [aria-pressed="true"] { background: #27c7d819; color: var(--cyan); border-color: #27c7d855; }
+.header-tools { flex: 1; min-width: 0; }
+.header-search { order: -2; flex: 1; }
+.header-search input { width: 100%; min-width: 160px; }
+#global-chain { order: -1; opacity: 1; max-width: 200px; }
+.portfolio-tabs { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0 18px; }
+.portfolio-tabs button { background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 9px 15px; }
+.portfolio-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 14px; }
+.portfolio-kpis .value { font-size: clamp(18px, 2vw, 28px); overflow-wrap: anywhere; }
+.portfolio-kpis .ghost { margin-top: 12px; font-size: 11px; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+#portfolio-screen > .panel, .portfolio-grid > .panel { margin-bottom: 14px; padding: 18px; }
+#portfolio-screen .panel header { gap: 12px; flex-wrap: wrap; }
+#portfolio-screen .cell-sub { display: block; }
+.portfolio-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin-bottom: 18px; }
+.portfolio-controls label { display: grid; gap: 5px; color: var(--muted); }
+.portfolio-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-top: 16px; }
+.portfolio-pagination > span:first-child { margin-right: auto; }
+.portfolio-share-row { margin: 18px 0; }
+.portfolio-share-row > div { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.portfolio-share-row svg { width: 100%; height: 10px; display: block; }
+.portfolio-unavailable { padding: 28px; }
+.portfolio-unavailable p { margin-top: 14px; color: var(--muted); }
+footer { position: static; height: auto; min-height: 48px; line-height: 1.7; padding-right: 130px; }
+@media (max-width: 600px) { .portfolio-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .portfolio-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) {
+  .utility-rail { height: auto; display: flex; flex-direction: column; overflow: visible; }
+  .rail-primary, .rail-bottom { flex-direction: row; overflow-x: auto; }
+  .utility-rail button { width: auto; min-width: 100px; flex-shrink: 0; }
+  .rail-bottom { margin-top: 6px; }
+  .header-tools { flex-wrap: wrap; }
+  .header-search { display: flex; flex-basis: 100%; order: 3; }
+  .header-tools #global-chain { display: block; max-width: 155px; }
+  .portfolio-tabs button { padding: 8px; }
+  .portfolio-controls label { flex: 1 1 130px; min-width: 0; }
+  .portfolio-controls input, .portfolio-controls select { width: 100%; }
+  .portfolio-kpis { gap: 8px; }
+}
+.portfolio-donut-layout { display: grid; grid-template-columns: minmax(130px, 210px) minmax(0, 1fr); gap: 18px; align-items: center; }
+.portfolio-donut-layout > svg { width: 100%; max-height: 240px; }
+.portfolio-donut-layout > p { grid-column: 1 / -1; }
+.portfolio-donut-legend { display: grid; gap: 14px; }
+.portfolio-donut-legend > span { display: grid; grid-template-columns: 10px minmax(0, 1fr); gap: 5px 8px; }
+.portfolio-donut-legend i { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; }
+.portfolio-donut-legend small { grid-column: 2; color: var(--muted); }
+.portfolio-maturity-layout svg { width: 100%; max-height: 260px; margin-top: 12px; }
+@media (max-width: 480px) { .portfolio-donut-layout { grid-template-columns: minmax(0, 1fr); } .portfolio-donut-layout > svg { max-width: 220px; margin: auto; } }
+.account-pill > span { min-width: 0; overflow: hidden; }
+.account-pill b, .account-pill small { display: block; }
+@media (max-width: 760px) {
+  .header-tools { flex-basis: 100%; width: 100%; }
+  .account-pill { max-width: min(210px, 100%); }
+  .header-search { min-width: 0; }
+  .header-search input { flex: 1; min-width: 0; }
+}
+
+
+/* The portfolio controls were added outside the themed-control selectors and so kept the
+   browser's light defaults: measured in Chromium at rgb(237,243,246) on rgb(239,239,239),
+   which is text you cannot read. Theme them explicitly rather than widening a selector that
+   happens to catch them today. The global button/input/select :focus-visible rule already
+   covers focus, so this sets colour only. */
+.portfolio-controls input[type="search"],
+.portfolio-controls select,
+.portfolio-pagination select,
+[data-exposure-unit],
+[data-holdings-page] {
+  background: var(--terminal-surface-raised);
+  color: inherit;
+  border: 1px solid var(--terminal-border-strong);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font: inherit;
+}
+
+.portfolio-controls select option,
+.portfolio-pagination select option {
+  background: var(--terminal-surface);
+  color: inherit;
+}
+
+[data-exposure-unit][aria-pressed="true"] {
+  border-color: var(--terminal-focus);
+}
+
+/* Owner's dense Portfolio layout. Long evidence/recovery text remains fully visible. */
+.utility-rail { padding: 3px; }
+.utility-rail button { position: relative; gap: 5px; padding: 0 3px; height: 34px; min-height: 34px; flex-wrap: nowrap; border-radius: 7px; }
+.utility-rail .rail-icon { width: 16px; height: 16px; flex: 0 0 16px; }
+.utility-rail button span { font-size: 12px; white-space: nowrap; }
+.utility-rail button small { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.rail-primary, .rail-bottom { gap: 3px; }
+.freshness-banner { padding: 5px 10px; font-size: 11px; line-height: 1.4; gap: 6px; }
+.freshness-banner strong { font-weight: 500; }
+.freshness-banner .method-link { border: 0; background: transparent; padding: 0; font-size: 11px; }
+.freshness-banner .meta { margin-left: 0; }
+.view[data-view="overview"] { font-size: 12px; }
+#portfolio-header .page-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0; margin: 0 0 6px; }
+#portfolio-header h1 { font-size: 22px; font-weight: 600; line-height: 1.2; margin: 0; }
+#portfolio-header .page-title p { font-size: 12px; color: var(--muted); margin: 4px 0 0; }
+.portfolio-header-tools { display: flex; align-items: center; justify-content: flex-end; gap: 8px; font-size: 11px; color: var(--muted); }
+#refresh-portfolio { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0; flex: 0 0 28px; }
+#download-holdings { padding: 5px 8px; font-size: 11px; white-space: nowrap; }
+.portfolio-scope { margin: 4px 0; font-size: 11px; line-height: 1.4; color: var(--muted); overflow-wrap: anywhere; }
+#portfolio-tabs { gap: 18px; margin: 0 0 12px; border-bottom: 1px solid var(--line); }
+#portfolio-tabs button { padding: 10px 0; border: 0; border-bottom: 2px solid transparent; border-radius: 0; font-size: 13px; background: transparent; }
+#portfolio-tabs [aria-current="page"] { color: var(--cyan); border-bottom-color: var(--cyan); }
+.sample-book-banner { padding: 5px 8px; gap: 6px; margin-bottom: 10px; font-size: 11px; line-height: 1.4; color: var(--muted); background: var(--terminal-surface); }
+.sample-book-banner strong { font-weight: 500; }
+.sample-book-banner button { padding: 3px 5px; font-size: 11px; }
+.portfolio-kpis { gap: 10px; margin-bottom: 10px; }
+.portfolio-kpis .metric-card { min-height: 72px; padding: 14px; border-radius: 10px; }
+.portfolio-kpis .label { font-size: 11px; line-height: 1.3; color: var(--muted); }
+.portfolio-kpis .value, .portfolio-pnl .value, .flow-panel .value { font-size: 20px; font-weight: 600; line-height: 1.2; margin: 3px 0; }
+.portfolio-kpis .detail { font-size: 11px; line-height: 1.35; margin: 0; overflow-wrap: anywhere; }
+.portfolio-grid { gap: 10px; align-items: start; }
+#portfolio-screen > .panel, .portfolio-grid > .panel { min-width: 0; margin: 0 0 10px; padding: 16px; border-radius: 10px; border: 1px solid var(--line); }
+.portfolio-grid > .panel { margin: 0; align-self: stretch; }
+#portfolio-screen h2 { font-size: 13px; font-weight: 600; line-height: 1.4; margin: 0; }
+#portfolio-screen .panel header { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; margin-bottom: 10px; }
+#portfolio-screen .panel header .ghost { border: 0; background: transparent; padding: 0; color: var(--cyan); font-size: 11px; white-space: nowrap; }
+#portfolio-screen p { font-size: 11px; line-height: 1.5; margin: 8px 0 0; }
+#portfolio-screen th { font-size: 11px; text-transform: uppercase; font-weight: 500; color: var(--muted); padding: 7px 6px; }
+#portfolio-screen .portfolio-table td { white-space: nowrap; }
+#portfolio-screen .portfolio-table td:nth-child(8) { white-space: normal; }
+#portfolio-screen td { height: 34px; padding: 5px 6px; font-size: 12px; line-height: 1.35; }
+#portfolio-screen .cell-sub { font-size: 11px; line-height: 1.35; margin-top: 2px; }
+#portfolio-screen td .ghost, #portfolio-screen td .chip { padding: 3px 5px; font-size: 11px; }
+.portfolio-controls { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
+.portfolio-controls label { min-width: 0; gap: 4px; font-size: 11px; }
+.portfolio-controls input[type="search"], .portfolio-controls select { width: 100%; min-width: 0; font-size: 12px; height: 28px; padding: 4px 6px; }
+.portfolio-pagination { gap: 8px; padding-top: 10px; font-size: 11px; }
+.portfolio-dimensions { display: flex; flex-wrap: wrap; gap: 2px; width: fit-content; padding: 3px; border: 1px solid var(--line); border-radius: 7px; margin-bottom: 10px; }
+.portfolio-dimensions button { padding: 5px 8px; border: 0; border-radius: 4px; background: transparent; font-size: 12px; }
+.portfolio-dimensions [aria-pressed="true"] { background: #27c7d819; color: var(--cyan); }
+.portfolio-share-row { margin: 10px 0; font-size: 12px; }
+.portfolio-share-row > div { margin-bottom: 5px; }
+.portfolio-share-row svg { height: 5px; }
+.portfolio-donut-layout { grid-template-columns: minmax(90px, 0.9fr) minmax(0, 1fr); gap: 8px; }
+.portfolio-donut-layout > svg { max-height: 150px; }
+.portfolio-donut-legend { gap: 8px; font-size: 11px; overflow-wrap: anywhere; }
+.portfolio-donut-legend > span { gap: 2px 5px; }
+.portfolio-maturity-layout svg { max-height: 150px; margin-top: 8px; }
+@media (max-width: 600px) {
+  #portfolio-header .page-title { align-items: flex-start; flex-wrap: wrap; }
+  .portfolio-header-tools { flex-wrap: wrap; justify-content: flex-start; }
+  #portfolio-tabs { gap: 12px; }
+  .portfolio-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-controls label:first-child { grid-column: 1 / -1; }
+}
+
+
+/* Largest Holdings sits in a half-width panel beside the P&L card. Six columns do not fit that
+   width at a readable size, and the two ways of forcing them in are both worse than scrolling:
+   a fixed layout overlapped the cells, and truncation hid figures the engine established. The
+   panel's .table-scroll handles the overflow, so every value stays whole and legible. */
+.portfolio-table-compact { font-size: 11px; }
+.portfolio-table-compact th,
+.portfolio-table-compact td { padding: 5px 8px; white-space: nowrap; }
+.portfolio-table-compact .cell-sub { font-size: 10px; }
+
+/* Owner's Summary layout. Other Portfolio tabs retain their existing presentation. */
+.portfolio-summary-active #portfolio-header h1 { font-size: 26px; color: var(--text); }
+.portfolio-summary-active #portfolio-header .page-title { margin-bottom: 10px; }
+.portfolio-summary-active #portfolio-header .page-title p { font-size: 13px; }
+.portfolio-summary-active .portfolio-header-tools { margin-left: auto; }
+.portfolio-updated { text-align: right; line-height: 1.5; }
+.portfolio-updated > span { display: block; }
+.portfolio-summary-active #refresh-portfolio { width: 36px; height: 36px; flex-basis: 36px; border-radius: 8px; background: #27c7d81a; color: var(--cyan); border: 1px solid #27c7d826; cursor: pointer; }
+.portfolio-summary-active #portfolio-tabs { gap: 28px; margin-bottom: 16px; height: auto; }
+.portfolio-summary-active #portfolio-tabs button { font-size: 14px; color: var(--muted); margin-bottom: -1px; transition: color 180ms ease; cursor: pointer; }
+.portfolio-summary-active #portfolio-tabs button:hover { color: var(--text); }
+.portfolio-summary-active #portfolio-tabs [aria-current="page"] { color: var(--cyan); }
+.portfolio-summary .portfolio-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+.portfolio-summary .metric-card,
+.portfolio-summary-grid > .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; }
+.portfolio-summary .label { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); }
+.portfolio-info { flex: 0 0 14px; }
+.portfolio-summary .portfolio-kpis .value { font-size: 26px; font-weight: 600; margin: 10px 0 6px; }
+.portfolio-summary .portfolio-positive { color: var(--green); }
+.portfolio-summary .portfolio-kpis .detail { font-size: 12px; line-height: 1.5; }
+.portfolio-summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.portfolio-summary-grid > .panel { display: flex; flex-direction: column; }
+#portfolio-screen .portfolio-summary h2 { font-size: 14px; font-weight: 600; }
+#portfolio-screen .portfolio-summary .panel header { margin-bottom: 18px; }
+.portfolio-panel-link { display: flex; justify-content: flex-end; margin-top: auto; padding-top: 18px; }
+.portfolio-panel-link .ghost { background: transparent; border: 0; padding: 4px 0; color: var(--cyan); font-size: 12px; cursor: pointer; }
+.portfolio-summary .portfolio-donut-layout { grid-template-columns: minmax(0, 168px) minmax(0, 1fr); gap: 12px 20px; }
+.portfolio-summary .portfolio-donut-layout > svg { width: 100%; max-width: none; max-height: none; }
+.portfolio-summary .portfolio-donut-legend { font-size: 12px; gap: 12px; }
+.portfolio-summary .portfolio-donut-legend > span { grid-template-columns: 8px minmax(0, 1fr) auto; gap: 3px 8px; align-items: baseline; }
+.portfolio-summary .portfolio-donut-legend b { font-size: 12px; font-weight: 400; }
+.portfolio-summary .portfolio-donut-legend i { margin: 0; }
+.portfolio-summary .portfolio-legend-percent { text-align: right; justify-self: end; font-variant-numeric: tabular-nums; }
+.portfolio-summary .portfolio-donut-legend small { grid-column: 2 / -1; font-size: 11px; }
+.portfolio-summary .portfolio-maturity-layout svg { max-height: none; margin: 0; min-height: 168px; }
+.portfolio-summary .chart-target { cursor: pointer; }
+.portfolio-summary .chart-target:focus-visible { outline: 2px solid var(--terminal-focus); outline-offset: 3px; }
+.portfolio-summary .portfolio-pnl .value { margin-top: 18px; }
+#portfolio-screen .portfolio-summary .portfolio-pnl p { font-size: 12px; color: var(--muted); }
+@media (max-width: 1100px) {
+  .portfolio-summary .portfolio-donut-layout { grid-template-columns: minmax(0, 130px) minmax(0, 1fr); gap: 12px; }
+}
+@media (max-width: 899px) {
+  .portfolio-summary .portfolio-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-summary-grid { grid-template-columns: minmax(0, 1fr); }
+  .portfolio-summary .portfolio-donut-layout { grid-template-columns: minmax(0, 168px) minmax(0, 1fr); }
+}
+@media (max-width: 559px) {
+  .portfolio-summary .portfolio-kpis { grid-template-columns: minmax(0, 1fr); }
+  .portfolio-summary-active #portfolio-tabs { gap: 14px; flex-wrap: nowrap; overflow-x: auto; }
+  .portfolio-summary-active #portfolio-tabs button { font-size: 14px; flex-shrink: 0; }
+  .portfolio-summary-active #portfolio-tabs button:focus-visible { outline-offset: -2px; }
+  .portfolio-summary .portfolio-donut-layout { grid-template-columns: minmax(0, 120px) minmax(0, 1fr); gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-summary-active #portfolio-tabs button { transition: none; }
+}
+@media (min-width: 761px) and (max-width: 899px) {
+  body:has(.view.active.portfolio-summary-active) .header-search { min-width: 0; }
+  body:has(.view.active.portfolio-summary-active) .header-search input { min-width: 0; width: 0; flex: 1; }
+}
+
+
+/* A settled universe reports itself on one quiet line rather than a full-width banner: the
+   mockup has no such element because there is nothing wrong. Stale and expired keep the loud
+   treatment, because those are the states where the curve values must not be used. */
+.freshness-banner.settled {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  padding: 2px 10px;
+  font-size: 10px;
+}
+
+.freshness-banner.settled .status-symbol { color: var(--terminal-focus); }
+
+
+/* P&L card controls, matching the reference: a unit toggle and range buttons on the card header
+   line, small and quiet until pressed. */
+.pnl-controls { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin: -4px 0 6px; }
+.pnl-unit, .pnl-range { display: flex; gap: 3px; }
+.pnl-unit button, .pnl-range button {
+  background: var(--terminal-surface-raised);
+  border: 1px solid var(--terminal-border-strong);
+  border-radius: 5px;
+  color: inherit;
+  font: inherit;
+  font-size: 10px;
+  min-width: 26px;
+  padding: 3px 6px;
+}
+.pnl-unit button[aria-pressed="true"], .pnl-range button[aria-pressed="true"] {
+  border-color: var(--terminal-focus);
+  color: var(--cyan);
+}
+.panel-since { font-size: 11px; font-weight: 400; color: var(--muted); }
+
+
+/* Largest Holdings shares its row with the P&L card, so six columns live in about 470px. The
+   asset cell is a badge and a ticker; everything else gets just enough room to render whole. */
+.portfolio-table-compact { font-size: 10px; }
+.portfolio-table-compact th,
+.portfolio-table-compact td { padding: 5px 6px; }
+.portfolio-table-compact .identity-cell { gap: 5px; }
+.portfolio-table-compact .identity-icon,
+.portfolio-table-compact .identity-logo { width: 18px; height: 18px; }
+
+
+/* Every compact cell is short now -- a badge and ticker, a one-word kind -- so a fixed layout
+   can share the panel's width exactly instead of letting one column starve the rest. The
+   nowrap the portfolio screen sets for its wide tables has to be lifted by an equally specific
+   rule, or a Type cell runs straight through the Chain column beside it. */
+.portfolio-table-compact { table-layout: fixed; width: 100%; }
+.portfolio-table-compact th:nth-child(1) { width: 19%; }
+.portfolio-table-compact th:nth-child(2) { width: 16%; }
+.portfolio-table-compact th:nth-child(3) { width: 15%; }
+.portfolio-table-compact th:nth-child(4) { width: 16%; }
+.portfolio-table-compact th:nth-child(5) { width: 16%; }
+.portfolio-table-compact th:nth-child(6) { width: 18%; }
+#portfolio-screen .portfolio-table-compact th,
+#portfolio-screen .portfolio-table-compact td {
+  padding: 7px 4px;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+/* A figure or a date read across two lines is a different figure: value and maturity never wrap. */
+#portfolio-screen .portfolio-table-compact td:nth-child(4),
+#portfolio-screen .portfolio-table-compact td:nth-child(6) { white-space: nowrap; }
+
+
+/* The reference's column headers are sentence case, not shouted, and its tickers are regular
+   weight beside the badge. */
+#portfolio-screen th { text-transform: none; }
+/* The reference sets its headers in the body face, not the terminal's monospace column style. */
+#portfolio-screen .portfolio-table-compact th {
+  font: 10px var(--sans);
+  letter-spacing: 0;
+  color: var(--muted);
+}
+/* No outer frame in the reference: a rule under the headers, a rule between rows, nothing else. */
+#portfolio-screen .portfolio-summary-grid .table-scroll { border: 0; border-radius: 0; }
+.portfolio-table-compact .identity-icon,
+.portfolio-table-compact .identity-logo { width: 22px; height: 22px; flex-basis: 22px; }
+.portfolio-table-compact .identity-cell b,
+.portfolio-table-compact .identity-cell strong { font-weight: 400; }
+
+
+/* Holdings carry brand marks on rounded-square tiles. A row whose mark we do not ship still gets
+   a tile -- filled, in the terminal's own palette -- so a missing logo reads as an asset we have
+   no mark for, not as a broken image. */
+/* Every mark we ship is an opaque square tile carrying its own brand ground -- OpenEden white,
+   BlackRock black, USDC blue. Insetting one on a panel background and ringing it in a border
+   turns a tile into a small circle floating in a box, which is not what a holdings row shows.
+   The artwork fills the tile, corner to corner. */
+#portfolio-screen .identity-icon { border-radius: 7px; }
+#portfolio-screen .identity-logo { background: none; border: 0; }
+#portfolio-screen .identity-logo img { width: 100%; height: 100%; object-fit: cover; }
+#portfolio-screen .identity-monogram {
+  border: 1px solid #2f4f6b;
+  background: linear-gradient(135deg, #1d3a52, #16283a);
+  color: #dfe8ef;
+  font-weight: 600;
+}
+.portfolio-table-compact .identity-logo img { width: 100%; height: 100%; }
+
+
+/* The NAV card's 30-day change reads as a change, not as another line of scope prose. */
+#portfolio-screen .metric-card .detail.portfolio-delta { font-weight: 600; }
+#portfolio-screen .metric-card .detail.portfolio-negative { color: var(--coral); }
+/* A measured zero is neither a gain nor a loss: no arrow, no sign, and the muted colour the
+   scope lines use, so it reads as "this did not move" rather than as a gain drawn without
+   colour. It is never shown for an unmeasured window -- that stays a sentence. */
+#portfolio-screen .metric-card .detail.portfolio-flat { color: var(--muted); font-weight: 500; }
+
+
+/* A panel's title, the period it covers and its controls share one row, as the reference has
+   them, rather than the controls taking a row of their own under the heading. Keyed on the
+   header rather than on one panel, because the Performance screen's flow panels wear it too. */
+.pnl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.pnl-header h2 { display: flex; align-items: center; gap: 6px; }
+.pnl-controls { margin: 0; }
+
+
+/* The period's figure, stated by the panel because the card no longer sits on the last point. */
+.portfolio-pnl .pnl-period { display: flex; align-items: baseline; gap: 9px; margin: 2px 0 6px; }
+.portfolio-pnl .pnl-period .value { font-size: 21px; font-variant-numeric: tabular-nums; }
+.portfolio-pnl .pnl-period .portfolio-positive { color: var(--green); }
+.portfolio-pnl .pnl-period .portfolio-negative { color: var(--coral); }
+
+/* The capital-flow dashboard on the Performance screen: five cards, a wide chart with its
+   breakdown and summary beside it, and a strip of the period's figures under both. */
+.portfolio-kpis.overview-kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.portfolio-kpis.overview-kpis .metric-card .value { font-size: 22px; }
+.portfolio-kpis.overview-kpis .metric-card-featured { border-color: #3e8cff; background: linear-gradient(145deg, #10294a, #071725); }
+.overview-grid-main { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 8px; align-items: start; }
+.overview-side { display: grid; gap: 8px; min-width: 0; }
+.overview-panel svg { width: 100%; height: auto; }
+.overview-caption { color: var(--muted); margin: 0 0 6px; }
+.pnl-series { display: flex; flex-wrap: wrap; gap: 4px; }
+.pnl-series button { border: 1px solid var(--line); background: #071725; color: var(--muted); border-radius: 6px; padding: 4px 9px; }
+.pnl-series button[aria-pressed="true"] { border-color: var(--cyan); color: var(--cyan); background: #27c7d814; }
+/* These two tables size themselves: the holdings table's fixed ten-column template cramps four
+   money columns into a side panel, and a figure read across two lines is a different figure.
+   Class-scoped, not id-scoped: the Performance tab is rendered into #portfolio-deferred, so
+   every #portfolio-screen rule written for it silently addressed nothing. */
+.overview-breakdown th, .overview-breakdown td,
+.overview-performance th, .overview-performance td {
+  padding: 7px 5px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+/* A column heading may take two lines; a figure may not. Held to one line the widest heading
+   was clipped to "Ending Bala" in the side panel. */
+.overview-breakdown th[scope="col"] { white-space: normal; }
+.overview-breakdown, .overview-performance { table-layout: auto; width: 100%; }
+.overview-breakdown th[scope="row"], .overview-performance th[scope="row"] { color: var(--muted); font-weight: 400; text-align: left; }
+.overview-performance td { text-align: right; }
+.overview-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.overview-strip b { display: block; font-size: 19px; font-variant-numeric: tabular-nums; }
+.overview-strip small { color: var(--muted); }
+@media (max-width: 1100px) {
+  .portfolio-kpis.overview-kpis, .overview-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .overview-grid-main { grid-template-columns: minmax(0, 1fr); }
+}
+.overview-identity { color: var(--muted); margin: 0 0 10px; }
+.overview-strip div { display: grid; gap: 1px; }
+.overview-strip .cell-sub { font-size: 10px; }
+.overview-formula { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-top: 8px; }
+.overview-formula b { font-size: 13px; }
+.overview-formula span { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* The movement panel's own furniture: a mark beside its title, a rule between the two groups of
+   controls, and a lit state on the one that is pressed. */
+.movement-title { gap: 9px; font-size: 15px; }
+.movement-mark {
+  display: inline-grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: 1px solid #2f6f5a;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #103528, #0a2030);
+  color: var(--green);
+  box-shadow: 0 0 12px #42c98a26;
+}
+.flow-panel .pnl-controls { gap: 10px; }
+.flow-panel .pnl-range { padding-left: 10px; border-left: 1px solid var(--line); }
+.pnl-series button, .flow-panel .pnl-range button { padding: 5px 10px; }
+.pnl-series button[aria-pressed="true"],
+.flow-panel .pnl-range button[aria-pressed="true"] {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: #27c7d81f;
+  box-shadow: 0 0 10px #27c7d833;
+}
+.overview-panel { background: radial-gradient(120% 90% at 50% 0, #0d2740, #071725 70%); }
+
+/* Market table: one line per row, numbers first. The methodology and source captions that used to
+   sit inside the cells (and made a measured-cost row 224px tall) live in the inspector and in
+   each cell's title; the row keeps the name, its venue and chain, and the basis of a refusal. */
+.market-table { min-width: 880px; }
+.market-table th { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; padding: 9px 10px; }
+.market-table td { height: 38px; padding: 5px 10px; font-size: 13px; line-height: 1.25; white-space: nowrap; }
+.market-table td.compare-cell, .market-table th.compare-col { width: 34px; padding-inline: 8px; }
+.market-table .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.market-table .instrument-cell { min-width: 220px; max-width: 340px; }
+.market-table .instrument-cell > div { min-width: 0; }
+.market-table .cell-title, .market-table .cell-sub { overflow: hidden; text-overflow: ellipsis; }
+.market-table .cell-title { font-size: 13px; }
+.market-table .cell-sub { display: block; margin-top: 1px; font-size: 11px; line-height: 1.2; color: var(--muted); white-space: nowrap; }
+.market-table .reason-tag { margin-left: 6px; padding: 0 5px; border-radius: 3px; font: 10px/16px var(--mono); color: var(--amber); background: #e5a52f1f; }
+.market-table .chip { font-size: 10px; white-space: nowrap; }
+/* Not-measured and not-applicable stay distinct by their words; in a 50-row table the amber block
+   turned a column of unmeasured costs into a wall of warnings. */
+.market-table .availability { display: inline-grid; gap: 0; min-width: 0; padding: 0; border: 0; background: transparent; color: var(--muted); text-align: right; }
+.market-table .availability b { font: 500 10px/1.2 var(--mono); }
+.market-table .availability small { font: 9px/1.2 var(--mono); }
+.market-table .identity-cell, .market-table .type-indicator { font-size: 12px; }
+
+/* Market page, Phase 2: the table comes first. One strip carries the counts and the notional
+   control; the category is a row of tabs; a filter that narrows the table lights up its chip; the
+   charts sit below the table; the inspector overlays the page instead of squeezing the table. */
+.view[data-view="market"] .page-title { align-items: flex-end; padding-bottom: 6px; }
+.view[data-view="market"] .market-boundary { max-width: 300px; margin: 0; padding: 0; border: 0; background: transparent; font-size: 11px; line-height: 1.35; color: var(--muted); text-align: right; }
+.market-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; margin-bottom: 4px; padding: 10px 14px; }
+.kpi-strip { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.kpi-strip .metric-card { display: grid; gap: 1px; min-height: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
+.kpi-strip .metric-card .label { font: 9px var(--mono); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.kpi-strip .metric-card .value { margin: 0; font-size: 16px; }
+.kpi-strip .metric-card .detail { display: none; }
+.market-recomputing .metric-card .value { color: var(--muted); }
+.notional-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.notional-inline .notional-heading b { font: 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.notional-inline .notional-info summary { width: 22px; height: 22px; }
+.notional-inline .notional-info > div { left: auto; right: 0; }
+.notional-inline .notional-entry input { width: 104px; }
+.notional-inline .notional-presets .ghost, .notional-inline .notional-entry .ghost { padding: 6px 9px; }
+.notional-status { margin: 0 2px 10px; font-size: 11px; }
+.market-tabs-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--soft); }
+.market-tabs-actions { display: flex; gap: 6px; padding-bottom: 6px; }
+.market-tabs { display: flex; gap: 2px; }
+.market-tabs button { padding: 8px 12px; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; background: transparent; color: var(--muted); font-size: 12px; }
+.market-tabs button:hover { color: var(--text); }
+.market-tabs button[aria-selected="true"] { color: var(--cyan); border-color: var(--cyan); }
+.toolbar .filter-chip { display: inline-flex; align-items: center; gap: 4px; padding-left: 9px; border: 1px solid var(--line); border-radius: 6px; background: #061522; color: var(--muted); font-size: 11px; }
+.toolbar .filter-chip > select:first-child { padding-left: 2px; }
+.toolbar .filter-chip select { min-width: 0; max-width: 104px; padding: 7px 4px 7px 0; border: 0; border-radius: 0; background: transparent; color: var(--text); text-overflow: ellipsis; }
+.toolbar .filter-chip.active { border-color: var(--cyan); color: var(--cyan); }
+.score-toggle[aria-pressed="true"] { border-color: var(--green); color: var(--green); background: #42c98a14; }
+.toolbar .toolbar-search { flex: 0 1 170px; }
+.toolbar .toolbar-search input { width: 100%; }
+.table-actions { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 4px 0 6px; }
+.table-actions .selection-help { margin: 0; }
+.table-actions-buttons { display: flex; gap: 6px; }
+.table-actions .columns-menu { top: 36px; right: 0; }
+.metric-mini .cell-sub { display: block; margin-top: 4px; font-size: 10px; line-height: 1.35; color: var(--muted); }
+.market-charts { margin-top: 12px; }
+@media (min-width: 761px) {
+  .view[data-view="market"] .inspector { position: fixed; top: 76px; right: 16px; bottom: 44px; width: 420px; max-height: none; z-index: 25; box-shadow: 0 20px 60px #000c; }
+}
+
+/* Market page, Phase 3: keyboard rows, a narrow layout that keeps the score and the name in view
+   while the numbers scroll, and the assistant pill docked in the footer bar instead of over the table. */
+.market-table tr[data-row]:focus-visible { outline: 2px solid var(--cyan); outline-offset: -2px; }
+/* The assistant pill lives at the foot of the rail column on desktop, never over the table's last column. */
+@media (min-width: 761px) {
+  .assistant-pill { right: auto; left: 16px; bottom: 16px; }
+  .utility-rail { padding-bottom: 56px; }
+  /* The footer is static and ends the page, so the pill sat on its first words whenever the page
+     was short or scrolled to its end; the text starts to the right of the pill instead. */
+  footer { padding-left: 112px; padding-right: 18px; }
+}
+@media (max-width: 1150px) {
+  .market-table th.compare-col, .market-table td.compare-cell { display: none; }
+  .market-table th:nth-child(2), .market-table td:nth-child(2) { position: sticky; left: 0; z-index: 1; width: 100px; min-width: 100px; background: #0b1d2c; }
+  .market-table th:nth-child(3), .market-table td:nth-child(3) { position: sticky; left: 100px; z-index: 1; background: #0b1d2c; box-shadow: 6px 0 8px -6px #000c; }
+  .market-table th:nth-child(2), .market-table th:nth-child(3) { z-index: 3; }
+  .market-table tr:hover td:nth-child(2), .market-table tr:hover td:nth-child(3),
+  .market-table tr.selected td:nth-child(2), .market-table tr.selected td:nth-child(3) { background: #10273a; }
+  .market-table .instrument-cell { max-width: 240px; }
+}
+@media (max-width: 760px) {
+  .view[data-view="market"] .page-title { display: block; }
+  .view[data-view="market"] .market-boundary { max-width: none; margin-top: 4px; text-align: left; }
+  .market-strip { display: grid; gap: 10px; }
+  .kpi-strip { flex-wrap: nowrap; gap: 16px; overflow-x: auto; padding-bottom: 2px; }
+  .kpi-strip .metric-card { flex: 0 0 auto; }
+  .notional-inline .notional-entry { flex: 1 1 100%; }
+  .notional-inline .notional-entry input { width: auto; flex: 1; }
+  .market-tabs-row { flex-wrap: wrap; }
+  .market-tabs { max-width: 100%; overflow-x: auto; }
+  .market-tabs button { white-space: nowrap; }
+  .market-tabs-actions { padding: 0 0 8px; }
+  .toolbar .toolbar-search { flex: 1 1 100%; }
+  .toolbar .filter-chip { flex: 1 1 44%; }
+  .toolbar .filter-chip select { flex: 1; max-width: none; }
+  .table-actions { flex-wrap: wrap; }
+  .market-table .instrument-cell { max-width: 180px; }
+}
+
+/* Instrument detail (owner 2026-10-19): a tile is a number and a one-line qualifier, the
+   methodology is stated once under the thesis, each panel carries one provenance line, and a
+   value the engine did not establish reads "Not available" with its reason as the tooltip. */
+.asset-metrics .metric-card { min-height: 0; padding: 10px 12px; }
+.asset-metrics .metric-card .label { font-size: 11px; }
+.asset-metrics .metric-card .value { font-size: 20px; margin: 4px 0 2px; }
+.asset-metrics .metric-card .value.value-unavailable { font-size: 13px; font-family: var(--sans); }
+.asset-metrics .metric-card .detail { font-size: 10px; }
+.asset-metrics .metric-card .chip { font-size: 12px; padding: 4px 8px; }
+.thesis-heading { font-size: 15px; line-height: 1.3; margin-bottom: 10px; }
+/* A flex item cannot shrink below its content's width unless told so: with five boxes and a
+   heading as wide as "NET YIELD @ $1,000,000" the formula ran past its panel at desktop width. */
+.thesis-box { padding: 10px; min-width: 0; }
+.thesis-box span, .thesis-box b, .thesis-box small { overflow-wrap: anywhere; }
+.thesis-box span { font-size: 9px; letter-spacing: .04em; }
+.thesis-box b { font-size: 18px; margin: 4px 0; }
+.thesis-box small { color: #d6e2ea; font-size: 10px; line-height: 1.3; }
+.thesis-note { margin-top: 8px; line-height: 1.45; }
+.thesis-note p { margin: 0; }
+.thesis-note .impact-parameters { margin-top: 4px; }
+.thesis-note summary { cursor: pointer; color: var(--cyan); }
+.panel-sources { margin-top: 8px; line-height: 1.4; overflow-wrap: anywhere; }
+.asset-view .kv { align-items: baseline; }
+.asset-view .kv b { text-align: right; overflow-wrap: anywhere; font-weight: 600; }
+.asset-view .kv-missing b { color: var(--muted); font-weight: 400; }
+.asset-view .mono-value b { font-family: var(--mono); font-size: 11px; font-weight: 400; }
+
+/* app.js renders route, deposit and lending actions as class="button"; with no rule they fell
+   back to the browser's grey control carrying the page's near-white text. */
+.button { border: 1px solid var(--cyan); border-radius: 6px; background: var(--cyan); color: #03101b; padding: 8px 12px; font-weight: 700; }
+.button.secondary { background: transparent; color: var(--cyan); }
+.button:disabled { cursor: not-allowed; border-color: var(--line); background: #071725; color: var(--muted); opacity: .85; }
+.thesis-panel { margin-bottom: 8px; }
+.thesis-panel header { align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.asset-facts { margin-bottom: 8px; }
+.asset-view .mono-value { grid-template-columns: 1fr; gap: 2px; }
+.asset-view .mono-value b { text-align: left; }
+.blocker-list { display: grid; gap: 2px; margin: 6px 0; }
+
+/* Watched wallets (owner 2026-10-19): the chips choose whose book the Portfolio and Activity
+   screens show; the connected account is always the one that signs. */
+.wallet-switcher { margin: 8px 0 4px; }
+.wallet-switcher:empty { margin: 0; }
+.wallet-switcher-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.wallet-chip { border: 1px solid var(--line); background: #071725; color: var(--muted); border-radius: 999px; padding: 5px 11px; font-size: 11px; }
+.wallet-chip[aria-pressed="true"] { border-color: #27c7d855; background: #27c7d819; color: var(--cyan); }
+.wallet-chip:disabled { cursor: default; opacity: .7; }
+.wallet-add-form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px; margin-top: 8px; }
+.wallet-add-form label { display: grid; gap: 4px; color: var(--muted); font-size: 11px; }
+.wallet-add-form input { border: 1px solid var(--line); background: #061522; border-radius: 6px; padding: 7px; min-width: 0; color: var(--text); }
+.wallet-add-form #wallet-screen-address { width: 420px; max-width: 100%; font-family: var(--mono); }
+.wallet-add-form .route-error { flex-basis: 100%; margin: 0; }
+.wallet-switcher-label { font: 600 10px var(--mono); letter-spacing: .08em; color: var(--muted); margin-right: 2px; }
+.wallet-switcher-note { margin-top: 6px; color: var(--muted); font-size: 11px; }
+.wallet-switcher-note .ghost { padding: 3px 7px; font-size: 11px; margin-left: 6px; }
+@media (max-width: 760px) { .wallet-add-form #wallet-screen-address { width: 100%; } }
+
+/* Wallet and Settings screens (owner 2026-10-20): the watched list's home and the few per-browser settings. */
+#wallet-screen .panel, #settings-screen .panel { margin-bottom: 8px; }
+.wallet-table td, .wallet-table th { vertical-align: middle; }
+.wallet-table .wallet-label { border: 1px solid var(--line); background: #061522; border-radius: 6px; padding: 6px 8px; width: 180px; max-width: 100%; color: var(--text); }
+.wallet-table td.mono { font-size: 11px; overflow-wrap: anywhere; }
+.wallet-screen-add { margin-top: 12px; }
+.settings-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px; margin-bottom: 10px; }
+.settings-row label { display: grid; gap: 4px; color: var(--muted); font-size: 11px; }
+.settings-row input { border: 1px solid var(--line); background: #061522; border-radius: 6px; padding: 7px; width: 160px; color: var(--text); }
+.settings-row .cell-sub { flex-basis: 100%; }
+.settings-row .route-error { flex-basis: 100%; margin: 0; }
+.settings-check { display: flex; align-items: center; gap: 8px; color: var(--text); }
+
+/* Analytics dashboard (owner 2026-10-20): four charts drawn from the aligned daily series. */
+.analytics-charts { grid-template-columns: 1fr 1fr; margin-top: 8px; }
+.analytics-charts .panel { height: auto; min-height: 200px; }
+.analytics-charts .panel header { align-items: baseline; gap: 8px; }
+.analytics-charts .panel header span { font-size: 10px; text-align: right; }
+.analytics-charts svg { width: 100%; height: 150px; }
+.analytics-charts .cell-sub { margin-top: 6px; }
+@media (max-width: 760px) { .analytics-charts { grid-template-columns: 1fr; } }
+
+.instrument-chart-layout { min-width: 0; max-width: 100%; overflow-x: auto; }
+.instrument-chart-layout > .instrument-chart { display: block; width: 100%; max-width: 560px; height: auto; }
+.instrument-chart text { font-size: 11px; }
+.instrument-hover .instrument-crosshair { visibility: hidden; }
+.instrument-hover:hover .instrument-crosshair, .instrument-hover:focus-within .instrument-crosshair { visibility: visible; }
+.instrument-analytics .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.instrument-return-histogram > svg { display: block; width: 100%; max-width: 540px; height: auto; }
+.instrument-chart path, .instrument-chart line { vector-effect: non-scaling-stroke; }
+.instrument-chart-layout > .chart-series-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 6px; color: var(--text); }
+.instrument-chart-layout > .chart-series-legend > span { display: inline-flex; align-items: center; gap: 6px; }
+.instrument-chart-layout > .chart-series-legend svg { width: 24px; height: 10px; flex: 0 0 24px; }

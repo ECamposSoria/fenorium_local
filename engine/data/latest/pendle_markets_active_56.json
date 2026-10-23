@@ -1,0 +1,179 @@
+{
+  "markets": [
+    {
+      "name": "cUSDO",
+      "address": "0x03bc522d619fe24b788b9a2a39944f7de1685239",
+      "expiry": "2026-10-29T00:00:00.000Z",
+      "pt": "56-0xcd18d94fda553bb956d6130ad217b63ef65888d0",
+      "yt": "56-0x4894ad20c952c6e4a91c2e9ba6b96e65d9bc2664",
+      "sy": "56-0x7a657c50c6b640ecaab7bb8dad86344169bf8c16",
+      "underlyingAsset": "56-0x64748ea3e31d0b7916f0ff91b017b9f404ded8ef",
+      "details": {
+        "liquidity": 52445.576818248155,
+        "pendleApy": 0,
+        "impliedApy": 0.062462361236267805,
+        "feeRate": 0.0011555730387389218,
+        "yieldRange": {
+          "min": 0.03500000000000002,
+          "max": 0.3
+        },
+        "aggregatedApy": 0.03592562550877246,
+        "maxBoostedApy": 0.03592562550877246
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2025-10-24T10:55:18.000Z",
+      "categoryIds": [
+        "stables",
+        "rwa"
+      ]
+    },
+    {
+      "name": "USDat",
+      "address": "0x9757834d0b31aa820b85f68705117691207152d9",
+      "expiry": "2026-08-27T00:00:00.000Z",
+      "pt": "56-0x3519f72144daae5ae933fac1bf91f8da57664d24",
+      "yt": "56-0xb977399b1e25d5885831af34769ff47f94d391a6",
+      "sy": "56-0x81a77db87618d51bc12c9eabe08cc298764b8277",
+      "underlyingAsset": "56-0x0bb150dfa86ea5d7742f07fefcd8e8eda81d64ef",
+      "details": {
+        "liquidity": 485772.2214722325,
+        "pendleApy": 0,
+        "impliedApy": 0.06190507022370739,
+        "feeRate": 0.0012513313587765307,
+        "yieldRange": {
+          "min": 0.05,
+          "max": 0.18
+        },
+        "aggregatedApy": 0.011300781312435337,
+        "maxBoostedApy": 0.011300781312435337
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-05-22T09:23:52.000Z",
+      "categoryIds": [
+        "stables",
+        "points",
+        "rwa",
+        "strc",
+        "saturn"
+      ]
+    },
+    {
+      "name": "sUSDat",
+      "address": "0x1017e73ce9c219164ce841a980136eb023c55387",
+      "expiry": "2026-08-27T00:00:00.000Z",
+      "pt": "56-0x23f9a497a5d4d54eaf5e03d94774f17dc1219745",
+      "yt": "56-0x11550114dc4c572e6c1eddfbcdbed9480f4847da",
+      "sy": "56-0x68930887e1318ef30653a4b7942ab07544ebed4d",
+      "underlyingAsset": "56-0x9cd57d3685e6868cacaa8bdcaaf52cbdebf4fa25",
+      "details": {
+        "liquidity": 2333312.148001405,
+        "pendleApy": 0,
+        "impliedApy": 0.10890702218835124,
+        "feeRate": 0.002160525944841174,
+        "yieldRange": {
+          "min": 0.08,
+          "max": 0.18999999999999997
+        },
+        "aggregatedApy": 0.03312438010541799,
+        "maxBoostedApy": 0.03312438010541799
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-05-22T09:25:10.000Z",
+      "categoryIds": [
+        "points",
+        "rwa",
+        "strc",
+        "saturn"
+      ]
+    },
+    {
+      "name": "apxUSD",
+      "address": "0x34a1caef9f303a33e5d15bc5bc85064a39b7d1df",
+      "expiry": "2026-11-05T00:00:00.000Z",
+      "pt": "56-0x71f3408b1493eddf283e53e7bae6d36463e12737",
+      "yt": "56-0xc8ea9a8672ea5a61487cd596cc6dac7e288f7655",
+      "sy": "56-0x1a375dea39acad9a0625b92338e72112cab7f886",
+      "underlyingAsset": "56-0x6b3788fd6604bbf03c5378d24e57bb334baad4af",
+      "details": {
+        "liquidity": 46599.68178241773,
+        "pendleApy": 0,
+        "impliedApy": 0.12970123770948971,
+        "feeRate": 0.0025999999999999357,
+        "yieldRange": {
+          "min": 0.060000000000000005,
+          "max": 0.24999999999999997
+        },
+        "aggregatedApy": 0.04701061255917604,
+        "maxBoostedApy": 0.04701061255917604
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-05-22T18:24:18.000Z",
+      "categoryIds": [
+        "points",
+        "rwa",
+        "strc",
+        "apyx"
+      ]
+    },
+    {
+      "name": "slisBNB",
+      "address": "0xe2a8b724885bdc8412a4f12f8aad461de6071b2a",
+      "expiry": "2026-10-29T00:00:00.000Z",
+      "pt": "56-0x493bab28fed4b4d87903463da656d2af24babb6e",
+      "yt": "56-0x8ea247d465acc0928ce60d88252bc958854e13be",
+      "sy": "56-0x27faf900007b4cba7803000251ec96bc69ff1bea",
+      "underlyingAsset": "56-0xb0b84d294e0c75a6abe60171b70edeb2efd14a1b",
+      "details": {
+        "liquidity": 1579065.6328871408,
+        "pendleApy": 0,
+        "impliedApy": 0.011965714340707923,
+        "feeRate": 0.00023694445661637253,
+        "yieldRange": {
+          "min": 0.010000000000000004,
+          "max": 0.12999999999999998
+        },
+        "aggregatedApy": 0.016540701440414474,
+        "maxBoostedApy": 0.026189326481709213
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-06-19T07:59:23.000Z",
+      "categoryIds": []
+    },
+    {
+      "name": "USDat",
+      "address": "0x48fd92fd80e0256d455e82b7709b265fe44da9d2",
+      "expiry": "2027-01-14T00:00:00.000Z",
+      "pt": "56-0x476aa4205b4eac187011fd8fa07e53d445f213fc",
+      "yt": "56-0x99010c74fb8733d399b21a5880cee15b35dc5773",
+      "sy": "56-0x81a77db87618d51bc12c9eabe08cc298764b8277",
+      "underlyingAsset": "56-0x0bb150dfa86ea5d7742f07fefcd8e8eda81d64ef",
+      "details": {
+        "liquidity": 49791.652542735064,
+        "pendleApy": 0.08200479329474045,
+        "impliedApy": 0.05399591858488395,
+        "feeRate": 0.0009999940162350729,
+        "yieldRange": {
+          "min": 0.03500000000000001,
+          "max": 0.12999999999999998
+        },
+        "aggregatedApy": 0.09404428337743365,
+        "maxBoostedApy": 0.2170514733195443
+      },
+      "isNew": true,
+      "isPrime": false,
+      "timestamp": "2026-08-10T04:03:24.000Z",
+      "categoryIds": [
+        "stables",
+        "points",
+        "rwa",
+        "strc",
+        "saturn"
+      ]
+    }
+  ]
+}

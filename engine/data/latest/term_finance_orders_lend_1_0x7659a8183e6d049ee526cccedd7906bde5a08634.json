@@ -1,0 +1,57 @@
+{
+  "data": {
+    "protocol_orders": {
+      "orders": [
+        {
+          "id": "synthetic-1-0x000ecfd73e2e523767e161a99690e6ef8c1b8029-0x7659a8183e6d049ee526cccedd7906bde5a08634-0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "offerRate": "37500000000000000",
+          "purchaseTokenAmount": "4586149776",
+          "remainingAmount": "4586149776",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0x047cfddd06018f53f54262fe64f2744ecd463fea-0x7659a8183e6d049ee526cccedd7906bde5a08634-0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "offerRate": "37836375677343145",
+          "purchaseTokenAmount": "48944117510",
+          "remainingAmount": "48944117510",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0x1b1177276cd9b630ec53c912eb6a8cf5a29ae6eb-0x7659a8183e6d049ee526cccedd7906bde5a08634-0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "offerRate": "37500000000000000",
+          "purchaseTokenAmount": "9273032247",
+          "remainingAmount": "9273032247",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0x2cdaeebe9607ee7579bbd69af44f44553fda764f-0x7659a8183e6d049ee526cccedd7906bde5a08634-0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "offerRate": "37500000000000000",
+          "purchaseTokenAmount": "13773111497",
+          "remainingAmount": "13773111497",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0x4b10deba312d6ff12fda13535009816660fc4463-0x7659a8183e6d049ee526cccedd7906bde5a08634-0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "offerRate": "37500000000000000",
+          "purchaseTokenAmount": "55449468",
+          "remainingAmount": "55449468",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0xb4e41e6eef1a77e700b46abacdf6d426fd256791-0x7659a8183e6d049ee526cccedd7906bde5a08634-0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "offerRate": "37500000000000000",
+          "purchaseTokenAmount": "4518511907",
+          "remainingAmount": "4518511907",
+          "isSynthetic": true
+        },
+        {
+          "id": "0x827c9ceecc9e77a8f7abb9206007d8deb303d611e1bd7307f475b42e057a7ade",
+          "offerRate": "60000000000000000",
+          "purchaseTokenAmount": "10000000",
+          "remainingAmount": "10000000",
+          "isSynthetic": false
+        }
+      ]
+    }
+  }
+}

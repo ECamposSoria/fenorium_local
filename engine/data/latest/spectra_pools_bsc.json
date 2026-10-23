@@ -1,0 +1,109 @@
+[
+  {
+    "address": "0x9b99296264cb27c2358cadbc0e16b8f7cc72d7b0",
+    "name": "Principal Token: stakeTHENA(eTHENA) 2027/10/19",
+    "symbol": "PT-stakeTHENA(eTHENA)-2027/10/19",
+    "decimals": 18,
+    "chainId": 56,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 122781.91666901973,
+      "underlying": 188279.7639908733,
+      "usd": 9409.067759743391
+    },
+    "yt": {
+      "address": "0x8aC16b10F03D12FEa330f517B37069D741d30ee7",
+      "decimals": 18,
+      "chainId": 56
+    },
+    "ibt": {
+      "address": "0x5b8ce6d591c914a56cb019b3decb63ede22708c8",
+      "name": "Staked eTHENA",
+      "symbol": "stakeTHENA",
+      "decimals": 18,
+      "chainId": 56,
+      "rate": "1533448646989397691",
+      "spotRate": "1533448646989397691",
+      "apr": {
+        "total": 3.802605930564207,
+        "details": {
+          "base": 3.802605930564207
+        }
+      },
+      "price": {
+        "underlying": 1.5334486469893978,
+        "usd": 0.07663235772012901
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/56/0x5b8ce6d591c914a56cb019b3decb63ede22708c8.png",
+      "protocol": "Eliteness (Thena)"
+    },
+    "underlying": {
+      "address": "0xafbe3b8b0939a5538de32f7752a78e08c8492295",
+      "name": "eTHENA",
+      "symbol": "eTHENA",
+      "decimals": 18,
+      "chainId": 56,
+      "price": {
+        "usd": 0.04997386633753954
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/56/0xafbe3b8b0939a5538de32f7752a78e08c8492295.png"
+    },
+    "maturity": 1823904008,
+    "createdAt": 1760836030,
+    "pools": [
+      {
+        "address": "0x2c997a190c35e7cab5644f0b118c3c7f3680ee32",
+        "chainId": 56,
+        "lpt": {
+          "address": "0x2c997a190c35e7cab5644f0b118c3c7f3680ee32",
+          "decimals": 18,
+          "chainId": 56,
+          "supply": "77720475125797024589183",
+          "price": {
+            "underlying": 7.3904041343009075,
+            "usd": 0.36932706838795315
+          }
+        },
+        "liquidity": {
+          "underlying": 574385.7206895212,
+          "usd": 28704.27523192945
+        },
+        "ptApy": 44.84418061488231,
+        "ytLeverage": 2.7368569260590085,
+        "impliedApy": 46.28417480571918,
+        "lpApy": {
+          "total": 13.252496446504447,
+          "details": {
+            "fees": 1.8468262518311018,
+            "pt": 8.307507441144672,
+            "ibt": 3.0981627535286727
+          }
+        },
+        "ibtToPt": "2361271726885376733",
+        "ptToIbt": "413849765699392554",
+        "spotPrice": "418647139685810238",
+        "ptPrice": {
+          "underlying": 0.6419738899171871,
+          "usd": 0.03208191736691183
+        },
+        "ytPrice": {
+          "underlying": 0.35802611008281293,
+          "usd": 0.017891948970627708
+        },
+        "ibtAmount": "305180869040006552698891",
+        "ptAmount": "166127806500539126158348",
+        "feeRate": "91300125",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "114589401",
+        "ptToIbtFee": "114589401",
+        "lastPrices": "417692534545565034",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "maturityValue": {
+      "underlying": 0.6521248702806505,
+      "usd": 0.04997386633753954
+    }
+  }
+]

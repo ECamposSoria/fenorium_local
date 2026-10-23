@@ -1,0 +1,15 @@
+{
+  "data": {
+    "protocol_orders": {
+      "orders": [
+        {
+          "id": "synthetic-1-0x369d94320d06492de265c025bfaa4cf513a1845f-0xe53c30a308e6d7ad5c44e1dd6fb1f3ea99dfd410-0xecfafdc7741323a945a163ed068b5a3c43483957",
+          "offerRate": "82894736842105300",
+          "purchaseTokenAmount": "76317652",
+          "remainingAmount": "76317652",
+          "isSynthetic": true
+        }
+      ]
+    }
+  }
+}

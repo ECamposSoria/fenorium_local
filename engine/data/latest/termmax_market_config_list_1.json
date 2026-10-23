@@ -1,0 +1,3005 @@
+{
+  "data": {
+    "network": "1",
+    "chainId": 1,
+    "globalConfig": {
+      "factoryV2AddressList": [
+        {
+          "address": "0x1c86801e8ad0726298383e30c2c1a844887a61bd",
+          "startBlock": 23430000,
+          "tags": []
+        },
+        {
+          "address": "0xc53ab74eeb5e818147eb6d06134d81d3ac810987",
+          "startBlock": 23488600,
+          "tags": []
+        }
+      ],
+      "marketV2_01FactoryAddressList": [
+        {
+          "address": "0xc1e9640f04b802bbf0b02a4e9fe394039abe8b59",
+          "startBlock": 24876010,
+          "tags": [
+            "v2_01"
+          ]
+        }
+      ],
+      "vaultV2_01FactoryAddressList": [
+        {
+          "address": "0x5ad6a60c71ae49e0e6ddb1a4cdc9a1b2a3d5f7d0",
+          "startBlock": 24876015,
+          "tags": [
+            "v2_01"
+          ]
+        }
+      ],
+      "id": "67ecdfe7f39ba68ba24d5fcf",
+      "chainId": 1,
+      "confirmedBlocks": 0,
+      "syncEventSyBatchBlocks": 8000,
+      "routerStartBlock": 22174000,
+      "routerV2StartBlock": 23430000,
+      "factoryAddress": "0x37ba9934aaba7a49cc29d0952c6a91d7c7043dbc",
+      "factoryV2Address": "0x0000000000000000000000000000000000000000",
+      "vaultFactoryAddress": "0x4778cbf91d8369843281c8f5a2d7b56d1420dff5",
+      "oracleAggregator": "0xe3a31690392e8e18dc3d862651c079339e2c1ade",
+      "oracleAggregatorV2": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+      "routerAddress": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+      "routerV2Address": "0xd7b162c1fa3c8cd0cb03e2c256715a4f4bec42d0",
+      "mockSwapAdapter": "0x0000000000000000000000000000000000000000",
+      "faucetAddress": "0x0000000000000000000000000000000000000000",
+      "odosV2Adapter": "0x7a9d038285abf4b35906508821e5c3bb41493cf5",
+      "pendleSwapV3Adapter": "0xfaf7d0ee1300631f465ff8ca6ea332f9c5a27bbe",
+      "morphoVaultAdapter": "0x98b0c4c13068c3010a809174af31061aef547fbe",
+      "uniswapV3Adapter": "0xe7a88ab1329cad4168563516e35753b979d0c7a9",
+      "marketViewerAddress": "0x5c5d95d71dde29fabfa64395ccef9b8874715fdf",
+      "vaultV1PlusFactories": [
+        "0x3a9ecffdbdc595907f65640f810d3ddddde2fa61"
+      ],
+      "vaultV2Factories": [
+        "0xf2bda87ca467eb90a1b68f824cb136baa68a8177",
+        "0x5b8b26a6734b5eabdbe6c5a19580ab2d0424f027"
+      ],
+      "marketViewerV1PlusAddress": "0xcee04481b07a1af2c148e26a74ba0ae5df96f14b",
+      "makerHelperAddress": "0x513690136500dec06553385f7a00b010455dce92",
+      "marketViewerV2Address": "0x4d7049bb90eb273b65b340676d7a2826c565fa64",
+      "kodiakAdapter": null,
+      "isEnabledAggregatorApi": true,
+      "isEnabled": true,
+      "updatedAt": "2026-04-30T09:10:16.753Z",
+      "createdAt": "2025-04-02T06:57:43.239Z"
+    },
+    "assetConfigs": [
+      {
+        "type": "BASIC",
+        "contractAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "icon": "https://assets.public.ts.finance/usdc.svg",
+        "name": "USDC",
+        "displayName": "USDC",
+        "issuer": "",
+        "symbol": "USDC",
+        "decimals": "6",
+        "version": null,
+        "price": {
+          "value": "99980848",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0xd166337499e176bbc38a1fbd113ab144e5bd2df7",
+        "icon": "https://assets.public.ts.finance/icons/tokens/005f5748-f13f-4f4e-a155-a1d07e028510.png",
+        "name": "sUSDat",
+        "displayName": "sUSDat",
+        "issuer": "N/A",
+        "symbol": "sUSDat",
+        "decimals": "18",
+        "version": null,
+        "price": {
+          "value": "98207187",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0xa92c6b81af52fb9e5024a4757bf0491650b19e23",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/sUSDat@30AUG2026",
+        "displayName": "FT:USDC/sUSDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/sUSDat@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "97909209",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x87062c98c857c40c828d1cedf13e8f5fe2cb88b2",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/sUSDat@30AUG2026",
+        "displayName": "XT:USDC/sUSDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/sUSDat@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "2076211",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+        "icon": "https://assets.public.ts.finance/icons/tokens/dde0f155-7406-4d3b-97b6-031433babb5b.webp",
+        "name": "RLUSD",
+        "displayName": "RLUSD",
+        "issuer": "N/A",
+        "symbol": "RLUSD",
+        "decimals": 18,
+        "version": null
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0xbf4e3fbe8b60062a00c7a6b1d97d0d49c2971a19",
+        "icon": "https://assets.public.ts.finance/icons/tokens/eb87e94e-a30f-49fe-a73c-e103d429f85b.svg",
+        "name": "USPC",
+        "displayName": "USPC",
+        "issuer": "N/A",
+        "symbol": "USPC",
+        "decimals": 6,
+        "version": null
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x00008dcd349d97bccf35ada6653e9937381da1e2",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:RLUSD/USPC@25OCT2026",
+        "displayName": "FT:RLUSD/USPC@25OCT2026",
+        "issuer": "TermMax",
+        "symbol": "FT:RLUSD/USPC@25OCT2026",
+        "decimals": 18,
+        "maturity": "2026-10-25T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xbf079fda90d3e2ed9c29f57f011bac3baa8f658b",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:RLUSD/USPC@25OCT2026",
+        "displayName": "XT:RLUSD/USPC@25OCT2026",
+        "issuer": "TermMax",
+        "symbol": "XT:RLUSD/USPC@25OCT2026",
+        "decimals": 18,
+        "maturity": "2026-10-25T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0xa7da92685ea436276b2e87ae12e5ee6dabad5bb5",
+        "icon": "https://assets.public.ts.finance/icons/tokens/93c7bf56-71c7-4bea-9b02-378e74289879.png",
+        "name": "ROY-ST-stcUSD",
+        "displayName": "ROY-ST-stcUSD",
+        "issuer": "N/A",
+        "symbol": "ROY-ST-stcUSD",
+        "decimals": "18",
+        "version": null,
+        "price": {
+          "value": "101513293",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x77c58cc89981bd176041cb497366cbda0e708944",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "displayName": "FT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "99374332",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xa11572f8c2a81dc048de82321858f071f7e5a8c0",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "displayName": "XT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "613942",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0xdde3ec717f220fc6a29d6a4be73f91da5b718e55",
+        "icon": "https://assets.public.ts.finance/icons/tokens/2ca5ee7e-b531-4eeb-bfd2-bbdbdf41da97.png",
+        "name": "USDU",
+        "displayName": "USDU",
+        "issuer": "N/A",
+        "symbol": "USDU",
+        "decimals": "18",
+        "version": null,
+        "price": {
+          "value": "99980848",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+        "icon": "https://assets.public.ts.finance/reUSD.svg",
+        "name": "reUSD",
+        "displayName": "reUSD",
+        "issuer": "N/A",
+        "symbol": "reUSD",
+        "decimals": "18",
+        "version": null,
+        "price": {
+          "value": "109540209",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x82714cacc7ee6fe9bb961846db521af3f9928f34",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDU/reUSD@08OCT2026",
+        "displayName": "FT:USDU/reUSD@08OCT2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDU/reUSD@08OCT2026",
+        "decimals": "18",
+        "maturity": "2026-10-08T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "96294351",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xe0001fcbf9938b93096064e187529927025c226b",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDU/reUSD@08OCT2026",
+        "displayName": "XT:USDU/reUSD@08OCT2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDU/reUSD@08OCT2026",
+        "decimals": "18",
+        "maturity": "2026-10-08T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "3680369",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+        "icon": "https://assets.public.ts.finance/icons/tokens/ef010f4f-d185-4ab3-a553-aae61335723c.svg",
+        "name": "PT-USD3-17DEC2026",
+        "displayName": "PT-USD3-17DEC2026",
+        "issuer": "N/A",
+        "symbol": "PT-USD3-17DEC2026",
+        "decimals": 6,
+        "version": null
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0xfe9557c3aa9f253225a4bc141a43bdc22b49e5a8",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/PT-USD3-17DEC2026@21DEC2026",
+        "displayName": "FT:USDC/PT-USD3-17DEC2026@21DEC2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/PT-USD3-17DEC2026@21DEC2026",
+        "decimals": 6,
+        "maturity": "2026-12-21T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xbe8cccca10cf293c17c0a443c911c03dfc2e2417",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/PT-USD3-17DEC2026@21DEC2026",
+        "displayName": "XT:USDC/PT-USD3-17DEC2026@21DEC2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/PT-USD3-17DEC2026@21DEC2026",
+        "decimals": 6,
+        "maturity": "2026-12-21T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x23238f20b894f29041f48d88ee91131c395aaa71",
+        "icon": "https://assets.public.ts.finance/icons/tokens/9b87895c-7371-4b8d-9cff-d66b8d4a2fb5.svg",
+        "name": "USDat",
+        "displayName": "USDat",
+        "issuer": "N/A",
+        "symbol": "USDat",
+        "decimals": 6,
+        "version": null
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x6bd8ac11cdab03aebdc046b4ebfc81e012c95bc6",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/USDat@30AUG2026",
+        "displayName": "FT:USDC/USDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/USDat@30AUG2026",
+        "decimals": 6,
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2"
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xee2fd2960a2ad5a1303887cf1b8ed4b2642c1b5d",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/USDat@30AUG2026",
+        "displayName": "XT:USDC/USDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/USDat@30AUG2026",
+        "decimals": 6,
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2"
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x8e4e47e2e4bcc440b61fa094916395f7cb987d8b",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:RLUSD/USPC@15SEP2026",
+        "displayName": "FT:RLUSD/USPC@15SEP2026",
+        "issuer": "TermMax",
+        "symbol": "FT:RLUSD/USPC@15SEP2026",
+        "decimals": 18,
+        "maturity": "2026-09-15T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x67c136d9619e841b93d956477585d41b9eae8aaf",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:RLUSD/USPC@15SEP2026",
+        "displayName": "XT:RLUSD/USPC@15SEP2026",
+        "issuer": "TermMax",
+        "symbol": "XT:RLUSD/USPC@15SEP2026",
+        "decimals": 18,
+        "maturity": "2026-09-15T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0xfaa9a0e1db9e22ae3a20b2b58a68dc24d053d066",
+        "icon": "https://assets.public.ts.finance/icons/tokens/62b4272c-9907-4be5-82be-b106a8ce2743.svg",
+        "name": "srUSDat",
+        "displayName": "srUSDat",
+        "issuer": "N/A",
+        "symbol": "srUSDat",
+        "decimals": "18",
+        "version": null,
+        "price": {
+          "value": "102288605",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0xad4b86daf5665e91199006c79c4ec3c24df29033",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/srUSDat@30AUG2026",
+        "displayName": "FT:USDC/srUSDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/srUSDat@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "99584692",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x38174d0e825e31a54c1f530242697eb213e29684",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/srUSDat@30AUG2026",
+        "displayName": "XT:USDC/srUSDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/srUSDat@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "396155",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x66182442522d3049a941035190c315379c959250",
+        "icon": "https://assets.public.ts.finance/icons/tokens/39f0bb4c-4c4d-4173-81ec-7b6203499622.png",
+        "name": "ROY-ST-syrupUSDC",
+        "displayName": "ROY-ST-syrupUSDC",
+        "issuer": "N/A",
+        "symbol": "ROY-ST-syrupUSDC",
+        "decimals": "18",
+        "version": null,
+        "price": {
+          "value": "101840369",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x0605a033e4dc45a8f07f97af4c3934709413ddaf",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "displayName": "FT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "99336734",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x7b8ca7c999649e04d8081f266636cc6ca88b02e7",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "displayName": "XT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "651540",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x01ba69727e2860b37bc1a2bd56999c1afb4c15d8",
+        "icon": "https://assets.public.ts.finance/icons/tokens/d8413911-9a66-488f-a948-8a589e1f5cfc.svg",
+        "name": "ynRWAx",
+        "displayName": "ynRWAx",
+        "issuer": "N/A",
+        "symbol": "ynRWAx",
+        "decimals": 18,
+        "version": null
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0xec718685623b912ef8c308ea537e2bee61377892",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/ynRWAx@16OCT2026",
+        "displayName": "FT:USDC/ynRWAx@16OCT2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/ynRWAx@16OCT2026",
+        "decimals": 6,
+        "maturity": "2026-10-16T02:00:00.000Z",
+        "version": "v2"
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x085e72a95b12e96619cc3595d81d691e4fc19dd1",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/ynRWAx@16OCT2026",
+        "displayName": "XT:USDC/ynRWAx@16OCT2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/ynRWAx@16OCT2026",
+        "decimals": 6,
+        "maturity": "2026-10-16T02:00:00.000Z",
+        "version": "v2"
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x7f71a53ada2249c4239545bef1d783d33ae0c575",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "displayName": "FT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "99703862",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xd8f7a717c0b45fb18ffaa10f84a68e02c722dbaa",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "displayName": "XT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/ROY-ST-stcUSD@31AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "276985",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0xecfafdc7741323a945a163ed068b5a3c43483957",
+        "icon": "https://assets.public.ts.finance/icons/tokens/120d77b0-2707-478c-b839-0cc678514d8a.svg",
+        "name": "PT-reUSD-10DEC2026",
+        "displayName": "PT-reUSD-10DEC2026",
+        "issuer": "N/A",
+        "symbol": "PT-reUSD-10DEC2026",
+        "decimals": 6,
+        "version": null
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0xd5bb2f8d4eaab6ce44f30de1c440155b745a2bf6",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "displayName": "FT:USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "decimals": 6,
+        "maturity": "2026-12-13T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x3631084ff15c1b86105fbb540c1a7433a920caf3",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "displayName": "XT:USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "decimals": 6,
+        "maturity": "2026-12-13T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0xc689f76f90fe1762fac55983ff25ae71033a84f7",
+        "icon": "https://assets.public.ts.finance/icons/tokens/f626982c-3c2d-43a9-8a9e-2061ed93537d.svg",
+        "name": "PT-sUSDat-27AUG2026",
+        "displayName": "PT-sUSDat-27AUG2026",
+        "issuer": "N/A",
+        "symbol": "PT-sUSDat-27AUG2026",
+        "decimals": "6",
+        "version": null,
+        "price": {
+          "value": "997504086599441908",
+          "_isInfinity": false,
+          "unit": "18"
+        },
+        "apy": {
+          "value": "12250924",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x78d55d85f66589853240638cf2e8b5795ffea335",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "displayName": "FT:USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "99987971",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xbfb59d6fcbc83351c518d5561da2647a828ac3fc",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "displayName": "XT:USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "0",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x59819f521975322d83e3c3b36a5294a80b2fb71b",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDU/reUSD@08SEP2026",
+        "displayName": "FT:USDU/reUSD@08SEP2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDU/reUSD@08SEP2026",
+        "decimals": "18",
+        "maturity": "2026-09-08T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "96685481",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x3176912ae363b7be69bbae66009367f336d753ba",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDU/reUSD@08SEP2026",
+        "displayName": "XT:USDU/reUSD@08SEP2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDU/reUSD@08SEP2026",
+        "decimals": "18",
+        "maturity": "2026-09-08T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "3289239",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x0e54f0cf3a653d21cced286fa60a1642c0793bc0",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDU/reUSD@09NOV2026",
+        "displayName": "FT:USDU/reUSD@09NOV2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDU/reUSD@09NOV2026",
+        "decimals": "18",
+        "maturity": "2026-11-09T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "90836336",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xd818115d1cf13ee67e51731d72ccc5dfe6f7272a",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDU/reUSD@09NOV2026",
+        "displayName": "XT:USDU/reUSD@09NOV2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDU/reUSD@09NOV2026",
+        "decimals": "18",
+        "maturity": "2026-11-09T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "9138384",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x1d69402390657308c91179aa184bf992908c1e08",
+        "icon": "https://assets.public.ts.finance/icons/tokens/4be523e9-2329-4d20-90b6-41b4f849bec5.svg",
+        "name": "PT-USDat-27AUG2026",
+        "displayName": "PT-USDat-27AUG2026",
+        "issuer": "N/A",
+        "symbol": "PT-USDat-27AUG2026",
+        "decimals": "6",
+        "version": null,
+        "price": {
+          "value": "998402645865043126",
+          "_isInfinity": false,
+          "unit": "18"
+        },
+        "apy": {
+          "value": "7301482",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x38f2dd8c723130922bab6d10ca7e7abc5b49946e",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/PT-USDat-27AUG2026@30AUG2026",
+        "displayName": "FT:USDC/PT-USDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/PT-USDat-27AUG2026@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "99816437",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xe387af001b7e121f067c6aa2d9cde45c06a48fca",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/PT-USDat-27AUG2026@30AUG2026",
+        "displayName": "XT:USDC/PT-USDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/PT-USDat-27AUG2026@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2",
+        "price": {
+          "value": "164410",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0xae99eed93428a8403de415a4f32d69270164232c",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "displayName": "FT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "99643697",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x882244c9bcbf1209b8192b41ef2508712504dc16",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "displayName": "XT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "337150",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+        "icon": "https://assets.public.ts.finance/icons/tokens/8972ea00-dc13-49cb-acfa-ca121a9d998c.svg",
+        "name": "apyUSD",
+        "displayName": "apyUSD",
+        "issuer": "N/A",
+        "symbol": "apyUSD",
+        "decimals": 18,
+        "version": null
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x43af851c3ed6b23bf17d3f23f36930c7979543fc",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/apyUSD@30NOV2026",
+        "displayName": "FT:USDC/apyUSD@30NOV2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/apyUSD@30NOV2026",
+        "decimals": 6,
+        "maturity": "2026-11-30T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0x3d5da6f7f83674ff05daa17101377f307c77a27e",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/apyUSD@30NOV2026",
+        "displayName": "XT:USDC/apyUSD@30NOV2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/apyUSD@30NOV2026",
+        "decimals": 6,
+        "maturity": "2026-11-30T02:00:00.000Z",
+        "version": "v2_01"
+      },
+      {
+        "type": "BASIC",
+        "contractAddress": "0x2d433b943fb8c015ae409444b7f960ed288082b4",
+        "icon": "https://assets.public.ts.finance/icons/tokens/b68569bd-6cbb-41f5-87ab-3a8a60f83fea.svg",
+        "name": "PT-srUSDat-27AUG2026",
+        "displayName": "PT-srUSDat-27AUG2026",
+        "issuer": "N/A",
+        "symbol": "PT-srUSDat-27AUG2026",
+        "decimals": "6",
+        "version": null,
+        "price": {
+          "value": "99784228",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "apy": {
+          "value": "246079104",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "FT",
+        "contractAddress": "0x661ac78bab47907a7c76b7cf2eb76fcff124a381",
+        "icon": "https://assets.public.ts.finance/FT.svg",
+        "name": "FT:USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "displayName": "FT:USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "FT:USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "99441412",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      },
+      {
+        "type": "XT",
+        "contractAddress": "0xfd4d35ef0c996e3ec9780cffae8bc0c054aa4da6",
+        "icon": "https://assets.public.ts.finance/XT.svg",
+        "name": "XT:USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "displayName": "XT:USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "XT:USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "decimals": "6",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "version": "v2_01",
+        "price": {
+          "value": "539435",
+          "_isInfinity": false,
+          "unit": "8"
+        },
+        "flags": true
+      }
+    ],
+    "gtConfigs": [
+      {
+        "contractAddress": "0x0f87f35016ddc42f4985b8aef34926515cc1dbec",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/PT-USDat-27AUG2026@30AUG2026",
+        "displayName": "GT USDC/PT-USDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/PT-USDat-27AUG2026@30AUG2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2"
+      },
+      {
+        "contractAddress": "0x124b5ad9f156605e0c943687ca4b5548c6c9449f",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/ynRWAx@16OCT2026",
+        "displayName": "GT USDC/ynRWAx@16OCT2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/ynRWAx@16OCT2026",
+        "maxLtv": "60000000",
+        "liquidationLtv": "75000000",
+        "liquidatable": true,
+        "oracleAddress": "0xe3a31690392e8e18dc3d862651c079339e2c1ade",
+        "version": "v2"
+      },
+      {
+        "contractAddress": "0x177209403b176ac8022391fd6a1af2f6f326ef57",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "displayName": "GT USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2"
+      },
+      {
+        "contractAddress": "0x1c56da2d9eec96ba566852100d2aca6a01c3da9e",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDU/reUSD@08OCT2026",
+        "displayName": "GT USDU/reUSD@08OCT2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDU/reUSD@08OCT2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0xe3a31690392e8e18dc3d862651c079339e2c1ade",
+        "version": "v2"
+      },
+      {
+        "contractAddress": "0x2b16b1d7124e872687e5466ea84a6ffcc4f3a2a4",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "displayName": "GT USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "maxLtv": "50000000",
+        "liquidationLtv": "70000000",
+        "liquidatable": false,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0x36b5e3e5723d4eb38de3bd2dbd6e87fef1862863",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/ROY-ST-stcUSD@31AUG2026",
+        "displayName": "GT USDC/ROY-ST-stcUSD@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/ROY-ST-stcUSD@31AUG2026",
+        "maxLtv": "50000000",
+        "liquidationLtv": "70000000",
+        "liquidatable": false,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0x4e07726b622a2d72383238b8994b7104e37a1dba",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/ROY-ST-stcUSD@31AUG2026",
+        "displayName": "GT USDC/ROY-ST-stcUSD@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/ROY-ST-stcUSD@31AUG2026",
+        "maxLtv": "74000000",
+        "liquidationLtv": "86000000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0x604473f178ccf4767d6c32b779c9a4199bba725d",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "displayName": "GT USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "90500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0x715bbef39f245af599fcec4abf7417f736a8a75f",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-RLUSD/USPC@15SEP2026",
+        "displayName": "GT RLUSD/USPC@15SEP2026",
+        "issuer": "TermMax",
+        "symbol": "GT-RLUSD/USPC@15SEP2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0x7aea0de4fb9fdb41fc7056f8260b3d0fc7da6ff4",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDU/reUSD@09NOV2026",
+        "displayName": "GT USDU/reUSD@09NOV2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDU/reUSD@09NOV2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0xe3a31690392e8e18dc3d862651c079339e2c1ade",
+        "version": "v2"
+      },
+      {
+        "contractAddress": "0x8c394e596b37f5886fa03e9f8bea1ba79822c11c",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/USDat@30AUG2026",
+        "displayName": "GT USDC/USDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/USDat@30AUG2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2"
+      },
+      {
+        "contractAddress": "0x8dcc96f70f7b44c1c69230e1fa018b50dec95011",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/sUSDat@30AUG2026",
+        "displayName": "GT USDC/sUSDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/sUSDat@30AUG2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2"
+      },
+      {
+        "contractAddress": "0xaa6fcfae997d11cd823d7b157b23d45d6d8af139",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/PT-USD3-17DEC2026@21DEC2026",
+        "displayName": "GT USDC/PT-USD3-17DEC2026@21DEC2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/PT-USD3-17DEC2026@21DEC2026",
+        "maxLtv": "80000000",
+        "liquidationLtv": "86000000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0xabaec51ae091f3878f64500779e46d37a074d06f",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "displayName": "GT USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0xd4a3ac77ffe2220f2727c26234b00e5223bad943",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-RLUSD/USPC@25OCT2026",
+        "displayName": "GT RLUSD/USPC@25OCT2026",
+        "issuer": "TermMax",
+        "symbol": "GT-RLUSD/USPC@25OCT2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "90500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0xd58dd7cd72aea98fdaafbc4a965f4fcc49c68859",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "displayName": "GT USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "89500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0xdb12cad597aef914225152e36d252ca1d0656b46",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDU/reUSD@08SEP2026",
+        "displayName": "GT USDU/reUSD@08SEP2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDU/reUSD@08SEP2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "oracleAddress": "0xe3a31690392e8e18dc3d862651c079339e2c1ade",
+        "version": "v2"
+      },
+      {
+        "contractAddress": "0xf3669bd42dc136b47b3a68df451228c7c571c7b0",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/apyUSD@30NOV2026",
+        "displayName": "GT USDC/apyUSD@30NOV2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/apyUSD@30NOV2026",
+        "maxLtv": "80000000",
+        "liquidationLtv": "86000000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      },
+      {
+        "contractAddress": "0xfc173d84fba6ee2b8ca6871c528a8c9890d46a20",
+        "icon": "https://assets.public.ts.finance/pepe.png",
+        "name": "GT-USDC/srUSDat@30AUG2026",
+        "displayName": "GT USDC/srUSDat@30AUG2026",
+        "issuer": "TermMax",
+        "symbol": "GT-USDC/srUSDat@30AUG2026",
+        "maxLtv": "87500000",
+        "liquidationLtv": "89500000",
+        "liquidatable": true,
+        "oracleAddress": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+        "version": "v2_01"
+      }
+    ],
+    "markets": [
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x148ffe0c1746db30c7fb01ff58f4e2a9f61c2058",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0xd166337499e176bbc38a1fbd113ab144e5bd2df7",
+          "ftAddr": "0xa92c6b81af52fb9e5024a4757bf0491650b19e23",
+          "xtAddr": "0x87062c98c857c40c828d1cedf13e8f5fe2cb88b2",
+          "gtAddr": "0x8dcc96f70f7b44c1c69230e1fa018b50dec95011"
+        },
+        "symbol": "USDC/sUSDat@30AUG2026",
+        "isFixed": true,
+        "openTime": "2026-04-22T07:55:47.000Z",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x163c7607d9838793af8db2c6940cf275d503b379",
+          "underlyingAddr": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "collateralAddr": "0xbf4e3fbe8b60062a00c7a6b1d97d0d49c2971a19",
+          "ftAddr": "0x00008dcd349d97bccf35ada6653e9937381da1e2",
+          "xtAddr": "0xbf079fda90d3e2ed9c29f57f011bac3baa8f658b",
+          "gtAddr": "0xd4a3ac77ffe2220f2727c26234b00e5223bad943"
+        },
+        "symbol": "RLUSD/USPC@25OCT2026",
+        "isFixed": true,
+        "openTime": "2026-07-20T03:07:35.000Z",
+        "maturity": "2026-10-25T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "3000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "3000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "90500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x17fbf5883ef9a8e0a756de8fdc95a4b5e20a3da8",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0xa7da92685ea436276b2e87ae12e5ee6dabad5bb5",
+          "ftAddr": "0x77c58cc89981bd176041cb497366cbda0e708944",
+          "xtAddr": "0xa11572f8c2a81dc048de82321858f071f7e5a8c0",
+          "gtAddr": "0x36b5e3e5723d4eb38de3bd2dbd6e87fef1862863"
+        },
+        "symbol": "USDC/ROY-ST-stcUSD@31AUG2026",
+        "isFixed": true,
+        "openTime": "2026-07-06T05:52:59.000Z",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "50000000",
+        "liquidationLtv": "70000000",
+        "liquidatable": false,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x1fa88b874b97096498862337f30610c440d63a42",
+          "underlyingAddr": "0xdde3ec717f220fc6a29d6a4be73f91da5b718e55",
+          "collateralAddr": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+          "ftAddr": "0x82714cacc7ee6fe9bb961846db521af3f9928f34",
+          "xtAddr": "0xe0001fcbf9938b93096064e187529927025c226b",
+          "gtAddr": "0x1c56da2d9eec96ba566852100d2aca6a01c3da9e"
+        },
+        "symbol": "USDU/reUSD@08OCT2026",
+        "isFixed": true,
+        "openTime": "2025-11-28T10:19:59.000Z",
+        "maturity": "2026-10-08T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "8000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "8000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x2622fd591c84af3e9f7417e7b0da165f62018c34",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+          "ftAddr": "0xfe9557c3aa9f253225a4bc141a43bdc22b49e5a8",
+          "xtAddr": "0xbe8cccca10cf293c17c0a443c911c03dfc2e2417",
+          "gtAddr": "0xaa6fcfae997d11cd823d7b157b23d45d6d8af139"
+        },
+        "symbol": "USDC/PT-USD3-17DEC2026@21DEC2026",
+        "isFixed": true,
+        "openTime": "2026-08-13T07:00:47.000Z",
+        "maturity": "2026-12-21T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "80000000",
+        "liquidationLtv": "86000000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x367da44dbb3a8b7d2907a1e9c51cff1e348ba61c",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0x23238f20b894f29041f48d88ee91131c395aaa71",
+          "ftAddr": "0x6bd8ac11cdab03aebdc046b4ebfc81e012c95bc6",
+          "xtAddr": "0xee2fd2960a2ad5a1303887cf1b8ed4b2642c1b5d",
+          "gtAddr": "0x8c394e596b37f5886fa03e9f8bea1ba79822c11c"
+        },
+        "symbol": "USDC/USDat@30AUG2026",
+        "isFixed": true,
+        "openTime": "2026-04-22T07:56:11.000Z",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x4a640c87d048dbcdb1f27e1a5882fb7947446e7d",
+          "underlyingAddr": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "collateralAddr": "0xbf4e3fbe8b60062a00c7a6b1d97d0d49c2971a19",
+          "ftAddr": "0x8e4e47e2e4bcc440b61fa094916395f7cb987d8b",
+          "xtAddr": "0x67c136d9619e841b93d956477585d41b9eae8aaf",
+          "gtAddr": "0x715bbef39f245af599fcec4abf7417f736a8a75f"
+        },
+        "symbol": "RLUSD/USPC@15SEP2026",
+        "isFixed": true,
+        "openTime": "2026-06-16T01:24:47.000Z",
+        "maturity": "2026-09-15T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "3000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "3000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x546c6395be470faea356706d66c89429ee0d1ef4",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0xfaa9a0e1db9e22ae3a20b2b58a68dc24d053d066",
+          "ftAddr": "0xad4b86daf5665e91199006c79c4ec3c24df29033",
+          "xtAddr": "0x38174d0e825e31a54c1f530242697eb213e29684",
+          "gtAddr": "0xfc173d84fba6ee2b8ca6871c528a8c9890d46a20"
+        },
+        "symbol": "USDC/srUSDat@30AUG2026",
+        "isFixed": true,
+        "openTime": "2026-05-27T05:04:11.000Z",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "89500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x57e92d2c565baf64958a4fc820563621dfb8f88d",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0x66182442522d3049a941035190c315379c959250",
+          "ftAddr": "0x0605a033e4dc45a8f07f97af4c3934709413ddaf",
+          "xtAddr": "0x7b8ca7c999649e04d8081f266636cc6ca88b02e7",
+          "gtAddr": "0x2b16b1d7124e872687e5466ea84a6ffcc4f3a2a4"
+        },
+        "symbol": "USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "isFixed": true,
+        "openTime": "2026-07-06T05:53:23.000Z",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "50000000",
+        "liquidationLtv": "70000000",
+        "liquidatable": false,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x776b9a6200c0f29b6c862e4d8e38a99ac3272110",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0x01ba69727e2860b37bc1a2bd56999c1afb4c15d8",
+          "ftAddr": "0xec718685623b912ef8c308ea537e2bee61377892",
+          "xtAddr": "0x085e72a95b12e96619cc3595d81d691e4fc19dd1",
+          "gtAddr": "0x124b5ad9f156605e0c943687ca4b5548c6c9449f"
+        },
+        "symbol": "USDC/ynRWAx@16OCT2026",
+        "isFixed": true,
+        "openTime": "2026-02-04T02:27:11.000Z",
+        "maturity": "2026-10-16T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "60000000",
+        "liquidationLtv": "75000000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x7a708678a40feed9ee43a83e594b29faf9ca0d12",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0xa7da92685ea436276b2e87ae12e5ee6dabad5bb5",
+          "ftAddr": "0x7f71a53ada2249c4239545bef1d783d33ae0c575",
+          "xtAddr": "0xd8f7a717c0b45fb18ffaa10f84a68e02c722dbaa",
+          "gtAddr": "0x4e07726b622a2d72383238b8994b7104e37a1dba"
+        },
+        "symbol": "USDC/ROY-ST-stcUSD@31AUG2026",
+        "isFixed": true,
+        "openTime": "2026-07-17T02:06:11.000Z",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "74000000",
+        "liquidationLtv": "86000000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x8896204f4c3948c939bcc556ad2361904d9a72aa",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0xecfafdc7741323a945a163ed068b5a3c43483957",
+          "ftAddr": "0xd5bb2f8d4eaab6ce44f30de1c440155b745a2bf6",
+          "xtAddr": "0x3631084ff15c1b86105fbb540c1a7433a920caf3",
+          "gtAddr": "0xabaec51ae091f3878f64500779e46d37a074d06f"
+        },
+        "symbol": "USDC/PT-reUSD-10DEC2026@13DEC2026",
+        "isFixed": true,
+        "openTime": "2026-06-18T02:31:35.000Z",
+        "maturity": "2026-12-13T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x964089e98fd07895303d84acf75ddd8c932e3c26",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0xc689f76f90fe1762fac55983ff25ae71033a84f7",
+          "ftAddr": "0x78d55d85f66589853240638cf2e8b5795ffea335",
+          "xtAddr": "0xbfb59d6fcbc83351c518d5561da2647a828ac3fc",
+          "gtAddr": "0x177209403b176ac8022391fd6a1af2f6f326ef57"
+        },
+        "symbol": "USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "isFixed": true,
+        "openTime": "2026-04-22T07:58:23.000Z",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x9e1cbf7bde78078a75228bf26f850a99712dde47",
+          "underlyingAddr": "0xdde3ec717f220fc6a29d6a4be73f91da5b718e55",
+          "collateralAddr": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+          "ftAddr": "0x59819f521975322d83e3c3b36a5294a80b2fb71b",
+          "xtAddr": "0x3176912ae363b7be69bbae66009367f336d753ba",
+          "gtAddr": "0xdb12cad597aef914225152e36d252ca1d0656b46"
+        },
+        "symbol": "USDU/reUSD@08SEP2026",
+        "isFixed": true,
+        "openTime": "2025-11-28T10:18:35.000Z",
+        "maturity": "2026-09-08T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "8000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "8000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xa0cc103b19e29ff00430e412f1edf5cf374f719e",
+          "underlyingAddr": "0xdde3ec717f220fc6a29d6a4be73f91da5b718e55",
+          "collateralAddr": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+          "ftAddr": "0x0e54f0cf3a653d21cced286fa60a1642c0793bc0",
+          "xtAddr": "0xd818115d1cf13ee67e51731d72ccc5dfe6f7272a",
+          "gtAddr": "0x7aea0de4fb9fdb41fc7056f8260b3d0fc7da6ff4"
+        },
+        "symbol": "USDU/reUSD@09NOV2026",
+        "isFixed": true,
+        "openTime": "2025-11-28T10:21:11.000Z",
+        "maturity": "2026-11-09T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "8000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "8000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xaf7560124faae12d4378ec030b7644f16b370ccc",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0x1d69402390657308c91179aa184bf992908c1e08",
+          "ftAddr": "0x38f2dd8c723130922bab6d10ca7e7abc5b49946e",
+          "xtAddr": "0xe387af001b7e121f067c6aa2d9cde45c06a48fca",
+          "gtAddr": "0x0f87f35016ddc42f4985b8aef34926515cc1dbec"
+        },
+        "symbol": "USDC/PT-USDat-27AUG2026@30AUG2026",
+        "isFixed": true,
+        "openTime": "2026-04-22T07:56:59.000Z",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "91500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xb7cf2714e3be17ea4082a4528076a97a8f3f4fc4",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0x66182442522d3049a941035190c315379c959250",
+          "ftAddr": "0xae99eed93428a8403de415a4f32d69270164232c",
+          "xtAddr": "0x882244c9bcbf1209b8192b41ef2508712504dc16",
+          "gtAddr": "0x604473f178ccf4767d6c32b779c9a4199bba725d"
+        },
+        "symbol": "USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "isFixed": true,
+        "openTime": "2026-07-17T02:05:59.000Z",
+        "maturity": "2026-08-31T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "90500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xd068b1312b2a12c6add2a235718cdf48460d02b0",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+          "ftAddr": "0x43af851c3ed6b23bf17d3f23f36930c7979543fc",
+          "xtAddr": "0x3d5da6f7f83674ff05daa17101377f307c77a27e",
+          "gtAddr": "0xf3669bd42dc136b47b3a68df451228c7c571c7b0"
+        },
+        "symbol": "USDC/apyUSD@30NOV2026",
+        "isFixed": true,
+        "openTime": "2026-08-13T07:01:23.000Z",
+        "maturity": "2026-11-30T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "80000000",
+        "liquidationLtv": "86000000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xf61d02ae5d19fa11fc825dc565cfaf264720f6c4",
+          "underlyingAddr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "collateralAddr": "0x2d433b943fb8c015ae409444b7f960ed288082b4",
+          "ftAddr": "0x661ac78bab47907a7c76b7cf2eb76fcff124a381",
+          "xtAddr": "0xfd4d35ef0c996e3ec9780cffae8bc0c054aa4da6",
+          "gtAddr": "0xd58dd7cd72aea98fdaafbc4a965f4fcc49c68859"
+        },
+        "symbol": "USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "isFixed": true,
+        "openTime": "2026-05-27T05:03:47.000Z",
+        "maturity": "2026-08-30T02:00:00.000Z",
+        "treasurer": "0x719e77027952929ed3060dbffc5d43ec50c1cf79",
+        "defaultFeeConfig": {
+          "lendTakerFeeRatio": "2000000",
+          "lendMakerFeeRatio": "2000000",
+          "borrowTakerFeeRatio": "3000000",
+          "borrowMakerFeeRatio": "3000000",
+          "issueFtFeeRatio": "10000000",
+          "issueFtFeeRef": "6000000",
+          "redeemFeeRatio": "0",
+          "mintGtFeeRatio": "10000000",
+          "mintGtFeeRef": "6000000"
+        },
+        "liquidationWindowSeconds": 7200,
+        "maxLtv": "87500000",
+        "liquidationLtv": "89500000",
+        "liquidatable": true,
+        "isMatured": false,
+        "isEnabled": true,
+        "version": "v2_01"
+      }
+    ],
+    "orderConfigs": [
+      {
+        "contracts": {
+          "orderAddr": "0x024e43288be9196421dbc7aab726553efb7a11a9",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x148ffe0c1746db30c7fb01ff58f4e2a9f61c2058"
+        },
+        "symbol": "USDC/sUSDat@30AUG2026",
+        "makerAddress": "0x17337c22cf8b7c1b6fc86f0ef7fcf05a7fa93f48",
+        "makerIsVault": true,
+        "tags": [
+          "v2"
+        ],
+        "introduction": "USDC/sUSDat@30AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:26.490Z",
+        "createdAt": "2026-04-24T13:02:24.478Z",
+        "createdTxHash": "0x53f644491fa7b154130a460d272a98e1ba841d249d593b88e0fd25b16ea5e14c",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x6ad6ec320d326a3c2183fb28ba8334b8d410c354",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x163c7607d9838793af8db2c6940cf275d503b379"
+        },
+        "symbol": "RLUSD/USPC@25OCT2026",
+        "makerAddress": "0x8f60f914fa646b42018c0f9949add391f7cc0bf1",
+        "makerIsVault": false,
+        "tags": [
+          "v2",
+          "v2_01"
+        ],
+        "introduction": "RLUSD/USPC@25OCT2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:03:13.147Z",
+        "createdAt": "2026-07-30T02:00:27.080Z",
+        "createdTxHash": "0x2b3083b972916015b7461d37ccad53a5048f62737ab45615131c740699dc2278",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x7917b6eff4b4fdfc6c2512d0fe95457a2fd3d098",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x163c7607d9838793af8db2c6940cf275d503b379"
+        },
+        "symbol": "RLUSD/USPC@25OCT2026",
+        "makerAddress": "0x7a84fcb839beb377861001c6339a986b9e6d6d68",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01",
+          "lend",
+          "borrow"
+        ],
+        "introduction": "RLUSD/USPC@25OCT2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:03:18.107Z",
+        "createdAt": "2026-07-21T12:43:59.941Z",
+        "createdTxHash": "0xca4db6c6b7c0a7bda1b1f15568250480574f9f12fb9ac278d99187b5dd21d7dd",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xd66ac97e510fe8756a20e5815fdf5fb4129c0b8c",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x163c7607d9838793af8db2c6940cf275d503b379"
+        },
+        "symbol": "RLUSD/USPC@25OCT2026",
+        "makerAddress": "0x8f60f914fa646b42018c0f9949add391f7cc0bf1",
+        "makerIsVault": false,
+        "tags": [
+          "v2",
+          "v2_01"
+        ],
+        "introduction": "RLUSD/USPC@25OCT2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:03:13.149Z",
+        "createdAt": "2026-07-30T02:41:21.359Z",
+        "createdTxHash": "0xbfda28b8c4acdadb4725956ea27709af6b8a141a3102be9e1f9dcb33f18d8057",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x6738db424e698270daeec4d0599f0de3944640f3",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x17fbf5883ef9a8e0a756de8fdc95a4b5e20a3da8"
+        },
+        "symbol": "USDC/ROY-ST-stcUSD@31AUG2026",
+        "makerAddress": "0xf488ccdf04079cc03183cdb6a147d12cf97f9317",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01"
+        ],
+        "introduction": "USDC/ROY-ST-stcUSD@31AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:38.002Z",
+        "createdAt": "2026-07-09T08:32:24.807Z",
+        "createdTxHash": "0xdbb3b9e3ac7605d134169b6408ff5d1d9a1f5c0165123fe7380b14d629ccadb0",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x88ddb7986b2be1948abf8e37fee0c1e88b82a8c3",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x1fa88b874b97096498862337f30610c440d63a42"
+        },
+        "symbol": "USDU/reUSD@08OCT2026",
+        "makerAddress": "0x18d91b5e3218ab16ef86fb7cb054cb48ba1e8b8e",
+        "makerIsVault": true,
+        "tags": [
+          "v2"
+        ],
+        "introduction": "USDU/reUSD@08OCT2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:26.475Z",
+        "createdAt": "2025-11-29T16:25:39.489Z",
+        "createdTxHash": "0x8098e00bfeb8c2b330a8cb47d033be20b1a61200d499b2e71d3d4338061317c5",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x4619cb0446da38ee381e6fd15ab9161c134b2e18",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x4a640c87d048dbcdb1f27e1a5882fb7947446e7d"
+        },
+        "symbol": "RLUSD/USPC@15SEP2026",
+        "makerAddress": "0x7a84fcb839beb377861001c6339a986b9e6d6d68",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01",
+          "lend",
+          "borrow"
+        ],
+        "introduction": "RLUSD/USPC@15SEP2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:03:18.111Z",
+        "createdAt": "2026-06-17T04:20:06.236Z",
+        "createdTxHash": "0x1e8cb0ede264f3210768af69008fd5d912b06ac401bcc97abf3b325359b1babc",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x60848bd85c9bca6d388674b36e80e351bb281e5b",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x546c6395be470faea356706d66c89429ee0d1ef4"
+        },
+        "symbol": "USDC/srUSDat@30AUG2026",
+        "makerAddress": "0xf488ccdf04079cc03183cdb6a147d12cf97f9317",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01",
+          "borrow"
+        ],
+        "introduction": "USDC/srUSDat@30AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:06:47.319Z",
+        "createdAt": "2026-06-02T04:03:17.414Z",
+        "createdTxHash": "0x26cd4700334b6d007beca5e601a70f0568efa9c3e38a3a37d693741487feb374",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x4e77d2c0d61fe8de138e9269fbd8a9606dc44b57",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x57e92d2c565baf64958a4fc820563621dfb8f88d"
+        },
+        "symbol": "USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "makerAddress": "0xf488ccdf04079cc03183cdb6a147d12cf97f9317",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01"
+        ],
+        "introduction": "USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:37.998Z",
+        "createdAt": "2026-07-09T15:17:28.058Z",
+        "createdTxHash": "0x1b251bcbe704981d86555f10d0ec98d998985a12c059f2298e712120c814441c",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xc8b7a71b504cc9b9ab6dbdd1cba74dcb630e85f1",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x57e92d2c565baf64958a4fc820563621dfb8f88d"
+        },
+        "symbol": "USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "makerAddress": "0xf488ccdf04079cc03183cdb6a147d12cf97f9317",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01"
+        ],
+        "introduction": "USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:38.000Z",
+        "createdAt": "2026-07-09T08:33:23.772Z",
+        "createdTxHash": "0x078bd2c97ad43598a23f3a55cacf2e52da4355384ca84af368828e3c5291d29e",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x35f4d1e1cfa4ffc2aa2cf2bb85d44dd0fd63348f",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x776b9a6200c0f29b6c862e4d8e38a99ac3272110"
+        },
+        "symbol": "USDC/ynRWAx@16OCT2026",
+        "makerAddress": "0xe3662545b96032858c72d89a124bf62c6d3a5f5c",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "lend",
+          "borrow"
+        ],
+        "introduction": "USDC/ynRWAx@16OCT2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:03:24.176Z",
+        "createdAt": "2026-03-04T18:58:23.630Z",
+        "createdTxHash": "0xc62ac19f09e992550e5b5499e77d139609690ea2bfb5812263a503384c4c213d",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x3693b342e4488b404232b60f4be57233ee2a341b",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x776b9a6200c0f29b6c862e4d8e38a99ac3272110"
+        },
+        "symbol": "USDC/ynRWAx@16OCT2026",
+        "makerAddress": "0xf488ccdf04079cc03183cdb6a147d12cf97f9317",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "lend",
+          "borrow"
+        ],
+        "introduction": "USDC/ynRWAx@16OCT2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:03:19.128Z",
+        "createdAt": "2026-03-25T02:35:40.802Z",
+        "createdTxHash": "0xbec250a2841cd46618ddd7edaa2f5b538780c611cc52b336bc96f92e171d8049",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xe5eac0c1364ae4a9c2ca8660ef1c70c18bcac860",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x776b9a6200c0f29b6c862e4d8e38a99ac3272110"
+        },
+        "symbol": "USDC/ynRWAx@16OCT2026",
+        "makerAddress": "0x591342772bbc7d0630efbdea3c0b704e7addad17",
+        "makerIsVault": false,
+        "tags": [
+          "v2",
+          "borrow"
+        ],
+        "introduction": "USDC/ynRWAx@16OCT2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:03:13.172Z",
+        "createdAt": "2026-06-30T04:05:26.241Z",
+        "createdTxHash": "0xab0a4de9a48151d948a2cd8f91dccc038a420374c42a9b7df5da74603358a553",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x39f7f752952ea4f373cfcba7ef4f8f264f8de0b2",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x7a708678a40feed9ee43a83e594b29faf9ca0d12"
+        },
+        "symbol": "USDC/ROY-ST-stcUSD@31AUG2026",
+        "makerAddress": "0xf488ccdf04079cc03183cdb6a147d12cf97f9317",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01",
+          "borrow"
+        ],
+        "introduction": "USDC/ROY-ST-stcUSD@31AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:06:47.341Z",
+        "createdAt": "2026-07-21T17:01:45.329Z",
+        "createdTxHash": "0x47529bfb2c02c72d509839fe66771b2108d0e9d5b337f0e554533aaf4729ae85",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x07b1b4fbde98476b49122e474b9ef5565b8416a3",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x964089e98fd07895303d84acf75ddd8c932e3c26"
+        },
+        "symbol": "USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "makerAddress": "0x4677258576007fd8a150f7d4ee9cbc982914f15a",
+        "makerIsVault": false,
+        "tags": [
+          "v2"
+        ],
+        "introduction": "USDC/PT-sUSDat-27AUG2026@30AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:25.806Z",
+        "createdAt": "2026-05-02T20:24:38.486Z",
+        "createdTxHash": "0xd44656d31869ca5a43b9b8a32006f9ff1d278fcb9c0119350bd4642a66e680b9",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0x5367a8792b34bc4f5acb37505dee999bee0f2d1b",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0x9e1cbf7bde78078a75228bf26f850a99712dde47"
+        },
+        "symbol": "USDU/reUSD@08SEP2026",
+        "makerAddress": "0x18d91b5e3218ab16ef86fb7cb054cb48ba1e8b8e",
+        "makerIsVault": true,
+        "tags": [
+          "v2"
+        ],
+        "introduction": "USDU/reUSD@08SEP2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:26.505Z",
+        "createdAt": "2025-11-29T16:25:13.853Z",
+        "createdTxHash": "0x674f2b7721648abf584cfe9f2cbab8adbf52fc3e3bfc24cdb663c9cd34e8d54b",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xd60ddf662f79f85be458e8f39a0fa50816398231",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xa0cc103b19e29ff00430e412f1edf5cf374f719e"
+        },
+        "symbol": "USDU/reUSD@09NOV2026",
+        "makerAddress": "0x18d91b5e3218ab16ef86fb7cb054cb48ba1e8b8e",
+        "makerIsVault": true,
+        "tags": [
+          "v2"
+        ],
+        "introduction": "USDU/reUSD@09NOV2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:26.515Z",
+        "createdAt": "2025-11-29T16:26:27.132Z",
+        "createdTxHash": "0xa61450b0aa74279b589dbfa734a0d5771e09be984e01cb3cb19887bc2283a6d3",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xb3c38c7fe7ab13c60544801821dfe87fe1fff9aa",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xaf7560124faae12d4378ec030b7644f16b370ccc"
+        },
+        "symbol": "USDC/PT-USDat-27AUG2026@30AUG2026",
+        "makerAddress": "0x17337c22cf8b7c1b6fc86f0ef7fcf05a7fa93f48",
+        "makerIsVault": true,
+        "tags": [
+          "v2"
+        ],
+        "introduction": "USDC/PT-USDat-27AUG2026@30AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:40.040Z",
+        "createdAt": "2026-04-24T13:20:24.668Z",
+        "createdTxHash": "0x2f29f169bd18dbf669c4c7715e8230216570bd5469e545065f9faeea1dd8f95b",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xc6a813476e2bbc2ebbf444654b3d6e750473a397",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xaf7560124faae12d4378ec030b7644f16b370ccc"
+        },
+        "symbol": "USDC/PT-USDat-27AUG2026@30AUG2026",
+        "makerAddress": "0x17337c22cf8b7c1b6fc86f0ef7fcf05a7fa93f48",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "borrow"
+        ],
+        "introduction": "USDC/PT-USDat-27AUG2026@30AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:06:54.660Z",
+        "createdAt": "2026-04-25T10:18:20.164Z",
+        "createdTxHash": "0xfb7aedb6ceb87b3be65a329435f67615d93382480eb9988c66cab173d606b944",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xdec1f89090475d7ae030439d34ceff55d0eb48f4",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xaf7560124faae12d4378ec030b7644f16b370ccc"
+        },
+        "symbol": "USDC/PT-USDat-27AUG2026@30AUG2026",
+        "makerAddress": "0x17337c22cf8b7c1b6fc86f0ef7fcf05a7fa93f48",
+        "makerIsVault": true,
+        "tags": [
+          "v2"
+        ],
+        "introduction": "USDC/PT-USDat-27AUG2026@30AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:07:37.983Z",
+        "createdAt": "2026-04-24T16:00:25.810Z",
+        "createdTxHash": "0xd29d4e22a868d20a731e404e7170f934373874e7f1a0d5f7f6f6b23c9cfedd04",
+        "version": "v2"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xaf48078eef897cb0483bcfb28842131d17cd83ed",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xb7cf2714e3be17ea4082a4528076a97a8f3f4fc4"
+        },
+        "symbol": "USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "makerAddress": "0xf488ccdf04079cc03183cdb6a147d12cf97f9317",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01",
+          "borrow"
+        ],
+        "introduction": "USDC/ROY-ST-syrupUSDC@31AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:06:47.321Z",
+        "createdAt": "2026-07-21T17:07:12.937Z",
+        "createdTxHash": "0x54ca4a1151d9a60338825b9912c819a1555a1cde183f05b1871bea6182a3c424",
+        "version": "v2_01"
+      },
+      {
+        "contracts": {
+          "orderAddr": "0xdfbf38d4d891599162e7b98dd21a1a6260a85cab",
+          "routerAddr": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+          "marketAddr": "0xf61d02ae5d19fa11fc825dc565cfaf264720f6c4"
+        },
+        "symbol": "USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "makerAddress": "0xf488ccdf04079cc03183cdb6a147d12cf97f9317",
+        "makerIsVault": true,
+        "tags": [
+          "v2",
+          "v2_01",
+          "borrow"
+        ],
+        "introduction": "USDC/PT-srUSDat-27AUG2026@30AUG2026",
+        "incentive": {
+          "ft": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "xt": {
+            "apr": 0,
+            "apy": 0,
+            "thirdPartyRewards": []
+          },
+          "points": [
+            {
+              "ft": {
+                "value": "15",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Lend USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "xt": {
+                "value": "2",
+                "unit": "XP",
+                "text": "Daily XP Rewards, GT debt USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              },
+              "makerBorrowCurve": {
+                "value": "1",
+                "unit": "XP",
+                "text": "Daily XP Rewards, Borrow Maker(Limit Order) USD value",
+                "icon": "https://assets.public.ts.finance/xp-5.svg"
+              }
+            }
+          ]
+        },
+        "updatedAt": "2026-08-19T17:06:47.326Z",
+        "createdAt": "2026-06-02T04:03:24.087Z",
+        "createdTxHash": "0x940ad60ad9558da866c0157c7d5082bcf7e7d58e81cbf639aa17b3daef0fe7fc",
+        "version": "v2_01"
+      }
+    ]
+  }
+}

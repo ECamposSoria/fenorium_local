@@ -1,0 +1,30 @@
+{
+  "chain_id": 8453,
+  "chain": "Base",
+  "contract": "0x9283e86c2ab65c7880802db8df5258e1f0bde345",
+  "deploy_tx": "0xab98f758bdd8c9ed347d1b75ad7db0e51eb4428911a3510dad65c7a06abfb676",
+  "explorer": "https://basescan.org",
+  "current": 2,
+  "passports": [
+    {
+      "id": 2,
+      "verdict": "NO QUOTE",
+      "decision_hash": "0xd8162b231f8bf9c1aee1073ae65512557242438d9a18948253660d16de47d9f8",
+      "record_tx": "0x023cdd744a006a146fdc69c594d8b2868f3ae1364b3e82bcf4ccdca275151c34",
+      "block": 50287887,
+      "manifest": "0xd8162b231f8bf9c1aee1073ae65512557242438d9a18948253660d16de47d9f8.json",
+      "note": "Corrects passport 1. Names the Exactly market contract rather than the underlying asset, and records NO QUOTE because depth is unproven at every size."
+    },
+    {
+      "id": 1,
+      "verdict": "BID",
+      "superseded_by": 2,
+      "decision_hash": "0x0de6c3b9279aa93e90bb5134577ba2cc98ff4abe1dd5ffbc7f9ad62f36a93c9c",
+      "record_tx": "0x2fdbd8f9ed0d482570dc4c15e58eedc085ab3df3ce2521930010b59ed8cfe189",
+      "block": 50283565,
+      "outcome_tx": "0x1d0952f6df0e5ffa57d0b4d21e08cdbf0c7e41d70db579ab61ea72bd1dc79857",
+      "manifest": "0x0de6c3b9279aa93e90bb5134577ba2cc98ff4abe1dd5ffbc7f9ad62f36a93c9c.json",
+      "note": "Retained as evidence, not deleted. Advertised BID at 250,000 USDC while its own SIZE gate recorded that depth was unproven; the engine now refuses to construct it."
+    }
+  ]
+}

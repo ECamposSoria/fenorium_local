@@ -1,0 +1,350 @@
+{
+  "data": {
+    "morphoFixedMarkets": {
+      "items": [
+        {
+          "id": "0761ad8f-878c-4f25-bb20-456cba5e4ef0",
+          "maturity": 1785369600,
+          "state": {
+            "totalBorrowedAssetsUsd": "11000000000000000000",
+            "totalBorrowedAssets": 11000000,
+            "totalCollateralAssetsUsd": "654087954803297333319289563700000",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.039420011826,
+            "withdrawable": 8327179,
+            "totalBadDebt": 0,
+            "lossIndex": 0
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "07ae0d93-4452-4411-9284-9cb9e319c13f",
+          "maturity": 1797465600,
+          "state": {
+            "totalBorrowedAssetsUsd": "292961038000000000000",
+            "totalBorrowedAssets": 292961038,
+            "totalCollateralAssetsUsd": "19205477262922412664656228290000000",
+            "supplyRateApr": 0.04455349993224,
+            "borrowRateApr": null,
+            "withdrawable": 979999,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "297ac719-0533-45e6-9ba5-c11ad2d91753",
+          "maturity": 1785369600,
+          "state": {
+            "totalBorrowedAssetsUsd": 0,
+            "totalBorrowedAssets": 0,
+            "totalCollateralAssetsUsd": 0,
+            "supplyRateApr": null,
+            "borrowRateApr": 0.026280005256,
+            "withdrawable": 1522210251708018,
+            "totalBadDebt": 0,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "WETH",
+              "address": "0x4200000000000000000000000000000000000006"
+            }
+          }
+        },
+        {
+          "id": "40d85cfa-6ed6-49f6-82ef-5d217bfb08cd",
+          "maturity": 1795046400,
+          "state": {
+            "totalBorrowedAssetsUsd": "2510432159000000000000",
+            "totalBorrowedAssets": 2510432159,
+            "totalCollateralAssetsUsd": "709792625561142471409147917700000",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.032643691719264,
+            "withdrawable": 2865814,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "7249cede-ae6f-4d95-ac39-613fbdaf2fc6",
+          "maturity": 1787788800,
+          "state": {
+            "totalBorrowedAssetsUsd": "524062494486000000000000",
+            "totalBorrowedAssets": 524062494486,
+            "totalCollateralAssetsUsd": "309029024040442647092932923900000000000",
+            "supplyRateApr": 0.002474594725824,
+            "borrowRateApr": 0.002524690261008,
+            "withdrawable": 5403109522,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "80359830-0616-46d9-b793-7f152f212e7a",
+          "maturity": 1787788800,
+          "state": {
+            "totalBorrowedAssetsUsd": "419678604112000000000000",
+            "totalBorrowedAssets": 419678604112,
+            "totalCollateralAssetsUsd": "36008050552540839530014987",
+            "supplyRateApr": 0.010831915837728,
+            "borrowRateApr": 0.030573877352976,
+            "withdrawable": 15322547833,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "8d67ea88-1314-4a43-b458-a84347a5b5be",
+          "maturity": 1797465600,
+          "state": {
+            "totalBorrowedAssetsUsd": "62468427722700000000",
+            "totalBorrowedAssets": "30000000000000000",
+            "totalCollateralAssetsUsd": "73180088501723963627",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.002519106654528,
+            "withdrawable": 490000000000999,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "WETH",
+              "address": "0x4200000000000000000000000000000000000006"
+            }
+          }
+        },
+        {
+          "id": "9252fe7c-849d-4fc2-963d-ec2f6083aab4",
+          "maturity": 1790208000,
+          "state": {
+            "totalBorrowedAssetsUsd": "15801786271000000000000",
+            "totalBorrowedAssets": 15801786271,
+            "totalCollateralAssetsUsd": "23143629759047194252439909",
+            "supplyRateApr": 0.002572110502704,
+            "borrowRateApr": 0.020080036265328,
+            "withdrawable": 19041329,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "941f8409-b006-45d6-93a5-aaa26f3be46a",
+          "maturity": 1785369600,
+          "state": {
+            "totalBorrowedAssetsUsd": 0,
+            "totalBorrowedAssets": 0,
+            "totalCollateralAssetsUsd": "3253780522964141544",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.039420011826,
+            "withdrawable": 12227760,
+            "totalBadDebt": 0,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "a9526d4b-a2a0-4047-b876-fe027a8c5eaa",
+          "maturity": 1792627200,
+          "state": {
+            "totalBorrowedAssetsUsd": "12112478771000000000000",
+            "totalBorrowedAssets": 12112478771,
+            "totalCollateralAssetsUsd": "707760453598229452746484760200000",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.030371599835568,
+            "withdrawable": 7714020,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "b000118c-ee9b-4086-9b36-340870b3405c",
+          "maturity": 1795046400,
+          "state": {
+            "totalBorrowedAssetsUsd": "62468427722700000000",
+            "totalBorrowedAssets": "30000000000000000",
+            "totalCollateralAssetsUsd": "73126898346101034173",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.015295341617136,
+            "withdrawable": 389513938873834,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "WETH",
+              "address": "0x4200000000000000000000000000000000000006"
+            }
+          }
+        },
+        {
+          "id": "c7ed430f-f196-403f-a6bb-bf73b69326f1",
+          "maturity": 1792627200,
+          "state": {
+            "totalBorrowedAssetsUsd": "62468427722700000000",
+            "totalBorrowedAssets": "30000000000000000",
+            "totalCollateralAssetsUsd": "73046119721451121291",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.010133206555392,
+            "withdrawable": 490000000000107,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "WETH",
+              "address": "0x4200000000000000000000000000000000000006"
+            }
+          }
+        },
+        {
+          "id": "d01debfb-4a58-4f7b-89c8-0313ce68e3fc",
+          "maturity": 1795046400,
+          "state": {
+            "totalBorrowedAssetsUsd": "6790291742000000000000",
+            "totalBorrowedAssets": 6790291742,
+            "totalCollateralAssetsUsd": "14644488689291973995366186",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.04583764947888,
+            "withdrawable": 979999,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        },
+        {
+          "id": "d2d5d5e7-d724-4d1d-b77b-f6c3a226a2e3",
+          "maturity": 1787788800,
+          "state": {
+            "totalBorrowedAssetsUsd": "391505044296409572535701",
+            "totalBorrowedAssets": "188017399461845142747",
+            "totalCollateralAssetsUsd": "561226037966109606072612",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.00202874888088,
+            "withdrawable": "2326763213128605961",
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "WETH",
+              "address": "0x4200000000000000000000000000000000000006"
+            }
+          }
+        },
+        {
+          "id": "dad8c2b3-719c-429e-b0c0-e8b475bb9e0d",
+          "maturity": 1790208000,
+          "state": {
+            "totalBorrowedAssetsUsd": "62468427722700000000",
+            "totalBorrowedAssets": "30000000000000000",
+            "totalCollateralAssetsUsd": "72961448403495185693",
+            "supplyRateApr": null,
+            "borrowRateApr": 0.002024679759264,
+            "withdrawable": 490000000000999,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "WETH",
+              "address": "0x4200000000000000000000000000000000000006"
+            }
+          }
+        },
+        {
+          "id": "e02af02e-6fc5-463f-860f-e36bfecb7d6d",
+          "maturity": 1790208000,
+          "state": {
+            "totalBorrowedAssetsUsd": "208905210346000000000000",
+            "totalBorrowedAssets": 208905210346,
+            "totalCollateralAssetsUsd": "146010057320360531735929770500000000000",
+            "supplyRateApr": 0.010818515497536,
+            "borrowRateApr": 0.01519043771232,
+            "withdrawable": 1142424537,
+            "totalBadDebt": null,
+            "lossIndex": null
+          },
+          "tenorMarket": {
+            "chainId": 8453,
+            "loanToken": {
+              "symbol": "USDC",
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "extensions": {
+    "complexity": {
+      "estimated": 27,
+      "max": 1000
+    }
+  }
+}

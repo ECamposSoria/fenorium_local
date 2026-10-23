@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/outcome-bundle-v1.schema.json",
+  "title": "OutcomeBundle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "as_of",
+    "decision_hash",
+    "execution_id",
+    "state",
+    "lifi_transaction_id",
+    "source_tx",
+    "destination_tx",
+    "realized_costs",
+    "realized_position",
+    "expected_vs_realized",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {"const": "OutcomeBundle/v1"},
+    "method_version": {"type": "string", "minLength": 1},
+    "as_of": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "decision_hash": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "execution_id": {"type": "string", "minLength": 1},
+    "state": {
+      "type": "string",
+      "enum": [
+        "SETTLED",
+        "REFUNDED",
+        "EXPIRED"
+      ]
+    },
+    "lifi_transaction_id": {"type": ["string", "null"]},
+    "source_tx": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]+$"},
+    "destination_tx": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]+$"},
+    "realized_costs": {
+      "oneOf": [
+        {"$ref": "common.schema.json#/$defs/costLedger"},
+        {"type": "null"}
+      ]
+    },
+    "realized_position": {"type": ["object", "null"]},
+    "expected_vs_realized": {"type": "object"},
+    "evidence": {
+      "type": "array",
+      "items": {"type": "object"}
+    }
+  }
+}

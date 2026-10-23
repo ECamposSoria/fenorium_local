@@ -1,0 +1,1226 @@
+{
+ "schema_version": "fenorium/chains/1",
+ "fee_recipient": "0xC84ECe4538Ef02521383b0DdfF48F4Bd1bE171aE",
+ "chains": [
+  {
+   "chain_id": 1,
+   "key": "ethereum",
+   "name": "Ethereum",
+   "short": "ETH",
+   "label": "Ethereum",
+   "testnet": false,
+   "block_seconds": 12,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "ETHEREUM_RPC_URL",
+    "public": [
+     "https://ethereum-rpc.publicnode.com",
+     "https://eth.drpc.org",
+     "https://1rpc.io/eth"
+    ]
+   },
+   "explorer": "https://etherscan.io",
+   "blockscout_index": true,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "decimals": 6
+   },
+   "settlement": [
+    {
+     "symbol": "WETH",
+     "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "decimals": 18,
+     "stablecoin": false
+    },
+    {
+     "symbol": "USDC",
+     "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+     "decimals": 6,
+     "stablecoin": true
+    },
+    {
+     "symbol": "USDT",
+     "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+     "decimals": 6,
+     "stablecoin": true
+    },
+    {
+     "symbol": "DAI",
+     "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+     "decimals": 18,
+     "stablecoin": true
+    }
+   ],
+   "offer_native": true,
+   "ids": {
+    "defillama": "ethereum",
+    "coingecko_platform": "ethereum",
+    "llama_yields": [
+     "Ethereum"
+    ],
+    "spectra": "mainnet",
+    "pendle": true
+   },
+   "roles": [
+    "collect",
+    "buy",
+    "pay",
+    "portfolio"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 10,
+   "key": "optimism",
+   "name": "OP Mainnet",
+   "short": "OP",
+   "label": "OP Mainnet",
+   "testnet": false,
+   "block_seconds": 2,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "OPTIMISM_RPC_URL",
+    "public": [
+     "https://optimism-rpc.publicnode.com",
+     "https://mainnet.optimism.io",
+     "https://optimism.drpc.org"
+    ]
+   },
+   "explorer": "https://optimistic.etherscan.io",
+   "blockscout_index": true,
+   "blockscout_api": "https://optimism.blockscout.com/api",
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+    "decimals": 6
+   },
+   "settlement": [
+    {
+     "symbol": "WETH",
+     "address": "0x4200000000000000000000000000000000000006",
+     "decimals": 18,
+     "stablecoin": false
+    },
+    {
+     "symbol": "USDC",
+     "address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+     "decimals": 6,
+     "stablecoin": true
+    }
+   ],
+   "offer_native": true,
+   "ids": {
+    "defillama": "optimism",
+    "coingecko_platform": "optimistic-ethereum",
+    "llama_yields": [
+     "Optimism",
+     "OP Mainnet"
+    ],
+    "spectra": "optimism",
+    "pendle": true
+   },
+   "roles": [
+    "collect",
+    "buy",
+    "pay",
+    "portfolio"
+   ],
+   "fee_safe": "deployed"
+  },
+  {
+   "chain_id": 56,
+   "key": "bsc",
+   "name": "BNB Chain",
+   "short": "BSC",
+   "label": "BSC",
+   "testnet": false,
+   "block_seconds": 0.45,
+   "native": {
+    "symbol": "BNB",
+    "decimals": 18,
+    "coingecko_id": "binancecoin"
+   },
+   "rpc": {
+    "env": "BSC_RPC_URL",
+    "public": [
+     "https://bsc-rpc.publicnode.com",
+     "https://bsc-dataseed.binance.org",
+     "https://bsc.drpc.org"
+    ]
+   },
+   "explorer": "https://bscscan.com",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "decimals": 18
+   },
+   "settlement": [
+    {
+     "symbol": "ETH",
+     "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+     "decimals": 18,
+     "stablecoin": false
+    },
+    {
+     "symbol": "USDC",
+     "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+     "decimals": 18,
+     "stablecoin": true
+    }
+   ],
+   "offer_native": true,
+   "ids": {
+    "defillama": "bsc",
+    "coingecko_platform": "binance-smart-chain",
+    "llama_yields": [
+     "BSC",
+     "BNB Smart Chain",
+     "BNB Chain"
+    ],
+    "spectra": "bsc",
+    "pendle": true
+   },
+   "roles": [
+    "collect",
+    "buy",
+    "pay",
+    "portfolio"
+   ],
+   "fee_safe": "deployed"
+  },
+  {
+   "chain_id": 100,
+   "key": "gnosis",
+   "name": "Gnosis",
+   "short": "GNO",
+   "label": "Gnosis",
+   "testnet": false,
+   "block_seconds": 5,
+   "native": {
+    "symbol": "xDAI",
+    "decimals": 18,
+    "coingecko_id": "xdai"
+   },
+   "rpc": {
+    "env": "GNOSIS_RPC_URL",
+    "public": [
+     "https://rpc.gnosischain.com"
+    ]
+   },
+   "explorer": "https://gnosis.blockscout.com",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "xdai",
+    "coingecko_platform": "xdai",
+    "llama_yields": [
+     "Gnosis",
+     "xDai"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 130,
+   "key": "unichain",
+   "name": "Unichain",
+   "short": "UNI",
+   "label": "Unichain",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "UNICHAIN_RPC_URL",
+    "public": [
+     "https://mainnet.unichain.org"
+    ]
+   },
+   "explorer": "https://unichain.blockscout.com",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x078D782b760474a361dDA0AF3839290b0EF57AD6",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "unichain",
+    "coingecko_platform": "unichain",
+    "llama_yields": [
+     "Unichain"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 137,
+   "key": "polygon",
+   "name": "Polygon",
+   "short": "POL",
+   "label": "Polygon",
+   "testnet": false,
+   "block_seconds": 1.5,
+   "native": {
+    "symbol": "POL",
+    "decimals": 18,
+    "coingecko_id": "polygon-ecosystem-token"
+   },
+   "rpc": {
+    "env": "POLYGON_RPC_URL",
+    "public": [
+     "https://polygon-bor-rpc.publicnode.com"
+    ]
+   },
+   "explorer": "https://polygonscan.com",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "polygon",
+    "coingecko_platform": "polygon-pos",
+    "llama_yields": [
+     "Polygon"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 143,
+   "key": "monad",
+   "name": "Monad",
+   "short": "MON",
+   "label": "Monad",
+   "testnet": false,
+   "block_seconds": 0.3,
+   "native": {
+    "symbol": "MON",
+    "decimals": 18,
+    "coingecko_id": "monad"
+   },
+   "rpc": {
+    "env": "MONAD_RPC_URL",
+    "public": [
+     "https://rpc.monad.xyz"
+    ]
+   },
+   "explorer": "https://monadscan.com",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "monad",
+    "coingecko_platform": "monad",
+    "llama_yields": [
+     "Monad"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 146,
+   "key": "sonic",
+   "name": "Sonic",
+   "short": "S",
+   "label": "Sonic",
+   "testnet": false,
+   "block_seconds": 1.25,
+   "native": {
+    "symbol": "S",
+    "decimals": 18,
+    "coingecko_id": "sonic-3"
+   },
+   "rpc": {
+    "env": "SONIC_RPC_URL",
+    "public": [
+     "https://rpc.soniclabs.com"
+    ]
+   },
+   "explorer": "https://explorer.soniclabs.com",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "sonic",
+    "coingecko_platform": "sonic",
+    "llama_yields": [
+     "Sonic"
+    ],
+    "spectra": "sonic",
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 196,
+   "key": "xlayer",
+   "name": "XLayer",
+   "short": "XLAYER",
+   "label": "XLayer",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "OKB",
+    "decimals": 18,
+    "coingecko_id": "okb"
+   },
+   "rpc": {
+    "env": "XLAYER_RPC_URL",
+    "public": [
+     "https://rpc.xlayer.tech"
+    ]
+   },
+   "explorer": "https://www.oklink.com/xlayer",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x74b7F16337b8972027F6196A17a631aC6dE26d22",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "xlayer",
+    "coingecko_platform": "x-layer",
+    "llama_yields": [
+     "X Layer",
+     "XLayer"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 324,
+   "key": "zksync",
+   "name": "zkSync",
+   "short": "ZKSYNC",
+   "label": "zkSync",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "ZKSYNC_RPC_URL",
+    "public": [
+     "https://mainnet.era.zksync.io"
+    ]
+   },
+   "explorer": "https://explorer.zksync.io",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "era",
+    "coingecko_platform": "zksync",
+    "llama_yields": [
+     "zkSync Era",
+     "ZKsync Era",
+     "zkSync"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 480,
+   "key": "worldchain",
+   "name": "World Chain",
+   "short": "WLD",
+   "label": "World Chain",
+   "testnet": false,
+   "block_seconds": 2,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "WORLDCHAIN_RPC_URL",
+    "public": [
+     "https://worldchain-mainnet.g.alchemy.com/public"
+    ]
+   },
+   "explorer": "https://worldscan.org",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x79A02482A880bCE3F13e09Da970dC34db4CD24d1",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "wc",
+    "coingecko_platform": "world-chain",
+    "llama_yields": [
+     "World Chain"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 999,
+   "key": "hyperevm",
+   "name": "HyperEVM",
+   "short": "HYPE",
+   "label": "HyperEVM",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "HYPE",
+    "decimals": 18,
+    "coingecko_id": "hyperliquid"
+   },
+   "rpc": {
+    "env": "HYPERLIQUID_RPC_URL",
+    "public": [
+     "https://rpc.hyperliquid.xyz/evm"
+    ]
+   },
+   "explorer": "https://hyperevmscan.io",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0xb88339CB7199b77E23DB6E890353E22632Ba630f",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "hyperliquid",
+    "coingecko_platform": "hyperevm",
+    "llama_yields": [
+     "Hyperliquid L1",
+     "HyperEVM",
+     "Hyperliquid"
+    ],
+    "spectra": null,
+    "pendle": true
+   },
+   "roles": [
+    "collect",
+    "buy",
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 1672,
+   "key": "pharos",
+   "name": "Pharos",
+   "short": "PROS",
+   "label": "Pharos",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "PROS",
+    "decimals": 18,
+    "coingecko_id": "pharos-network"
+   },
+   "rpc": {
+    "env": "PHAROS_RPC_URL",
+    "public": [
+     "https://rpc.pharos.xyz"
+    ]
+   },
+   "explorer": "https://www.pharosscan.xyz",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0xC879C018dB60520F4355C26eD1a6D572cdAC1815",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "pharos",
+    "coingecko_platform": "pharos",
+    "llama_yields": [
+     "Pharos"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 2818,
+   "key": "morph",
+   "name": "Morph",
+   "short": "MORPH",
+   "label": "Morph",
+   "testnet": false,
+   "block_seconds": 1.8,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "MORPH_RPC_URL",
+    "public": [
+     "https://rpc.morph.network"
+    ]
+   },
+   "explorer": "https://explorer.morph.network",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0xCfb1186F4e93D60E60a8bDd997427D1F33bc372B",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "morph",
+    "coingecko_platform": "morph-l2",
+    "llama_yields": [
+     "Morph",
+     "Morph L2"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 4326,
+   "key": "megaeth",
+   "name": "MegaETH",
+   "short": "MEGA",
+   "label": "MegaETH",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "MEGAETH_RPC_URL",
+    "public": [
+     "https://mainnet.megaeth.com/rpc"
+    ]
+   },
+   "explorer": "https://mega.etherscan.io",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDm",
+    "address": "0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7",
+    "decimals": 18
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "megaeth",
+    "coingecko_platform": "megaeth",
+    "llama_yields": [
+     "MegaETH"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "collect",
+    "buy",
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 5000,
+   "key": "mantle",
+   "name": "Mantle",
+   "short": "MNT",
+   "label": "Mantle",
+   "testnet": false,
+   "block_seconds": 2,
+   "native": {
+    "symbol": "MNT",
+    "decimals": 18,
+    "coingecko_id": "mantle"
+   },
+   "rpc": {
+    "env": "MANTLE_RPC_URL",
+    "public": [
+     "https://rpc.mantle.xyz"
+    ]
+   },
+   "explorer": "https://explorer.mantle.xyz",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "mantle",
+    "coingecko_platform": "mantle",
+    "llama_yields": [
+     "Mantle"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 5042,
+   "key": "arc",
+   "name": "Arc",
+   "short": "ARC",
+   "label": "Arc",
+   "testnet": false,
+   "block_seconds": 0.5,
+   "native": {
+    "symbol": "USDC",
+    "decimals": 18,
+    "coingecko_id": "usd-coin"
+   },
+   "rpc": {
+    "env": "ARC_RPC_URL",
+    "public": [
+     "https://rpc.drpc.mainnet.arc.io",
+     "https://rpc.mainnet.arc.io",
+     "https://arc.drpc.org"
+    ]
+   },
+   "explorer": "https://explorer.arc.io",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x3600000000000000000000000000000000000000",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": false,
+   "ids": {
+    "defillama": "arc",
+    "coingecko_platform": "arc",
+    "llama_yields": [
+     "Arc"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "collect",
+    "buy",
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 8453,
+   "key": "base",
+   "name": "Base",
+   "short": "BASE",
+   "label": "Base",
+   "testnet": false,
+   "block_seconds": 2,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "BASE_RPC_URL",
+    "public": [
+     "https://base-rpc.publicnode.com",
+     "https://mainnet.base.org",
+     "https://base.drpc.org",
+     "https://1rpc.io/base"
+    ]
+   },
+   "explorer": "https://basescan.org",
+   "blockscout_index": true,
+   "blockscout_api": "https://base.blockscout.com/api",
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "decimals": 6
+   },
+   "settlement": [
+    {
+     "symbol": "WETH",
+     "address": "0x4200000000000000000000000000000000000006",
+     "decimals": 18,
+     "stablecoin": false
+    },
+    {
+     "symbol": "USDC",
+     "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+     "decimals": 6,
+     "stablecoin": true
+    }
+   ],
+   "offer_native": true,
+   "ids": {
+    "defillama": "base",
+    "coingecko_platform": "base",
+    "llama_yields": [
+     "Base"
+    ],
+    "spectra": "base",
+    "pendle": true
+   },
+   "roles": [
+    "collect",
+    "buy",
+    "pay",
+    "portfolio"
+   ],
+   "fee_safe": "deployed"
+  },
+  {
+   "chain_id": 42161,
+   "key": "arbitrum",
+   "name": "Arbitrum",
+   "short": "ARB",
+   "label": "Arbitrum",
+   "testnet": false,
+   "block_seconds": 0.25,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "ARBITRUM_RPC_URL",
+    "public": [
+     "https://arbitrum-one-rpc.publicnode.com",
+     "https://arb1.arbitrum.io/rpc",
+     "https://arbitrum.drpc.org"
+    ]
+   },
+   "explorer": "https://arbiscan.io",
+   "blockscout_index": true,
+   "blockscout_api": "https://arbitrum.blockscout.com/api",
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "decimals": 6
+   },
+   "settlement": [
+    {
+     "symbol": "WETH",
+     "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+     "decimals": 18,
+     "stablecoin": false
+    },
+    {
+     "symbol": "USDC",
+     "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+     "decimals": 6,
+     "stablecoin": true
+    }
+   ],
+   "offer_native": true,
+   "ids": {
+    "defillama": "arbitrum",
+    "coingecko_platform": "arbitrum-one",
+    "llama_yields": [
+     "Arbitrum"
+    ],
+    "spectra": "arbitrum",
+    "pendle": true
+   },
+   "roles": [
+    "collect",
+    "buy",
+    "pay",
+    "portfolio"
+   ],
+   "fee_safe": "deployed"
+  },
+  {
+   "chain_id": 42220,
+   "key": "celo",
+   "name": "Celo",
+   "short": "CELO",
+   "label": "Celo",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "CELO",
+    "decimals": 18,
+    "coingecko_id": "celo"
+   },
+   "rpc": {
+    "env": "CELO_RPC_URL",
+    "public": [
+     "https://forno.celo.org"
+    ]
+   },
+   "explorer": "https://celoscan.io",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "celo",
+    "coingecko_platform": "celo",
+    "llama_yields": [
+     "Celo"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 43114,
+   "key": "avalanche",
+   "name": "Avalanche",
+   "short": "AVAX",
+   "label": "Avalanche",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "AVAX",
+    "decimals": 18,
+    "coingecko_id": "avalanche-2"
+   },
+   "rpc": {
+    "env": "AVALANCHE_RPC_URL",
+    "public": [
+     "https://api.avax.network/ext/bc/C/rpc"
+    ]
+   },
+   "explorer": "https://snowtrace.io",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "avax",
+    "coingecko_platform": "avalanche",
+    "llama_yields": [
+     "Avalanche",
+     "Avalanche C-Chain"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 57073,
+   "key": "ink",
+   "name": "Ink",
+   "short": "INK",
+   "label": "Ink",
+   "testnet": false,
+   "block_seconds": 1,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "INK_RPC_URL",
+    "public": [
+     "https://rpc-gel.inkonchain.com"
+    ]
+   },
+   "explorer": "https://explorer.inkonchain.com",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x2D270e6886d130D724215A266106e6832161EAEd",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "ink",
+    "coingecko_platform": "ink",
+    "llama_yields": [
+     "Ink"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 59144,
+   "key": "linea",
+   "name": "Linea",
+   "short": "LINEA",
+   "label": "Linea",
+   "testnet": false,
+   "block_seconds": 2,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "LINEA_RPC_URL",
+    "public": [
+     "https://rpc.linea.build"
+    ]
+   },
+   "explorer": "https://lineascan.build",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "linea",
+    "coingecko_platform": "linea",
+    "llama_yields": [
+     "Linea"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  },
+  {
+   "chain_id": 84532,
+   "key": "base-sepolia",
+   "name": "Base Sepolia",
+   "short": "BASE-SEPOLIA",
+   "label": "Base Sepolia",
+   "testnet": true,
+   "block_seconds": 2,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "BASE_SEPOLIA_RPC_URL",
+    "public": [
+     "https://sepolia.base.org",
+     "https://base-sepolia-rpc.publicnode.com"
+    ]
+   },
+   "explorer": "https://sepolia.basescan.org",
+   "blockscout_index": true,
+   "blockscout_api": "https://base-sepolia.blockscout.com/api",
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": null,
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": null,
+    "coingecko_platform": null,
+    "llama_yields": [
+     "Base Sepolia"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "portfolio",
+    "demo"
+   ],
+   "fee_safe": null
+  },
+  {
+   "chain_id": 534352,
+   "key": "scroll",
+   "name": "Scroll",
+   "short": "SCROLL",
+   "label": "Scroll",
+   "testnet": false,
+   "block_seconds": 3,
+   "native": {
+    "symbol": "ETH",
+    "decimals": 18,
+    "coingecko_id": "ethereum"
+   },
+   "rpc": {
+    "env": "SCROLL_RPC_URL",
+    "public": [
+     "https://rpc.scroll.io"
+    ]
+   },
+   "explorer": "https://scrollscan.com",
+   "blockscout_index": false,
+   "blockscout_api": null,
+   "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+   "usdc": {
+    "symbol": "USDC",
+    "address": "0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4",
+    "decimals": 6
+   },
+   "settlement": [],
+   "offer_native": true,
+   "ids": {
+    "defillama": "scroll",
+    "coingecko_platform": "scroll",
+    "llama_yields": [
+     "Scroll"
+    ],
+    "spectra": null,
+    "pendle": false
+   },
+   "roles": [
+    "pay"
+   ],
+   "fee_safe": "deployable"
+  }
+ ]
+}

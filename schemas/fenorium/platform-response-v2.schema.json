@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/platform-response-v2.schema.json",
+  "title": "Fenorium Platform Response v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "execution_enabled",
+    "fees_enabled",
+    "data"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fenorium/platform-response/2"
+    },
+    "execution_enabled": {
+      "type": "boolean"
+    },
+    "fees_enabled": {
+      "type": "boolean"
+    },
+    "data": {
+      "type": "object"
+    }
+  },
+  "description": "Emitted only by a deployment configured to charge a routing fee. v1 pins fees_enabled to false and is never edited; a reader built for v1 therefore refuses this rather than misreading a fee-charging deployment as one that charges nothing."
+}

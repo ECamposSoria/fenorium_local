@@ -1,0 +1,38 @@
+{
+  "schema_version": "fenorium/testnet-mocks-deployment/1",
+  "chain_id": 84532,
+  "eas": "0x4200000000000000000000000000000000000021",
+  "schema_registry": "0x4200000000000000000000000000000000000020",
+  "schema_uid": "0xc6c30d8537afcc25aca394ef6b70c65d8378ae3a9416a9944c2f75e6feb71823",
+  "trusted_attester": "0xda909368646277cc22842bd5dbb83e5923858411",
+  "payment_token": {
+    "symbol": "mUSDC",
+    "address": "0xfecb2eff5603b44dad440561ca3cd889f29239ac",
+    "deployed_block": 46270271,
+    "faucet_method": "mint(address,uint256)"
+  },
+  "instruments": {
+    "mGT": {
+      "address": "0xe72a18adf4fdb9df991ad4218b7199d324214f54",
+      "deployed_block": 45828366,
+      "desk": "0x4c4b088c374363e70e3fd4dadc6c71b3970f91db",
+      "sale": "0x4b0b98996db072cc05765dfd256459fd6972d619",
+      "gated": true
+    },
+    "mPT": {
+      "address": "0x5c8ea45363e98e8647ee3759ac888e12817e86a3",
+      "deployed_block": 45828367,
+      "desk": "0xfecd071fcbcdfc27a2ea189e527a1e7eb90299e5",
+      "sale": "0x9829ba1b645be0f8ec27f4679d533c3dbb8de194",
+      "gated": false
+    },
+    "mFT": {
+      "address": "0x3e3cb7d30181e1df2db97fce867adcc5a0c08f1e",
+      "deployed_block": 46597172
+    },
+    "mVY": {
+      "address": "0xfd9c6631d34d23df4a3e27f9c760cea4cdefc906",
+      "deployed_block": 46597173
+    }
+  }
+}

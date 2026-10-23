@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/mandate-result.schema.json",
+  "title": "MandateResult v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "reason_codes", "protocol_concentration_bps", "detail"],
+  "properties": {
+    "status": {"type": "string", "enum": ["PASS", "REJECTED", "UNRESOLVED"]},
+    "reason_codes": {
+      "type": "array",
+      "items": {"$ref": "common.schema.json#/$defs/reasonCode"},
+      "uniqueItems": true
+    },
+    "protocol_concentration_bps": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "detail": {"type": "string"}
+  }
+}

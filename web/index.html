@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fenorium evidence-first fixed-income terminal">
+    <link rel="icon" href="assets/brand/fenorium-mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="terminal.css">
+    <title>Fenorium Terminal</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#market" aria-label="Fenorium market">
+        <img class="brand-mark" src="assets/brand/fenorium-mark.svg" alt="" width="28" height="28">
+        <span>FENORIUM</span>
+      </a>
+
+      <div class="header-tools">
+        <button class="account-pill" id="connect-wallet" type="button" aria-describedby="wallet-status">
+          <img class="account-avatar" src="assets/brand/fenorium-avatar-1024.png" alt="" width="24" height="24">
+          <span>
+            <b id="account-short">Connect</b>
+            <small id="wallet-status">Wallet optional · read-only market</small>
+          </span>
+        </button>
+        <select id="global-chain" aria-label="Connected chain" disabled>
+          <option value="">No connected chain</option>
+        </select>
+        <label class="header-search">
+          <svg class="inline-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="m16 16 4.5 4.5"></path>
+          </svg>
+          <span class="sr-only">Search instruments</span>
+          <input id="global-search" type="search" placeholder="Search instruments, chains, or issuers…">
+          <kbd>⌘K</kbd>
+        </label>
+        <time id="terminal-clock" datetime="">—</time>
+        <button class="icon-button" type="button" data-tab="settings" aria-current="false" aria-label="Open settings">
+          <svg class="inline-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3.5v3"></path>
+            <path d="M12 17.5v3"></path>
+            <path d="M3.5 12h3"></path>
+            <path d="M17.5 12h3"></path>
+            <circle cx="12" cy="12" r="4.25"></circle>
+          </svg>
+        </button>
+        <span class="status-indicator" id="connection-indicator" role="img" aria-label="Market service status: local UI ready"></span>
+      </div>
+    </header>
+
+    <div class="freshness-banner" id="universe-status" aria-live="polite">
+      <span class="status-symbol" aria-hidden="true">●</span>
+      <strong>Loading fixed-income universe…</strong>
+    </div>
+
+    <div class="app-shell">
+      <aside class="utility-rail" aria-label="Utilities">
+        <nav class="rail-primary" id="primary-nav" aria-label="Primary navigation">
+<button class="nav-link" type="button" data-tab="overview" aria-current="false" title="Needs wallet" aria-describedby="overview-nav-state"><svg class="rail-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z M4 10h16 M10 10v10"></path></svg><span>Portfolio</span><small id="overview-nav-state">Needs wallet</small></button>
+<button class="nav-link" type="button" data-tab="market" aria-current="page"><svg class="rail-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18l5-6 5 3 8-11"></path></svg><span>Market</span></button>
+        </nav><div class="rail-bottom">
+        <button type="button" data-tab="wallet" aria-current="false" aria-label="Open wallet">
+          <svg class="rail-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3.5" y="5" width="17" height="14" rx="2"></rect>
+            <path d="M3.5 8h17"></path>
+            <path d="M16 12h4.5v3H16a1.5 1.5 0 0 1 0-3Z"></path>
+          </svg>
+          <span>Wallet</span>
+        </button>
+        <button type="button" data-tab="settings" aria-current="false" aria-label="Open settings">
+          <svg class="rail-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3.5v3"></path>
+            <path d="M12 17.5v3"></path>
+            <path d="M3.5 12h3"></path>
+            <path d="M17.5 12h3"></path>
+            <circle cx="12" cy="12" r="4.25"></circle>
+          </svg>
+          <span>Settings</span>
+        </button>
+        </div>
+      </aside>
+
+      <main id="app-main" tabindex="-1">
+        <section class="view" data-view="overview">
+          <div id="wallet-switcher" class="wallet-switcher"></div>
+          <div id="portfolio-header"></div>
+          <nav class="portfolio-tabs" id="portfolio-tabs" aria-label="Portfolio sections"></nav>
+          <div id="portfolio-deferred" hidden></div>
+          <section class="overview-empty panel" id="overview-empty" aria-labelledby="overview-empty-title">
+            <p class="eyebrow">Portfolio · wallet required</p>
+            <h2 id="overview-empty-title">See the book you actually hold</h2>
+            <p id="overview-empty-message">Connect a wallet, or add one to watch, to view its registered positions, valuation coverage, allocation, and risk gates. No portfolio values are shown before that.</p>
+            <div class="overview-empty-actions">
+              <button class="primary-action" id="connect-overview-wallet" type="button">Connect wallet</button>
+              <button class="ghost" id="view-sample-book" type="button">View a sample book</button>
+            </div>
+          </section>
+
+          <div id="overview-content" hidden>
+            <div class="sample-book-banner" id="sample-book-banner" role="status" hidden>
+              <strong>SAMPLE BOOK · Illustrative data, not your wallet</strong>
+              <span>Illustrative only · not your wallet holdings</span>
+              <button class="ghost" id="hide-sample-book" type="button">Return to empty Overview</button>
+            </div>
+          <div id="portfolio-screen"></div>
+          <details class="diagnostics">
+            <summary>Snapshot provenance and registered-chain coverage</summary>
+            <div class="grid-2">
+              <div id="chain-statuses"></div>
+              <div id="snapshot-provenance"></div>
+            </div>
+          </details>
+          </div>
+          <section id="venue-positions" class="panel" hidden></section>
+          <section id="lending-orders" class="panel" hidden></section>
+        </section>
+
+        <section class="view active" data-view="market">
+          <div class="page-title">
+            <div>
+              <h1 id="fixed-income-title">Fixed-Income Market</h1>
+              <p id="market-subtitle">Read-only universe</p>
+            </div>
+            <p class="market-boundary" id="market-boundary">Market remains usable without a wallet · Mainnet execution disabled</p>
+          </div>
+
+          <section class="market-strip panel" aria-label="Market summary and notional">
+            <div class="kpi-strip" id="market-metrics"></div>
+            <div class="notional-inline">
+              <span class="notional-heading">
+                <b id="notional-title">Notional</b>
+                <details class="notional-info">
+                  <summary aria-label="Notional model and depth-gate information"><span aria-hidden="true">ⓘ</span></summary>
+                  <div id="notional-model-help">
+                  Reported depth below notional refuses the rating; depth is not TVL. A stated flat
+                  30 bp base fee applies at every size. Additional impact is a <b>modelled estimate</b> using
+                  100 bp × (size / reported depth)<sup>1/2</sup>, rounded up to integer bps. It is
+                  not measured slippage or a live executable quote.
+                </div>
+              </details>
+              </span>
+              <div class="notional-presets" aria-label="Notional presets">
+                <button class="ghost" type="button" data-notional="10000">$10k</button>
+                <button class="ghost" type="button" data-notional="50000">$50k</button>
+                <button class="ghost" type="button" data-notional="250000">$250k</button>
+                <button class="ghost" type="button" data-notional="1000000">$1M</button>
+              </div>
+              <label class="sr-only" for="market-notional">Notional in USD</label>
+              <div class="notional-entry">
+                <span aria-hidden="true">$</span>
+                <input id="market-notional" type="text" inputmode="numeric" value="250000" aria-describedby="notional-status" aria-details="notional-model-help">
+                <button class="ghost" id="apply-notional" type="button">Apply</button>
+              </div>
+            </div>
+          </section>
+          <p class="notional-status" id="notional-status" aria-live="polite">Loading size-aware priceability…</p>
+
+          <section class="market-workspace">
+            <div class="market-main">
+              <div class="market-tabs-row">
+                <div class="market-tabs" id="market-tabs" role="tablist" aria-label="Market category"></div>
+                <div class="market-tabs-actions">
+                  <button class="ghost score-toggle" id="score-toggle" type="button" aria-pressed="false">Score 60+</button>
+                  <button class="ghost" id="clear-filters" type="button" hidden>Clear filters</button>
+                </div>
+              </div>
+              <div class="toolbar">
+                <label class="toolbar-search">
+                  <span class="sr-only">Search market rows</span>
+                  <input id="market-search" type="search" placeholder="Search instruments, venues, chains…">
+                </label>
+                <label class="filter-chip"><select id="filter-verdict" aria-label="Filter by Fenorium Score"><option value="">All scores</option></select></label>
+                <label class="filter-chip"><span>Chain</span><select id="filter-chain" aria-label="Filter by chain"><option value="">All</option></select></label>
+                <label class="filter-chip"><span>Venue</span><select id="filter-venue" aria-label="Filter by venue"><option value="">All</option></select></label>
+                <label class="filter-chip"><span>Tier</span><select id="filter-tier" aria-label="Filter by tier"><option value="">All</option></select></label>
+                <label class="filter-chip"><span>Maturity</span><select id="filter-maturity" aria-label="Filter by maturity"><option value="">All</option></select></label>
+              </div>
+
+              <div class="table-actions">
+                <p class="selection-help" id="compare-selection-label">Select 2–5 instruments to compare. Selection persists across pages.</p>
+                <div class="table-actions-buttons">
+                  <button class="ghost" id="columns-toggle" type="button" aria-expanded="false" aria-controls="columns-menu">Columns</button>
+                  <button class="ghost" id="compare-open" type="button" aria-controls="compare-panel">
+                    Compare <span class="count-badge" id="compare-count">0</span>
+                  </button>
+                  <button class="ghost" id="export-market" type="button">Export</button>
+                </div>
+                <div class="columns-menu" id="columns-menu" hidden></div>
+              </div>
+
+              <div class="table-scroll market-table-wrap">
+                <table class="market-table">
+                  <thead id="market-head"></thead>
+                  <tbody id="fixed-income-table"></tbody>
+                </table>
+              </div>
+
+              <div class="pager">
+                <span id="market-range">—</span>
+                <div id="market-pages"></div>
+              </div>
+
+              <section class="compare-panel" id="compare-panel" hidden aria-labelledby="compare-title">
+                <header class="compare-header">
+                  <div>
+                    <p class="eyebrow">Side-by-side facts</p>
+                    <h2 id="compare-title">Compare instruments</h2>
+                  </div>
+                  <button class="icon-button" id="compare-close" type="button" aria-label="Close comparison">×</button>
+                </header>
+                <div id="compare-content"></div>
+              </section>
+            </div>
+
+            <aside class="inspector" id="market-inspector" hidden></aside>
+          </section>
+
+          <div class="chart-grid market-charts">
+            <section class="panel">
+              <header><h2>Headline Yield by Maturity</h2></header>
+              <div id="yield-chart"></div>
+            </section>
+            <section class="panel">
+              <header><h2>Fenorium Score Distribution</h2></header>
+              <div id="verdict-chart"></div>
+            </section>
+            <section class="panel">
+              <header>
+                <h2>Depth by Chain</h2>
+                <span>Reported depth, not TVL</span>
+              </header>
+              <div id="depth-chart"></div>
+            </section>
+          </div>
+          <div id="market-route-quotes" aria-live="polite" hidden></div>
+        </section>
+
+        <section class="view" data-view="wallet">
+          <div class="page-title"><div><h1>Wallet</h1><p>The account that signs, and the wallets you watch.</p></div></div>
+          <div id="wallet-screen"></div>
+        </section>
+
+        <section class="view" data-view="settings">
+          <div class="page-title"><div><h1>Settings</h1><p>What this browser remembers, and the few defaults worth keeping.</p></div></div>
+          <div id="settings-screen"></div>
+        </section>
+
+        <section class="view asset-view" data-view="asset">
+          <button class="back-link" id="back-to-market" type="button">← Market</button>
+          <div class="page-title">
+            <div>
+              <p id="asset-breadcrumb">Market / Instrument</p>
+              <h1 id="asset-title">Instrument</h1>
+              <p id="asset-subtitle">—</p>
+            </div>
+            <button class="ghost" id="copy-address" type="button">Copy address</button>
+          </div>
+          <nav class="asset-tabs" aria-label="Instrument sections">
+            <button type="button" data-asset-tab="summary" aria-current="page">Summary</button>
+            <button type="button" data-asset-tab="analytics" aria-current="false">Analytics</button>
+          </nav>
+          <div id="asset-content"></div>
+          <div id="asset-route-quotes" aria-live="polite" hidden></div>
+          <div class="preserved-mounts" aria-hidden="true">
+            <div id="risk-metrics"></div>
+            <div id="concentration-panel"></div>
+            <table><tbody id="maturity-table"></tbody></table>
+            <pre id="evidence-preview"></pre>
+            <div id="execution-blockers"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <section class="assistant-drawer" id="assistant-panel" hidden aria-labelledby="assistant-title">
+      <header>
+        <div>
+          <p class="eyebrow">Local, grounded explanation</p>
+          <h2 id="assistant-title">Fenorium Assistant</h2>
+        </div>
+        <button class="icon-button" id="assistant-close" type="button" aria-label="Close assistant">×</button>
+      </header>
+      <p>I explain deterministic facts. I do not compute yields, verdicts, rankings, routes, or transactions.</p>
+      <label>Local pairing token<input id="pairing-token" type="password" autocomplete="off"></label>
+      <label>Question<input id="assistant-question" type="text" placeholder="Why is this result unavailable?"></label>
+      <button class="ghost" id="send-assistant" type="button">Explain selected facts</button>
+      <div class="assistant-answer" id="assistant-answer" aria-live="polite">No explanation requested. Deterministic output is complete.</div>
+      <section class="assistant-facts" aria-labelledby="assistant-facts-title">
+        <h3 id="assistant-facts-title">Grounded facts</h3>
+        <div id="assistant-facts"></div>
+      </section>
+      <div class="assistant-status" id="assistant-status" aria-live="polite">No local assistant connected. The terminal remains complete.</div>
+    </section>
+    <button class="assistant-pill" id="assistant-toggle" type="button" aria-controls="assistant-panel" aria-expanded="false">
+      <svg class="inline-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"></path>
+        <path d="m19 16 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"></path>
+      </svg>
+      <span>Explain</span>
+    </button>
+
+    <footer><div>Non-custodial. Read-only analytics. Fenorium does not hold or move your assets.</div><div>Fixed-Income Intelligence. On-chain. Transparent. Private. <span id="build-id"></span></div></footer>
+
+    <!-- Existing contract vocabulary: Portfolio · Fixed Income · Risk · Maturity · Evidence / Passports · Execute -->
+    <!-- prefers-reduced-motion is defined in styles.css. -->
+    <button class="sr-only" id="execution-boundary-sr" type="button" disabled aria-disabled="true">Mainnet execution disabled</button>
+    <script src="icon-catalog.js" defer></script>
+    <script src="portfolio.js" defer></script>
+    <script src="routes.js" defer></script>
+    <script src="prices.js" defer></script>
+    <script src="charts.js" defer></script>
+    <script src="ui.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>

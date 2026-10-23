@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/common.schema.json",
+  "title": "Fenorium portfolio common contracts",
+  "$defs": {
+    "blockReference": {
+      "type": "object",
+      "properties": {
+        "chain_id": {"type": "integer"},
+        "block_number": {"type": "integer", "minimum": 0},
+        "block_hash": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]+$"},
+        "finalized": {"type": "boolean"},
+        "finality": {"type": "string", "pattern": "^(finalized|safe|depth-[0-9]+)$"}
+      },
+      "if": {"required": ["finality"], "properties": {"finality": {"const": "finalized"}}},
+      "then": {"properties": {"finalized": {"const": true}}},
+      "else": {
+        "if": {"required": ["finality"]},
+        "then": {"properties": {"finalized": {"const": false}}}
+      }
+    },
+    "utcTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "usdMicros": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "USD amount in integer microdollars (1 USD = 1000000)"
+    },
+    "bps": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000,
+      "description": "Basis points"
+    },
+    "fixedUsdPrice": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "USD price at fixed PRICE_SCALE = 100000000"
+    },
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{64}$",
+      "description": "32-byte hexadecimal commitment or digest"
+    },
+    "reasonCode": {
+      "type": "string",
+      "enum": [
+        "COMPUTED",
+        "REGISTERED_ASSETS_ONLY",
+        "ZERO_BALANCE",
+        "ADAPTER_ERROR",
+        "UNSUPPORTED_CHAIN",
+        "DEMO_CHAIN_NOT_ENABLED",
+        "UNRESOLVED_POSITION",
+        "ENUMERATION_UNAVAILABLE",
+        "HISTORY_TRUNCATED",
+        "HISTORY_UNAVAILABLE",
+        "ENUMERATION_TRUNCATED",
+        "UNREGISTERED_ASSET",
+        "MISSING_PRICE",
+        "STALE_INPUT",
+        "INSUFFICIENT_SOURCES",
+        "SOURCE_CONFLICT",
+        "VALUE_COVERAGE_NOT_COMPUTABLE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_COVERAGE",
+        "INCOMPATIBLE_MARKING_FREQUENCY",
+        "MISSING_LIQUIDITY",
+        "MISSING_EXECUTION_QUOTE",
+        "METHODOLOGY_NOT_APPLICABLE",
+        "LEGAL_REVIEW_REQUIRED",
+        "VELA_UNAVAILABLE",
+        "PERMISSION_UNKNOWN",
+        "NO_BID",
+        "NO_QUOTE",
+        "MISSING_COST",
+        "VARIABLE_INCOME_OPT_IN_REQUIRED",
+        "VARIABLE_INCOME_LIMIT_EXCEEDED",
+        "ISSUER_NOT_ALLOWED",
+        "PROTOCOL_NOT_ALLOWED",
+        "CHAIN_NOT_ALLOWED",
+        "LIQUIDITY_FLOOR_FAIL",
+        "MATURITY_LIMIT_FAIL",
+        "CREDENTIAL_REQUIREMENT_FAIL",
+        "PROTOCOL_CONCENTRATION_FAIL",
+        "MANDATE_PASS",
+        "ES_REDUCTION",
+        "INCOME_INCREASE",
+        "SUFFICIENT_DEPTH",
+        "EVIDENCE_STALE",
+        "QUOTE_EXPIRED",
+        "INVALID_TRANSITION",
+        "OUTCOME_ALREADY_WRITTEN"
+      ]
+    },
+    "capabilityResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "status",
+        "reason_code",
+        "detail",
+        "evidence"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "fenorium/capability-result/v1"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "SUPPORTED",
+            "CONTEXT_ONLY",
+            "UNRESOLVED",
+            "UNSUPPORTED"
+          ]
+        },
+        "reason_code": {
+          "$ref": "#/$defs/reasonCode"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "metricResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "schema_version",
+        "value",
+        "unit",
+        "method_version",
+        "as_of",
+        "window",
+        "frequency",
+        "observations",
+        "coverage_bps",
+        "reason_code",
+        "excluded_positions",
+        "sources",
+        "assumptions",
+        "limitations"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "fenorium/metric-result/v1"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "COMPUTED",
+            "NOT_COMPUTABLE",
+            "INTERNAL_POLICY_ONLY"
+          ]
+        },
+        "value": {
+          "type": [
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "description": "Never a JSON number with fractional precision"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "method_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "as_of": {
+          "$ref": "#/$defs/utcTimestamp"
+        },
+        "window": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "frequency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observations": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "coverage_bps": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "reason_code": {
+          "$ref": "#/$defs/reasonCode"
+        },
+        "excluded_positions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "costLedger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_swap_usd_micros",
+        "price_impact_usd_micros",
+        "bridge_usd_micros",
+        "integrator_fee_usd_micros",
+        "fenorium_fee_usd_micros",
+        "destination_venue_usd_micros",
+        "gas_usd_micros",
+        "entry_usd_micros",
+        "total_usd_micros",
+        "complete",
+        "missing_components"
+      ],
+      "properties": {
+        "source_swap_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "price_impact_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "bridge_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "integrator_fee_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 0
+        },
+        "fenorium_fee_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 0
+        },
+        "destination_venue_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "gas_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "entry_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "total_usd_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "missing_components": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "source_swap_usd_micros",
+              "price_impact_usd_micros",
+              "bridge_usd_micros",
+              "integrator_fee_usd_micros",
+              "fenorium_fee_usd_micros",
+              "destination_venue_usd_micros",
+              "gas_usd_micros",
+              "entry_usd_micros"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

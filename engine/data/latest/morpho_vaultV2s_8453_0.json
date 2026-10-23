@@ -1,0 +1,6015 @@
+{
+  "data": {
+    "vaultV2s": {
+      "pageInfo": {
+        "countTotal": 2174
+      },
+      "items": [
+        {
+          "address": "0x00086Bb197946B943f87dDcd449e05b4F99b0385",
+          "symbol": "",
+          "netApy": 0.032854423385431805,
+          "totalAssetsUsd": 1.0036935117437817
+        },
+        {
+          "address": "0x00174b759Cdc962133db7A0029AF9831ED04084b",
+          "symbol": "",
+          "netApy": 0.03285442205988536,
+          "totalAssetsUsd": 1.0100120355763882
+        },
+        {
+          "address": "0x002fBabB63561D0481570ECDAC9Bbe27E9310166",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x003da122F5865531bEF9078eea6391d1b1C8BEAA",
+          "symbol": "",
+          "netApy": 0.03703640476198925,
+          "totalAssetsUsd": 1.0148509050937637
+        },
+        {
+          "address": "0x00531c35b5A4922e57e3bfE901F93D3798e3F84b",
+          "symbol": "Test",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x005dA0717b53f5afa09C202C6f64F2B0Fab9ab97",
+          "symbol": "",
+          "netApy": 0.0349433011018071,
+          "totalAssetsUsd": 1.0017739601996989
+        },
+        {
+          "address": "0x0083dFc0c11b52F62c03eC137f4c948055DF96F2",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0068887652515364
+        },
+        {
+          "address": "0x00941F64c4397b67e1acDBeb576637de81aC57A7",
+          "symbol": "SDFSDF",
+          "netApy": 0.015674978546402075,
+          "totalAssetsUsd": 2.0967980465361933e-06
+        },
+        {
+          "address": "0x00Cc39b44f74ad55fcb958925e2F4978C1466f7c",
+          "symbol": "bbqUSDC",
+          "netApy": 0.038820258431301116,
+          "totalAssetsUsd": 1.4517358376948866
+        },
+        {
+          "address": "0x00a028FeF752f66De5359aF2689451D401c338bE",
+          "symbol": "kpk_USDC_Morpho",
+          "netApy": -9.899508684698121e-05,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x00a3e9d81e2b1391A601593Ac8C12e9a513f114C",
+          "symbol": "",
+          "netApy": 0.037036406259266956,
+          "totalAssetsUsd": 1.0066698164035395
+        },
+        {
+          "address": "0x010d8096499d0d601a82C5E0d7216eD9976636FB",
+          "symbol": "",
+          "netApy": 0.034945472141821976,
+          "totalAssetsUsd": 1.0148479057944761
+        },
+        {
+          "address": "0x012f6f383F13BD437DFBfCBe94D1A8C5fC40E650",
+          "symbol": "ueSL-BR12-G",
+          "netApy": 0.08888927150441202,
+          "totalAssetsUsd": 23159.675794446404
+        },
+        {
+          "address": "0x014E68EF0FDD16ac6a3eedaD42284Ed49Cb1DeFd",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x01EB25A573F1e86f46326B0DD1b4AB344ccB168E",
+          "symbol": "ueSF-BR12",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x01Fb7F4f156256bc0084421330305bA50a83501B",
+          "symbol": "CAMP",
+          "netApy": 0.041230494780955675,
+          "totalAssetsUsd": 9.997664292098455e-07
+        },
+        {
+          "address": "0x01afD5fa7E69Ce5f506C166D2fcbfb12488412AF",
+          "symbol": "SUHY",
+          "netApy": 0.03290254815904492,
+          "totalAssetsUsd": 2088524.2393854351
+        },
+        {
+          "address": "0x020052e2577795E23d8619E07554e4F7FAc424cd",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x02068ec196a7324B8106B790575E44149482c821",
+          "symbol": "TC",
+          "netApy": 0.015674978546402075,
+          "totalAssetsUsd": 2.09660221739891e-06
+        },
+        {
+          "address": "0x02223C3B84Af9C9f10f68707536CEc3DA1870bBb",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0018589403461817
+        },
+        {
+          "address": "0x023532696D4DE0816Cb575B7f5CC705A30612D82",
+          "symbol": "TFW4",
+          "netApy": 0.030458385749269547,
+          "totalAssetsUsd": 1.0146769457350813
+        },
+        {
+          "address": "0x0266b79EBFe049BbE1709aF15A14104c2238F873",
+          "symbol": "",
+          "netApy": 0.037036406259266956,
+          "totalAssetsUsd": 1.010487924396692
+        },
+        {
+          "address": "0x0282159ecCaabA941bD1f4C518944D8fDCdc0681",
+          "symbol": "CSBUSDC",
+          "netApy": 0.04149622424099806,
+          "totalAssetsUsd": 21.19472337515923
+        },
+        {
+          "address": "0x028A0Eed5ccA3f7082Dad9d025EA774F6B9871EB",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x02C354aEd511cA8F05Dd65e275F43302D866832F",
+          "symbol": "",
+          "netApy": 0.03913617786584469,
+          "totalAssetsUsd": 1.0108408419462032
+        },
+        {
+          "address": "0x02D43B32fAf27c6844973F051dCb6361325a62F4",
+          "symbol": "TV",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x02bEE62C4008A9023dD9f22D23586973001850aD",
+          "symbol": "ekisde",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x02bFdEcb15D88999a8BA441133684535ed7ed296",
+          "symbol": "",
+          "netApy": 0.03285646126737713,
+          "totalAssetsUsd": 1.011330727496516
+        },
+        {
+          "address": "0x02cB399eBdd54c8AB098456C6b467A5FDfa12e78",
+          "symbol": "TEST",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x02ce3647472eBCFc91a5A3Fbb06032c4bD3Df59d",
+          "symbol": "vaultUSDC",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0190189313371396
+        },
+        {
+          "address": "0x030d7a7236e4ad0747B44eD8E3Add3D41657623e",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.005394114439868
+        },
+        {
+          "address": "0x03161CEc05b9718287a8b99260cd54916Ad21857",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0036675178166226
+        },
+        {
+          "address": "0x03354b096454234AeF13970A5D54dbf32e50E6BD",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x035b9F18edf7a118fA698C9561ea8F9759A7e4c9",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0128023836803128
+        },
+        {
+          "address": "0x03BF39a05B63aec8f9440a14bc0f5618c4391115",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0066448222428093
+        },
+        {
+          "address": "0x03f98CC6dBf0F74910c16AF794D1Cf9b64b4f2C9",
+          "symbol": "",
+          "netApy": 0.037036406259266956,
+          "totalAssetsUsd": 6.101367565816841
+        },
+        {
+          "address": "0x0413aBDf389BB291a539BAEa8D225E758EBb99ef",
+          "symbol": "test",
+          "netApy": -0.048770575493639494,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0430999C54b20b604627bbFc427dfc55FD85e8dd",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0096711152240276
+        },
+        {
+          "address": "0x0437570E6D0E61c20693b3e63269318502f6E687",
+          "symbol": "USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0439B7737741FFd7a136E56CaF6A7244f234b30d",
+          "symbol": "MTFW",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x045DAd8fC561d27403F87D2cEe39Ff66ea8680C4",
+          "symbol": "",
+          "netApy": 0.02041064764333519,
+          "totalAssetsUsd": 1.0049862097367501
+        },
+        {
+          "address": "0x045a32996EE9A30FEBaFa9E5B6414b954Be5FA97",
+          "symbol": "",
+          "netApy": 0.038713936722628635,
+          "totalAssetsUsd": 2.9992992876295368e-06
+        },
+        {
+          "address": "0x04871D1Fae8f6e1d133DbDdEED8d52Ca2497E048",
+          "symbol": "ueSL-BR12-G",
+          "netApy": 0,
+          "totalAssetsUsd": 1.9995328584196912
+        },
+        {
+          "address": "0x04B9Dfd99640B76bdaFb2B7ab226e5B2781c3Fb0",
+          "symbol": "DeADVault USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x04F22296E9846854a7b72Bf9AB6Aa2527DC174b3",
+          "symbol": "tUSDC",
+          "netApy": 0.00045061545799999754,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x0506Dad48cAf48C4001569b457F7c21871a802EE",
+          "symbol": "gsirloinUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x050cE30b927Da55177A4914EC73480238BAD56f0",
+          "symbol": "gtusdcp",
+          "netApy": 0.04123787552381342,
+          "totalAssetsUsd": 84466544.57630627
+        },
+        {
+          "address": "0x050ecEfD7FcA97d53eacD1FbC366Df265fd29f3A",
+          "symbol": "",
+          "netApy": 0.03703640476198925,
+          "totalAssetsUsd": 1.0036815145466313
+        },
+        {
+          "address": "0x051A9c01d3c8BA067d3007fa4FcaF50E6C55e919",
+          "symbol": "SINCV5",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x0548A36028FFdc7D5aaA7A182f0d1FE0264F5A5C",
+          "symbol": "k3USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x054F6824862B2614a580F572088e9629a5bba66F",
+          "symbol": "bbqUSDC",
+          "netApy": 0.038820259479628666,
+          "totalAssetsUsd": 0.0104185659587958
+        },
+        {
+          "address": "0x0558daa589e1E4F27D93dEb9a06A5A61cC2A15a6",
+          "symbol": "Test",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x05D4Bc5BC7c115db1Fb3b53863E2Ee5f29EB0e01",
+          "symbol": "",
+          "netApy": 0.0349433011018071,
+          "totalAssetsUsd": 1.0130763196819161
+        },
+        {
+          "address": "0x05D8fcC9aD3538C55B1045f1aFaE34B807F092bA",
+          "symbol": "USDC",
+          "netApy": 0.03496521458078428,
+          "totalAssetsUsd": 1.033418567217049
+        },
+        {
+          "address": "0x05DEB0fD37Dcfdb5051e0d088F3628329182a35d",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0000083726857145
+        },
+        {
+          "address": "0x05F899Dfd83cA2d9E6F0Eb1aD27E4e8260E664fD",
+          "symbol": "zenUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.19995328584196914
+        },
+        {
+          "address": "0x05aFeA05DFFDcD5a12EdED2A3b630e3d66246D85",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x05be6f02cee64E1706fc06b7f1C7458f8e8c641B",
+          "symbol": "TT",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x060EAf56Cd1937C85CceA47f093758e4a0639E34",
+          "symbol": "",
+          "netApy": 0.03703640476198925,
+          "totalAssetsUsd": 1.000788190500498
+        },
+        {
+          "address": "0x060b5d11B1303FaB362bAF100EB37601F04C2AFD",
+          "symbol": "ueSL-BR3",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x0630a5B3A1f0Fd7a159eF6d9E7a37b63160E46BF",
+          "symbol": "gprimeUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x063B6a73a648BfC904c6C57f0Aaf1A3654339fF7",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.014851904860193
+        },
+        {
+          "address": "0x0686Ddc15d13EE6b20149B6f28F155fa8646c2f3",
+          "symbol": "",
+          "netApy": 0.03703640476198925,
+          "totalAssetsUsd": 1.012769391388149
+        },
+        {
+          "address": "0x069547E082Ee7595135c90959fe890DC1F486f07",
+          "symbol": "",
+          "netApy": 0.03703640476198925,
+          "totalAssetsUsd": 1.0058400102672955
+        },
+        {
+          "address": "0x06AEa411ca78964d13b7166Dc62C3FDa7f48f02e",
+          "symbol": "",
+          "netApy": 0.03285646126737713,
+          "totalAssetsUsd": 1.0123784827143278
+        },
+        {
+          "address": "0x06Ab184918C7797Fbb43Cf9ff3731576828e40E7",
+          "symbol": "",
+          "netApy": 0.03285646126737713,
+          "totalAssetsUsd": 1.0062519140361297
+        },
+        {
+          "address": "0x06DBeC0B590DbA1b3aa49f5f44864dDAe6D67308",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0706c610f713BDbeEbfA2EbCc8a315B450070CfA",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0114906901251894
+        },
+        {
+          "address": "0x071FF6bBc5848fc542FA68d45E13854C2d01bE8E",
+          "symbol": "WV",
+          "netApy": -0.048770575493639494,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x072796a00aaf655fA3bddCa04E29dDb98E90d902",
+          "symbol": "ttt",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x072E37B1D938442cE57f86206CE0D3FEB6672bc0",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0737B3B9FD3b85830017Bf54C7AA839be4E10704",
+          "symbol": "",
+          "netApy": 0.034945472141821976,
+          "totalAssetsUsd": 1.01161666069527
+        },
+        {
+          "address": "0x07540AeeD4B12408c87365417aE7CE59A966CA47",
+          "symbol": "kgtUSDCf",
+          "netApy": 0.04994364672615314,
+          "totalAssetsUsd": 1.0106618837553745
+        },
+        {
+          "address": "0x078A3C2e03051267C85caD968994055e80e04733",
+          "symbol": "TT",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x07B2cBfc3F8f5c9E82f5A0730523cB2f7B094183",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 1.0397570863782395
+        },
+        {
+          "address": "0x07B95F937618dDd3e46d10d0Fd5f8192B3b8EaA9",
+          "symbol": "JTW",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x07D011cb2dD69A4076D1DcD8A0D09F0A85EA0651",
+          "symbol": "",
+          "netApy": 0.02040938849583643,
+          "totalAssetsUsd": 1.0058400102672955
+        },
+        {
+          "address": "0x07c739E6ca171316Cb7565ac28A189dDCee184A4",
+          "symbol": "",
+          "netApy": 0.02040938849583643,
+          "totalAssetsUsd": 0.9998474102906116
+        },
+        {
+          "address": "0x080fbf6E5a3d623B2Ede59A92EC0634f391e26d5",
+          "symbol": "",
+          "netApy": 0.03703870815944712,
+          "totalAssetsUsd": 1.0103659528923283
+        },
+        {
+          "address": "0x08223d8500ECBB67755C4727A1bB352F94d0540f",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x082931CC102aafF91DA8Ec44950a13d3EFD7b8F7",
+          "symbol": "",
+          "netApy": 0.028689303740979975,
+          "totalAssetsUsd": 1.0073176650496676
+        },
+        {
+          "address": "0x082EF08d70d9694d19F79547F1Af691ef50D1be6",
+          "symbol": "TA",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x08357b06F5A808fDc0CcD2343e18958CCD115D7f",
+          "symbol": "",
+          "netApy": 0.03703640326452562,
+          "totalAssetsUsd": 1.0007541984419048
+        },
+        {
+          "address": "0x08405E73bE2D7CA21Cc930d49583325CfaF45f84",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x087D8D3611cD2fD5B71b4E23320a01cfB9B590Ef",
+          "symbol": "Test",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x087aC3c53DeD2F07F1fD452b2f5708077f358e6f",
+          "symbol": "",
+          "netApy": 0.03703870666465981,
+          "totalAssetsUsd": 1.000012371751431
+        },
+        {
+          "address": "0x08B5997BE0616832ee27453E301251482C6bbA8B",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.0016729837903489
+        },
+        {
+          "address": "0x08a73a2cEE4672442b37C5c045f59491e77A5a0E",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.0065628413956142
+        },
+        {
+          "address": "0x08b737797b1c05EbC5AeF5d7EFf4D66DBc7aFf50",
+          "symbol": "",
+          "netApy": 0.03285442112081202,
+          "totalAssetsUsd": 1.0136861772037342
+        },
+        {
+          "address": "0x08cC6A8bB9870aF9eB583E5122Ac11872f2b88E0",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.0019469197919522
+        },
+        {
+          "address": "0x08cc279532f159BdB450eBc0bAf6562f585Ded58",
+          "symbol": "bitmxnbp",
+          "netApy": 0.07999831953295664,
+          "totalAssetsUsd": 254979.11661493557
+        },
+        {
+          "address": "0x0911819c5d0e3c2315295dc3349Bf5dd8aD7Df63",
+          "symbol": "",
+          "netApy": 0.03703640370125419,
+          "totalAssetsUsd": 1.0131593002955406
+        },
+        {
+          "address": "0x09355c2f2Ef576121899a20E533d51D77f6A33b3",
+          "symbol": "TGN/USDS",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x095415265956FB53DEB3339F492E9D0f80B6089C",
+          "symbol": "",
+          "netApy": 0.03703640370125419,
+          "totalAssetsUsd": 0.9998584077213328
+        },
+        {
+          "address": "0x0978e378CC0a0e2C5aCf7BD77ae7340570d4C6A8",
+          "symbol": "",
+          "netApy": 0.03703640370125419,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x098820846e60E1094DA299AEdA7aFB6D9b14c337",
+          "symbol": "",
+          "netApy": 0.0204093879159875,
+          "totalAssetsUsd": 10186.127730260205
+        },
+        {
+          "address": "0x098A23332008Cffaf283E3b0e8EcDEcfDeb6849c",
+          "symbol": "uePF-BR6",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x0994e8dC1458d81B5a943D82ce30dB742DdDdB5F",
+          "symbol": "",
+          "netApy": 0.020410646228673234,
+          "totalAssetsUsd": 1.002283841078596
+        },
+        {
+          "address": "0x09DD31a126c64014f8435Ed93a3c488F17708d33",
+          "symbol": "US",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x0A14Ef1Eb00a1ccC589Ae66925e9324029185421",
+          "symbol": "",
+          "netApy": 0.03871634211141865,
+          "totalAssetsUsd": 1.0061119467360407
+        },
+        {
+          "address": "0x0A41B515EE34aD5e6f798DbAE1F86088Ed48FfdB",
+          "symbol": "knees weak",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x0A42e90223bEd029c28c3a13B50536F899bC9e98",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.007280673691787
+        },
+        {
+          "address": "0x0A5D83c2798841A656D5Ef0028bf587CeAA1140e",
+          "symbol": "USDR",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0A6e9658cd7b36a8a457F867012CE809f65180A8",
+          "symbol": "",
+          "netApy": 0.030771664864230337,
+          "totalAssetsUsd": 1.0000133715178605
+        },
+        {
+          "address": "0x0A8C0c9dF4946b8de026481b66973c2D50a0cf4A",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.0021288772820685
+        },
+        {
+          "address": "0x0AA8F49e77D48D9C00e482fE56ee789c0F639322",
+          "symbol": "",
+          "netApy": 0.02040938708146033,
+          "totalAssetsUsd": 1.0049202251524223
+        },
+        {
+          "address": "0x0AB51Cc04274F281116316795321D722e5d7c323",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0B0Eb968EA86922b21D82F4F8FE3876463E5374b",
+          "symbol": "",
+          "netApy": 0.04123788693681852,
+          "totalAssetsUsd": 1.0087343340798578
+        },
+        {
+          "address": "0x0B7ee82ad75B2D3fc7f3A110A51ba68714171D25",
+          "symbol": "UniversalUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 34.14089682075051
+        },
+        {
+          "address": "0x0C1687b8349db4288cd0899A355c6eEF478f6870",
+          "symbol": "rUSDC",
+          "netApy": 0.02005534333874914,
+          "totalAssetsUsd": 0.5250713300224357
+        },
+        {
+          "address": "0x0C7D89cA76c40F82239C9b643745Ed735A1A172a",
+          "symbol": "",
+          "netApy": 0.020410646228673234,
+          "totalAssetsUsd": 1.01124974641575
+        },
+        {
+          "address": "0x0CEEbe72d3c0d984348B49DBf84B1e64776fE49D",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.000012371751431
+        },
+        {
+          "address": "0x0Cb802a213f5A2A60b9f8Afa872f3617c4Dfa502",
+          "symbol": "steakUSDC",
+          "netApy": 0.03907735650122633,
+          "totalAssetsUsd": 0.010366578104476889
+        },
+        {
+          "address": "0x0Cc08425c81442581EEFD22c2D8d81b45008A1a5",
+          "symbol": "WT",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x0D9ED233558eeA126FBbD78CFf51353f5BBd4c9a",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.002750732001037
+        },
+        {
+          "address": "0x0F3081C274e45d0F5e031358AD7bEE817CD9Dec2",
+          "symbol": "",
+          "netApy": 0.03787482838545673,
+          "totalAssetsUsd": 1.0055600756671166
+        },
+        {
+          "address": "0x0F457aa0AfD3D208cbfEE520804118f88965a529",
+          "symbol": "kshUSDCp",
+          "netApy": 0.037036402174628585,
+          "totalAssetsUsd": 1.006404878299799
+        },
+        {
+          "address": "0x0F8400E474B8644b07e7C23390b8Cd4487755387",
+          "symbol": "",
+          "netApy": 0.037036402174628585,
+          "totalAssetsUsd": 0.9999283913713776
+        },
+        {
+          "address": "0x0F9ee43211F786761ACac8064c3ebf103FE0B3Ed",
+          "symbol": "TT21",
+          "netApy": 0.00244570130613174,
+          "totalAssetsUsd": 2.0976576224191395e-06
+        },
+        {
+          "address": "0x0Fd51ADd1D0F6B4Fb88c5afe466d011997878b45",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0a5c5Db85a9c329326101D73069957A7Ca1a56a7",
+          "symbol": "steakUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0a6AddF0f73eBa258D2701666127551301C0BF33",
+          "symbol": "",
+          "netApy": 0.03703640370125419,
+          "totalAssetsUsd": 1.0050331987589232
+        },
+        {
+          "address": "0x0b7E7bf6452BFCE0d730f59A686d319017C1dB67",
+          "symbol": "",
+          "netApy": 0.03913374046251066,
+          "totalAssetsUsd": 1.0097341005090679
+        },
+        {
+          "address": "0x0b85eDE1dDF594b05eDA65a558a95000096a5c2b",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0bA050572B9d6aF7CB3f65Aa7f88bFb20BEB94E4",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0c01315e4aef8fe999287824Bd3aCee25F7f6Fe6",
+          "symbol": "galphaUSDCPrime",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0c6fF31FE3a60fd949f5C8A31F7Ca54a006dA192",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.0100100360435296
+        },
+        {
+          "address": "0x0c7b11A4fc665Fdf196BA64335304E6965b1A27e",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 1.0035625423415555
+        },
+        {
+          "address": "0x0cCd88F8E6cF031AAc02Df594961f2Ff48e368e4",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0d53FD98410352d0f092A38c3230d319E6b2fD57",
+          "symbol": "",
+          "netApy": 0.039973860719503734,
+          "totalAssetsUsd": 1.0028607063082502
+        },
+        {
+          "address": "0x0d5cda4c67B75D6F18c3Ac0Db276411b046ebe4e",
+          "symbol": "TT",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x0db5a4A245Dd9eA61087851164715c6c861d534C",
+          "symbol": "ACV-mgAutoTest-coll",
+          "netApy": 0.03299478100121386,
+          "totalAssetsUsd": 4.003263736075635
+        },
+        {
+          "address": "0x0e42FAa581E3D5e358F6AC7Ad66B4b6Cfb13CF15",
+          "symbol": "",
+          "netApy": 0.02040938708146033,
+          "totalAssetsUsd": 1.0032246212884826
+        },
+        {
+          "address": "0x0e511CC08Faec78DfF5A7350b15581F4586Be932",
+          "symbol": "",
+          "netApy": 0.03703870557156098,
+          "totalAssetsUsd": 11.508362354722422
+        },
+        {
+          "address": "0x0e59471b6f74e76b617572D1aAB789F5d4741D48",
+          "symbol": "AKA",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0e5b0Cba01850E86070FDF18A4c0dC865E3A4364",
+          "symbol": "",
+          "netApy": 0.03494329866312078,
+          "totalAssetsUsd": 1.0135921991593886
+        },
+        {
+          "address": "0x0e7717D3ea653cEec669d099C6b7FaF63Ec50ca8",
+          "symbol": "jkljlksf",
+          "netApy": 0.015674977839129828,
+          "totalAssetsUsd": 2.0975476082028184e-06
+        },
+        {
+          "address": "0x0eD4c2cfff2Ec06079e723F51aeFC8cdF073ea68",
+          "symbol": "ueVF",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x0f23384bDb9153C694B64F27a9b59B2F4d890262",
+          "symbol": "",
+          "netApy": 0.02040938708146033,
+          "totalAssetsUsd": 1.0012090921671954
+        },
+        {
+          "address": "0x0f7bAF9977C20c4Bc331c7394cfCC13c3e40a9C4",
+          "symbol": "V2SS",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x0f87229682Ef2a2dEf9f7C36518C409053ec6699",
+          "symbol": "",
+          "netApy": 0.03494546970264067,
+          "totalAssetsUsd": 1.0148479057944761
+        },
+        {
+          "address": "0x0f8C303e9f964717a7A7c2afA79309290359DeC5",
+          "symbol": "gfgdfg",
+          "netApy": 0.00244570130613174,
+          "totalAssetsUsd": 2.0974562365454743e-06
+        },
+        {
+          "address": "0x0f9c2d70690817a501411D86e9E4ba12fECB7863",
+          "symbol": "",
+          "netApy": 0.04123531724396154,
+          "totalAssetsUsd": 1.0031466395070041
+        },
+        {
+          "address": "0x0fb66747755F223061970c479293F27E7C8F0c5C",
+          "symbol": "gCSYUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x10158847742E51e7A2B3e08f2b7599895207aD08",
+          "symbol": "tUSDC",
+          "netApy": 0.014440464552311202,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x103dBAe3F207BC4956E72fc780c0048b477F1d2f",
+          "symbol": "",
+          "netApy": 0.020410646228673234,
+          "totalAssetsUsd": 1.0050102041310511
+        },
+        {
+          "address": "0x106c12Ad0040F1a015088e5542282dDB40EFa7c0",
+          "symbol": "cUSDC",
+          "netApy": 0.05780624442924637,
+          "totalAssetsUsd": 10.003709879695888
+        },
+        {
+          "address": "0x108E90f8Dc62e6dCCde7bf2491D85896b68851d1",
+          "symbol": "TS3",
+          "netApy": 0.015674977839129828,
+          "totalAssetsUsd": 2.0966072576170672e-06
+        },
+        {
+          "address": "0x10A84648fC6F7f1a2e7a602CB3b2b3924fEb8022",
+          "symbol": "00",
+          "netApy": 0.028796597456055045,
+          "totalAssetsUsd": 1.0157087046900257
+        },
+        {
+          "address": "0x10a34b363Ad4cA678A485e89751adF921cC3823c",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x10dC03Bc48BD0E5Bab402E1A943228F6F7599f0F",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x111177d7411fBeA4806aE3A04bE4a5F58c3d9E16",
+          "symbol": "TT",
+          "netApy": 0,
+          "totalAssetsUsd": 1.4996496438147684
+        },
+        {
+          "address": "0x111b7e6a3C15eFFa83395bA9A6172f2084F3418A",
+          "symbol": "",
+          "netApy": 0.03913617512866216,
+          "totalAssetsUsd": 1.014851904860193
+        },
+        {
+          "address": "0x116e1A65717A534B73EcB7d4F6543c65DBCd0E46",
+          "symbol": "CSCOREUSDC",
+          "netApy": 0.03946778767512765,
+          "totalAssetsUsd": 103792.21035767537
+        },
+        {
+          "address": "0x11ED81EaDA4c5e08FE89bC8967bAB4B1C7639eCf",
+          "symbol": "",
+          "netApy": 0.039133737264196694,
+          "totalAssetsUsd": 1.413756710582063
+        },
+        {
+          "address": "0x11ac56E7c7da390CB97F580454C7b2Fb069D06D1",
+          "symbol": "",
+          "netApy": 0.037036402174628585,
+          "totalAssetsUsd": 0.9999183937070855
+        },
+        {
+          "address": "0x11b0E5bac2122218c2ca34FaB2487c658371eAD9",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x11b4D15fF6659a30541F710de064fFcc30Ab11F6",
+          "symbol": "",
+          "netApy": 0.03703870407708729,
+          "totalAssetsUsd": 1.0116996413088943
+        },
+        {
+          "address": "0x12667092b8D38d97DFC5Dcc2a13886291852f2F7",
+          "symbol": "",
+          "netApy": 0.03703870407708729,
+          "totalAssetsUsd": 1.011975576843356
+        },
+        {
+          "address": "0x127444250b4697B05ba753bF2689722fe02Be80b",
+          "symbol": "",
+          "netApy": 0.037036400881347555,
+          "totalAssetsUsd": 1.0134352358300025
+        },
+        {
+          "address": "0x129352DB9ac70B4Fa39D28ab7896fF43f9EC018b",
+          "symbol": "",
+          "netApy": 0.02041064468891392,
+          "totalAssetsUsd": 1.0103819491551957
+        },
+        {
+          "address": "0x1294a6F1a1e572B729dc05846f648c8f8b693373",
+          "symbol": "",
+          "netApy": 0.03160507466320703,
+          "totalAssetsUsd": 1.0111237758456695
+        },
+        {
+          "address": "0x12C9608575de7B8b20DF07685C7c494E4ab0627C",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x12b6ec860DC4ea1FD6A34B3D1Bb7939424fc9215",
+          "symbol": "",
+          "netApy": 0.04123788379444493,
+          "totalAssetsUsd": 0.008476019786841071
+        },
+        {
+          "address": "0x12d6bA2c11Bbb96F8f91b0412593b87dB4E2ABE2",
+          "symbol": "uePF",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x12fBcA251570D50c17aF804cDe0E452c502BDC5c",
+          "symbol": "pUSDC",
+          "netApy": 0.03703207557091625,
+          "totalAssetsUsd": 102.1306646868779
+        },
+        {
+          "address": "0x130B908A42F63396eFBc6B7807C80970948b96a6",
+          "symbol": "",
+          "netApy": 0.037036400881347555,
+          "totalAssetsUsd": 1.0123774829478984
+        },
+        {
+          "address": "0x1345eb414a7D3a772b1906c3a7aEA8E6E671F3BE",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1352f31e2F98899Ec1b518892F49B5Fc0A8A06c0",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x1361d577D213C02D621aC7F4adb34C36Ed8587BE",
+          "symbol": "dt-morphoUSDC",
+          "netApy": 6.389056098807342,
+          "totalAssetsUsd": 7.843859475520252
+        },
+        {
+          "address": "0x138006a8a8E2588122B290e9B3366453E9021cF5",
+          "symbol": "roiEURC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1383B3Cce7c3791aD27239dcaE46485FD1630b14",
+          "symbol": "JATEST",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x13Bc597D249f00Ae47026e80B094fd703c88D4C3",
+          "symbol": "Tank USDC Pioneer",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x13D2E770cefB62A8Aa4e3393d59F88707AbD4dd5",
+          "symbol": "uePL",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x13cbAa8a98f9cB1C6410E5569501a7fa1665eD61",
+          "symbol": "",
+          "netApy": 0.020409386374490558,
+          "totalAssetsUsd": 1.0059109936837693
+        },
+        {
+          "address": "0x13dc47de205f968310792d4e09BDCEccc60379d6",
+          "symbol": "Test",
+          "netApy": 0.015674977620209488,
+          "totalAssetsUsd": 2.0959481845282415e-06
+        },
+        {
+          "address": "0x14096Da5FcEde0b9460Ab5447e90bfA3791bDb74",
+          "symbol": "",
+          "netApy": 0.037036400881347555,
+          "totalAssetsUsd": 1.0100090362771006
+        },
+        {
+          "address": "0x14227a8597588c4D7C77DBE8DE271E2a95e38DC4",
+          "symbol": "catTest",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x14253a959d590f66ac03731B8e857407389cEe0e",
+          "symbol": "",
+          "netApy": 0.03703870275483026,
+          "totalAssetsUsd": 1.0016579872939106
+        },
+        {
+          "address": "0x142E234cF3d1E5F9d410702B799509d2cB511F26",
+          "symbol": "",
+          "netApy": 0.020409386374490558,
+          "totalAssetsUsd": 1.0000133715178605
+        },
+        {
+          "address": "0x14497056a45759bD52C848669F1e7e8f8375D042",
+          "symbol": "",
+          "netApy": 0.04123788379444493,
+          "totalAssetsUsd": 1.0108318440483401
+        },
+        {
+          "address": "0x146B584a209F64d3e9D85847FD453A423D3a6778",
+          "symbol": "mUSDC",
+          "netApy": 0.0001848544687592675,
+          "totalAssetsUsd": 0.002882326615411985
+        },
+        {
+          "address": "0x14761eC253A059b4aC9b550b1c907814CC41b0C5",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x149f880129484bcBBC105af5e31D3A2021f5C0ba",
+          "symbol": "",
+          "netApy": 0.03703870275483026,
+          "totalAssetsUsd": 1.0113957123144146
+        },
+        {
+          "address": "0x14A99553420aC40b592EBCa3ad9B174F8cDe708C",
+          "symbol": "",
+          "netApy": 0.03494546704776463,
+          "totalAssetsUsd": 1.0076725821320371
+        },
+        {
+          "address": "0x14C985A019943e6F2302d58B0f520064DD71634C",
+          "symbol": "",
+          "netApy": 0.03703870275483026,
+          "totalAssetsUsd": 1.0054610987906247
+        },
+        {
+          "address": "0x14d574983fE2D205B654939E88F47d3C3249B1f9",
+          "symbol": "USDC_FUNDAMENTAL",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x14e8eD81E138790F8e982D0ef7b317667c5e209e",
+          "symbol": "TTT",
+          "netApy": 0.0024457011332766378,
+          "totalAssetsUsd": 2.0976612276330363e-06
+        },
+        {
+          "address": "0x15264BB54b1978cb331F50693653Ccc05B0EF7b6",
+          "symbol": "LigUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x153330f072BcCE30f2565cE5919716E24541d62b",
+          "symbol": "jlksdfjlk",
+          "netApy": 0.015674977620209488,
+          "totalAssetsUsd": 2.0968303872417904e-06
+        },
+        {
+          "address": "0x155860F2cF64510e50A6c4571BB0261276797459",
+          "symbol": "meUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x158002553Fe2F33b46402B4ba7df5032fed8d29F",
+          "symbol": "",
+          "netApy": 0.03703639935494513,
+          "totalAssetsUsd": 1.0111157777142359
+        },
+        {
+          "address": "0x1590a434DCD91E275EC1CC08Ff80CC8e3D677D06",
+          "symbol": "",
+          "netApy": 0.03703639935494513,
+          "totalAssetsUsd": 1.0045313160114597
+        },
+        {
+          "address": "0x15D1d367e38ff40804cB6D537B7695709a6E107C",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x15ea2f14001B25ceE05D311A0837e1eB643672D1",
+          "symbol": "",
+          "netApy": 0.03913373586546153,
+          "totalAssetsUsd": 1.0040874197168905
+        },
+        {
+          "address": "0x1603068Af86Eeb886F6372F084663C05D0f3943d",
+          "symbol": "trio",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1612387265ffE2880f364F841485C0980cc1D57a",
+          "symbol": "trios9",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x164Bc5FDaf59D6e326A3aAbF5d2b37E7ab8639AC",
+          "symbol": "USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x165f8889ECE61ef5F9A9f2971744834730450cBb",
+          "symbol": "",
+          "netApy": 0.030771662531139818,
+          "totalAssetsUsd": 1.008496389669706
+        },
+        {
+          "address": "0x1677250e1595EF1165cA21d820a4Bd8803153E5f",
+          "symbol": "bUSD",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x16A41C10957D35792FB15a3dC7502a9d9C946A05",
+          "symbol": "gtusdcf",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x16ca8eD51b8f6076D1944D08Ac50C6459f4c6338",
+          "symbol": "",
+          "netApy": 0.03703639938426902,
+          "totalAssetsUsd": 1.0124774595908195
+        },
+        {
+          "address": "0x172ace7CAb8522Ea0765AC47239cAe189fcd9AD6",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1736c130a7e7fe9d873Bd09aE22CF1ff35053768",
+          "symbol": "",
+          "netApy": 0.03494546569397262,
+          "totalAssetsUsd": 0.9999953757221347
+        },
+        {
+          "address": "0x174365A7d844FdB6963F866e5ce2B733264d7228",
+          "symbol": "",
+          "netApy": 0.04081465873479334,
+          "totalAssetsUsd": 1.0030386647326495
+        },
+        {
+          "address": "0x174A88c497c11d30924448d39ba6b394Ff2Bbb49",
+          "symbol": "",
+          "netApy": 0.020410643903749626,
+          "totalAssetsUsd": 1.014851904860193
+        },
+        {
+          "address": "0x17507E9D95F03562eFaF39F59a672b8b0316780F",
+          "symbol": "",
+          "netApy": 0.03703639791608772,
+          "totalAssetsUsd": 1.0112507461821791
+        },
+        {
+          "address": "0x17573dFD584857A52BcFa4cD5B306D851a1c3b59",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1763d6B3E1326672F33c5E1E931fdd21a512Bb05",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1770316E3D95916C1fBeb5090fE3Cd160B836Ac6",
+          "symbol": "",
+          "netApy": 0.020410643903749626,
+          "totalAssetsUsd": 1.0010041400492076
+        },
+        {
+          "address": "0x1797445a7Bc6D47f6155F20431144E6ba5a7e36e",
+          "symbol": "mUSDC",
+          "netApy": 0.4464193108352793,
+          "totalAssetsUsd": 1.1669213775751566
+        },
+        {
+          "address": "0x17DdFFf56879c342203dF7F1496279519C2864F4",
+          "symbol": "",
+          "netApy": 0.031603114326814466,
+          "totalAssetsUsd": 1.0122635095749686
+        },
+        {
+          "address": "0x17e371F21a3B47CF2723DB4b84c26e285D576Dce",
+          "symbol": "TEST",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1808b46796330a7d6Ca9d3baE2BA4D73B03a2EFf",
+          "symbol": "",
+          "netApy": 0.020409385556115236,
+          "totalAssetsUsd": 1.0086943434226896
+        },
+        {
+          "address": "0x183747E1A123b6310EF39f449BFBBEb049e5c54A",
+          "symbol": "svUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x18419e217233A027583b9099755F43B71F0f6Ea0",
+          "symbol": "TUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x185F3072e0285D7255Ea787b6c6a730885685B47",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x185aE2B3b12610e0Be970067CC5E068518d124ef",
+          "symbol": "",
+          "netApy": 0.03703639938426902,
+          "totalAssetsUsd": 1.0114147078765696
+        },
+        {
+          "address": "0x186896AB9c077BD3eC73557773d9Ed3D222c32cf",
+          "symbol": "",
+          "netApy": -0.048770575493639494,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x188B80F5899670d7fE48FE0ee64Cf6dd414b29fB",
+          "symbol": "cbXRPx",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x189A1a23F46321a196646314E6a078a404513C8F",
+          "symbol": "splitsUSDC",
+          "netApy": 0.03285441729896636,
+          "totalAssetsUsd": 0.9997694285091332
+        },
+        {
+          "address": "0x189e47D7F6E912A5E07762eabDAcbC259D268495",
+          "symbol": "USDC Test",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x18e44B689634F408ED86C2E921747b9b235f1bDc",
+          "symbol": "",
+          "netApy": 0.03703639938426902,
+          "totalAssetsUsd": 1.0090692558336432
+        },
+        {
+          "address": "0x1916794dD31680aaf5bc0f334d12F98Fe5788C21",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x19200b0588D86C189F48b826dbF447eDeCE83161",
+          "symbol": "BT4",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x194b601876Aa4F47825785B7822773F4e3624ff8",
+          "symbol": "TST2",
+          "netApy": 0.0412304870972744,
+          "totalAssetsUsd": 1.018092147857262
+        },
+        {
+          "address": "0x19820F30b2496617A39681F684a0f76fC81B5870",
+          "symbol": "USDC_Test_Vault_1",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x199A092362BbA569c4dAF851e8A835E41fa4EB00",
+          "symbol": "bbqUSDC",
+          "netApy": 0.03882021522055117,
+          "totalAssetsUsd": 9.997664292098457e-06
+        },
+        {
+          "address": "0x19Ac7Ce9639b890b8934FeF2D28A343f64d79b54",
+          "symbol": "",
+          "netApy": 0.020409385556115236,
+          "totalAssetsUsd": 1.0119035936604532
+        },
+        {
+          "address": "0x19D91b3cdc4f3d8B9F3F0BC8dFD7fC4d5Af06d8e",
+          "symbol": "",
+          "netApy": 0.03703870131850423,
+          "totalAssetsUsd": 1.0108368428804864
+        },
+        {
+          "address": "0x19aa33C3484400c3f60B145FEc2D254110CeC545",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x19cACCe7B4C6f6A1d7F1d750c8c92cD56dc26D3f",
+          "symbol": "pocv2",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x1A60bd09e8C91EadC98C630662F7d0F1d5831808",
+          "symbol": "",
+          "netApy": 0.03703870131850423,
+          "totalAssetsUsd": 1.001763962535407
+        },
+        {
+          "address": "0x1A8466Dc2Bbb8f21C075871F6818fF8a037cE229",
+          "symbol": "Test",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x1AB9FeA4a136bbd2183EBeC35eEf2790B051318F",
+          "symbol": "",
+          "netApy": 0.028691075573966076,
+          "totalAssetsUsd": 1.0148509050937637
+        },
+        {
+          "address": "0x1AF234B99016CF750A7Eb8cBF89d029ed64da95a",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1B5C1Cf3742917f129Ffd4daa0f15728fc0Af424",
+          "symbol": "GRVM",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1B64b34DB4c54096F6fCCf18cBd4CFBd311D94D0",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1Bf790fDEc5615EB5EDaB6b779194A9855AE62f9",
+          "symbol": "",
+          "netApy": 0.03703870131850423,
+          "totalAssetsUsd": 1.0079315216372025
+        },
+        {
+          "address": "0x1C23B34Cf401086eAC7E7271e281e112E08F22C4",
+          "symbol": "fdfdf",
+          "netApy": 0.0024457007664980624,
+          "totalAssetsUsd": 2.0974572070998797e-06
+        },
+        {
+          "address": "0x1C274791B392C0F3646AB4c13b64dD377a4E0967",
+          "symbol": "",
+          "netApy": 0.02040938475353654,
+          "totalAssetsUsd": 1.007128709194547
+        },
+        {
+          "address": "0x1C449bC7373276E28540a5409850db6698822524",
+          "symbol": "",
+          "netApy": 0.030769753439016723,
+          "totalAssetsUsd": 1.004766261122324
+        },
+        {
+          "address": "0x1C7836bb7EA75feE0EeE721dB4ac90bdE4C15203",
+          "symbol": "J",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1CC741C02baD45B7f46fee880ceF53843700aF58",
+          "symbol": "",
+          "netApy": 0.03703870131850423,
+          "totalAssetsUsd": 1.0094651633396103
+        },
+        {
+          "address": "0x1CeB93c03350de40A4D38923294020B8a59d6b09",
+          "symbol": "",
+          "netApy": 0.041235312493090974,
+          "totalAssetsUsd": 1.0100510264671272
+        },
+        {
+          "address": "0x1D060aa84b70E0e3741D8541d69C133860355b61",
+          "symbol": "",
+          "netApy": 0.041235312493090974,
+          "totalAssetsUsd": 1.0087693259048802
+        },
+        {
+          "address": "0x1D530642d8163AEFD1b9B7Aa759063f3945C8500",
+          "symbol": "ueTLC-BR3",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1DD47F088e70de8C67F0c5af5D2e0cd69088c553",
+          "symbol": "",
+          "netApy": 0.03703639791608772,
+          "totalAssetsUsd": 1.0095441448875178
+        },
+        {
+          "address": "0x1E24C2A8029E0f952669561e59cB4CCFD5aF51f8",
+          "symbol": "albistUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1E2968bA7eED427C559741dbADEB89303bC809b3",
+          "symbol": "",
+          "netApy": 0.03494546569397262,
+          "totalAssetsUsd": 1.0090792534979354
+        },
+        {
+          "address": "0x1E8C850e21a054Af104406e225F8D99D66910d1D",
+          "symbol": "",
+          "netApy": 0.03703870131850423,
+          "totalAssetsUsd": 1.0037534977295346
+        },
+        {
+          "address": "0x1F0a7De01EfD9391C4C59F5575f416d20Ab7D822",
+          "symbol": "testLIVE",
+          "netApy": -0.048770575493639494,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x1F65D4e7f0d7BFD2a06f9b60488732E22DEE33c6",
+          "symbol": "",
+          "netApy": 0.041235312493090974,
+          "totalAssetsUsd": 1.0103709517244746
+        },
+        {
+          "address": "0x1F815c782751186f32e981E662234B2Ad5efAECF",
+          "symbol": "OC-gtusdcf",
+          "netApy": 0.04461838110321057,
+          "totalAssetsUsd": 1.1309777749122043
+        },
+        {
+          "address": "0x1F86A633f60d1f094Dd6E76Ffb110059d2CA9845",
+          "symbol": "lkjkl",
+          "netApy": 0.015674976896762307,
+          "totalAssetsUsd": 2.0935148630077675e-06
+        },
+        {
+          "address": "0x1FA9279a9cb2f1d61A87f6e2285a03e7aB2dDFcC",
+          "symbol": "roomUSD",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1Fa2766B98A702fe6F08F5b20881aA4f6e4aDb36",
+          "symbol": "",
+          "netApy": 0.04081465542878617,
+          "totalAssetsUsd": 1.3074455475656048
+        },
+        {
+          "address": "0x1a4056E15AEd6622338d5291dc2A5C391A907605",
+          "symbol": "",
+          "netApy": 0.020410643903749626,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x1a7980DbF9BF27e924348B520a71A4dD80acA174",
+          "symbol": "HDTestVault1",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x1b08cA2402092D99605Ad641d6CbE2e1a40ef348",
+          "symbol": "",
+          "netApy": 0.03913373434359595,
+          "totalAssetsUsd": 1.0096321243332884
+        },
+        {
+          "address": "0x1b2Bf069e2C74f30545e85b34C9ABC55A60EE25D",
+          "symbol": "",
+          "netApy": 0.03703870131850423,
+          "totalAssetsUsd": 1.007525616466943
+        },
+        {
+          "address": "0x1b3C48Ea1AbCB241e8Bc32fBAB496619a2F01721",
+          "symbol": "ACV-mgWETH",
+          "netApy": 0.014506745667394384,
+          "totalAssetsUsd": 3.332343131099203
+        },
+        {
+          "address": "0x1b637b1a70b601564DC79E4833AD1e9c91Fd0974",
+          "symbol": "",
+          "netApy": 0.03494546569397262,
+          "totalAssetsUsd": 1.0107868545590257
+        },
+        {
+          "address": "0x1b89c3a221e762ea599eDb4C40C1bD029bbC2238",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1b96953F9BBB408cF70Ff7D41D88Dffd9e62E32E",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1bff050b27ac407fC20DFC0D6712c53D2c101e29",
+          "symbol": "",
+          "netApy": 0.03703870131850423,
+          "totalAssetsUsd": 1.0146009634864612
+        },
+        {
+          "address": "0x1c1D2CAD612ec4F289581B501302De07b7b37480",
+          "symbol": "T9",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1c1b3Ca5894aE80b13d658E252CD7A898d9d3066",
+          "symbol": "a",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1c2f5C628bBbFEAe7e3FAeB8a8E9059291787FBc",
+          "symbol": "HELOCPool",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1c65cd4aA01526A3E3640847F2f925D2b6e52e0e",
+          "symbol": "",
+          "netApy": 0.03703639791608772,
+          "totalAssetsUsd": 15.117913072143073
+        },
+        {
+          "address": "0x1d5ebdEc0b474dd0A2E2cdb9cA2561AAa2bc4439",
+          "symbol": "moUSD",
+          "netApy": 0,
+          "totalAssetsUsd": 19.995328584196912
+        },
+        {
+          "address": "0x1deEfABEe758AAbdC29a542B24ca3b75aFD56765",
+          "symbol": "gtusdcf",
+          "netApy": 0.05564466297404496,
+          "totalAssetsUsd": 3908364.8102471754
+        },
+        {
+          "address": "0x1e4353f85b7d1153D9a2A74533bCC680DC981C6F",
+          "symbol": "tst5",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x1e961c37df5b61FfaDBE98aE9db2214087155Db6",
+          "symbol": "",
+          "netApy": 0.03703870131850423,
+          "totalAssetsUsd": 1.0010721241663938
+        },
+        {
+          "address": "0x1e9e47583f15D45a10Df48c0b1846E0492c795D7",
+          "symbol": "gUSDCq",
+          "netApy": 0.03915010558961527,
+          "totalAssetsUsd": 26549.467457154933
+        },
+        {
+          "address": "0x1eda5615D23FDcbA40DcE2c590C1A88e13CA29b7",
+          "symbol": "Test",
+          "netApy": 0.0529493594363471,
+          "totalAssetsUsd": 2.1039139431636092e-06
+        },
+        {
+          "address": "0x1fb01348de8bEBAB0659F6F4F0f95462c298045D",
+          "symbol": "",
+          "netApy": 0.03913616901895019,
+          "totalAssetsUsd": 1.0007721942376309
+        },
+        {
+          "address": "0x1fb843d7E1b2f108d3211F98CBE11E2660B2e6d5",
+          "symbol": "TEST3",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2018963CA1e5ACeb88B7fA8738e4AEC846beD752",
+          "symbol": "uePL-BR6",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x201a50916bf7f027fF6D4e587f18Dc0f488BE926",
+          "symbol": "SDFSDF",
+          "netApy": 0.015674976896762307,
+          "totalAssetsUsd": 2.093425871916272e-06
+        },
+        {
+          "address": "0x2036aE660127D4D8518D658E893D744B3e43311B",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2060D34Bc402dF1EdA160e01d11e9D03a5F60460",
+          "symbol": "",
+          "netApy": 0.037036396389718076,
+          "totalAssetsUsd": 1.0102579781179737
+        },
+        {
+          "address": "0x207cAA762e7B731f86a6243a967C22d6110C73EA",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0061639345903595
+        },
+        {
+          "address": "0x20b868DB7dC9E6Cb2F497323C975f3f95040D69A",
+          "symbol": "",
+          "netApy": 0.034943291799716274,
+          "totalAssetsUsd": 1.0117996179518152
+        },
+        {
+          "address": "0x20dF8f2eB0E885640466C42030B6cdB1d7CfCD36",
+          "symbol": "Test",
+          "netApy": -0.048770575493639494,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x20fe95573e651FE9aD173399B58812988A4f3F11",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0019959083469836
+        },
+        {
+          "address": "0x21070A9723d47633fF34c572C3745E76dDc33700",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2137692a0f6CEb2Be645448870009ac45B0d968d",
+          "symbol": "VTAOUSDCt",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x215eA72B0a0749df4283718bE5cDaFc54D7710F7",
+          "symbol": "",
+          "netApy": 0.0412378788260732,
+          "totalAssetsUsd": 1.011025798735607
+        },
+        {
+          "address": "0x218Ab6e996A610f2AfB2a8eA925DfEA2617c3721",
+          "symbol": "gbySGD",
+          "netApy": 0.005564835947144165,
+          "totalAssetsUsd": 0.7862111553429079
+        },
+        {
+          "address": "0x218c1B304d4Bd1C03e153f30427D816847B4ab79",
+          "symbol": "pUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.0899789786288861
+        },
+        {
+          "address": "0x219Ff9d3B915254ff799dEd90297e95561086005",
+          "symbol": "TUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x21ad826BC16DD51fE266Be8B2D40B4f28916bAeD",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x21bE95ACA61125c95aD0a59D333BadA7DC1F0945",
+          "symbol": "",
+          "netApy": 0.0412378788260732,
+          "totalAssetsUsd": 1.2646365488332683
+        },
+        {
+          "address": "0x21e537034770F53A415274cB297BD7CCc1a04Ed9",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0008591739169719
+        },
+        {
+          "address": "0x22AFA2Ea93BD9a2aDA22Cce47937d8Dca39aa4aD",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x233eeD53148E5709edb6cCfecDCF70521942b192",
+          "symbol": "",
+          "netApy": 0.029938920107723598,
+          "totalAssetsUsd": 1.002098884289192
+        },
+        {
+          "address": "0x2368743270B13Ab0EF5BCD2C2Ec88A661c732616",
+          "symbol": "USDC High APY Vault",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x23D1850d3B267FF2B044a9880C4257F4B8687c39",
+          "symbol": "ghyUSD",
+          "netApy": 0.026265868235340783,
+          "totalAssetsUsd": 1.002441804174411
+        },
+        {
+          "address": "0x23F49A99a83a09c1AE83222c6A145cB1B639D7a1",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0128013839138836
+        },
+        {
+          "address": "0x23c62DC3E8866a8c8839bb365A2983aFAE7A4c70",
+          "symbol": "",
+          "netApy": 0.020409383100860108,
+          "totalAssetsUsd": 1.0063608885769137
+        },
+        {
+          "address": "0x23e1493aa8344a18fFf43E476f6A019b03Dbb079",
+          "symbol": "SHV",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x241E0eeD3A02D355C81D3C539F39B5A5F51A4811",
+          "symbol": "",
+          "netApy": 0.03703639489279712,
+          "totalAssetsUsd": 1.0117466303310672
+        },
+        {
+          "address": "0x24303082D496Ca38559418ed6edDcC3475a7BAc6",
+          "symbol": "",
+          "netApy": 0.035780025604949826,
+          "totalAssetsUsd": 1.0101540024093358
+        },
+        {
+          "address": "0x2446309aDA6581657250eF201d592E1c0106AB73",
+          "symbol": "dt-morphoUSDC-1",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2459C025152d05fdCa960476A76B1eaF7E476E6F",
+          "symbol": "wUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x247a9474cc0006A1CFb5705DEbBB1e97B484bCfa",
+          "symbol": "VTTM",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x24849c7aF63059d85fCc17Ab9726cbEDFA2c345C",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0126644159130818
+        },
+        {
+          "address": "0x249DE629B462d41105399d822D73a1F0859A2cE1",
+          "symbol": "",
+          "netApy": 0.026613040405956873,
+          "totalAssetsUsd": 1.0052831403662255
+        },
+        {
+          "address": "0x24E14e6bd26B04e5b9Bfd4095C2614b299351A0d",
+          "symbol": "",
+          "netApy": 1.225252311969167e-06,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x24e727f2a48877646B6EC32a73AB5099382c0b89",
+          "symbol": "USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x24ec9F547f095C38D397337cfae2E118dED4FA5a",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x25282BcEC380A1a15966629B17d1e73aF38201E3",
+          "symbol": "drfUSDC",
+          "netApy": 0.0339556691463906,
+          "totalAssetsUsd": 1.0275169459854232
+        },
+        {
+          "address": "0x25286737bcb698afB5180392988b6E2405B7f5FF",
+          "symbol": "MVT",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x253C9286fb48D829D5775bdC4c1E7D9ab3E32055",
+          "symbol": "536USDC",
+          "netApy": 0.040153583838164676,
+          "totalAssetsUsd": 51.02184400341797
+        },
+        {
+          "address": "0x2544D49C4Fdf3b49bf4541fabAE0356ea2d1b11b",
+          "symbol": "CCMV",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x256f9d065f825A073358906581D49873022D10cb",
+          "symbol": "quad",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x259d22f975c3113Fd4a307b3EcEb26439C25bE2C",
+          "symbol": "aDAFI",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x25E0c3668bb97Ba426069B6C50cf06135Ebf7f0a",
+          "symbol": "",
+          "netApy": 0.03703639489279712,
+          "totalAssetsUsd": 1.0049982069339007
+        },
+        {
+          "address": "0x25F71FeC7423a95a0a517d75b81d97DaeAf78710",
+          "symbol": "",
+          "netApy": 0.034943291799716274,
+          "totalAssetsUsd": 1.0095501434860932
+        },
+        {
+          "address": "0x26033F9cD0aB58D349dB74Cd7C6D099c29db2c14",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2608d7A9fD1E6e363d34b3a50CDAa816FAE8BA03",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x264695cC8aDAba8287fA1844ED59e8bc84e1eD00",
+          "symbol": "",
+          "netApy": 0.040817196757109514,
+          "totalAssetsUsd": 1.0108538389097828
+        },
+        {
+          "address": "0x265A6B919A5Ec0e8aC6804900d7e2E498Ca705EB",
+          "symbol": "shUSD",
+          "netApy": 0.039256696146070004,
+          "totalAssetsUsd": 9.997664292098455e-07
+        },
+        {
+          "address": "0x266FB3FaF70761Eb2f8B29B75a5bf8FcD8A51a83",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.011673647381735
+        },
+        {
+          "address": "0x26949DCea5944363470C60cbAc8f504cc78E82c7",
+          "symbol": "USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x269f35ca514ece3015EB2300A27A043b3562982e",
+          "symbol": "",
+          "netApy": 0.03703639489279712,
+          "totalAssetsUsd": 1.0042533809441394
+        },
+        {
+          "address": "0x26b57d61A995775A569790CDeCbb4d27934730Eb",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0035945348672901
+        },
+        {
+          "address": "0x26f85C629D508C42091816EAF8f749A9b6FDA52B",
+          "symbol": "bbqUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x2709fEbc247FE18081F71C9c0D0b897e2e4A5FFD",
+          "symbol": "gmwUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2715896CA3d72Fa8a1d74563b55B45Aa472196e0",
+          "symbol": "gsteakUSDCfarcaster",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x271d622494eE1E08EC9D304915A563366ffd5e34",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x27467933d20728DcA7ea59f1a1804e377d771D71",
+          "symbol": "testy2",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x2748780EE528C01a361B0C4Ad64bfA5A57b62936",
+          "symbol": "",
+          "netApy": 0.03955617006215266,
+          "totalAssetsUsd": 1.0129623463089863
+        },
+        {
+          "address": "0x277da41c6fbbA1EA5C7E921A179c1DFFfe12f953",
+          "symbol": "",
+          "netApy": 0.040817196757109514,
+          "totalAssetsUsd": 1.0114357029715828
+        },
+        {
+          "address": "0x27876B87dfb09525F2b182306d547Be9bd81293D",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x28193f6986a77675b4B46c96747e018FAcaf9F73",
+          "symbol": "DFDF",
+          "netApy": 0.015674976683069632,
+          "totalAssetsUsd": 2.096789090776658e-06
+        },
+        {
+          "address": "0x2820cc56cb1fdEff42B989997AF0d2f9b6e4a764",
+          "symbol": "RT1",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x28276a3a85614deBCbc0E278F1c554Cb75DFf54a",
+          "symbol": "",
+          "netApy": 0.034943291799716274,
+          "totalAssetsUsd": 1.0052871394319425
+        },
+        {
+          "address": "0x2838922A4965F2572960d1B8F3a588B626d89617",
+          "symbol": "",
+          "netApy": 0.03703639489279712,
+          "totalAssetsUsd": 1.0019029300690672
+        },
+        {
+          "address": "0x2861ABE7AB28484Fb8375def4A7eb56C8F53fE8F",
+          "symbol": "TTT",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0178612018121147
+        },
+        {
+          "address": "0x28673a091730432b5795b499Ae855f57B8F50805",
+          "symbol": "grivaUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x287397Fd29aBCdb1f514179099121895A2f5bEAF",
+          "symbol": "ueVL",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x288a96BEa03fC5c74ca24E9d32a20484Aef8c1A6",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x28B609922E86dEFbf77882ED01fCAdDfd3F611E1",
+          "symbol": "",
+          "netApy": 0.03703639489279712,
+          "totalAssetsUsd": 1.0078445419578612
+        },
+        {
+          "address": "0x28D0a445B348A29d41F17eb1c2ABbCd9Df80F356",
+          "symbol": "ljlkjlk",
+          "netApy": 0.015674976683069632,
+          "totalAssetsUsd": 2.0975475623826533e-06
+        },
+        {
+          "address": "0x28D5b81495A5A934467bdBdD27d8b5E35739B374",
+          "symbol": "",
+          "netApy": 0.020410642254417688,
+          "totalAssetsUsd": 1.012812381344605
+        },
+        {
+          "address": "0x28a5563F8469f2863dF7b7a630576870D02EFEfF",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0129363523818269
+        },
+        {
+          "address": "0x28c66719A024F2e95E7859655cC8AFEC3Ce9Ab66",
+          "symbol": "hamUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x291c9BBA34B776C2fbeA6c22018a8946AeED6974",
+          "symbol": "HPTN",
+          "netApy": 0,
+          "totalAssetsUsd": 7.753188658522353
+        },
+        {
+          "address": "0x293BEAbA5874A855B3E72d71277F2677b1433320",
+          "symbol": "test",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x297E12055C247068118475d7891286B05d5700e2",
+          "symbol": "steakUSDCtron",
+          "netApy": 0.039077347031175096,
+          "totalAssetsUsd": 0.010296594454432201
+        },
+        {
+          "address": "0x29A6b60dD73A857d9d4DFf4AfE7f215Dbf4186c7",
+          "symbol": "BT5",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x29D593B74E8546cC7345B9F9Fd1C56c15a45a0C2",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0038914654967654
+        },
+        {
+          "address": "0x29a59891386e84E94145a7A5d621497f5153CA7d",
+          "symbol": "",
+          "netApy": 0.037877177434884626,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x29bb30bB9Cd7d5Ceaa3f10961538ecDdC506191e",
+          "symbol": "",
+          "netApy": 0.03703869830132884,
+          "totalAssetsUsd": 1.0027437336360325
+        },
+        {
+          "address": "0x29db42dAFFC44072F7DfF1b205D03FEA39C37425",
+          "symbol": "ghyUSDgp",
+          "netApy": 0.020619985808885237,
+          "totalAssetsUsd": 1.0024428039408404
+        },
+        {
+          "address": "0x2A14A41BD44D6F5E58C783Fae4DFA947EA55Fa22",
+          "symbol": "",
+          "netApy": 0.037038696806241986,
+          "totalAssetsUsd": 1.0097620939690857
+        },
+        {
+          "address": "0x2A26bbf195ef466d2cAbDddB226318A06D48c4b9",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x2A45D1f3Ab6Ea96B254710F584672004e5F27297",
+          "symbol": "Arch Test2",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2A8aaDf54f738a10685f19581C2Bc69C7A3a2B7F",
+          "symbol": "",
+          "netApy": 0.04600409578546942,
+          "totalAssetsUsd": 10.620548770489066
+        },
+        {
+          "address": "0x2AEEB2EB73ac1b09e63ba836c78A3DCa2B87a9EC",
+          "symbol": "",
+          "netApy": 0.039136165857667736,
+          "totalAssetsUsd": 1.0071796972824365
+        },
+        {
+          "address": "0x2Ad599c260067005f1471a8220D210b729984511",
+          "symbol": "JT3",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2B06Bc4Ab42Bba6e1cd87FEEB8Bf8a440Aae2576",
+          "symbol": "DEST",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2B5ad20bdb908860f4C1202074a8123F0C74e2c9",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2B7808e26Be9f25D50933D8970a85aa648Cbf757",
+          "symbol": "",
+          "netApy": 0.03703639339529105,
+          "totalAssetsUsd": 1.0124494661308017
+        },
+        {
+          "address": "0x2BE1d9ddBbd70E7b148E8AdE884600268a0B28BD",
+          "symbol": "ueSL",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x2Ba14b2e1E7D2189D3550b708DFCA01f899f33c1",
+          "symbol": "OUSDb-V2",
+          "netApy": 0.04534122814857681,
+          "totalAssetsUsd": 1207600.0586897095
+        },
+        {
+          "address": "0x2C53D51ed67c92b9a56b854da073A801E9c0CBD7",
+          "symbol": "ghyUSDcs",
+          "netApy": 0.03712231223805386,
+          "totalAssetsUsd": 5.3800600815362385
+        },
+        {
+          "address": "0x2C7Cae57B31b5Db62189a82D1dEaEcac43bc5D0A",
+          "symbol": "WUN",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2CD2194938E8F68cc1D27C44267665e2F889079c",
+          "symbol": "WRETH",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x2D7629F21Ecd919f289a76b1eba21BF60ba59Bd8",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0010081391149241
+        },
+        {
+          "address": "0x2D877Ec24fdb0Aed353E5421A79C691dac5154A4",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0108558384426414
+        },
+        {
+          "address": "0x2DDc921FfFB1bf3d88D2065926b02F57319e343E",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0.049988321460492285
+        },
+        {
+          "address": "0x2Ddd7D65F300B0d0C282ff298257c00C049cd539",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0049402204810065
+        },
+        {
+          "address": "0x2Ef2a1d81cff2cEF3A7526aec7B2D0C3cb89949a",
+          "symbol": "",
+          "netApy": 0.04081719348919318,
+          "totalAssetsUsd": 1.0066588189728183
+        },
+        {
+          "address": "0x2EfD54529329AD364B8Df988CE3BAb5Ff256ab3E",
+          "symbol": "yOG-WETH-V2",
+          "netApy": 0.015828478106867667,
+          "totalAssetsUsd": 6554.283331760539
+        },
+        {
+          "address": "0x2F0d8e7fA38966f7B0521BC127eb9e691Dd4b9DF",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0085843691154766
+        },
+        {
+          "address": "0x2F94Bcbc347e7B42c37d8012DCf2E8C738E05564",
+          "symbol": "",
+          "netApy": 0.0370363919273417,
+          "totalAssetsUsd": 1.010849839844066
+        },
+        {
+          "address": "0x2F9a0D75D7AFEdAe6eB3889e27A6d3Bb42738d7c",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x2FFcbDEa42311515E3dB1F873A1Cea0D463B5Ced",
+          "symbol": "ueVL-BR12",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x2a1E42562140D1cdBed663155a4Dbe02fEE9055d",
+          "symbol": "USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x2a521F0e4715F9131e5550C8F2672d201dcA6E8b",
+          "symbol": "aa",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x2a62068AC13648dDa90b7b5834D1348D19B683D9",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2a69dA6f8ed2244691d5Fdc27b203b3cF45828DA",
+          "symbol": "",
+          "netApy": 0.03703639339529105,
+          "totalAssetsUsd": 1.0100090362771006
+        },
+        {
+          "address": "0x2b2735DE176d42BA673A468E75B20b30d5B14aF3",
+          "symbol": "Demo11",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2b4BC38dFA500B0f9ED2C5e005640840a494807b",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2b4a59667fEAcCc55aa7dB50b3a3e5134F270cb7",
+          "symbol": "",
+          "netApy": 0.03703639339529105,
+          "totalAssetsUsd": 1.008487391771843
+        },
+        {
+          "address": "0x2bA1E06BA26DBec56DBc1582Eb88E938572e8e35",
+          "symbol": "test",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2bD2877770a51e8a117BaE2EB09f477d0923DDcF",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0098940631377413
+        },
+        {
+          "address": "0x2c216E1949D03d7C9CFd3DafED1d5E3c9Ab942aD",
+          "symbol": "SHV",
+          "netApy": 0,
+          "totalAssetsUsd": 10.997430721308302
+        },
+        {
+          "address": "0x2c5b5ebcBb5Ff7fD89a806Dc81fBa424C73180b2",
+          "symbol": "ueTLC-BR12",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2c7752226Ec94e6EF0FeC95cf2E3D8714Cd02a96",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0019039298354961
+        },
+        {
+          "address": "0x2c835c02b8b5F45F4CbedB0E14e6a45E75A3dbc1",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.008015502017256
+        },
+        {
+          "address": "0x2c8BdAC7b29cA18FCA0e9692bdD0Dc6974C1fc9f",
+          "symbol": "",
+          "netApy": 0.0370363919273417,
+          "totalAssetsUsd": 1.0075576089926779
+        },
+        {
+          "address": "0x2cBB59Ca59ba78010C63De35A8ABA70Cc4EAA180",
+          "symbol": "",
+          "netApy": 0.035363768831994845,
+          "totalAssetsUsd": 1.0019039298354961
+        },
+        {
+          "address": "0x2cBb9ECFa448116B1d3b3FC7ccaFdc4688dC489f",
+          "symbol": "STK-Test-Vault",
+          "netApy": 0.027645166342208174,
+          "totalAssetsUsd": 0.6555248527714531
+        },
+        {
+          "address": "0x2cD35a4658Ea6113A899f9F3Ebdf5Ad6598Ea362",
+          "symbol": "",
+          "netApy": 0.020409381479799173,
+          "totalAssetsUsd": 1.0071087138659627
+        },
+        {
+          "address": "0x2d1155f87Ddf997cF4af22beCc8A3b4E3eB9b0C0",
+          "symbol": "tUSD",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2d32bCE5D352ce144ceb81bd1603b3a337d95822",
+          "symbol": "",
+          "netApy": 0.039136164308192334,
+          "totalAssetsUsd": 1.00985807154629
+        },
+        {
+          "address": "0x2d8cd6A8E3e76Dc865f1adb9332Ce355Bf89B838",
+          "symbol": "",
+          "netApy": 0.03285644991940185,
+          "totalAssetsUsd": 2.9652432439849328
+        },
+        {
+          "address": "0x2dB50b2aFcc582e01fE42c31e5547789B7663317",
+          "symbol": "richUSD",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2e00f4B98Ef22CDC35A353ac39dB42ec7d7C20dE",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2e7268BEd27F37373709FAa0A9E5b0392DCE7677",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0000113719850021
+        },
+        {
+          "address": "0x2e80D5E9B0cE7ED230C0fc6C25E69f6A47c0F279",
+          "symbol": "bbqUSDCsirloin",
+          "netApy": 0,
+          "totalAssetsUsd": 0.010130633227183366
+        },
+        {
+          "address": "0x2e846Dae8Fe9cEEfB88F8231f12Cad7A01226cFF",
+          "symbol": "Gauntlet-ETH",
+          "netApy": 7.0640640249505004e-09,
+          "totalAssetsUsd": 0.02091443467310844
+        },
+        {
+          "address": "0x2ed9a324b1Fe560c3677a38a97551C5d946c67e8",
+          "symbol": "",
+          "netApy": 0.0370363919273417,
+          "totalAssetsUsd": 1.00650485494272
+        },
+        {
+          "address": "0x2f21F0b6B0B51A300231D74C4F9cC2C7F94abe82",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2f554D901ad141D22A5A6E5b9F5b7828bA1fb620",
+          "symbol": "Test_USDC_Vault",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x2f6bAf4a9F09D947aB55D39cC394c08E2A47eCc7",
+          "symbol": "T",
+          "netApy": -0.048770575493639494,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x2f8B851B4b56b0C26E188B7D9636772a748ed366",
+          "symbol": "",
+          "netApy": 0.0370363919273417,
+          "totalAssetsUsd": 1.0096691156911692
+        },
+        {
+          "address": "0x2fD1C10FD3B65B8ABA592E69FFC41e265A2a42e6",
+          "symbol": "",
+          "netApy": 0.020409381479799173,
+          "totalAssetsUsd": 1.0018819349740535
+        },
+        {
+          "address": "0x301BfED0EF38A312A4159Dab99DB693618908ae7",
+          "symbol": "",
+          "netApy": 0.0370363919273417,
+          "totalAssetsUsd": 1.0000133715178605
+        },
+        {
+          "address": "0x302c6994010ba83e86EfB55647D0C47f72A60710",
+          "symbol": "bhjjhhjk",
+          "netApy": 0.015674976217013623,
+          "totalAssetsUsd": 2.093516323004845e-06
+        },
+        {
+          "address": "0x303C1B61E50Ec4a4dE6114c65daB926228EaAAF8",
+          "symbol": "BillFWS",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3044E4df7B1127F8ec978Ad2ECEf5a9A00460D79",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3045221404CeFe7feDbc9aCF598B05185FeAADc5",
+          "symbol": "steakUSDC",
+          "netApy": 0.039077343819877465,
+          "totalAssetsUsd": 0.010369577403764518
+        },
+        {
+          "address": "0x3048Ca0311E6F5Aa776026Ab44Cfb5A307f1Ba43",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0123514890207392
+        },
+        {
+          "address": "0x30a29C9D8EDDc69F6877CFFeee65658cc040688C",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.013560206633654
+        },
+        {
+          "address": "0x30f226eD59FFc2fb5F7B2c73C9EaD8437cB02839",
+          "symbol": "T3",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x31196Dd07f2149bA2F8D8942d1BE318DFB131a03",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3122e27561C93B5514136a61210B096768956Adf",
+          "symbol": "",
+          "netApy": 0.020409381479799173,
+          "totalAssetsUsd": 1.009063257235068
+        },
+        {
+          "address": "0x313E1CD6576a774f0A29b79c9F69d2743b415027",
+          "symbol": "",
+          "netApy": 0.03703869534128088,
+          "totalAssetsUsd": 1.0139361188110367
+        },
+        {
+          "address": "0x314C9c59Dc7350c7782be846097d5b3d24A60986",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 2.010060398919271
+        },
+        {
+          "address": "0x314fD07319ef645bA7D548915CCd91F4788A1839",
+          "symbol": "mfUSDC",
+          "netApy": 0.056451227801753726,
+          "totalAssetsUsd": 5114.977838470231
+        },
+        {
+          "address": "0x315d9F9ad3219790DfB38593edddb1E3C3e41214",
+          "symbol": "",
+          "netApy": 0.024540973344144616,
+          "totalAssetsUsd": 1.011531680548787
+        },
+        {
+          "address": "0x318691E8f78048555E8F2337C25cfD1FD1192f56",
+          "symbol": "",
+          "netApy": 0.04123530581198632,
+          "totalAssetsUsd": 1.011060790560629
+        },
+        {
+          "address": "0x31e171D795d14E2E18AdbbC9D2E5A58911F7C05E",
+          "symbol": "TST",
+          "netApy": 0.01989496479473162,
+          "totalAssetsUsd": 2.009188602593
+        },
+        {
+          "address": "0x3233bc50d86af38ffBb89Cb4a5aE42C93294C698",
+          "symbol": "tooor",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x324739d3FcaA1C83F760Fb10102BbFb4cf6F42B5",
+          "symbol": "",
+          "netApy": 0.03494328756600438,
+          "totalAssetsUsd": 1.0101520028764774
+        },
+        {
+          "address": "0x32719771e65e8C087b191aaF1FAB6556Cef44F3D",
+          "symbol": "BullTC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x32782B52a1e35B2218824CebEb250921F4A9E556",
+          "symbol": "",
+          "netApy": 0.037036390400977275,
+          "totalAssetsUsd": 1.0034135771436032
+        },
+        {
+          "address": "0x329c1a214f1A27e0B65BbF120536c4179F49a656",
+          "symbol": "FWT",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x32A50352E1f94f65fc0d8BDfb4Ea1DfE028a68b2",
+          "symbol": "",
+          "netApy": 0.03703869381787281,
+          "totalAssetsUsd": 1.0087073403862692
+        },
+        {
+          "address": "0x33093365De50cf314036fCFdA477216c59EeD2Cd",
+          "symbol": "USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x331A37EaEd9D63Bb748B4a46E5077bB132E760f1",
+          "symbol": "",
+          "netApy": 0.03703869381787281,
+          "totalAssetsUsd": 2.0083268039310207
+        },
+        {
+          "address": "0x3324607804a1D64B2c441cd932Ae51380EbD06Ce",
+          "symbol": "",
+          "netApy": 0.04081464881717048,
+          "totalAssetsUsd": 1.0114337034387246
+        },
+        {
+          "address": "0x335850b0cd6668AdE5119fa0b4A613F2C1c61524",
+          "symbol": "",
+          "netApy": 0.03703869381787281,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x3360F49a32441089424FABdCCE6a1c341d3fb5E1",
+          "symbol": "",
+          "netApy": 0.037036390400977275,
+          "totalAssetsUsd": 1.013065322251195
+        },
+        {
+          "address": "0x33674D1DAA6F3efeA3341E377384E6083B1a86D2",
+          "symbol": "zbeezyUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3374BED3d7e2b3fCAB8D5e956cC2775d862F67A5",
+          "symbol": "",
+          "netApy": 0.037036390400977275,
+          "totalAssetsUsd": 1.0081314749230443
+        },
+        {
+          "address": "0x3387D6c023C24cd91fE3f93976c66c8f8c99c2B2",
+          "symbol": "TBBS2",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x3398298d1D557057FFA926D98Acb2Cb11DB449b7",
+          "symbol": "",
+          "netApy": 0.03703869381787281,
+          "totalAssetsUsd": 1.2224214113598826
+        },
+        {
+          "address": "0x3398445a909eE657e64597d71c3ae15e3712D818",
+          "symbol": "gteurcc",
+          "netApy": 0.044378213642132014,
+          "totalAssetsUsd": 1.291779104374006
+        },
+        {
+          "address": "0x33b3435F8757fF473f58c49aF5056D5f8C4d7d09",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x33c9e735383496f2E09c27E61A50c4814319DCe7",
+          "symbol": "",
+          "netApy": 0.03494545862434166,
+          "totalAssetsUsd": 1.008888298109956
+        },
+        {
+          "address": "0x3417Db67Bd951892Cc437E17917eDb016355e2dF",
+          "symbol": "bbqUSDC",
+          "netApy": 0.03882024994640012,
+          "totalAssetsUsd": 9.997664292098457e-06
+        },
+        {
+          "address": "0x341C82195891e6140bD377DC74FeC0BF1601fb77",
+          "symbol": "",
+          "netApy": 0.032856436420937433,
+          "totalAssetsUsd": 1.000012371751431
+        },
+        {
+          "address": "0x342cD13dd9580904172BEb6E14e525B16ed48Ba1",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 2.626827306529546
+        },
+        {
+          "address": "0x3440f5eBef68EF1769e29fCd04ccE02027608331",
+          "symbol": "",
+          "netApy": 0.03559617883352834,
+          "totalAssetsUsd": 0.01016262575291808
+        },
+        {
+          "address": "0x344CE1B27cf29001c3b576b3A918c97440d04ca6",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 1.0083234300774526
+        },
+        {
+          "address": "0x3459df2C5890513D439A9e35A10C222c04F4788B",
+          "symbol": "vMEGA3",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x34B0a069B90AFeA7DD22b7327584F6D8D090fb72",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 1.0037534977295346
+        },
+        {
+          "address": "0x34FB60b4D322D2EA2048E6e71510718Fcb51979A",
+          "symbol": "",
+          "netApy": 0.03703637651287322,
+          "totalAssetsUsd": 1.0036275271594541
+        },
+        {
+          "address": "0x34c7eA813be3ce9ebA8F2dED94a16c35E15265eB",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x34dDd63FEA2868EeF439279D6FeCa7d5AcFc4F53",
+          "symbol": "ueVF-BR3",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x34f7c3d53B2f4DeE64E54F48a866Cdc6B2fC90da",
+          "symbol": "",
+          "netApy": 0.03619862819825076,
+          "totalAssetsUsd": 1.005980977333814
+        },
+        {
+          "address": "0x3524DFbfF6314f6A6B58980a3eA96c384F335500",
+          "symbol": "tbfUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x35360Dd9C52e7e1cc91559EF265C8647a044A179",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3543cEa9d69f6F4895De6eA41a4e290492eAbb02",
+          "symbol": "bbqUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x356ffA813b685f11aD41Def7cCb8535995Fc442C",
+          "symbol": "",
+          "netApy": 0.020410632301433453,
+          "totalAssetsUsd": 1.0035145535529533
+        },
+        {
+          "address": "0x35A96b4111245Ed6a1FF69B63cCD5015f477E275",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x35C9d16aFE86Fd52A351cC5a8f3882E96EB8dc3C",
+          "symbol": "as",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x35a00F116536c13A63273513990E4E496a15Ddb2",
+          "symbol": "",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 4.165469551366003e-06
+        },
+        {
+          "address": "0x35dc5A89E4b0399F4171eC00e799dD42f9cce576",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 1.0131642991276868
+        },
+        {
+          "address": "0x36121f3f44c8cD2ceFCA5a2ad8859F3Beb4a52f4",
+          "symbol": "",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x3616b868605fD56216B3932085d67c2C6A4234A0",
+          "symbol": "Gusdc",
+          "netApy": 0.039133711705622604,
+          "totalAssetsUsd": 86.75173659446243
+        },
+        {
+          "address": "0x36833BA83cbaceE8986e69deAF92659AAc19518C",
+          "symbol": "",
+          "netApy": 0.03955368747595697,
+          "totalAssetsUsd": 1.0000113719850021
+        },
+        {
+          "address": "0x3694D768C84e3364C8A8a807BBdb7688A7fA6BCc",
+          "symbol": "T13",
+          "netApy": 0.02257934319231972,
+          "totalAssetsUsd": 1.0161416035538735
+        },
+        {
+          "address": "0x36F8b8120dc95c2A597b27f4B223794e21053dc2",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 1.0123554880864558
+        },
+        {
+          "address": "0x372cB73Ae7fe0E606828E587e86FE139FB013B1f",
+          "symbol": "",
+          "netApy": 0.03703637651287322,
+          "totalAssetsUsd": 4.0208056378425505
+        },
+        {
+          "address": "0x376736A69B8F9c350F76E0b2802466Eaee7E058f",
+          "symbol": "ueVL-BR3",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x378d4E87187475fd04Da7Eea0Cfe5592726c4Ed0",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 1.0097650932683733
+        },
+        {
+          "address": "0x37CF43547A023d70218e435B43A23030F6e998e7",
+          "symbol": "OC-gtusdcp",
+          "netApy": 0.030362058895732538,
+          "totalAssetsUsd": 1.11864665577433
+        },
+        {
+          "address": "0x37cAddC415a5c0Fd63e6E2dA1e63ca3b1c92a67d",
+          "symbol": "",
+          "netApy": 0.03703637651287322,
+          "totalAssetsUsd": 1.0070307320844842
+        },
+        {
+          "address": "0x3819ec6325b59365B7000AF0003e0A712eBECe51",
+          "symbol": "",
+          "netApy": 0.020409373053507342,
+          "totalAssetsUsd": 1.000916160603437
+        },
+        {
+          "address": "0x381E598Ff5b5b507d6B1Ca518F2aeAb6AAA3c27E",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x38CFa75Ea43995d3A05ee97bbaed9f9fef95e695",
+          "symbol": "",
+          "netApy": 0.04081717665609467,
+          "totalAssetsUsd": 1.0028727035054006
+        },
+        {
+          "address": "0x38c173d761C431b25c51444AF9a86c42B6950d2C",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 1.0021288772820685
+        },
+        {
+          "address": "0x38f62103D2854dF1648D32D216a9547cD10B475b",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 1.0148019165387325
+        },
+        {
+          "address": "0x39001c6808DE86895C71B6d7f05D285A98Dc7527",
+          "symbol": "",
+          "netApy": 0.020410632301433453,
+          "totalAssetsUsd": 1.0008561746176843
+        },
+        {
+          "address": "0x3912a477F8988c37e387ACddb80AD04D4D8a3Fd2",
+          "symbol": "ZARPT",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x392cD9188C7C27640D95240386c79F8599827269",
+          "symbol": "",
+          "netApy": 0.020410632301433453,
+          "totalAssetsUsd": 1.0068307787986424
+        },
+        {
+          "address": "0x3963A87Ebc4B7A90aA3f67B5dae859950357b72E",
+          "symbol": "",
+          "netApy": 0.03703637651287322,
+          "totalAssetsUsd": 1.0049512179117277
+        },
+        {
+          "address": "0x39998e3ff174994a367E3Fc6a6371e0fa0694ce6",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x39D590b1B523354f39C40a7f4F18EFBF8e533136",
+          "symbol": "",
+          "netApy": 0.03703637651287322,
+          "totalAssetsUsd": 1.0091312413522542
+        },
+        {
+          "address": "0x39E18c066187c83e860801Befe45aE8ecd021575",
+          "symbol": "bitusdcp",
+          "netApy": 0.0002164366807617039,
+          "totalAssetsUsd": 1.0108558384426414
+        },
+        {
+          "address": "0x39F72209fAEaE1B1b32972F86366f61e60Aa9D75",
+          "symbol": "",
+          "netApy": 0.020409373053507342,
+          "totalAssetsUsd": 1.0125544416058687
+        },
+        {
+          "address": "0x39c4B64f38eb352EaA2b9438F603Ba92F2d82c6C",
+          "symbol": "",
+          "netApy": 0.03703868009401815,
+          "totalAssetsUsd": 1.0136321898165568
+        },
+        {
+          "address": "0x3A36a1cc8Dc914D22b1Fd823695a0f4f737bCbD8",
+          "symbol": "USDSOPA",
+          "netApy": 0.01948866301350151,
+          "totalAssetsUsd": 502.89255254726805
+        },
+        {
+          "address": "0x3A3D554111Ff3cFAB164a8A9a1fC7930f9c1bCc8",
+          "symbol": "",
+          "netApy": 0.03703637651287322,
+          "totalAssetsUsd": 1.0033765857857224
+        },
+        {
+          "address": "0x3A5024af023E18858EB097c1eb8819705E2d8173",
+          "symbol": "",
+          "netApy": 0.032854397050820584,
+          "totalAssetsUsd": 1.0136401879479906
+        },
+        {
+          "address": "0x3A97553fc60b0df15A341b11101F551E4527f0fF",
+          "symbol": "sdf",
+          "netApy": 0.01567497552559667,
+          "totalAssetsUsd": 2.0935409305162195e-06
+        },
+        {
+          "address": "0x3ACE0C9B90CEf3A29C8459B1D4fD485476cE134D",
+          "symbol": "TEST",
+          "netApy": 0.002445699479412432,
+          "totalAssetsUsd": 2.097660913140085e-06
+        },
+        {
+          "address": "0x3B79193512835D90fe9f891F959f6A4b75170F37",
+          "symbol": "gtso",
+          "netApy": 0,
+          "totalAssetsUsd": 2.999299287629537
+        },
+        {
+          "address": "0x3B8E9654Cf9a5889aF0ea946EEC082cff5f2d769",
+          "symbol": "",
+          "netApy": 0.03285643509760872,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x3B960E08bdfBbf916b863F715ec38E9e0Bd3a148",
+          "symbol": "tUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3BD86E2A84018cEF162873AC79b04b224d8224e3",
+          "symbol": "",
+          "netApy": 0.020410631484319236,
+          "totalAssetsUsd": 1.0008561746176843
+        },
+        {
+          "address": "0x3Ba79E07A7B020C21d430bD7caB80D4Db32911BB",
+          "symbol": "tv1USDC",
+          "netApy": 0.03733547002806202,
+          "totalAssetsUsd": 503.30432234740096
+        },
+        {
+          "address": "0x3Bb88290ddDca6A8374f28D70e7A42dD161CDE4d",
+          "symbol": "",
+          "netApy": 0.020409372235026025,
+          "totalAssetsUsd": 1.0115476768116545
+        },
+        {
+          "address": "0x3C11D8e2B047bd8f6F5bdd3e556c5B674FE6b950",
+          "symbol": "",
+          "netApy": 0.03703867859924512,
+          "totalAssetsUsd": 1.0128023836803128
+        },
+        {
+          "address": "0x3C335FefB4A70fFB70CE60a42D1b8e6b003AFe51",
+          "symbol": "",
+          "netApy": 0.03703867859924512,
+          "totalAssetsUsd": 1.0066348245785173
+        },
+        {
+          "address": "0x3C33C83deD18bBFa764183327E894078d8835F40",
+          "symbol": "",
+          "netApy": 0.037036375015600795,
+          "totalAssetsUsd": 1.0086213604733572
+        },
+        {
+          "address": "0x3C36D15E79536ac840e69D6943BA8A7d3781152C",
+          "symbol": "",
+          "netApy": 0.03703867859924512,
+          "totalAssetsUsd": 1.0085843691154766
+        },
+        {
+          "address": "0x3CFF6207ADA0fC7c37038ECE1E8D2972cDdFae40",
+          "symbol": "",
+          "netApy": 0.037036375015600795,
+          "totalAssetsUsd": 1.0130113348640175
+        },
+        {
+          "address": "0x3Cf1831208BA4Da37697df4d7e890540Aa6D8A24",
+          "symbol": "sUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3D02061bbde0280689D6724599BBEc596eBeDD87",
+          "symbol": "testSMBL",
+          "netApy": 0.02257934188215836,
+          "totalAssetsUsd": 1.0163725495990212
+        },
+        {
+          "address": "0x3D152E10CD4794059F65e63C71d19c1d547bA9e9",
+          "symbol": "",
+          "netApy": 0.0349454442802051,
+          "totalAssetsUsd": 1.6178780226674079
+        },
+        {
+          "address": "0x3D5d912cd15C0F4dD409Ed467642823041dE6287",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3D6dc967c6Bffa817266B6ab9C035679a2c2F2D2",
+          "symbol": "",
+          "netApy": 0.041237852751910706,
+          "totalAssetsUsd": 1.0065898350892029
+        },
+        {
+          "address": "0x3Da8Be659674062253B0f1EF9E765C7a6AF8C8d0",
+          "symbol": "test",
+          "netApy": 0.03154043155804786,
+          "totalAssetsUsd": 1.0308291721653955
+        },
+        {
+          "address": "0x3E7F5611c89D107Bc283eDD136C23cB94e006E98",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3E93519b320aC963DD21180A8C77dEc3e2952155",
+          "symbol": "",
+          "netApy": 0.025783695632915896,
+          "totalAssetsUsd": 1.0096651166254522
+        },
+        {
+          "address": "0x3Ec476359A5647ef1df5435DaF7FcCB1A6DC2D2d",
+          "symbol": "shUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3F6a41999dD84f81A9E3dbdc49B65339297fA1AC",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3a50313E4326851Aa233EEfdE85A9Bb6c517dAdF",
+          "symbol": "NPUSD",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3a64b0D76D5305373A96A87c582105da956b0869",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3a6B7346ce5c7348d6cd8aEa6742b66b80599B8F",
+          "symbol": "",
+          "netApy": 0.03913614818130776,
+          "totalAssetsUsd": 1.0108528391433536
+        },
+        {
+          "address": "0x3b885fF5608096185e2428501Abe9fb406395356",
+          "symbol": "",
+          "netApy": 0.03703867859924512,
+          "totalAssetsUsd": 1.0084653969104005
+        },
+        {
+          "address": "0x3c94E703926a8a4787430bD2089777b172Ce9c2b",
+          "symbol": "",
+          "netApy": 0.03703867859924512,
+          "totalAssetsUsd": 101.11802826442484
+        },
+        {
+          "address": "0x3cDD8Be144C2F666A280D9bFD779Faba8D5845A5",
+          "symbol": "",
+          "netApy": 0.020409372235026025,
+          "totalAssetsUsd": 1.0053991132720137
+        },
+        {
+          "address": "0x3d1bb0f5823C4F8bc242A754710Ca9740681B24f",
+          "symbol": "",
+          "netApy": 0.03703867859924512,
+          "totalAssetsUsd": 1.0033355953621248
+        },
+        {
+          "address": "0x3d4Ea69F3c159D35e94A8E4e3854a009AFfaE578",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3d5641c0fA005c3e8B9928f7A21E3c9192f5a847",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3d60aF0EDA45e1008E724714397CD0742C0586eA",
+          "symbol": "",
+          "netApy": 0.03703867492922098,
+          "totalAssetsUsd": 1.0067837897764695
+        },
+        {
+          "address": "0x3deDcEcF0246474246a8C5e89dEa35170023071D",
+          "symbol": "sUSDC",
+          "netApy": 0.033119804902057445,
+          "totalAssetsUsd": 705257.370538175
+        },
+        {
+          "address": "0x3e85810BE79c2E4E613f0023033d107A4Df82e98",
+          "symbol": "BT3",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3e87922f1ca0FA14533961b2a5A4BC896ad1CB39",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3eac1E022bf299476158d287b85c1e52Eae2bDd6",
+          "symbol": "Moonwell-cbBTC",
+          "netApy": 0.0012206628294151012,
+          "totalAssetsUsd": 0.14290688013261144
+        },
+        {
+          "address": "0x3f0E2Ed079e1f9991DFC99027aa2304Deb5D84fb",
+          "symbol": "RV2",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x3f2dD9eBD0D7228D49473f6d2A14da261Ad96316",
+          "symbol": "PLHI",
+          "netApy": 0,
+          "totalAssetsUsd": 9.997664292098455e-07
+        },
+        {
+          "address": "0x3f45C2BAC13233b4759903D48BED128a43DE2f65",
+          "symbol": "fdfdf",
+          "netApy": 0.01567497552568013,
+          "totalAssetsUsd": 2.096796842715493e-06
+        },
+        {
+          "address": "0x3f6842a004214dcD070E10e590d704e0b4c46c58",
+          "symbol": "brrrUSDCv2",
+          "netApy": 0.012398752301602109,
+          "totalAssetsUsd": 0.1200249591259296
+        },
+        {
+          "address": "0x3f6fce7C19A03c2BFf0E44e346EF0639c954822b",
+          "symbol": "PLHG",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x3f801c31b6bA3F369fb4A729e9233fb8C89C63d9",
+          "symbol": "",
+          "netApy": 0.03703637130808273,
+          "totalAssetsUsd": 1.0115156842859196
+        },
+        {
+          "address": "0x3f8BBf5a506AC089247E09e05B9353c4B641Ef82",
+          "symbol": "DSFSDF",
+          "netApy": 0.01567497528967079,
+          "totalAssetsUsd": 2.096803384585424e-06
+        },
+        {
+          "address": "0x4012505a634571ba1aFD70eD236182038eBb215C",
+          "symbol": "",
+          "netApy": 0.03703637130808273,
+          "totalAssetsUsd": 1.0103899472866293
+        },
+        {
+          "address": "0x40344F463AE76F7bB0cA9C2811C39A0d2dC6f8EA",
+          "symbol": "",
+          "netApy": 0.036200873723157063,
+          "totalAssetsUsd": 1.007163701019569
+        },
+        {
+          "address": "0x403f884d99E0a0303A280E340aBDC45287962b97",
+          "symbol": "test",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x404401fCb1E6173431768558067e3631b076C982",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x405dC9C3Df961b23D1B5c8DCd935171DFa6Ad9C1",
+          "symbol": "exSymbol",
+          "netApy": 0.002445699293130095,
+          "totalAssetsUsd": 2.0976027881779654e-06
+        },
+        {
+          "address": "0x40653FB00724EA3c5d752A482D2Bde8187c0704b",
+          "symbol": "Sanying",
+          "netApy": -0.017518510677581322,
+          "totalAssetsUsd": 1.021193423320671
+        },
+        {
+          "address": "0x406C5Cb768829EE7839F005c4F304180ea7611de",
+          "symbol": "",
+          "netApy": 0.039133706200565964,
+          "totalAssetsUsd": 1.0123594871521728
+        },
+        {
+          "address": "0x40752409A262EA140e0F0713C7C298FeFDe85BcB",
+          "symbol": "hpt",
+          "netApy": 0,
+          "totalAssetsUsd": 4.998832146049228
+        },
+        {
+          "address": "0x409C0892a8532C546203A07D68de680a1933be6e",
+          "symbol": "Test",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x40B282E9393aDd89f8Bbe0935aD55296C4729CD7",
+          "symbol": "",
+          "netApy": 0.039136142718550995,
+          "totalAssetsUsd": 1.011569671673097
+        },
+        {
+          "address": "0x40c5c6B14e55571AC96f416A97e5E5840CeB76f7",
+          "symbol": "cUSD",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x41363Dcb29AF06C9100B1A8D61EeAF34af1aAC4F",
+          "symbol": "",
+          "netApy": 0.03703867492922098,
+          "totalAssetsUsd": 1.001284074649386
+        },
+        {
+          "address": "0x41633AA82e2C0eCCAB1C9777fA1C4e6910007dAa",
+          "symbol": "",
+          "netApy": 0.010256127325665854,
+          "totalAssetsUsd": 15.786607848086508
+        },
+        {
+          "address": "0x416Ee6a54Cfb665E5ADbde844B708433B1D68543",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x41970E9F96E4860770834Bb1E34F2218Be72D144",
+          "symbol": "",
+          "netApy": 0.03703867492922098,
+          "totalAssetsUsd": 1.013479225552888
+        },
+        {
+          "address": "0x41A145BA738bcF5f7fd61EECfcA96c47F8F7462C",
+          "symbol": "FEV2",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x41D32816ebA6d35cAa22229A102e6B6593cc3590",
+          "symbol": "dd",
+          "netApy": 0.03703867492922098,
+          "totalAssetsUsd": 1.0063398934819003
+        },
+        {
+          "address": "0x41cC4fd8DedD2c80435AB9B40D2e00E72F4d3e35",
+          "symbol": "aMUSDCUSDCtria",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x41db1F8578831C59765d241581065c3a0b234E95",
+          "symbol": "",
+          "netApy": 0.03703867492922098,
+          "totalAssetsUsd": 1.0051131800732598
+        },
+        {
+          "address": "0x41eFaAB8FC3cd967502ba9c3299089a36075E3bC",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4207F0caF3160B6A57E44bd91531e8Ffcb26a5be",
+          "symbol": "",
+          "netApy": 0.03703637130808273,
+          "totalAssetsUsd": 1.0111867611307097
+        },
+        {
+          "address": "0x420e0c87B4C716EbDcF1B546D939A3Ad54b0Ef12",
+          "symbol": "",
+          "netApy": 0.02040937020831785,
+          "totalAssetsUsd": 1.0095441448875178
+        },
+        {
+          "address": "0x423d5756b9b61E8A165851754EfCd8F68B2F8a40",
+          "symbol": "",
+          "netApy": 0.03703637130808273,
+          "totalAssetsUsd": 1.0073276627139596
+        },
+        {
+          "address": "0x4249EA14CFcfe6DAF77EA8805f049475b56E4bFf",
+          "symbol": "",
+          "netApy": 0.02040937020831785,
+          "totalAssetsUsd": 1.0117096389731863
+        },
+        {
+          "address": "0x4250B3bc1CFBF4b3c04Ef0bFc433E25E12772e53",
+          "symbol": "",
+          "netApy": 0.03703867492922098,
+          "totalAssetsUsd": 1.0042033926226788
+        },
+        {
+          "address": "0x42510382A568d797B9429B6DDd575DE1c42d6f5C",
+          "symbol": "",
+          "netApy": 0.03703637130808273,
+          "totalAssetsUsd": 1.0094211736167251
+        },
+        {
+          "address": "0x4265899E4EAF89e86970159D56Fa5C2DCFb5d4A2",
+          "symbol": "TT",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x426C9Ce7f4A09C2A7da6AA7C68e71243c1504501",
+          "symbol": "vvUSDCtest",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x4272D0C81Af066861c77Db1147cCfEd769Df1797",
+          "symbol": "",
+          "netApy": 0.03703867492922098,
+          "totalAssetsUsd": 1.0039294566210755
+        },
+        {
+          "address": "0x4286Cd2D6FA9695F3B1f2D327CbbEE0Ac95D184B",
+          "symbol": "TVL123",
+          "netApy": 0.03703867492922098,
+          "totalAssetsUsd": 1.0183410896981353
+        },
+        {
+          "address": "0x428f5998B8f7242bA6167685aF6dbA2fb1ceE4c3",
+          "symbol": "",
+          "netApy": 0.03703637130808273,
+          "totalAssetsUsd": 1.0130493259883275
+        },
+        {
+          "address": "0x4293759e6Ae07679Dc4bB0d7107b1a9C9f6a5A0f",
+          "symbol": "",
+          "netApy": 0.039133706200565964,
+          "totalAssetsUsd": 0.21398500767592932
+        },
+        {
+          "address": "0x42Cff985c198dd3FBD09A439a2795aa3b4854e2A",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x42dD7314d4a8951cf0224d6055c41113e17aF62A",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4313CC28F27AE4eD56e9DB160CE74DEB1e2E88d2",
+          "symbol": "",
+          "netApy": 0.020409369389726754,
+          "totalAssetsUsd": 1.0148489055609053
+        },
+        {
+          "address": "0x4313F2e39aE688a008dcF911522a384C431558b8",
+          "symbol": "BCY",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x4329209508679BaCA55e5Eed1846672c3Ad38934",
+          "symbol": "",
+          "netApy": 0.034943268158795664,
+          "totalAssetsUsd": 1.0037904890874152
+        },
+        {
+          "address": "0x4353F29d8Ee16dD559804bc5A2219f29CAeD7064",
+          "symbol": "",
+          "netApy": 0.03703867343422673,
+          "totalAssetsUsd": 1.0072796739253576
+        },
+        {
+          "address": "0x436904A7744532b365c61A307179476c30F97c83",
+          "symbol": "",
+          "netApy": 0.04123785108407984,
+          "totalAssetsUsd": 1.0110617903270585
+        },
+        {
+          "address": "0x439F8e6cCe7CF217eB88b7BeD2A819F62dA85103",
+          "symbol": "jkljlkj",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x43DAcF09a9Ed7820393df652D6D1300380C64eeC",
+          "symbol": "",
+          "netApy": 0.03703636981060948,
+          "totalAssetsUsd": 3995.1255903528445
+        },
+        {
+          "address": "0x4459fdbd693B362620069c4838aAB6CC50BA4e17",
+          "symbol": "WETHV",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x44823C32f62b3A56420044511523704E48142696",
+          "symbol": "testing1",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x44B45A9F963A8Ae80663F9B4c6022Ad0719aB114",
+          "symbol": "",
+          "netApy": 0.03703867343422673,
+          "totalAssetsUsd": 1.008639356269083
+        },
+        {
+          "address": "0x44D797C454Bf31Ee5e9f75a57F80183E8527060c",
+          "symbol": "cashFloUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x44E9505C0c2BaB09635cc42C7458A83f2caa7893",
+          "symbol": "",
+          "netApy": 0.03913614113730982,
+          "totalAssetsUsd": 1.0108348433476277
+        },
+        {
+          "address": "0x44dd77d51629987d9555c762bF09903928c70206",
+          "symbol": "alphaUSDCPrime",
+          "netApy": 0.027074121074162034,
+          "totalAssetsUsd": 1086.607620905328
+        },
+        {
+          "address": "0x450560c1dFD42c50C9cFB4689dEf92635cf2ff86",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4524fD5a4829f783BE448E3940fAD0F6e78b589d",
+          "symbol": "",
+          "netApy": 0.041235281138339824,
+          "totalAssetsUsd": 1.6178710243024035
+        },
+        {
+          "address": "0x4527C313E8b6cb9bCC950aCE94f79160f23Ce82E",
+          "symbol": "",
+          "netApy": 0.03703636981060948,
+          "totalAssetsUsd": 1.0098860650063075
+        },
+        {
+          "address": "0x4556476852BF7059d3D515204291D4282E4b0299",
+          "symbol": "trios9",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x45567E39E0B41240733C03B28784BEf11A4f2A22",
+          "symbol": "",
+          "netApy": 0.04081716930363235,
+          "totalAssetsUsd": 1.0019579172226736
+        },
+        {
+          "address": "0x455901aC2fA9Fb7030bb5c999F27029E193a4C2a",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x456E5B2bB1699c97F2D56647Dc298E0D7A5c7342",
+          "symbol": "",
+          "netApy": 0.03703636981060948,
+          "totalAssetsUsd": 1.012789386716733
+        },
+        {
+          "address": "0x4577331E8a8e93635444472B11B906fB65F9B52a",
+          "symbol": "BUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x45865A77A54794e7cD0831aEfA6c02284C2B3438",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x45969042b5Cc6741F1e8aDa62FCE34724E3583b3",
+          "symbol": "HP",
+          "netApy": 0,
+          "totalAssetsUsd": 4.998832146049228
+        },
+        {
+          "address": "0x459d06F02F5A5Ee5699dC625aFE3a125Ca6d016c",
+          "symbol": "",
+          "netApy": 0.03578000138820926,
+          "totalAssetsUsd": 1.008663350663384
+        },
+        {
+          "address": "0x45D3761449C3365294cd462f70997B8A918bb40f",
+          "symbol": "Test",
+          "netApy": 0.015674975047199856,
+          "totalAssetsUsd": 2.0975482371887204e-06
+        },
+        {
+          "address": "0x45FA44f702b83277bCB44e672BF3E96e91d2A766",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x45d596CFd48A9B3176f74d6241b3F9300BC0f379",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 9.997664292098457e-06
+        },
+        {
+          "address": "0x46039109dE2036187a309191063280Ce71cA60A6",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x460b523b670E751C1d7c85F24504825e24F64700",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x46100D17B08902e857B4fB4B97B4eD848D883a43",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4636029831825C556Ce44bE2735cC268ef5cb294",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x4637Bd1b912267374E2EAfCcA08DfA2BF8bCdb1B",
+          "symbol": "",
+          "netApy": 0.03703636981060948,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x467DB8131c9AD5c3a52DEF86fc74A93A0F26473d",
+          "symbol": "",
+          "netApy": 0.03703867343422673,
+          "totalAssetsUsd": 1.007771559008529
+        },
+        {
+          "address": "0x4680d01422f09a432298b4DaD47cAb59144C8148",
+          "symbol": "liveTEST",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x46A0F76975e5bE4672EcaCCD340f4b8B96B39587",
+          "symbol": "",
+          "netApy": 0.020410624776533062,
+          "totalAssetsUsd": 1.0022328529907063
+        },
+        {
+          "address": "0x46A48Ca3F63aeA15c26dC931BA89495eE379389D",
+          "symbol": "TT",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x46E643d07B9E17CaDE32A3679e42F88e8677Ddf2",
+          "symbol": "",
+          "netApy": 0.03703636261262095,
+          "totalAssetsUsd": 1.011216754123586
+        },
+        {
+          "address": "0x46FF1De5156F866dd8700a8b8DF896095EeD5189",
+          "symbol": "oTAO",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x46bd7fb20b1Db3dC5967ddcF85D5C5921C6E69A0",
+          "symbol": "",
+          "netApy": 0.032854384744867016,
+          "totalAssetsUsd": 1.0148439067287591
+        },
+        {
+          "address": "0x46cDF35b4A727b529D27B33788929ec05C628535",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x46dD44a3B90Aaccb145d1e222471A4540e951ec9",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x472111787c710d07944586C29BaEBc1d8cDF4EeB",
+          "symbol": "",
+          "netApy": 0.037038666328478576,
+          "totalAssetsUsd": 1.0062449156711255
+        },
+        {
+          "address": "0x4724DA8428E6885fFD78DEF5c0626aC12a35aac0",
+          "symbol": "vaultUSDC2",
+          "netApy": 0.037038666328478576,
+          "totalAssetsUsd": 0.10179221875642964
+        },
+        {
+          "address": "0x4770C81a70f2bBb901F44608f82d9DEaF61A9340",
+          "symbol": "",
+          "netApy": 0.037038666328478576,
+          "totalAssetsUsd": 1.0027597298988997
+        },
+        {
+          "address": "0x477B4Ce0f5376FDa152bC6fCB907B036365613fe",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x479448f2C56997Bf80A34Cef111AEB44a6F857Db",
+          "symbol": "",
+          "netApy": 0.037038666328478576,
+          "totalAssetsUsd": 1.0021288772820685
+        },
+        {
+          "address": "0x47DC2FF5259009956F7d8895147ef98da3be359F",
+          "symbol": "",
+          "netApy": 0.03703636261262095,
+          "totalAssetsUsd": 2.6448490961824827
+        },
+        {
+          "address": "0x47a1A74AC6aA4DA23cB704200063eB4e820A0e96",
+          "symbol": "",
+          "netApy": 0.037038666328478576,
+          "totalAssetsUsd": 1.0000113719850021
+        },
+        {
+          "address": "0x47aF62939bBd1a61F3cE4Ed5D329cf64B22Ad11E",
+          "symbol": "",
+          "netApy": 0.03703636261262095,
+          "totalAssetsUsd": 3.7362091268043884
+        },
+        {
+          "address": "0x48068A35957F12BF744BD40985cfAB4B4c79016B",
+          "symbol": "",
+          "netApy": 0.03703636261262095,
+          "totalAssetsUsd": 1.0097750909326653
+        },
+        {
+          "address": "0x48167c9c7FfD674F1896D5668028BD6e61A9EbD5",
+          "symbol": "",
+          "netApy": 0.04081461813861241,
+          "totalAssetsUsd": 1.0093271955723793
+        },
+        {
+          "address": "0x48252e1C54dd2D379EE5D592d55c37b11792a870",
+          "symbol": "",
+          "netApy": 0.037038666328478576,
+          "totalAssetsUsd": 1.011025798735607
+        },
+        {
+          "address": "0x48473C1c77D09Bf664D3bEB4f1D0E5fC6Fd1B423",
+          "symbol": "PRIME",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x48F34fA413eE669400E8F8EB427713532766959c",
+          "symbol": "AWOO",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x48a70e6bFf1Ba164c11B83E5Cb183612470DBD1B",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x48a90E85be5C56b0A669985A12ee7C449fC79965",
+          "symbol": "mwUSDC",
+          "netApy": 0.03193273521572081,
+          "totalAssetsUsd": 7712.235130305052
+        },
+        {
+          "address": "0x48c2911060806a19247a272D588D7C06cBe7c9A0",
+          "symbol": "V2",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x48ded4CEf080787c201d3a5be386eea48Ab333f0",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x48e89d48Aa19E648F0837C141dE5BEee7fdDadb1",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 2.999299287629537
+        },
+        {
+          "address": "0x48fa25a892198c30B11294eE6B3811193028654e",
+          "symbol": "",
+          "netApy": 0.03703636261262095,
+          "totalAssetsUsd": 1.013218286514864
+        },
+        {
+          "address": "0x48fc99102447E46fa089B205531F5e4B62E73b67",
+          "symbol": "",
+          "netApy": 0.02040936545495907,
+          "totalAssetsUsd": 1.0138441402995495
+        },
+        {
+          "address": "0x493FEb541189fCaE37C46180DdFc8a84C32e6010",
+          "symbol": "",
+          "netApy": 0.037038666328478576,
+          "totalAssetsUsd": 1.0108298445154817
+        },
+        {
+          "address": "0x4952482927542E7bf75F024e7e06B239227a6F87",
+          "symbol": "zzzz",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x496B5D0a92C60f6c46D241e3C921f66F82F04e19",
+          "symbol": "",
+          "netApy": 0.03703636261262095,
+          "totalAssetsUsd": 1.0111867611307097
+        },
+        {
+          "address": "0x4979448910D5391cf0be10cD67D499327Fac709F",
+          "symbol": "",
+          "netApy": 0.037038666328478576,
+          "totalAssetsUsd": 1.006361888343343
+        },
+        {
+          "address": "0x498bEbF6B6d54883AB946462a66CEeC0544Aaf6F",
+          "symbol": "",
+          "netApy": 0.039133697003460005,
+          "totalAssetsUsd": 11.279176898256788
+        },
+        {
+          "address": "0x499322823Aa2D63288C66eA539412472Ad126619",
+          "symbol": "",
+          "netApy": 0.034945432714539995,
+          "totalAssetsUsd": 1.0135921991593886
+        },
+        {
+          "address": "0x49EfbF81fFB9bcd857cC756B236555616070372f",
+          "symbol": "gbyEUR",
+          "netApy": 0.0373493500599035,
+          "totalAssetsUsd": 1.1820799385875016
+        },
+        {
+          "address": "0x49a5491a4d3b2D62281a634446e4bABfDbEab42e",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x49deC2B14F637A1055553A6513fEEF505cCEA084",
+          "symbol": "b ",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x49e5C9e634282998722634980d55746d13F633dd",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4AE4FB344CeD876bddCeaB2A2A7a8a63089444b3",
+          "symbol": "frfrfr",
+          "netApy": 0.009712029455631084,
+          "totalAssetsUsd": 1.0109568148519914
+        },
+        {
+          "address": "0x4AE602dff6146Eb402A72D925D23Ba66AAF387C6",
+          "symbol": "",
+          "netApy": 0.037038664805070495,
+          "totalAssetsUsd": 1.0128493727024857
+        },
+        {
+          "address": "0x4B1cB32c61307838ac4b3A435cb8d77115a8e3D2",
+          "symbol": "trios",
+          "netApy": 0.15491249586154995,
+          "totalAssetsUsd": 2.0447362977499854
+        },
+        {
+          "address": "0x4B27dD48F3dB18AA64540b5a49440502c14F0424",
+          "symbol": "",
+          "netApy": 0.037038664805070495,
+          "totalAssetsUsd": 1.0100100360435296
+        },
+        {
+          "address": "0x4B6E2EC1229dcf124dfCe2e559B4B61Ab3998176",
+          "symbol": "SC_PIGGYBANK",
+          "netApy": 0.037417736208611545,
+          "totalAssetsUsd": 10.27982737164792
+        },
+        {
+          "address": "0x4BC1697E003FadBd493b061D938F29E84dD69470",
+          "symbol": "",
+          "netApy": 0.027858265106276047,
+          "totalAssetsUsd": 1.0071607017202815
+        },
+        {
+          "address": "0x4C0cC7a03396b6E43037ed5C83efA11f25D78981",
+          "symbol": "VTAO",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x4C44fBa7d6885b44dDB26e91Ce5A4F3e0D364115",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4C7b69b4a82e9E5D8ec60E96516f7A0E17CBC55C",
+          "symbol": "CSREURC",
+          "netApy": 0.0497721519504356,
+          "totalAssetsUsd": 7678.227014054661
+        },
+        {
+          "address": "0x4C8618f6fd8c50A97385394DbD7699eA193fA163",
+          "symbol": "syrupUSDCV",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4Ca26a123E46CAd558553b2Eeaf70CAd2ED88F7D",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4D0E7CF849bC315A935F9C6e9Daa75d02b14AdA1",
+          "symbol": "steakEURCdeblock",
+          "netApy": 0.046911956063385336,
+          "totalAssetsUsd": 0.011798332485060155
+        },
+        {
+          "address": "0x4D54FceA7E0782a416d2Af1827C3298f9Ebf25f3",
+          "symbol": "tmbUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 1.9995328584196912
+        },
+        {
+          "address": "0x4D72Fed1b6cE42F8Dea811F7b6685EbE4Ec04E01",
+          "symbol": "KabuWETH",
+          "netApy": 0.011648172896147623,
+          "totalAssetsUsd": 1086736.1209705565
+        },
+        {
+          "address": "0x4D7bfE46AF6c4Ee1d7Ea7cF538AB995BaDFb9E0c",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x4D99338a72C5BF25a5D94887E5258158690E52f2",
+          "symbol": "",
+          "netApy": 0.037038664805070495,
+          "totalAssetsUsd": 1.01345123209287
+        },
+        {
+          "address": "0x4EDC6aB1964e25eb2C202AB9F201E9548BAa53dF",
+          "symbol": "trSHETHp",
+          "netApy": 0.012880923012827622,
+          "totalAssetsUsd": 1.0575004186458055
+        },
+        {
+          "address": "0x4Eab15eb909147DD5eeBD93a2e93148f2711298d",
+          "symbol": "",
+          "netApy": 0.03997381630993244,
+          "totalAssetsUsd": 1.0028607063082502
+        },
+        {
+          "address": "0x4F2ffe2157653Ed538f3DcB7049787b026c8f3e1",
+          "symbol": "",
+          "netApy": 0.020409363833958243,
+          "totalAssetsUsd": 1.0070307320844842
+        },
+        {
+          "address": "0x4F60103c2f173a6a8D69492Ecf548bAd62e8660f",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4F77d31b1C82810A720C32Ac8551283832321757",
+          "symbol": "Test",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x4F7a635a768491a6D7bA3dAb86Cb98FD630bc531",
+          "symbol": "",
+          "netApy": 0.03703635964727553,
+          "totalAssetsUsd": 1.007752563446374
+        },
+        {
+          "address": "0x4FcFa9AA4522652c3Ec6ec1437232c1a267142bb",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4Fe103d05704E8d85D5E03B5D3b41FDB73D53061",
+          "symbol": "test2USDC",
+          "netApy": 0.03943058421824361,
+          "totalAssetsUsd": 1033.0545892515318
+        },
+        {
+          "address": "0x4a03aA4D2e52388ca4eCA5F4f6c610f82BA8C2bD",
+          "symbol": "albistw",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x4a3A50aFB0AB51551351512FfF2Eaa7542579C8b",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4a730B00997275dB90f1e11b48cC7314e3A1336B",
+          "symbol": "",
+          "netApy": 0.04123784315683455,
+          "totalAssetsUsd": 1.0095361467560842
+        },
+        {
+          "address": "0x4a78D1770a646CE9Aa689213812e5C35122632B4",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4a80756Eda9E5D2b5AA66E7666FA7C90BEd4f33b",
+          "symbol": "maxUSD",
+          "netApy": 0.6487212706542541,
+          "totalAssetsUsd": 9.997664292098455e-07
+        },
+        {
+          "address": "0x4a88AFC69538D1d8F488f8e80ad5f5605Cc9dE6B",
+          "symbol": "KoreUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4b0aE37b447d6Bb560B439784177871567DFaC82",
+          "symbol": "",
+          "netApy": 0.03703636108625657,
+          "totalAssetsUsd": 1.0050591926860823
+        },
+        {
+          "address": "0x4b5bBE52F8130CF60EDeA70305411f6479894f29",
+          "symbol": "",
+          "netApy": 0.03913369538903914,
+          "totalAssetsUsd": 1.0054161093013105
+        },
+        {
+          "address": "0x4b88EBB76d2e40470DD95e6F1A5C8AEFcbDBA0E7",
+          "symbol": "",
+          "netApy": 0.02040936462057468,
+          "totalAssetsUsd": 1.0148499053273345
+        },
+        {
+          "address": "0x4bF7af43D49d906AF42dB08549Ed8FcC78B7e425",
+          "symbol": "",
+          "netApy": 0.037038664805070495,
+          "totalAssetsUsd": 1.0126284243216301
+        },
+        {
+          "address": "0x4bFa285193d7d5c0381aEd072eF4C6737d367068",
+          "symbol": "",
+          "netApy": 0.041235271405364926,
+          "totalAssetsUsd": 1.0041204120090546
+        },
+        {
+          "address": "0x4ba9ef7f8A86b8831048099c8eCD653feaee7fA7",
+          "symbol": "",
+          "netApy": 0.03703636108625657,
+          "totalAssetsUsd": 1.0010001409834905
+        },
+        {
+          "address": "0x4bed40eCeFb9485B2487c2288c6e18712C46c208",
+          "symbol": "SDFF",
+          "netApy": 0.015674974582473175,
+          "totalAssetsUsd": 2.0967462280949746e-06
+        },
+        {
+          "address": "0x4bfAAc66b00ef84E23a959E40d6AE25777C727d6",
+          "symbol": "",
+          "netApy": 0.037038664805070495,
+          "totalAssetsUsd": 1.012064556055556
+        },
+        {
+          "address": "0x4c70110F82784bF2cfa71829cdEa423DDB14D29e",
+          "symbol": "",
+          "netApy": 0.037038664805070495,
+          "totalAssetsUsd": 1.0120495595591177
+        },
+        {
+          "address": "0x4ca1E103C12D2529354634D54Fc87C3160a73586",
+          "symbol": "",
+          "netApy": 0.03913613201033346,
+          "totalAssetsUsd": 1.000012371751431
+        },
+        {
+          "address": "0x4cb4c31Dc280034889f204A307C633C8e03De515",
+          "symbol": "SAFETEST1",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4d390F54327b8d4ca6DFaF8db58BCFdF0270697b",
+          "symbol": "ueSF-BR3",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x4d45175e12643caBFD981303Bb6c63F42E7E0F06",
+          "symbol": "",
+          "netApy": 0.03913369538903914,
+          "totalAssetsUsd": 1.0108508396104952
+        },
+        {
+          "address": "0x4ddCB5F380440DE4Ceb6E394F7C008B1dC496463",
+          "symbol": "",
+          "netApy": 0.034943259935759544,
+          "totalAssetsUsd": 1.0029256911261488
+        },
+        {
+          "address": "0x4e48989aBA90fA0F0B948d81062D9c850E02d974",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4eCdDEea0d93a5369506bd4BFA2Ca9C7932DAEDb",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4f0bB8129cbD387E9C08a8d127Fe020159F27735",
+          "symbol": "GT",
+          "netApy": 0,
+          "totalAssetsUsd": 1.9005559819279165
+        },
+        {
+          "address": "0x4f3aD364b9C51FB2048fD47E3904608d96388213",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x4f42835632240f27eef6B6f5daCFc44c0dF9DD28",
+          "symbol": "TS",
+          "netApy": 0.015674974358027678,
+          "totalAssetsUsd": 2.0966096485965893e-06
+        },
+        {
+          "address": "0x4f4A62Cd648e0249114e04f4Eefb628936Ee754a",
+          "symbol": "dtsUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x4f9D6C4E69aeFefb8b260A0FeBF674f544e3dF1F",
+          "symbol": "",
+          "netApy": 0.030128222946302866,
+          "totalAssetsUsd": 5.006479359466254
+        },
+        {
+          "address": "0x4fF3deDe31b04233D0eE9bE14a16222aCFB16946",
+          "symbol": "IR2Renamed",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x500b16405093A90F31Bbaf8E0370A26fe22549D4",
+          "symbol": "",
+          "netApy": 0.03703635964727553,
+          "totalAssetsUsd": 1.0028047193882144
+        },
+        {
+          "address": "0x500c19ec7447439AC298f3db1e10551f5EdDE153",
+          "symbol": "EVER",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 9.997664292098455e-07
+        },
+        {
+          "address": "0x5063789906E4d7141404CC547B064591e34059D9",
+          "symbol": "",
+          "netApy": 0.03703866184516516,
+          "totalAssetsUsd": 1.0102769736801287
+        },
+        {
+          "address": "0x50740C3cf8399f6108C6650054300e75a8C1fECD",
+          "symbol": "",
+          "netApy": 0.03243912488553456,
+          "totalAssetsUsd": 1.0095191507267876
+        },
+        {
+          "address": "0x5079EfCc0c8BeF73503D7E2fF083d7E1176D9502",
+          "symbol": "gUSDCq",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5083b1387Ec3d4Ee6467B83890D98f1AF93F7c48",
+          "symbol": "mwEURC",
+          "netApy": 0.03307106066978683,
+          "totalAssetsUsd": 1209.506756140092
+        },
+        {
+          "address": "0x50AD85f69C1D19CDa12669D66712543A5BA1D748",
+          "symbol": "",
+          "netApy": 0.03703635964727553,
+          "totalAssetsUsd": 1.0050022059996175
+        },
+        {
+          "address": "0x50D3EBB54E9e68F961A1B1B1CB9bE3866C96A65B",
+          "symbol": "HJT",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x50b4f12bF0187CE87d1C2213d356A51e5b3adeb2",
+          "symbol": "",
+          "netApy": 0.03703866184516516,
+          "totalAssetsUsd": 1.0021288772820685
+        },
+        {
+          "address": "0x50e8B8B50037322BE0Efc2048d66Cb957f349816",
+          "symbol": "kgtUSDCp",
+          "netApy": 0.03703866184516516,
+          "totalAssetsUsd": 1.0063588890440553
+        },
+        {
+          "address": "0x51396A96C38BaB8F3F0313e76Acde26b44654997",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x518aEDD9ea8686DdF21B89D740692fdAaFF6d27c",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x5193cC86e192CBD0218bB9d3B46dEa467302f87a",
+          "symbol": "",
+          "netApy": 0.0395561310811787,
+          "totalAssetsUsd": 1.0000103722185727
+        },
+        {
+          "address": "0x51E99d65861b9738E37C9813f106F67F2aeDC9c3",
+          "symbol": "testUSDC",
+          "netApy": 0.03923704524095173,
+          "totalAssetsUsd": 1.0134382351292903
+        },
+        {
+          "address": "0x51F0AAcb373D219096801304CB2D48e10A3827B1",
+          "symbol": "",
+          "netApy": 0.02041062232574014,
+          "totalAssetsUsd": 1.0120775530191355
+        },
+        {
+          "address": "0x51F6cb8BeAc7baBA388d63b9e98E5457d1EA7A40",
+          "symbol": "test",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x51dBa70C48B01388f73462c52D0BE7464471a897",
+          "symbol": "",
+          "netApy": 0.03494542848884625,
+          "totalAssetsUsd": 1.0076795804970413
+        },
+        {
+          "address": "0x5229B9b69C948D1aA90a13A17E551cFB138f75E6",
+          "symbol": "Test",
+          "netApy": 0.015674974358027678,
+          "totalAssetsUsd": 2.0959521250624367e-06
+        },
+        {
+          "address": "0x5237D42B74e39f22AaB83Fbe580c2f11762b8F5B",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x523Dac69D5019560F5d6889F8718b8BC72403678",
+          "symbol": "",
+          "netApy": 0.03703866184516516,
+          "totalAssetsUsd": 1.0088373100220667
+        },
+        {
+          "address": "0x52Cd1fc69c79d4760f53d6467bC1a20344A65E7f",
+          "symbol": "crazyUSD",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x52E2Ab2618717D556f75f9cC16A1b14e5c14c505",
+          "symbol": "",
+          "netApy": 0.03703635964727553,
+          "totalAssetsUsd": 1.0100090362771006
+        },
+        {
+          "address": "0x530aC240f9645bAD8CdFf96d0dA45c1B85b9ccc4",
+          "symbol": "aUSDC",
+          "netApy": 0.0407165235162104,
+          "totalAssetsUsd": 82.42567127302283
+        },
+        {
+          "address": "0x53115468b02a897683F650C997Ce76AC532a131D",
+          "symbol": "",
+          "netApy": 0.03076972047695954,
+          "totalAssetsUsd": 1.0111017809842269
+        },
+        {
+          "address": "0x531e4Dcd580AeB6d0C6496beC0B94b7Ad69AA39e",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x533613c45c4F67bc11A4F75773cd40021d38fD33",
+          "symbol": "testUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x5338c4cFD6c6b4C6C867085167C38c65FBa3E614",
+          "symbol": "TPV",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x539515eAE3336f686b132a1Db6E68bd331219653",
+          "symbol": "",
+          "netApy": 0.03703635812114478,
+          "totalAssetsUsd": 1.0146169597493286
+        },
+        {
+          "address": "0x53Bd5E81F094f52b9c91191CD9154D5F523248f1",
+          "symbol": "yoloUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x53D065Ac881A33F5F296959556c209C6099fb92C",
+          "symbol": "CBHPV",
+          "netApy": 0,
+          "totalAssetsUsd": 1.9995328584196912
+        },
+        {
+          "address": "0x53F88B107f958cd7a58Ef54E58F92F414c31A50F",
+          "symbol": "CBHP Test",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x53fd4DA35638b86E377dfF3022F5969F90A9d61a",
+          "symbol": "gUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5410317Db08CFe720B34c159d355E546f8626672",
+          "symbol": "",
+          "netApy": 0.03703635812114478,
+          "totalAssetsUsd": 1.010715871142552
+        },
+        {
+          "address": "0x541e0d05cc603256646897E2211d95024906121f",
+          "symbol": "FW",
+          "netApy": 0.02257932719728782,
+          "totalAssetsUsd": 1.0160416269109527
+        },
+        {
+          "address": "0x5436eE4f025C8a356d588429fF6fF6fB8649B122",
+          "symbol": "JT6",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x54574f692b39afFaA593DB1c4B6FE59771D5A9B2",
+          "symbol": "",
+          "netApy": 0.03703635812114478,
+          "totalAssetsUsd": 1.0018249482875887
+        },
+        {
+          "address": "0x54937609f5C3AC6Dbe104543aA5CDD453A641870",
+          "symbol": "",
+          "netApy": 0.03787714013845299,
+          "totalAssetsUsd": 1.001184098006465
+        },
+        {
+          "address": "0x549f8864F0BDF45404b5B1d3D507d39CdA91666b",
+          "symbol": "",
+          "netApy": 0.041237838155204286,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x54C7D42624360476cE5F62FeB50D75956cc0D64c",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x550F5C3F5aC75828a821A3d58925d9Bf6Fcac275",
+          "symbol": "mesa-usdc",
+          "netApy": -0.014888060373436509,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5534EA8750A571Cfe3Dbc49B1E638763CA91eA46",
+          "symbol": "maUSDC",
+          "netApy": 0.04158318946748695,
+          "totalAssetsUsd": 1.0048782349623955
+        },
+        {
+          "address": "0x553937FF5BF024e6e50BBB68070979fd22d0D443",
+          "symbol": "",
+          "netApy": 0.032856420265152786,
+          "totalAssetsUsd": 1.0000113719850021
+        },
+        {
+          "address": "0x55505350Dd102Db9c4B9773a28c53476455a9c01",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x557e09345Fe0396215ca37097EF3b9Bf14e5A852",
+          "symbol": "",
+          "netApy": 0.020409362999701572,
+          "totalAssetsUsd": 1.0148479057944761
+        },
+        {
+          "address": "0x55c002822819c0f6033A78CD32E385550860609a",
+          "symbol": "setset",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x55d028b61B7c83c9506B9cce39ae1931d8C4301D",
+          "symbol": "",
+          "netApy": 0.020409362999701572,
+          "totalAssetsUsd": 1.011898594828307
+        },
+        {
+          "address": "0x5686655447CB668e2A3a32c1bf572d161c523FE0",
+          "symbol": "",
+          "netApy": 0.03703866184516516,
+          "totalAssetsUsd": 1.010191993533646
+        },
+        {
+          "address": "0x56B8d74407992d5F5ea1B6cc5A49F942E9D89a77",
+          "symbol": "gCSRUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x56e78Bd65A85E4c29f0dA668cC58F951b506e2b6",
+          "symbol": "kawmUSDC",
+          "netApy": 0.041230440732498,
+          "totalAssetsUsd": 1.0148908957509322
+        },
+        {
+          "address": "0x5700A9d28313B9c163F8B88D679dd41EeDB562B0",
+          "symbol": "",
+          "netApy": 0.03703866184516516,
+          "totalAssetsUsd": 1.0099170577656131
+        },
+        {
+          "address": "0x575D6363BcA70d3352241A898c378337589BD621",
+          "symbol": "gtonekeyp",
+          "netApy": 0.03703866184516516,
+          "totalAssetsUsd": 1.0033505918585628
+        },
+        {
+          "address": "0x57753039CA99Cf5715EE204dDCdF2134f10EEe1e",
+          "symbol": "steakUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5781d6e5E9e959C00AA06dA565743ed161dB263F",
+          "symbol": "ueTLC-BR6",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5796802715066C710D0166a976E6885ac74c7b2F",
+          "symbol": "",
+          "netApy": 0.03703635812114478,
+          "totalAssetsUsd": 1.0124494661308017
+        },
+        {
+          "address": "0x57D7Be897A1009f340e123FcBfB508fF3A48f045",
+          "symbol": "trios9",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x57E8ddcb26d84193cf54016408063944C3f965ad",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x57d89d4ad4BEC591690B452156372ae3672556fe",
+          "symbol": "",
+          "netApy": 0.03703866184516516,
+          "totalAssetsUsd": 1.001269078152948
+        },
+        {
+          "address": "0x57e894bC9b19f64c6fF55815401174460cC8e7EC",
+          "symbol": "PHYWETHV2",
+          "netApy": 0.0254077969097995,
+          "totalAssetsUsd": 6.708971519970784e-05
+        },
+        {
+          "address": "0x580187999b630230375F15EdC67A5bCe8c4F356C",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x584114580Be8BecFc7745E75e392551248E19E73",
+          "symbol": "",
+          "netApy": 0.02536927396241729,
+          "totalAssetsUsd": 1.0105759038424624
+        },
+        {
+          "address": "0x585971863BbD1e03951809Ca892539819c2694f3",
+          "symbol": "TEST1",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5866C602a98B85b83d7BC558E5Ca1cd2507AADE4",
+          "symbol": "EURCSY",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x58E2F3a45C46Eb8d0577a3D881F2Ac703Ad2d742",
+          "symbol": "",
+          "netApy": 0.03703915558762047,
+          "totalAssetsUsd": 1.0081314749230443
+        },
+        {
+          "address": "0x58E905C53464a2f1904b083D19D448D483284617",
+          "symbol": "",
+          "netApy": 0.029937444345371832,
+          "totalAssetsUsd": 1.0000103722185727
+        },
+        {
+          "address": "0x58dCAE547c629093c3F44986E333Be34c4617714",
+          "symbol": "USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x58fD69fc25832942A4192a57c2a70E132e2Cd80c",
+          "symbol": "",
+          "netApy": 0.0349437361440178,
+          "totalAssetsUsd": 1.6178750233681203
+        },
+        {
+          "address": "0x5907A288F6C1840B687020Fc824382232102b083",
+          "symbol": "stiAero",
+          "netApy": 0,
+          "totalAssetsUsd": null
+        },
+        {
+          "address": "0x591E7D0f8544b6E2f9710484190c7843445Fa045",
+          "symbol": "",
+          "netApy": 0.02040964080924239,
+          "totalAssetsUsd": 1.0042353851484136
+        },
+        {
+          "address": "0x593d03cD01340d74a75822577F70A34591177291",
+          "symbol": "",
+          "netApy": 0.03703686632652324,
+          "totalAssetsUsd": 1.0090092698478905
+        },
+        {
+          "address": "0x59429eB8c79223FC05aa08E09240152605Ad601f",
+          "symbol": "bbqUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x595008ED2b01c4bbb31e6922B06F4aDDD7242bC3",
+          "symbol": "",
+          "netApy": 0.03703915409244039,
+          "totalAssetsUsd": 1.014851904860193
+        },
+        {
+          "address": "0x595f79146Fb91f49A7b6D8852147481f8FC4DE19",
+          "symbol": "",
+          "netApy": 0.03703915409244039,
+          "totalAssetsUsd": 1.0115326803152163
+        },
+        {
+          "address": "0x597b4eac9d54eA8E6b58d05aEF4ca061dBc49512",
+          "symbol": "",
+          "netApy": 0.03662016185815403,
+          "totalAssetsUsd": 1.0111597674371209
+        },
+        {
+          "address": "0x59Ce9688fd6802b862E9e42eE3Bc07955D87b714",
+          "symbol": "T12Edited",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x59FbEe2E2cbb736ab38fec7F27424D5F933E9d37",
+          "symbol": "",
+          "netApy": 0.020409640006702322,
+          "totalAssetsUsd": 1.0015780059795738
+        },
+        {
+          "address": "0x59a0c89a9373F4bC09083A557Fd50c17c9550137",
+          "symbol": "CKTestVault",
+          "netApy": 0,
+          "totalAssetsUsd": 0.0009997664292098456
+        },
+        {
+          "address": "0x59a1F6A97b2EF12a5F93949b9Bc5B9977aDD417B",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.0117416314989212
+        },
+        {
+          "address": "0x59b4939719dbb564ec07ae92d888b21977c84036",
+          "symbol": "DNNH",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x59eC7A35fa89d5f21E3100a2638772beF7e029d7",
+          "symbol": "bibist",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x59f4e9cEa3Fe4BEe01dB564E248D8774E0b9B0B3",
+          "symbol": "TT",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x59f5f4402C83F1610d639aFA804F7ab0C8d88b99",
+          "symbol": "",
+          "netApy": 0.020410890595084934,
+          "totalAssetsUsd": 1.012037562361967
+        },
+        {
+          "address": "0x5A3d202DE29BdD44fF485683E99EaC56BfB8EDB5",
+          "symbol": "Test",
+          "netApy": 0.015675015751788375,
+          "totalAssetsUsd": 2.0968210607554646e-06
+        },
+        {
+          "address": "0x5A52708E96eC8A5cB215352837D05E3A62F9B51c",
+          "symbol": "",
+          "netApy": 0.020410890595084934,
+          "totalAssetsUsd": 1.0104009447173508
+        },
+        {
+          "address": "0x5A5d73F715c68858EFcde5d14c99968D5B7cB167",
+          "symbol": "basedUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5A8Eeb215b02d2754c7c3a176ea517F397f2e998",
+          "symbol": "",
+          "netApy": 0.040817698305181775,
+          "totalAssetsUsd": 0.999806419867014
+        },
+        {
+          "address": "0x5ABecC90CdAD38385d1D0F2D78dD7453e25BC387",
+          "symbol": "ARCHITECT F-Cap ",
+          "netApy": 0,
+          "totalAssetsUsd": 9.997664292098456e-05
+        },
+        {
+          "address": "0x5ADc35F16910aD24A9B56A743B0e52B966222354",
+          "symbol": "",
+          "netApy": 0.041238385645054394,
+          "totalAssetsUsd": 1.0110118020055978
+        },
+        {
+          "address": "0x5AE9C8EC54f71365729e5D8528b907C1b0a318a8",
+          "symbol": "",
+          "netApy": 0.032439553747618664,
+          "totalAssetsUsd": 1.009821080188409
+        },
+        {
+          "address": "0x5B004738bd1867049a03704fee80fcC7E002a8f2",
+          "symbol": "USDCju",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5B10608af2A7dd385F2498b9c07e9212fFA519c8",
+          "symbol": "gUniversalUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5B150c9a59877D616F33F0e5F6acD4b898160FE5",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.014846906028047
+        },
+        {
+          "address": "0x5B2672556b2210886EC607b61A7B1b06B3aded2C",
+          "symbol": "USDCM",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5B54DE37Ce9a8EF57F94Af722c804B0ACaa11d48",
+          "symbol": "TST",
+          "netApy": 0.022934236209397278,
+          "totalAssetsUsd": 0.5085511895461721
+        },
+        {
+          "address": "0x5B5d122Ceb263217AbBc14684f0B6a164a9Cd70b",
+          "symbol": "dd",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5B985c0ff11604E9FF6100e80D7b38B0afcc507b",
+          "symbol": "only-trust",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5BC0637bA6379cc7eaf412638d70e5d6e4CCc7B8",
+          "symbol": "",
+          "netApy": 0.02164738092299736,
+          "totalAssetsUsd": 1.0128453736367689
+        },
+        {
+          "address": "0x5C893cBCDff936dC365952Ea2b7c3476539c8a0E",
+          "symbol": "gbyMXN",
+          "netApy": 0.07213182890597977,
+          "totalAssetsUsd": 0.07938779365069558
+        },
+        {
+          "address": "0x5D212405C82c0d4ABD3eF537Fa0B6196d4C3bE90",
+          "symbol": "FFW2",
+          "netApy": 0.0024457310391842657,
+          "totalAssetsUsd": 2.0976576015917915e-06
+        },
+        {
+          "address": "0x5D41657f110Bd7b02DC38E890b23a1756EF75330",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5D5a10e0D815a099FC681370972118EcdeB80709",
+          "symbol": "",
+          "netApy": 0.03494373332168556,
+          "totalAssetsUsd": 1.0120775530191355
+        },
+        {
+          "address": "0x5D92CB5e1a3252A5493Ba4aC4971671e14C68351",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 6.998365004468919
+        },
+        {
+          "address": "0x5D9e0f6C81E0271dDc966A7AD88dfF50f1573352",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x5E5b17b87135690F1c4177E5B9B2E7f50E2925bB",
+          "symbol": "",
+          "netApy": 0.020410890595084934,
+          "totalAssetsUsd": 1.0000103722185727
+        },
+        {
+          "address": "0x5ED1c814eB2cF6280e27C43Da55E96DF3F962b56",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5ED7162Cb471bA8Fc692D03859FF3Cd34C1513D2",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.0133832479756837
+        },
+        {
+          "address": "0x5EDF6BbE30afF4aaaDB5b6178590Bce446100EBe",
+          "symbol": "infraV1USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 10244.664376615232
+        },
+        {
+          "address": "0x5Ed6f0b96f6090B5715C548b30e84382641DF3ae",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.0082044578723768
+        },
+        {
+          "address": "0x5Ee2aD1e41678137C49B137D1bfCB628028Fae78",
+          "symbol": "USDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5F1A841574c8C28d5ae5DcD9693cA7BaD801Ca41",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.011188760663568
+        },
+        {
+          "address": "0x5F7fdbAF61ef967FBE4898F04F35D02e91d97576",
+          "symbol": "ghyMXN",
+          "netApy": 0.07999842683375356,
+          "totalAssetsUsd": 1161.3482330748236
+        },
+        {
+          "address": "0x5Fcd4EA520572b29b64BF79cd641E64D16C847bA",
+          "symbol": "mPOD",
+          "netApy": -0.0009995001356320169,
+          "totalAssetsUsd": 3.709495424351543e-10
+        },
+        {
+          "address": "0x5a229531Bd1d90b5EA0354c097bdAf5d42B091f5",
+          "symbol": "NLU0605",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x5a26dc8b78fB1177De1dC9fE339484ef3e2C40CD",
+          "symbol": "laUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0.001978537763406284
+        },
+        {
+          "address": "0x5a4a23C82B749E1B46e563762C1e728d095B4d09",
+          "symbol": "FFW",
+          "netApy": 0.00244573124120528,
+          "totalAssetsUsd": 2.0976600862943788e-06
+        },
+        {
+          "address": "0x5a8eC1417ddBe075ff1b48D121ca8551D760C27D",
+          "symbol": "square",
+          "netApy": 0.04015916026505094,
+          "totalAssetsUsd": 13.414461041733878
+        },
+        {
+          "address": "0x5a9bD50f9F7163B01B8c01a0A522e8Fdac3C0999",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.0120005710040865
+        },
+        {
+          "address": "0x5b1406e535337c1a5088A21c1639D0E61D621bA0",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.201445311908631
+        },
+        {
+          "address": "0x5b7740aDC24890db2F7C609814586ae9A44a95eE",
+          "symbol": "",
+          "netApy": 0.03913664794518236,
+          "totalAssetsUsd": 1.0108558384426414
+        },
+        {
+          "address": "0x5b7a1fd49bE89f99707790E40180808C67c04729",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5bD42E703E4654bB46FCc4c0EBe72C51cB2f14E5",
+          "symbol": "",
+          "netApy": 0.04600477192544521,
+          "totalAssetsUsd": 36285.23070897774
+        },
+        {
+          "address": "0x5c94a56De19d64a09eb79c6bb62E2a478582DFd6",
+          "symbol": "",
+          "netApy": 0.03913422822399086,
+          "totalAssetsUsd": 1.0148499053273345
+        },
+        {
+          "address": "0x5cBD751DE6A67DB850fEc104201a9755dffd9ADB",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.0111167774806649
+        },
+        {
+          "address": "0x5cC8DaA7F32e545B949b9A99a4F7eB421aA2f7f0",
+          "symbol": "",
+          "netApy": -0.009950166255901002,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5d186c07B87ac10BE1869eD6ad192dCD13af8d84",
+          "symbol": "",
+          "netApy": 0.03285685473140537,
+          "totalAssetsUsd": 1.0068237804336377
+        },
+        {
+          "address": "0x5d94c9f2da924A548eE7252903624AB902E5F734",
+          "symbol": "ttttt",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x5dB7c36552c7d251C6F9cf63fbd69091aC64d4f5",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5df40db7Bfe39E619733b68E32Da4FdbF03A8241",
+          "symbol": "",
+          "netApy": 0.041235831715869385,
+          "totalAssetsUsd": 1.0100090362771006
+        },
+        {
+          "address": "0x5e03f8965e2957291B3c6990C6Cb9023c36d3d30",
+          "symbol": "primeUSDC",
+          "netApy": 0.041571780727354304,
+          "totalAssetsUsd": 119284.90315777026
+        },
+        {
+          "address": "0x5e6fc406960a1C2d9Ab6813fF1c914c6836bC53E",
+          "symbol": "trSHUSDCp",
+          "netApy": 0.03703686333212765,
+          "totalAssetsUsd": 12.832543992313001
+        },
+        {
+          "address": "0x5ed6526b3E27EeA9D94987cE56b5B9516091b878",
+          "symbol": "",
+          "netApy": 0.02040963917236169,
+          "totalAssetsUsd": 1.0148499053273345
+        },
+        {
+          "address": "0x5f0A450D4ce341c9315e52fDD1469BEa33EE4a1C",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x5f94625C42996DeC08AeA03BE707E828D48287fB",
+          "symbol": "",
+          "netApy": 0.03703686333212765,
+          "totalAssetsUsd": 1.0117616268275054
+        },
+        {
+          "address": "0x6001E3A965bCB6ceDf4511d7684082A3D63884F8",
+          "symbol": "",
+          "netApy": 0.03703686333212765,
+          "totalAssetsUsd": 1.0060529605167172
+        },
+        {
+          "address": "0x600620C0c41624172C53fE6a1F898036C2f608e3",
+          "symbol": "",
+          "netApy": 0.02495536727523137,
+          "totalAssetsUsd": 1.000012371751431
+        },
+        {
+          "address": "0x6014B82E2B70367697ECA286C4b45501930061D6",
+          "symbol": "",
+          "netApy": 0.03703686333212765,
+          "totalAssetsUsd": 1.0062669105325681
+        },
+        {
+          "address": "0x6022Cbf61352618053d89FD9eEfe78Cb725B3c9d",
+          "symbol": "ARCHITECT II",
+          "netApy": 0.04126172195987597,
+          "totalAssetsUsd": 2.1588486382135677
+        },
+        {
+          "address": "0x603486e012263a47EA00d17E0446859Ee3BCECda",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x604ADc37bae18034f21fD58217295b158c49eAD8",
+          "symbol": "",
+          "netApy": 0.03703915259885776,
+          "totalAssetsUsd": 1.0121085457784411
+        },
+        {
+          "address": "0x60754e8780C1ca04Dbd2943e1B60D48fB3f10Ec7",
+          "symbol": "Test",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x60D2E98aE63e2f471Ef6Adc6AFFc7A1882B03Ad6",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x60eBb250C8Ff92895A19639c011Ec42F9cbf73c1",
+          "symbol": "TN",
+          "netApy": 0.015675015495929513,
+          "totalAssetsUsd": 2.0949540535651124e-06
+        },
+        {
+          "address": "0x60ecF4D1f1E4c5FEe76d24432D37e1b2d887f46D",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x60f5B7C28063bB52EaB9ed3a38084560137De6C7",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x60fFc0FE4d3b87065dB62CB40C8474B3b04bB73A",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x611F1Cd510Ee9E6bA5fe54891a1405D3B4dBde29",
+          "symbol": "",
+          "netApy": 0.03494373332168556,
+          "totalAssetsUsd": 1.0117516291632134
+        },
+        {
+          "address": "0x614CBEA6bAb2E9A9E4a2efD3fFAeAB39F073F2A1",
+          "symbol": "",
+          "netApy": 0.03703686333212765,
+          "totalAssetsUsd": 1.002407812115818
+        },
+        {
+          "address": "0x615Dd9dc220fD78A62345e3356abB854e55699a2",
+          "symbol": "",
+          "netApy": 0.03285685473140537,
+          "totalAssetsUsd": 1.0070847194716617
+        },
+        {
+          "address": "0x618495ccC4e751178C4914b1E939C0fe0FB07b9b",
+          "symbol": "Re7USDC",
+          "netApy": 0,
+          "totalAssetsUsd": 1234339.2224749916
+        },
+        {
+          "address": "0x618fFcf6fF74dC3766B892B7913BF5074B913eF2",
+          "symbol": "uePL-BR12",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009997664292098456
+        },
+        {
+          "address": "0x61Bce50625A202C8b47AFd6a110aeB80D4b22915",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x623a2466402E540d40aAFe56a8e3aF57822C3e3b",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6248c4e9804Fd01333319E9d9c8B77c1622082F1",
+          "symbol": "",
+          "netApy": 0.03703686333212765,
+          "totalAssetsUsd": 1.012532446744426
+        },
+        {
+          "address": "0x6249b07E5F0C809C81c19855926afA5FFba5575D",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x625a43bE8d6B0Ffbb0B5C6437587A2dC2BCC03B0",
+          "symbol": "USDCs",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x62687dc2F10F8255C5130ED1C91A95a549CeA19A",
+          "symbol": "BCC",
+          "netApy": 0.041907157586519084,
+          "totalAssetsUsd": 1.0085903677140517
+        },
+        {
+          "address": "0x62ADd0fEdF3f24EA581E0Bb627aC8cA4B04Cb726",
+          "symbol": "nbUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x62C2afe8738947da91553e21133A55066ef629a5",
+          "symbol": "mizukivault",
+          "netApy": 0.025163088295642448,
+          "totalAssetsUsd": 1.021798282010343
+        },
+        {
+          "address": "0x62D30408598186B6eBD6F859f3955878338EaEB5",
+          "symbol": "",
+          "netApy": 0.037039149639029725,
+          "totalAssetsUsd": 1.0117996179518152
+        },
+        {
+          "address": "0x62a3f82B8732E7E94eff66523711578607E48597",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x62b6a564E4f74059E28554ff7C1B5C238Da7853f",
+          "symbol": "",
+          "netApy": 0.03285482670829763,
+          "totalAssetsUsd": 1.0152018231104163
+        },
+        {
+          "address": "0x62b71098B4c7e91f904B580B9a2Ab7Fc27710F84",
+          "symbol": "steakUSDCtron",
+          "netApy": 0.03907780568977631,
+          "totalAssetsUsd": 0.01029359515514457
+        },
+        {
+          "address": "0x62edD47Be194233f72c7d492F00368F7A40E009f",
+          "symbol": "TEST",
+          "netApy": 0.015675015287125865,
+          "totalAssetsUsd": 2.095985328020231e-06
+        },
+        {
+          "address": "0x6307a8F6c344931bFcD3e25afe33331E55854043",
+          "symbol": "",
+          "netApy": 0.03913422347332608,
+          "totalAssetsUsd": 1.0000103722185727
+        },
+        {
+          "address": "0x630a678acc5F5c758D494294ab37658aA403963B",
+          "symbol": "PHYUSDCV2",
+          "netApy": 0.02683686277318868,
+          "totalAssetsUsd": 9.997664292098455e-07
+        },
+        {
+          "address": "0x634184c8F95D7c6b7B0d159B0eeC1F77Aa6d94b7",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x638C7EeD4E659F30fB23Dc4E23c2a90277Be77b5",
+          "symbol": "",
+          "netApy": 0.03703686036686648,
+          "totalAssetsUsd": 1.0120625565226975
+        },
+        {
+          "address": "0x638fce18aEe6784bB006FE2D6fAC82d361a86B8E",
+          "symbol": "ARCH DIRECT",
+          "netApy": 0.0413420560870514,
+          "totalAssetsUsd": 1.0331956193033351
+        },
+        {
+          "address": "0x63F965252eF04c56110dc84A23269382639f275b",
+          "symbol": "AutoMeusd",
+          "netApy": 6.991567287154425e-09,
+          "totalAssetsUsd": 10939.519160501375
+        },
+        {
+          "address": "0x63b0F24CeC574eA149c7BEB5e785d499F170A361",
+          "symbol": "WETH-TST",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x63b889Eb31c9d5Ba1fa136290200eC0e8D0bfEf1",
+          "symbol": "",
+          "netApy": 0.037039149639029725,
+          "totalAssetsUsd": 1.0096931100854702
+        },
+        {
+          "address": "0x641f883C656cE29141e0CEb3e49bade8392D022D",
+          "symbol": "",
+          "netApy": 0.032856852111057565,
+          "totalAssetsUsd": 1.003111647681982
+        },
+        {
+          "address": "0x6420a3671eC9efdB94dfd2dFeA64cd60A020a6D0",
+          "symbol": "",
+          "netApy": 0.020410888977102113,
+          "totalAssetsUsd": 1.007362654538982
+        },
+        {
+          "address": "0x644951B29ed3A2CF8AD0489fa852025Cf0A10611",
+          "symbol": "TB",
+          "netApy": 0.01094688523756737,
+          "totalAssetsUsd": 2.0926336162694806e-06
+        },
+        {
+          "address": "0x644Befbc5A89cC29CF51079B765204518946b935",
+          "symbol": "",
+          "netApy": 0.037039149639029725,
+          "totalAssetsUsd": 1.0037534977295346
+        },
+        {
+          "address": "0x645a267Dc31fed584e3dCde3305887B9847E9967",
+          "symbol": "",
+          "netApy": 0.037039149639029725,
+          "totalAssetsUsd": 1.014747929151555
+        },
+        {
+          "address": "0x648ecFAD2D7aa5400aB937002EE26C7e5a61EAE1",
+          "symbol": "USDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6492C0F9A4A2e8263112034F6CfCAcA44fb7589b",
+          "symbol": "",
+          "netApy": 0.037039149639029725,
+          "totalAssetsUsd": 1.0049952076346131
+        },
+        {
+          "address": "0x649b9c9A6E348859A6Bd17534Fe872Cb49Cd6eD7",
+          "symbol": "",
+          "netApy": 0.028689655248075086,
+          "totalAssetsUsd": 1.504402533419232
+        },
+        {
+          "address": "0x64BddA8aA13927e5bb1f0cf146974919510983DD",
+          "symbol": "",
+          "netApy": 0.03913422347332608,
+          "totalAssetsUsd": 1.0110108022391688
+        },
+        {
+          "address": "0x64E4567Cc4C058e27E2820E491cD1489a4C79F07",
+          "symbol": "dt-serenityEURC",
+          "netApy": 0.04691430001059575,
+          "totalAssetsUsd": 7529.641349704491
+        },
+        {
+          "address": "0x64bEB21160CbEb9C796730bB9880D2465b35d3B6",
+          "symbol": "",
+          "netApy": 0.03703686036686648,
+          "totalAssetsUsd": 1.0058430095665831
+        },
+        {
+          "address": "0x64d8A7e71299AD49AEDf55968c990CD27389ed4a",
+          "symbol": "",
+          "netApy": 0.037039149639029725,
+          "totalAssetsUsd": 1.0101580014750526
+        },
+        {
+          "address": "0x64f3d4B3ACc95472E33Ab25f930e043b788DB129",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x65186A901ca2b3443dD5d1Bd33aA30fF8EAB0942",
+          "symbol": "",
+          "netApy": 0.041235828407794356,
+          "totalAssetsUsd": 35.72754413970226
+        },
+        {
+          "address": "0x651a21003E324ccf19322565208FCDCd7EcE17b5",
+          "symbol": "",
+          "netApy": 0.037039149639029725,
+          "totalAssetsUsd": 1.0108528391433536
+        },
+        {
+          "address": "0x653C263812C6C3FeFdc1058CA97F58C9033bCe40",
+          "symbol": "",
+          "netApy": 0.034943730526813634,
+          "totalAssetsUsd": 1.0076795804970413
+        },
+        {
+          "address": "0x656aFea397947555B528954be9e9E03FcBF54c9c",
+          "symbol": "",
+          "netApy": 0.020410888977102113,
+          "totalAssetsUsd": 1.0062089240796737
+        },
+        {
+          "address": "0x65731F076fC62eb109fB342cA6402980Ce044a88",
+          "symbol": "",
+          "netApy": 0.037039149639029725,
+          "totalAssetsUsd": 1.0146789452679397
+        },
+        {
+          "address": "0x6588135A38887536d64abD8c9efbef233A84F86F",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6593825c158df321c91fCA19D0a63B3D3857E4E9",
+          "symbol": "gteurcc",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x65B66A025Ff32A6De4Ef68D87A64FEECb4E4d396",
+          "symbol": "beeUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x65D9E0FBb0b030EB77D5b4bD84a4859A99046144",
+          "symbol": "",
+          "netApy": 0.037039148144555924,
+          "totalAssetsUsd": 0.9999513859992495
+        },
+        {
+          "address": "0x66057b6bf3f891844D657C5651B56D387a23794A",
+          "symbol": "hjkhkj",
+          "netApy": 0,
+          "totalAssetsUsd": 2.0827347756830017e-06
+        },
+        {
+          "address": "0x6642aC797776289F61F7c5ff2B6EC5ea200BCc25",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x66609E9421eaB8cE828b309054Df42d4DE22d8A7",
+          "symbol": "",
+          "netApy": 0.02257774689775099,
+          "totalAssetsUsd": 1.0169294195000909
+        },
+        {
+          "address": "0x6666e3a395A3A9BC2B938541c23d2C69F4EA7a48",
+          "symbol": "",
+          "netApy": 0.037039148144555924,
+          "totalAssetsUsd": 1.014851904860193
+        },
+        {
+          "address": "0x667c2a25A37A5271b61c42b150810C438D32403A",
+          "symbol": "TestMOR",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x66959B970c99beDd51f938cb85F55A51d2303eAa",
+          "symbol": "sUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x66A1c84510F69084f10e0539d9b96379023BFb55",
+          "symbol": "",
+          "netApy": 0.02702995559489813,
+          "totalAssetsUsd": 1.0084334043846659
+        },
+        {
+          "address": "0x66FF1D1BBAa494cB2935De8d25F6BA9e48D5aB1e",
+          "symbol": "OAKEURC2",
+          "netApy": 0,
+          "totalAssetsUsd": 1.1671117306420175e-06
+        },
+        {
+          "address": "0x66b7BEc3805EAbaD694Ef18d1Cc7B955c3d18f6f",
+          "symbol": "bkUSDC",
+          "netApy": 0.04123101067132685,
+          "totalAssetsUsd": 140.38049455667294
+        },
+        {
+          "address": "0x66cd287F630b4913e8A7c2548CC4579C491360ED",
+          "symbol": "",
+          "netApy": 0.037039148144555924,
+          "totalAssetsUsd": 1.0104709283673954
+        },
+        {
+          "address": "0x66e9d7276a974Cd2E100a9836767c2B963d4E3Fe",
+          "symbol": "gethenaUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x67439194eae82E79274C7C450F6121Ec770e0A57",
+          "symbol": "TVMA",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6745BFa5E47E08d71901CF4b1d248D9503b1eF32",
+          "symbol": "",
+          "netApy": 0.05124531046539493,
+          "totalAssetsUsd": 1.016062622005966
+        },
+        {
+          "address": "0x674a94f5389b2c0e95bB108000011E175a1e1152",
+          "symbol": "",
+          "netApy": 0.039134221889719836,
+          "totalAssetsUsd": 1.0110577912613414
+        },
+        {
+          "address": "0x675026808b54e82211B9FDeD2291652fb9E022f7",
+          "symbol": "",
+          "netApy": 0.03703685886963603,
+          "totalAssetsUsd": 1.0078365438264276
+        },
+        {
+          "address": "0x675743C56d570D9Bb9Ca96f31e06c78d6CcceEb9",
+          "symbol": "Lucas",
+          "netApy": 0,
+          "totalAssetsUsd": 2.999299287629537
+        },
+        {
+          "address": "0x67754DDdA834d4765b8CEf001d0aEcC87D8a42A6",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x6775dD2A59dA100A4A08A2a6f1526c8ad1d64b8C",
+          "symbol": "",
+          "netApy": 0.03913664323390961,
+          "totalAssetsUsd": 1.0109968055091598
+        },
+        {
+          "address": "0x678046E6217bD41c190B400B4E62098db883e404",
+          "symbol": "HNT23",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x678b8851DFcA08E40F3e31C8ABd08dE3E8E14b64",
+          "symbol": "mUSDC",
+          "netApy": 0.04123039315151502,
+          "totalAssetsUsd": 0.31116630366084314
+        },
+        {
+          "address": "0x67946f004DaD4A815e3361D64E8E184E4E4C23F2",
+          "symbol": "test",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x67E02852a41A7CBAb71EA6869e55A63B170e5129",
+          "symbol": "o1",
+          "netApy": -0.0009995001356320169,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x67Ee90c3757d41dd273d209f1B30cc3532876844",
+          "symbol": "pofuUSDC",
+          "netApy": 0.04123101067132685,
+          "totalAssetsUsd": 1.0236448506050935
+        },
+        {
+          "address": "0x67fa45EcFB09E70b8078e1D5D2C2e7DD5791b782",
+          "symbol": "",
+          "netApy": 0.037039148144555924,
+          "totalAssetsUsd": 1.0100090362771006
+        },
+        {
+          "address": "0x67ffb25e865a7504A1D028FdD79832770495bDe8",
+          "symbol": "",
+          "netApy": 0.037039148144555924,
+          "totalAssetsUsd": 1.0128013839138836
+        },
+        {
+          "address": "0x680B3bD338fF9ABd6fE41AaAc1ee6CB98F0fA109",
+          "symbol": "BT3",
+          "netApy": 0,
+          "totalAssetsUsd": 0.9997664292098456
+        },
+        {
+          "address": "0x6826df90B7b4d031FAf8e26C82085b134c04FeaC",
+          "symbol": "",
+          "netApy": 0.03703685886963603,
+          "totalAssetsUsd": 1.0120625565226975
+        },
+        {
+          "address": "0x682B5e8c957249E2694c7975909A3aFDD6E4c1B9",
+          "symbol": "sdUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6849e512453DfA79C2faa8DE65A6bF5360a9fd1B",
+          "symbol": "",
+          "netApy": 0.03703685886963603,
+          "totalAssetsUsd": 1.0055550768349706
+        },
+        {
+          "address": "0x687288524b68a829BF39C401c6ddfC30b5dC8eE7",
+          "symbol": "",
+          "netApy": 0.03703685886963603,
+          "totalAssetsUsd": 1.0111157777142359
+        },
+        {
+          "address": "0x6890a7c162f43A32a40BBD82823355273A74d9ad",
+          "symbol": "",
+          "netApy": 0.027860352246184102,
+          "totalAssetsUsd": 1.0089992721835985
+        },
+        {
+          "address": "0x6893c8Bb7A440C8c6e6bD085e0E9820442C865Fc",
+          "symbol": "",
+          "netApy": 0.0349458868445489,
+          "totalAssetsUsd": 1.0051061817082554
+        },
+        {
+          "address": "0x68b413Dccbd8289D0d56FCB6749f9f1D2759827A",
+          "symbol": "ACV-drhiro",
+          "netApy": 0.027058378495944023,
+          "totalAssetsUsd": 10.004637662942196
+        },
+        {
+          "address": "0x6900211CF6460622F05DDC1cDf8E891f2c8AB957",
+          "symbol": "",
+          "netApy": 0.020409636732949068,
+          "totalAssetsUsd": 1.0110118020055978
+        },
+        {
+          "address": "0x694514d9074247737fd924186ee356A5DF481dB2",
+          "symbol": "GLV2",
+          "netApy": 0,
+          "totalAssetsUsd": 0.009998664058527664
+        },
+        {
+          "address": "0x695d57D38730De2C17b9aA70FF2f0f7112460C0B",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x695f9f9918e70736C6b33Af5A8CFf2ACb153C42f",
+          "symbol": "",
+          "netApy": 0.03494372911561674,
+          "totalAssetsUsd": 1.0119045934268822
+        },
+        {
+          "address": "0x6963B0872d67A8795E6513bdBF1f2203c933d221",
+          "symbol": "mUSDC",
+          "netApy": 0.03977068765878645,
+          "totalAssetsUsd": 0.6992856291443973
+        },
+        {
+          "address": "0x69E5e4AA4B0e779877cb22c921305335e5B691eA",
+          "symbol": "",
+          "netApy": 0.04123838067578948,
+          "totalAssetsUsd": 102.47806552523261
+        },
+        {
+          "address": "0x69a4941cDAadb861940f2e318cE28EAC600ac65C",
+          "symbol": "Mv2",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x69e7F29f852933a8b39e7d7744DC71Ac38A17793",
+          "symbol": "",
+          "netApy": 0.03703685886963603,
+          "totalAssetsUsd": 1.0068647708572356
+        },
+        {
+          "address": "0x6A291a71d8B5Eb5d147c334949064c26Ba00E459",
+          "symbol": "mesaUSDC",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 14.996496438147684
+        },
+        {
+          "address": "0x6A3f19910A9079DE6d9F581ceCeAEF3400ecd92C",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6AAF506b56FC8dBd87255ce1d087E8524a9EE5ed",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6Aa1bDc21A622B41777E7A1f71C5EE495f0ff423",
+          "symbol": "",
+          "netApy": 0.032854433683018665,
+          "totalAssetsUsd": 11791.845372900752
+        },
+        {
+          "address": "0x6Af230622374B04Fe64E32d41bfe328457eAD61E",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6B1226D72311A11fb5fA8fAEC9121E285ae24309",
+          "symbol": "",
+          "netApy": 0.03285482408334161,
+          "totalAssetsUsd": 1.0057020425000645
+        },
+        {
+          "address": "0x6B8Cf6C064A263d165379d61BEB8736b19A54b54",
+          "symbol": "",
+          "netApy": 0.03494588543612472,
+          "totalAssetsUsd": 1.0047632618230364
+        },
+        {
+          "address": "0x6Bb5427D6C7350df4cCBf1CC35B38af9515Bd48A",
+          "symbol": "",
+          "netApy": 0.039136641653414454,
+          "totalAssetsUsd": 1.0027537313003245
+        },
+        {
+          "address": "0x6C8E07B596FdF50c8e5f17Fd2DB9AD8FBa0D8363",
+          "symbol": "",
+          "netApy": 0.03703685737247091,
+          "totalAssetsUsd": 1.0057400336243745
+        },
+        {
+          "address": "0x6Cc6eeB15002554B136f586647806B6C19EbB3C6",
+          "symbol": "",
+          "netApy": 0.03703685737247091,
+          "totalAssetsUsd": 1.0066058313520703
+        },
+        {
+          "address": "0x6D10990b11f88EE40e4ABc2f8CbE1f7194190Db0",
+          "symbol": "kgtEURCb",
+          "netApy": 0.0444118263853349,
+          "totalAssetsUsd": 1.1745859141650492
+        },
+        {
+          "address": "0x6D5CAbB721dEB5F6729faE067262f72b0b2b9403",
+          "symbol": "",
+          "netApy": 0.020410887343302233,
+          "totalAssetsUsd": 1.000012371751431
+        },
+        {
+          "address": "0x6D7CC3Cd78725a8dC50C0Fd2E7634095e77De8f8",
+          "symbol": "",
+          "netApy": 0.03913422030618271,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x6Dd04273913D8fB257F26FBb6Ca25C0f2d4A6f3b",
+          "symbol": "",
+          "netApy": 0.037039146650267044,
+          "totalAssetsUsd": 1.0138621360952753
+        },
+        {
+          "address": "0x6E0678c24d5760024B04Bd34cecF1D4404d43ba7",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6E0C546dfa7b8581d61E8cb798b463A28adFaD8C",
+          "symbol": "",
+          "netApy": 0.03997435271128662,
+          "totalAssetsUsd": 1.0054730959877753
+        },
+        {
+          "address": "0x6E33F57a843C669B133A047D0c5B1F27b7444FaC",
+          "symbol": "usUSDC",
+          "netApy": 3.881925147451926e-06,
+          "totalAssetsUsd": 0.0037441252773908716
+        },
+        {
+          "address": "0x6E9978e3eb1039F73F32db198C8D4138abC0A843",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6Eec890592D362A193094A59e45124FdC197a9Da",
+          "symbol": "dvUSDCtest",
+          "netApy": 0.047495347649114325,
+          "totalAssetsUsd": 10.404303290916694
+        },
+        {
+          "address": "0x6F26802f2ECB35267f5955867D00d5877363624A",
+          "symbol": "",
+          "netApy": 0.03620133458888635,
+          "totalAssetsUsd": 1.014846906028047
+        },
+        {
+          "address": "0x6F40061C0238e10f9C6A0726f39BfD479cE0744F",
+          "symbol": "",
+          "netApy": 0.03787763611769496,
+          "totalAssetsUsd": 1.0008661722819765
+        },
+        {
+          "address": "0x6F575A02B9452007228ebab000923B656f3606AF",
+          "symbol": "",
+          "netApy": 0.03703685737247091,
+          "totalAssetsUsd": 1.0105919001053298
+        },
+        {
+          "address": "0x6F8236Af494C79713e31a80A96aabBC4cD2C670E",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6Fc12f8F3093a8d81a6E7D6C3Dc8EbA67ff11a95",
+          "symbol": "",
+          "netApy": 0.03703685590406058,
+          "totalAssetsUsd": 1.0040494285925805
+        },
+        {
+          "address": "0x6a135a61345eD1610f1bA9C8766d374594A533FA",
+          "symbol": "",
+          "netApy": 0.02041088816015163,
+          "totalAssetsUsd": 1.0148449064951885
+        },
+        {
+          "address": "0x6a2194afDF70dB36d7a70Fc7773Eb8737A4462f4",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6a240db5737955D125923accB11AF740138268d5",
+          "symbol": "MKV",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6a9B3AD95215413Ba3fA44554a72eEbDE1c3931C",
+          "symbol": "",
+          "netApy": 0.037039148144555924,
+          "totalAssetsUsd": 1.0021278775156393
+        },
+        {
+          "address": "0x6ab863b6c7Db7F79cc4294CaB1180CFfeB4A8678",
+          "symbol": "",
+          "netApy": 0.03703685886963603,
+          "totalAssetsUsd": 1.004209391221254
+        },
+        {
+          "address": "0x6b1Fd1AbfF57829cBc86F38FFeDf0C1FBd37c3eA",
+          "symbol": "jkljlk",
+          "netApy": -0.009950166224678791,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6b22f34b5CBbbf15a2A8474Ab9b1CEbf15EC195f",
+          "symbol": "gyOG-USDC-V2",
+          "netApy": -0.019801326672370386,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6b43A962e3E93E75e76578434a00fa39D51976E4",
+          "symbol": "",
+          "netApy": 0.03703685886963603,
+          "totalAssetsUsd": 1.0023798186558
+        },
+        {
+          "address": "0x6b4cBD13d6bAc2b8aBBB04E5B527c7A9729637D5",
+          "symbol": "",
+          "netApy": 0.04123838067578948,
+          "totalAssetsUsd": 1.0046362914865268
+        },
+        {
+          "address": "0x6b62B2B611AAC0CAA12f5a682C436aF88e8AFb94",
+          "symbol": "",
+          "netApy": 0.03285482408334161,
+          "totalAssetsUsd": 1.0028657051403962
+        },
+        {
+          "address": "0x6b648A1619149D64B6687a006785328421F32C56",
+          "symbol": "JT5",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6b7543Fc2D03FFCf408149302283C56078f69864",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6b7952b22F825a54fec88a0F8f11F7654465d408",
+          "symbol": "vvvvv",
+          "netApy": 0.024831782728599556,
+          "totalAssetsUsd": 1.0177952172277867
+        },
+        {
+          "address": "0x6ba1d5eEEcea7838bf6164DD8d8e070034c97948",
+          "symbol": "AUSDV2",
+          "netApy": 0,
+          "totalAssetsUsd": 0.09997664292098457
+        },
+        {
+          "address": "0x6be20b4e2fd874fC7d16EFd354b198CA29d330f9",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6c22CE6b66aaF84809bAC591aa587D1298A53D35",
+          "symbol": "",
+          "netApy": 0.037039146650267044,
+          "totalAssetsUsd": 1.0148509050937637
+        },
+        {
+          "address": "0x6c858Ab4767D84d04437112464076F8B7bb89009",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6c9D9eDc5cdf401faeEAF299c30D1E3C8ed8241b",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6d4ee465B2BaDB6455028228676852b746Bb6647",
+          "symbol": "TTV",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6d68aB3317f59020170f06498975D7e50c6DC166",
+          "symbol": "",
+          "netApy": 0.03703685737247091,
+          "totalAssetsUsd": 1.012083551617711
+        },
+        {
+          "address": "0x6da6967EF8852f7C2A4e3bd1502bA58F5331c148",
+          "symbol": "",
+          "netApy": 0.03703685737247091,
+          "totalAssetsUsd": 1.0084044111582187
+        },
+        {
+          "address": "0x6e32277349b956072699c0272dcc095c98C18709",
+          "symbol": "",
+          "netApy": 0.037039146650267044,
+          "totalAssetsUsd": 1.0124504658972309
+        },
+        {
+          "address": "0x6e4BaA148FCFA4845498f2322002Ef3fEB199f85",
+          "symbol": "lpoUSD",
+          "netApy": 0.05367033315691508,
+          "totalAssetsUsd": 101.44481291924279
+        },
+        {
+          "address": "0x6e71458a96C3D7AfBf27401c2Db4e3753ECeFAC2",
+          "symbol": "",
+          "netApy": 0.037039146650267044,
+          "totalAssetsUsd": 1.006933754740851
+        },
+        {
+          "address": "0x6eB3CEec7AA551D83BFc1887539896C61704caa8",
+          "symbol": "",
+          "netApy": 0.03787529407500682,
+          "totalAssetsUsd": 1.0135572073343664
+        },
+        {
+          "address": "0x6f12E04766ac8E1dC8014C4C6AB06AAEf3C8bfAb",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x6f492613Bd43075878666ba942b2918Ce615ae25",
+          "symbol": "",
+          "netApy": 0.03619909799225702,
+          "totalAssetsUsd": 1.0101939930665043
+        },
+        {
+          "address": "0x6f961243abb36A08A213B1Ecb6B0F67D547fe638",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 9.997664292098456e-05
+        },
+        {
+          "address": "0x6fBC06E968aC62455212cd5AdA9F2687Da27dbbD",
+          "symbol": "T15",
+          "netApy": -0.014342718767965478,
+          "totalAssetsUsd": 2.0976593427580644e-06
+        },
+        {
+          "address": "0x6fc2670a0e3ecFfAc27c66009530f16BC07cd2Cc",
+          "symbol": "RETIRED",
+          "netApy": 0.03703685590406058,
+          "totalAssetsUsd": 1.001369054795869
+        },
+        {
+          "address": "0x6ffb4C515E16B778471841c2BCEE32D2614D9d92",
+          "symbol": "foulk",
+          "netApy": 1.718281828393502,
+          "totalAssetsUsd": 0.0035061808672389285
+        },
+        {
+          "address": "0x7006d0A18acCbcC17A631B7C73a46B8Be1802d4A",
+          "symbol": "",
+          "netApy": 0.03285482145790495,
+          "totalAssetsUsd": 6.017033268447274
+        },
+        {
+          "address": "0x701C3d592FfB1EfF8F71DD1c756CF05601C8869c",
+          "symbol": "OO",
+          "netApy": 0.0024457301370793966,
+          "totalAssetsUsd": 2.0980234901889793e-06
+        },
+        {
+          "address": "0x70220c14634B129c2DcFD53AC3661e48e9787Bd7",
+          "symbol": "trio7",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x7063d3f08Dfb77faFC57Ca1a7D79b6cD906eAfbe",
+          "symbol": "",
+          "netApy": 0.03703914518402151,
+          "totalAssetsUsd": 1.0049012295902673
+        },
+        {
+          "address": "0x708a7Ff38d873Cec5aBe61191412478110244D2b",
+          "symbol": "",
+          "netApy": 0.03703914518402151,
+          "totalAssetsUsd": 1.012960346776128
+        },
+        {
+          "address": "0x70919F264E6073ab196f2a9697011B527F9F6Fd4",
+          "symbol": "Primevault-ETH",
+          "netApy": 0.023071397623368874,
+          "totalAssetsUsd": 0.22527580952280396
+        },
+        {
+          "address": "0x70D6Bc7C58ACD78c40c9871130eddF6A42Ca18b8",
+          "symbol": "bobUSDC",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x710E4E0F2f9c6671aDA8A3D65a0f5Acf6277EC2f",
+          "symbol": "AGEN",
+          "netApy": 0.032942283884517816,
+          "totalAssetsUsd": 61.70130601028109
+        },
+        {
+          "address": "0x71377eef6889D6a10f32ee223e82eAbEe5632500",
+          "symbol": "sdfsdf",
+          "netApy": 0.01567501435341707,
+          "totalAssetsUsd": 2.096816035116451e-06
+        },
+        {
+          "address": "0x7177c9f5F081E6FE4df8615C5a5C9E780f673AE7",
+          "symbol": "JT4",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x718dA548C7a4aFa51082C6E34F9220cB99788D4e",
+          "symbol": "trios9",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x71EAeC223caa1C648136668B9c5db380c1C52dd6",
+          "symbol": "0xe99",
+          "netApy": 0.020794716084345792,
+          "totalAssetsUsd": 0.17499511670317452
+        },
+        {
+          "address": "0x71e6334a9726782bd556640a5EB091b606AF0d93",
+          "symbol": "",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x722703545c4D4ed48BB114d5e1A92c792CA327c0",
+          "symbol": "",
+          "netApy": 0.03703686889255886,
+          "totalAssetsUsd": 1.0148459062616177
+        },
+        {
+          "address": "0x722ae3c4efa0015BCAB6e5bA24A07fC1319EA7b5",
+          "symbol": "testE2E",
+          "netApy": 0,
+          "totalAssetsUsd": 0
+        },
+        {
+          "address": "0x7246437678A3C599c575b23316dB5778afc6dC84",
+          "symbol": "",
+          "netApy": 0.03703686889255886,
+          "totalAssetsUsd": 0.9999163941742272
+        },
+        {
+          "address": "0x72Aace32230Aef8a51dD8869cC7e7Ca10d4aF5bE",
+          "symbol": "",
+          "netApy": 0.03703915793885612,
+          "totalAssetsUsd": 1.0148449064951885
+        },
+        {
+          "address": "0x72DA742bF5d88BbffD7957777A9469b7cEa81f99",
+          "symbol": "",
+          "netApy": 0.03703686889255886,
+          "totalAssetsUsd": 1.001589003410295
+        },
+        {
+          "address": "0x72a1a49Fb29afd3FA396503c1D48c828F10E4FD0",
+          "symbol": "",
+          "netApy": 0.041235837919142086,
+          "totalAssetsUsd": 1.012264509341398
+        }
+      ]
+    }
+  },
+  "extensions": {
+    "complexity": 605000,
+    "maximumComplexity": 1000000
+  }
+}

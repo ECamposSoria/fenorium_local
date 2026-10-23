@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/decision-bundle-v2.schema.json",
+  "title": "DecisionBundle v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "as_of",
+    "portfolio_commitment",
+    "objective",
+    "transformation",
+    "costs",
+    "risk_results",
+    "mandate_result",
+    "opportunity_result",
+    "evidence",
+    "expires_at",
+    "legacy_ref"
+  ],
+  "properties": {
+    "schema_version": {"const": "DecisionBundle/v2"},
+    "method_version": {"type": "string", "minLength": 1},
+    "as_of": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "portfolio_commitment": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "transformation": {"type": "object"},
+    "costs": {
+      "oneOf": [
+        {"$ref": "common.schema.json#/$defs/costLedger"},
+        {"type": "null"}
+      ]
+    },
+    "risk_results": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {"$ref": "common.schema.json#/$defs/metricResult"},
+          {"type": "object"},
+          {"type": "integer"},
+          {"type": "string"},
+          {"type": "null"}
+        ]
+      }
+    },
+    "mandate_result": {"type": ["object", "null"]},
+    "opportunity_result": {"type": ["object", "null"]},
+    "evidence": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "expires_at": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "legacy_ref": {"type": ["string", "null"]}
+  }
+}

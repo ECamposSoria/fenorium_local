@@ -1,0 +1,17 @@
+**
+!issuer.py
+!config.json
+!universe.json
+!index.html
+!app.js
+!ui.js
+!portfolio.js
+!charts.js
+!styles.css
+!terminal.css
+!data/
+!data/**
+!assets/
+!assets/**
+!bin/
+!bin/cast

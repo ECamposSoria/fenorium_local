@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/confidential-policy-request.schema.json",
+  "title": "ConfidentialPolicyRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "method_version", "as_of", "portfolio_commitment", "mandate_commitment", "checks"],
+  "properties": {
+    "schema_version": { "const": "fenorium/confidential-policy-request/v1" },
+    "method_version": { "type": "string", "minLength": 1 },
+    "as_of": { "type": "string", "format": "date-time" },
+    "portfolio_commitment": { "$ref": "common.schema.json#/$defs/hash32" },
+    "mandate_commitment": { "$ref": "common.schema.json#/$defs/hash32" },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["check_id", "comparator", "observed", "limit", "failure_reason"],
+        "properties": {
+          "check_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "comparator": { "enum": ["LTE", "GTE", "EQ"] },
+          "observed": { "type": ["integer", "null"] },
+          "limit": { "type": ["integer", "null"] },
+          "failure_reason": { "$ref": "common.schema.json#/$defs/reasonCode" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "markets": [
+    {
+      "name": "USDai",
+      "address": "0xa8a0dea40174cfc30fea9e3a77f182ab33f46e25",
+      "expiry": "2026-10-15T00:00:00.000Z",
+      "pt": "42161-0xc9d24ad0bb25f34098e226a8c5192dea7bacccae",
+      "yt": "42161-0xaf67341456151ab8c270e0962966092181c2eb80",
+      "sy": "42161-0x5edcbc20cac67adc2e724d4348ff85132b085b82",
+      "underlyingAsset": "42161-0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
+      "details": {
+        "liquidity": 50284260.26745241,
+        "pendleApy": 0.0002499705366876698,
+        "impliedApy": 0.06773109593969417,
+        "feeRate": 0.0013354140946326698,
+        "yieldRange": {
+          "min": 0.040000000000000015,
+          "max": 0.31999999999999995
+        },
+        "aggregatedApy": 0.010273185202440294,
+        "maxBoostedApy": 0.010648141007471799
+      },
+      "isNew": false,
+      "isPrime": true,
+      "timestamp": "2026-02-12T00:02:33.000Z",
+      "categoryIds": [
+        "stables",
+        "points",
+        "rwa",
+        "fixed-rates",
+        "points-market"
+      ]
+    },
+    {
+      "name": "sUSDai",
+      "address": "0xcbf629c8d396b1261f81f55175afa010e94787d8",
+      "expiry": "2026-10-15T00:00:00.000Z",
+      "pt": "42161-0xb459db106f645d698e74027eef6019a26a0675cc",
+      "yt": "42161-0x11456849c38ea4af212ab8d4324b39983716516a",
+      "sy": "42161-0x30ccf4bbee313fcd19f3e295b3ba2920a24e2f62",
+      "underlyingAsset": "42161-0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+      "details": {
+        "liquidity": 11930039.635361727,
+        "pendleApy": 0.0018710799854307705,
+        "impliedApy": 0.09951580317302855,
+        "feeRate": 0.002044600112354855,
+        "yieldRange": {
+          "min": 0.040000000000000015,
+          "max": 0.37999999999999995
+        },
+        "aggregatedApy": 0.08549079615122505,
+        "maxBoostedApy": 0.0882974161293712
+      },
+      "isNew": false,
+      "isPrime": true,
+      "timestamp": "2026-02-12T00:47:40.000Z",
+      "categoryIds": [
+        "stables",
+        "rwa",
+        "points"
+      ]
+    },
+    {
+      "name": "sUSDai",
+      "address": "0xf86119a39f8654f38acbbd5488bd83f3f51983c8",
+      "expiry": "2027-02-25T00:00:00.000Z",
+      "pt": "42161-0xe9d07c2a3588b9a25edd55664be44ecfe5f92fce",
+      "yt": "42161-0x9adc5ff64705ccedf6ba61cdac124a720c0ff902",
+      "sy": "42161-0x30ccf4bbee313fcd19f3e295b3ba2920a24e2f62",
+      "underlyingAsset": "42161-0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+      "details": {
+        "liquidity": 1109623.4903063823,
+        "pendleApy": 0,
+        "impliedApy": 0.09302210783408271,
+        "feeRate": 0.0018491022907134447,
+        "yieldRange": {
+          "min": 0.030000000000000002,
+          "max": 0.12999999999999998
+        },
+        "aggregatedApy": 0.08798755286641093,
+        "maxBoostedApy": 0.08798755286641093
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-06-15T18:59:30.000Z",
+      "categoryIds": [
+        "stables",
+        "rwa",
+        "points"
+      ]
+    },
+    {
+      "name": "USDai",
+      "address": "0x46f545683d8494ef4c54b7ea40ca762c620846ef",
+      "expiry": "2027-02-25T00:00:00.000Z",
+      "pt": "42161-0xfaf260b16d3fa1609c74799089ad3cedfcd703fc",
+      "yt": "42161-0x82533d15d76f498de4f50858f9a86ad3b22c752d",
+      "sy": "42161-0x5edcbc20cac67adc2e724d4348ff85132b085b82",
+      "underlyingAsset": "42161-0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
+      "details": {
+        "liquidity": 56806.8318702518,
+        "pendleApy": 0,
+        "impliedApy": 0.0689208434942361,
+        "feeRate": 0.0014000000000000679,
+        "yieldRange": {
+          "min": 0.030000000000000002,
+          "max": 0.15
+        },
+        "aggregatedApy": 0.021556875612211653,
+        "maxBoostedApy": 0.021556875612211653
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-06-15T19:01:22.000Z",
+      "categoryIds": [
+        "stables",
+        "points",
+        "rwa"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/confidential-policy-result.schema.json",
+  "title": "ConfidentialPolicyResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "method_version", "as_of", "status", "checks", "portfolio_commitment", "mandate_commitment", "method_hash", "attestation_state", "attestation_ref"],
+  "properties": {
+    "schema_version": { "const": "fenorium/confidential-policy-result/v1" },
+    "method_version": { "type": "string", "minLength": 1 },
+    "as_of": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["PASS", "FAIL", "UNAVAILABLE"] },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["check_id", "status", "reason_code"],
+        "properties": {
+          "check_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "status": { "enum": ["PASS", "FAIL", "UNKNOWN"] },
+          "reason_code": { "$ref": "common.schema.json#/$defs/reasonCode" }
+        }
+      }
+    },
+    "portfolio_commitment": { "$ref": "common.schema.json#/$defs/hash32" },
+    "mandate_commitment": { "$ref": "common.schema.json#/$defs/hash32" },
+    "method_hash": { "$ref": "common.schema.json#/$defs/hash32" },
+    "attestation_state": { "enum": ["UNAVAILABLE", "EMULATED", "ATTESTED"] },
+    "attestation_ref": { "type": ["string", "null"] }
+  }
+}

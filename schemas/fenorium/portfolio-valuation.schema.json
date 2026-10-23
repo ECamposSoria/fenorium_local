@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/portfolio-valuation.schema.json",
+  "title": "PortfolioValuation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "as_of",
+    "positions",
+    "priced_nav_lower_bound_usd_micros",
+    "total_nav_usd_micros",
+    "authoritative_total_nav",
+    "unresolved_position_count",
+    "position_count_coverage_bps",
+    "value_coverage_bps",
+    "reason_codes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fenorium/portfolio-valuation/v1"
+    },
+    "method_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "as_of": {
+      "$ref": "common.schema.json#/$defs/utcTimestamp"
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identity",
+          "position",
+          "price",
+          "value_usd_micros",
+          "reason_code"
+        ],
+        "properties": {
+          "identity": {
+            "type": "string"
+          },
+          "position": {
+            "type": "object"
+          },
+          "price": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "required": [
+              "identity",
+              "schema_version",
+              "price_usd_fixed",
+              "price_scale",
+              "selected_sources",
+              "reason_code",
+              "as_of",
+              "method_version",
+              "alignment_bps"
+            ],
+            "properties": {
+              "schema_version": {
+                "const": "fenorium/price-result/v1"
+              },
+              "identity": {
+                "type": "string"
+              },
+              "price_usd_fixed": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1
+              },
+              "price_scale": {
+                "const": 100000000
+              },
+              "selected_sources": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "reason_code": {
+                "$ref": "common.schema.json#/$defs/reasonCode"
+              },
+              "as_of": {
+                "$ref": "common.schema.json#/$defs/utcTimestamp"
+              },
+              "method_version": {
+                "type": "string"
+              },
+              "alignment_bps": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              }
+            }
+          },
+          "value_usd_micros": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "reason_code": {
+            "$ref": "common.schema.json#/$defs/reasonCode"
+          }
+        }
+      }
+    },
+    "priced_nav_lower_bound_usd_micros": {
+      "$ref": "common.schema.json#/$defs/usdMicros"
+    },
+    "total_nav_usd_micros": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "authoritative_total_nav": {
+      "type": "boolean"
+    },
+    "unresolved_position_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "position_count_coverage_bps": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "value_coverage_bps": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/reasonCode"
+      },
+      "uniqueItems": true
+    }
+  }
+}

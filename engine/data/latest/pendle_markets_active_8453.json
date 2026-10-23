@@ -1,0 +1,142 @@
+{
+  "markets": [
+    {
+      "name": "yoUSD",
+      "address": "0x250c15e59a7572195e248f668636723cca20a2b8",
+      "expiry": "2026-09-24T00:00:00.000Z",
+      "pt": "8453-0x1fec97ca2817da87f266fd1741bba61caf7cde29",
+      "yt": "8453-0x35fbdbd598445a7cbb08dc114fe9feece20e2c67",
+      "sy": "8453-0xe181aed8e14469231618504df46e8c069314589b",
+      "underlyingAsset": "8453-0x0000000f2eb9f69274678c76222b35eec7588a65",
+      "details": {
+        "liquidity": 72869.96117512566,
+        "pendleApy": 0,
+        "impliedApy": 0.09679329978553342,
+        "feeRate": 0.0020989913336961763,
+        "yieldRange": {
+          "min": 0.05000000000000001,
+          "max": 0.27
+        },
+        "aggregatedApy": 0.024668997003398915,
+        "maxBoostedApy": 0.024668997003398915
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-03-11T15:38:05.000Z",
+      "categoryIds": [
+        "stables",
+        "points"
+      ]
+    },
+    {
+      "name": "apxUSD",
+      "address": "0xf5e6cf47ee975600786248cae0a80ab99daf0350",
+      "expiry": "2026-11-05T00:00:00.000Z",
+      "pt": "8453-0x45099d137c7a1f5b28bdc4443fdfecd842e1ddee",
+      "yt": "8453-0x66b8f8b61de9fc36b592c9b8abe0d6d03a5b3e6d",
+      "sy": "8453-0x65c3faaf6a25cb0311a29cce4b79bf8d37474342",
+      "underlyingAsset": "8453-0xd993935e13851dd7517af10687ec7e5022127228",
+      "details": {
+        "liquidity": 159815.394467685,
+        "pendleApy": 0,
+        "impliedApy": 0.10259410053614659,
+        "feeRate": 0.0019674133522236126,
+        "yieldRange": {
+          "min": 0.060000000000000005,
+          "max": 0.24999999999999997
+        },
+        "aggregatedApy": 0.025729576036489787,
+        "maxBoostedApy": 0.025729576036489787
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-05-16T00:47:57.000Z",
+      "categoryIds": [
+        "points",
+        "rwa",
+        "strc",
+        "apyx"
+      ]
+    },
+    {
+      "name": "40acresUSDC",
+      "address": "0x87e9a352d50146fa03373c52b9b21a32402a9597",
+      "expiry": "2026-08-27T00:00:00.000Z",
+      "pt": "8453-0x3623567972ad7f44242ec354a38bdbacfc73aa42",
+      "yt": "8453-0x5a9d6722994ef06612d27054fef365e8e61ad6c7",
+      "sy": "8453-0xc2e639ca5fcb8583bd9c85b07e21919850390f05",
+      "underlyingAsset": "8453-0xcd7079e32bf53093f60bf973c28e5d72937c12f2",
+      "details": {
+        "liquidity": 95221.42336090471,
+        "pendleApy": 0,
+        "impliedApy": 0.1037009086675369,
+        "feeRate": 0.0020734023012163316,
+        "yieldRange": {
+          "min": 0.05,
+          "max": 0.19999999999999998
+        },
+        "aggregatedApy": 0.11518440616584694,
+        "maxBoostedApy": 0.11518440616584694
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-05-21T13:31:51.000Z",
+      "categoryIds": [
+        "stables"
+      ]
+    },
+    {
+      "name": "USDC (Morpho cbBTC/USDC)",
+      "address": "0xa97bb0de338b23c088dba9bf8c948da726e49033",
+      "expiry": "2026-09-17T00:00:00.000Z",
+      "pt": "8453-0x0d18b7bab00988a442e31065e76286844809dc9a",
+      "yt": "8453-0x17cb5dadc2e5c1bc3402df6ec88ec7a2010ab1ec",
+      "sy": "8453-0x5f452145cae609f21921608c93a5fbb91322dac6",
+      "underlyingAsset": "8453-0x665062e427d53f3f1b851c12f26e4ccfabf8636b",
+      "details": {
+        "liquidity": 73662.12474598065,
+        "pendleApy": 0,
+        "impliedApy": 0.04249021170711598,
+        "feeRate": 0.0008951727068737814,
+        "yieldRange": {
+          "min": 0.01999999999999999,
+          "max": 0.06999999999999999
+        },
+        "aggregatedApy": 0.04188441670043229,
+        "maxBoostedApy": 0.04188441670043229
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-07-15T11:23:35.000Z",
+      "categoryIds": [
+        "stables",
+        "rwa"
+      ]
+    },
+    {
+      "name": "sKAITO",
+      "address": "0x8f3b4cb0310209055b5b28e6160ca46b9db3b0d6",
+      "expiry": "2027-01-28T00:00:00.000Z",
+      "pt": "8453-0x5137c0505dde0e7f104ab96b41ebc55fc2057e5d",
+      "yt": "8453-0xbcd065d430a237aa4791a789ff8eace37550e899",
+      "sy": "8453-0x4b272672a58da22b213e733f5aba48cfec534d30",
+      "underlyingAsset": "8453-0x548d3b444da39686d1a6f1544781d154e7cd1ef7",
+      "details": {
+        "liquidity": 102635.17983456593,
+        "pendleApy": 0.09484456920872483,
+        "impliedApy": 0.7188707180750336,
+        "feeRate": 0.01285977271399985,
+        "yieldRange": {
+          "min": 0.15000000000000002,
+          "max": 0.6
+        },
+        "aggregatedApy": 0.8508050568721851,
+        "maxBoostedApy": 0.9930719106852723
+      },
+      "isNew": false,
+      "isPrime": false,
+      "timestamp": "2026-07-27T03:47:37.000Z",
+      "categoryIds": []
+    }
+  ]
+}

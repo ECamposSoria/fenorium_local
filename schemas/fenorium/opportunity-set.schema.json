@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/opportunity-set.schema.json",
+  "title": "OpportunitySet v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "method_version", "as_of", "objective", "opportunities"],
+  "properties": {
+    "schema_version": {"const": "fenorium/opportunity-set/v1"},
+    "method_version": {"type": "string", "minLength": 1},
+    "as_of": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "objective": {
+      "type": "string",
+      "enum": [
+        "DEPLOY_IDLE_STABLECOINS",
+        "INCREASE_FIXED_INCOME",
+        "REBALANCE_SELECTED_RISK_ASSET",
+        "REDUCE_RISK"
+      ]
+    },
+    "opportunities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["identity", "objective", "status", "reason_codes", "rank_tuple"],
+        "properties": {
+          "identity": {"type": "string", "minLength": 1},
+          "objective": {"type": "string"},
+          "status": {
+            "type": "string",
+            "enum": ["ELIGIBLE", "REJECTED", "ANALYTICAL_ONLY", "NOT_RANKABLE"]
+          },
+          "reason_codes": {
+            "type": "array",
+            "items": {"$ref": "common.schema.json#/$defs/reasonCode"},
+            "uniqueItems": true
+          },
+          "rank_tuple": {
+            "type": ["array", "null"],
+            "items": {"type": ["integer", "string"]}
+          }
+        }
+      }
+    }
+  }
+}

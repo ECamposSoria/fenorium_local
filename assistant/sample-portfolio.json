@@ -1,0 +1,74 @@
+[
+ {
+  "name": "PT-40acresUSDC",
+  "venue": "Pendle",
+  "tier": "TIER_C",
+  "rate_bps": 1037,
+  "days_to_maturity": 3.82,
+  "depth_usd": 95221,
+  "usd": 250000
+ },
+ {
+  "name": "WETH@2026-09-24",
+  "venue": "Exactly",
+  "tier": "TIER_C",
+  "rate_bps": 131,
+  "days_to_maturity": 31.82,
+  "depth_usd": 654743,
+  "usd": 1000000
+ },
+ {
+  "name": "PT-PRIME",
+  "venue": "Pendle",
+  "tier": "TIER_B",
+  "rate_bps": 708,
+  "days_to_maturity": 3.82,
+  "depth_usd": 100854,
+  "usd": 250000
+ },
+ {
+  "name": "PT-jrUSDat",
+  "venue": "Pendle",
+  "tier": "TIER_C",
+  "rate_bps": 1727,
+  "days_to_maturity": 3.82,
+  "depth_usd": 263307,
+  "usd": 500000
+ },
+ {
+  "name": "USDC@2026-12-17",
+  "venue": "Exactly",
+  "tier": "TIER_A",
+  "rate_bps": 431,
+  "days_to_maturity": 115.82,
+  "depth_usd": 1608874,
+  "usd": 250000
+ },
+ {
+  "name": "USDC@2027-01-14",
+  "venue": "Exactly",
+  "tier": "TIER_A",
+  "rate_bps": 437,
+  "days_to_maturity": 143.82,
+  "depth_usd": 1608874,
+  "usd": 250000
+ },
+ {
+  "name": "PT-sAID",
+  "venue": "Pendle",
+  "tier": "TIER_C",
+  "rate_bps": 824,
+  "days_to_maturity": 129.82,
+  "depth_usd": 64061,
+  "usd": 2000000
+ },
+ {
+  "name": "PT-apxUSD",
+  "venue": "Pendle",
+  "tier": "TIER_C",
+  "rate_bps": 1217,
+  "days_to_maturity": 3.82,
+  "depth_usd": 798988,
+  "usd": 2000000
+ }
+]

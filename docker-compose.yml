@@ -1,0 +1,155 @@
+name: fenorium-local
+
+services:
+  anvil:
+    image: ghcr.io/foundry-rs/foundry:v1.7.1
+    container_name: fenorium-local-anvil
+    entrypoint: ["anvil"]
+    # Presents as Base Sepolia (chain id 84532, two-second blocks), which is what every part of
+    # the stack expects; the chain is kept on a volume between runs and wiped by `make reset`.
+    command:
+      - "--host"
+      - "0.0.0.0"
+      - "--port"
+      - "8545"
+      - "--chain-id"
+      - "84532"
+      - "--block-time"
+      - "2"
+      - "--state"
+      - "/state/chain.json"
+      - "--state-interval"
+      - "15"
+      - "--silent"
+    ports:
+      - "127.0.0.1:${LOCAL_CHAIN_PORT:-8545}:8545"
+    volumes:
+      - chain-state:/state
+    healthcheck:
+      test: ["CMD", "cast", "chain-id", "--rpc-url", "http://127.0.0.1:8545"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+    mem_limit: 1g
+    networks:
+      - local
+
+  deployer:
+    image: ghcr.io/foundry-rs/foundry:v1.7.1
+    container_name: fenorium-local-deployer
+    entrypoint: ["sh", "/work/chain/deploy.sh"]
+    # Root only until the volumes are handed to the image's user; see chain/deploy.sh.
+    user: "0:0"
+    environment:
+      RPC_URL: http://anvil:8545
+      OUT_DIR: /out
+      PRIVATE_KEY: ${LOCAL_DEPLOYER_KEY:?set LOCAL_DEPLOYER_KEY in .env}
+      LOCAL_RECIPIENT_KEYS: ${LOCAL_RECIPIENT_KEYS:?set LOCAL_RECIPIENT_KEYS in .env}
+    volumes:
+      - ./contracts:/work/contracts
+      - forge-out:/work/contracts/out
+      - forge-cache:/work/contracts/cache
+      - broadcast:/work/contracts/broadcast
+      - ./chain:/work/chain:ro
+      - deployments:/out
+    depends_on:
+      anvil:
+        condition: service_healthy
+    restart: "no"
+    mem_limit: 2g
+    networks:
+      - local
+
+  builder:
+    build:
+      context: .
+      dockerfile: images/Dockerfile
+      target: builder
+      args:
+        UPSTREAM_COMMIT: ${UPSTREAM_COMMIT:-unknown}
+    image: fenorium-local-builder:${UPSTREAM_COMMIT:-dev}
+    container_name: fenorium-local-builder
+    # Root only until the volumes are handed to the image's user; see chain/build.py.
+    user: "0:0"
+    environment:
+      BASE_SEPOLIA_RPC_URL: http://anvil:8545
+      LOCAL_PAGE_RPC_URL: http://127.0.0.1:${LOCAL_CHAIN_PORT:-8545}
+      LOCAL_NODE_NAME: Anvil
+      OUT_DIR: /out
+      CURVE_DIR: /curve
+      WEB_DIR: /web
+    volumes:
+      - broadcast:/app/contracts/broadcast:ro
+      - deployments:/out
+      - curve:/curve
+      - web-local:/web
+    depends_on:
+      deployer:
+        condition: service_completed_successfully
+    restart: "no"
+    mem_limit: 1g
+    networks:
+      - local
+
+  platform:
+    build:
+      context: .
+      dockerfile: images/Dockerfile
+      target: platform
+      args:
+        UPSTREAM_COMMIT: ${UPSTREAM_COMMIT:-unknown}
+    image: fenorium-local-platform:${UPSTREAM_COMMIT:-dev}
+    container_name: fenorium-local-platform
+    init: true
+    ports:
+      - "127.0.0.1:${LOCAL_PLATFORM_PORT:-8517}:8517"
+    environment:
+      FENORIUM_PLATFORM_HOST: "0.0.0.0"
+      FENORIUM_PLATFORM_PORT: "8517"
+      FENORIUM_EVIDENCE_DIR: /app/evidence
+      FENORIUM_UNIVERSE_PATH: /app/curve/universe.json
+      BASE_SEPOLIA_RPC_URL: http://anvil:8545
+      # No mainnet routing, execution or fees on the local stack; wallet reads stay on so the
+      # Portfolio reads a connected wallet's book from the local node.
+      FENORIUM_ROUTER: ""
+      FENORIUM_EXECUTION_CLEARED: ""
+      FENORIUM_LIFI_API_KEY: ""
+      FENORIUM_LIFI_INTEGRATOR: ""
+      FENORIUM_LIFI_FEE: ""
+      FENORIUM_WALLET_READS: "on"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777,noexec,nosuid,nodev
+    volumes:
+      - evidence:/app/evidence
+      - curve:/app/curve:ro
+      - web-local:/app/web:ro
+    depends_on:
+      builder:
+        condition: service_completed_successfully
+      anvil:
+        condition: service_healthy
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    mem_limit: 512m
+    restart: unless-stopped
+    networks:
+      - local
+
+networks:
+  local:
+    name: fenorium-local-net
+
+volumes:
+  chain-state:
+  forge-out:
+  forge-cache:
+  broadcast:
+  deployments:
+  curve:
+  web-local:
+  evidence:

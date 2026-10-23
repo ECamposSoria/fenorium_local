@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/wallet-snapshot-v2.schema.json",
+  "title": "WalletSnapshot v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "as_of",
+    "wallet",
+    "discovery_scope",
+    "positions",
+    "scanned_chains",
+    "adapter_errors",
+    "enumerated",
+    "enumeration_complete"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fenorium/wallet-snapshot/v2"
+    },
+    "method_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "as_of": {
+      "$ref": "common.schema.json#/$defs/utcTimestamp"
+    },
+    "wallet": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$"
+    },
+    "discovery_scope": {
+      "const": "REGISTERED_PLUS_ENUMERATED"
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identity",
+          "asset",
+          "raw_amount",
+          "block",
+          "zero_balance",
+          "unresolved",
+          "adapter_error"
+        ],
+        "properties": {
+          "identity": {
+            "type": "string"
+          },
+          "asset": {
+            "type": "object"
+          },
+          "raw_amount": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "block": {
+            "$ref": "common.schema.json#/$defs/blockReference"
+          },
+          "zero_balance": {
+            "type": "boolean"
+          },
+          "unresolved": {
+            "type": "boolean"
+          },
+          "adapter_error": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "required": [
+              "chain_id",
+              "identity",
+              "reason_code",
+              "detail"
+            ],
+            "properties": {
+              "chain_id": {
+                "type": "integer"
+              },
+              "identity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason_code": {
+                "$ref": "common.schema.json#/$defs/reasonCode"
+              },
+              "detail": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "scanned_chains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "chain_id",
+          "block",
+          "complete",
+          "position_count",
+          "error_count"
+        ],
+        "properties": {
+          "chain_id": {
+            "type": "integer"
+          },
+          "block": {
+            "$ref": "common.schema.json#/$defs/blockReference"
+          },
+          "complete": {
+            "type": "boolean"
+          },
+          "position_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "error_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "adapter_errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "chain_id",
+          "identity",
+          "reason_code",
+          "detail"
+        ],
+        "properties": {
+          "chain_id": {
+            "type": "integer"
+          },
+          "identity": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason_code": {
+            "$ref": "common.schema.json#/$defs/reasonCode"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "enumerated": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "chain_id",
+          "address",
+          "raw_amount",
+          "block",
+          "reason_code",
+          "valued"
+        ],
+        "properties": {
+          "chain_id": {
+            "type": "integer"
+          },
+          "address": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{40}$"
+          },
+          "raw_amount": {
+            "type": "integer",
+            "exclusiveMinimum": 0
+          },
+          "block": {
+            "$ref": "common.schema.json#/$defs/blockReference"
+          },
+          "reason_code": {
+            "const": "UNREGISTERED_ASSET"
+          },
+          "valued": {
+            "const": false
+          }
+        }
+      }
+    },
+    "enumeration_complete": {
+      "type": "boolean"
+    }
+  }
+}

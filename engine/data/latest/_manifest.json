@@ -1,0 +1,401 @@
+{
+  "files": {
+    "defillama_price_current_ethereum-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.json": {
+      "fetched_at": "2026-08-19T17:11:20.104644+00:00"
+    },
+    "defillama_price_current_ethereum-0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.json": {
+      "fetched_at": "2026-08-19T17:11:18.747616+00:00"
+    },
+    "lifi_earn_vaults_1_any.json": {
+      "fetched_at": "2026-08-19T17:11:24.248732+00:00"
+    },
+    "lifi_earn_vaults_8453_any.json": {
+      "fetched_at": "2026-08-19T17:11:31.119877+00:00"
+    },
+    "morpho_vaultV2s_1_0.json": {
+      "fetched_at": "2026-08-19T17:11:22.236689+00:00"
+    },
+    "morpho_vaultV2s_8453_0.json": {
+      "fetched_at": "2026-08-19T17:11:26.845787+00:00"
+    },
+    "morpho_vaultV2s_8453_1000.json": {
+      "fetched_at": "2026-08-19T17:11:29.289838+00:00"
+    },
+    "morpho_vaultV2s_8453_2000.json": {
+      "fetched_at": "2026-08-19T17:11:30.656867+00:00"
+    },
+    "morpho_vaults_1_0.json": {
+      "fetched_at": "2026-08-19T17:11:21.148666+00:00"
+    },
+    "morpho_vaults_8453_0.json": {
+      "fetched_at": "2026-08-19T17:11:25.003748+00:00"
+    },
+    "pendle_markets_active_1.json": {
+      "fetched_at": "2026-08-19T21:00:42.038431+00:00"
+    },
+    "pendle_markets_active_10.json": {
+      "fetched_at": "2026-08-19T21:00:49.060572+00:00"
+    },
+    "pendle_markets_active_42161.json": {
+      "fetched_at": "2026-08-19T21:00:43.544461+00:00"
+    },
+    "pendle_markets_active_56.json": {
+      "fetched_at": "2026-08-19T21:00:44.878488+00:00"
+    },
+    "pendle_markets_active_8453.json": {
+      "fetched_at": "2026-08-19T21:00:44.226475+00:00"
+    },
+    "pendle_markets_active_999.json": {
+      "fetched_at": "2026-08-19T21:00:47.440540+00:00"
+    },
+    "spectra_pools_arbitrum.json": {
+      "fetched_at": "2026-08-19T17:08:44.968412+00:00"
+    },
+    "spectra_pools_base.json": {
+      "fetched_at": "2026-08-19T17:08:43.759387+00:00"
+    },
+    "spectra_pools_bsc.json": {
+      "fetched_at": "2026-08-19T17:08:44.356400+00:00"
+    },
+    "spectra_pools_mainnet.json": {
+      "fetched_at": "2026-08-19T17:08:43.184376+00:00"
+    },
+    "spectra_pools_optimism.json": {
+      "fetched_at": "2026-08-19T17:08:45.537424+00:00"
+    },
+    "spectra_pools_sonic.json": {
+      "fetched_at": "2026-08-19T17:08:46.134436+00:00"
+    },
+    "tenor_morpho_fixed_markets.json": {
+      "fetched_at": "2026-08-19T17:08:54.252603+00:00"
+    },
+    "term_finance_orders_borrow_1_0x0469600d083220ab8c97bceeaef107810e530970.json": {
+      "fetched_at": "2026-08-19T17:09:46.307680+00:00"
+    },
+    "term_finance_orders_borrow_1_0x0978d191a077519250a30b87fd6743cde7bb561d.json": {
+      "fetched_at": "2026-08-19T17:09:36.243471+00:00"
+    },
+    "term_finance_orders_borrow_1_0x1097c7ae41d440686b87d2bc4e5e9fc0f70debd1.json": {
+      "fetched_at": "2026-08-19T17:09:15.134034+00:00"
+    },
+    "term_finance_orders_borrow_1_0x16d8a9736c963add7ca2c56c06833e4d87d860e5.json": {
+      "fetched_at": "2026-08-19T17:10:02.527018+00:00"
+    },
+    "term_finance_orders_borrow_1_0x181284c7e00db48443ea23486d24cdc080d7dc55.json": {
+      "fetched_at": "2026-08-19T17:10:55.368124+00:00"
+    },
+    "term_finance_orders_borrow_1_0x1ecb18f843fcd96aaa1bfeb0a3e19acdf978c7d1.json": {
+      "fetched_at": "2026-08-19T17:09:51.768794+00:00"
+    },
+    "term_finance_orders_borrow_1_0x2a42b43a954c7c8b634a0e2e172289075203ad0e.json": {
+      "fetched_at": "2026-08-19T17:09:28.479311+00:00"
+    },
+    "term_finance_orders_borrow_1_0x2a830beeb2a3c8376974dad925e405aef1490532.json": {
+      "fetched_at": "2026-08-19T17:09:25.967258+00:00"
+    },
+    "term_finance_orders_borrow_1_0x2f9af9b1e06b61468c1534581ed0cc2a8cbefca8.json": {
+      "fetched_at": "2026-08-19T17:10:44.441894+00:00"
+    },
+    "term_finance_orders_borrow_1_0x32953c65b8ac676e69263b9438a5628f6b17288c.json": {
+      "fetched_at": "2026-08-19T17:10:57.888177+00:00"
+    },
+    "term_finance_orders_borrow_1_0x3896e2d68dd4eecdbd67ae25382bca7e36bcc204.json": {
+      "fetched_at": "2026-08-19T17:09:33.728419+00:00"
+    },
+    "term_finance_orders_borrow_1_0x3d04463c464cf0eb5f75bc1ee745eb3e46834af3.json": {
+      "fetched_at": "2026-08-19T17:10:23.929465+00:00"
+    },
+    "term_finance_orders_borrow_1_0x40c88c1d9f803c6e61c0987dff4faaf889fb8fca.json": {
+      "fetched_at": "2026-08-19T17:10:36.565729+00:00"
+    },
+    "term_finance_orders_borrow_1_0x4ae1989f4c080b81d7de60de4f408f9019ef3473.json": {
+      "fetched_at": "2026-08-19T17:09:48.843733+00:00"
+    },
+    "term_finance_orders_borrow_1_0x4d0838eb45f5f1c7ecab00ff662ad614e2700e84.json": {
+      "fetched_at": "2026-08-19T17:10:29.027571+00:00"
+    },
+    "term_finance_orders_borrow_1_0x4f95a205514c8cc0f891bca6534fece269db9359.json": {
+      "fetched_at": "2026-08-19T17:09:02.195767+00:00"
+    },
+    "term_finance_orders_borrow_1_0x57d8335db5be3a164a9b2f4cc2f8ed532d8842ab.json": {
+      "fetched_at": "2026-08-19T17:09:59.966965+00:00"
+    },
+    "term_finance_orders_borrow_1_0x5912587a9bbd9bfbb643d610ddf4928145687dce.json": {
+      "fetched_at": "2026-08-19T17:10:41.905841+00:00"
+    },
+    "term_finance_orders_borrow_1_0x5d75bd75240a6a6e3170b1ea78a1e8eec3b6be29.json": {
+      "fetched_at": "2026-08-19T17:09:38.759524+00:00"
+    },
+    "term_finance_orders_borrow_1_0x5d9925c6a909f2c73c9138de78020cf947076e43.json": {
+      "fetched_at": "2026-08-19T17:10:18.422350+00:00"
+    },
+    "term_finance_orders_borrow_1_0x5fcb8eb1faf61cec17cbdb3d0e98e89b921a401e.json": {
+      "fetched_at": "2026-08-19T17:09:20.670149+00:00"
+    },
+    "term_finance_orders_borrow_1_0x6337a95fb9e8f8d4231ab90484bba917103759f5.json": {
+      "fetched_at": "2026-08-19T17:09:07.545877+00:00"
+    },
+    "term_finance_orders_borrow_1_0x6c192c284cfa34ddf944c3c965fc1d988ed6720a.json": {
+      "fetched_at": "2026-08-19T17:10:07.946131+00:00"
+    },
+    "term_finance_orders_borrow_1_0x6f62180aea1a5981b7211847231f4223ea91f748.json": {
+      "fetched_at": "2026-08-19T17:11:08.597402+00:00"
+    },
+    "term_finance_orders_borrow_1_0x7659a8183e6d049ee526cccedd7906bde5a08634.json": {
+      "fetched_at": "2026-08-19T17:09:31.027363+00:00"
+    },
+    "term_finance_orders_borrow_1_0x76d8d552048b5ebfabf435f8e1a73b238acbe519.json": {
+      "fetched_at": "2026-08-19T17:11:06.091349+00:00"
+    },
+    "term_finance_orders_borrow_1_0x7e83a725bd95062aef382f7a3589477fd5ba833b.json": {
+      "fetched_at": "2026-08-19T17:11:03.380292+00:00"
+    },
+    "term_finance_orders_borrow_1_0x7ea57316bb308eed5b5bd40960b9f7dc701e218f.json": {
+      "fetched_at": "2026-08-19T17:09:23.225202+00:00"
+    },
+    "term_finance_orders_borrow_1_0x83dfe7a9b606a6c4c8682f6a0838f5202839dfce.json": {
+      "fetched_at": "2026-08-19T17:10:12.950235+00:00"
+    },
+    "term_finance_orders_borrow_1_0x8a4eb5e2c408c949c427f47f4a4b78e3786dd7b0.json": {
+      "fetched_at": "2026-08-19T17:09:04.986825+00:00"
+    },
+    "term_finance_orders_borrow_1_0x90b0a7c901c4cddf5deefd1648eff325870c3ee1.json": {
+      "fetched_at": "2026-08-19T17:09:17.853090+00:00"
+    },
+    "term_finance_orders_borrow_1_0x94e96230c6e394f697c70710cf26ddd54c9e19ce.json": {
+      "fetched_at": "2026-08-19T17:09:41.263576+00:00"
+    },
+    "term_finance_orders_borrow_1_0x963eaa6e4d7184cfe0dfe668192da983b68b6533.json": {
+      "fetched_at": "2026-08-19T17:09:54.709855+00:00"
+    },
+    "term_finance_orders_borrow_1_0x968cb0dece9160b27e55dd8c635ce768067473fa.json": {
+      "fetched_at": "2026-08-19T17:08:59.354708+00:00"
+    },
+    "term_finance_orders_borrow_1_0xa6a212caa56241a94f3bf994a52d56a02e915d37.json": {
+      "fetched_at": "2026-08-19T17:10:52.855071+00:00"
+    },
+    "term_finance_orders_borrow_1_0xa7de1a7118e2bbe17c0928673966f466b18ade77.json": {
+      "fetched_at": "2026-08-19T17:09:10.067930+00:00"
+    },
+    "term_finance_orders_borrow_1_0xab0536496debdf8d95d8e2450a9f684f8592ddb7.json": {
+      "fetched_at": "2026-08-19T17:10:50.339018+00:00"
+    },
+    "term_finance_orders_borrow_1_0xb27d75270b133ebdaa184e56c36325580b445dea.json": {
+      "fetched_at": "2026-08-19T17:11:11.084454+00:00"
+    },
+    "term_finance_orders_borrow_1_0xbb3fc7101d67b9a73f0912683be129bd2b90f54c.json": {
+      "fetched_at": "2026-08-19T17:09:57.216907+00:00"
+    },
+    "term_finance_orders_borrow_1_0xbbea57820fd077d03f31111bfdb949b2523b7f2f.json": {
+      "fetched_at": "2026-08-19T17:10:15.496289+00:00"
+    },
+    "term_finance_orders_borrow_1_0xc1615710a0c80e57a10b076af8e43db8d79c1181.json": {
+      "fetched_at": "2026-08-19T17:10:21.388412+00:00"
+    },
+    "term_finance_orders_borrow_1_0xc3a76dc3560de0fbbc33a9212505e803c4e55022.json": {
+      "fetched_at": "2026-08-19T17:10:10.446183+00:00"
+    },
+    "term_finance_orders_borrow_1_0xc8006dec63d7d2f6b45a0f5de90390a86a6b950d.json": {
+      "fetched_at": "2026-08-19T17:11:00.607234+00:00"
+    },
+    "term_finance_orders_borrow_1_0xcaa7de2689ad754a5316fa891bc03f47055b0f37.json": {
+      "fetched_at": "2026-08-19T17:11:13.594507+00:00"
+    },
+    "term_finance_orders_borrow_1_0xcbb788be5db4cb0ab8346cf888086aabaf0231ac.json": {
+      "fetched_at": "2026-08-19T17:09:12.367977+00:00"
+    },
+    "term_finance_orders_borrow_1_0xcd3338f82772078f99c5105ba15eecfdd537eec8.json": {
+      "fetched_at": "2026-08-19T17:10:05.167073+00:00"
+    },
+    "term_finance_orders_borrow_1_0xcd3983d26c8d05301dd688ce2e25e59bd8337e4d.json": {
+      "fetched_at": "2026-08-19T17:10:26.449517+00:00"
+    },
+    "term_finance_orders_borrow_1_0xda24a7b05d2bf87127e97eb081ae66f4ecf83988.json": {
+      "fetched_at": "2026-08-19T17:10:39.384788+00:00"
+    },
+    "term_finance_orders_borrow_1_0xe53c30a308e6d7ad5c44e1dd6fb1f3ea99dfd410.json": {
+      "fetched_at": "2026-08-19T17:10:47.612961+00:00"
+    },
+    "term_finance_orders_borrow_1_0xf0bc0d1972fb1896b1e37e6422f842594dc2ceed.json": {
+      "fetched_at": "2026-08-19T17:10:31.553624+00:00"
+    },
+    "term_finance_orders_borrow_1_0xfabe2bd0dc804615f1c8d5cb4ca6288f386338b0.json": {
+      "fetched_at": "2026-08-19T17:09:43.783628+00:00"
+    },
+    "term_finance_orders_borrow_1_0xfb6cf064a782a87a270a9a25e6c067ebc157fef4.json": {
+      "fetched_at": "2026-08-19T17:10:34.059677+00:00"
+    },
+    "term_finance_orders_borrow_42161_0xd542379900e030557bd2b1ead80d9b5da323ea2f.json": {
+      "fetched_at": "2026-08-19T17:11:16.006558+00:00"
+    },
+    "term_finance_orders_lend_1_0x0469600d083220ab8c97bceeaef107810e530970.json": {
+      "fetched_at": "2026-08-19T17:09:47.697709+00:00"
+    },
+    "term_finance_orders_lend_1_0x0978d191a077519250a30b87fd6743cde7bb561d.json": {
+      "fetched_at": "2026-08-19T17:09:37.615500+00:00"
+    },
+    "term_finance_orders_lend_1_0x1097c7ae41d440686b87d2bc4e5e9fc0f70debd1.json": {
+      "fetched_at": "2026-08-19T17:09:16.725067+00:00"
+    },
+    "term_finance_orders_lend_1_0x16d8a9736c963add7ca2c56c06833e4d87d860e5.json": {
+      "fetched_at": "2026-08-19T17:10:03.934047+00:00"
+    },
+    "term_finance_orders_lend_1_0x181284c7e00db48443ea23486d24cdc080d7dc55.json": {
+      "fetched_at": "2026-08-19T17:10:56.753153+00:00"
+    },
+    "term_finance_orders_lend_1_0x1ecb18f843fcd96aaa1bfeb0a3e19acdf978c7d1.json": {
+      "fetched_at": "2026-08-19T17:09:53.573832+00:00"
+    },
+    "term_finance_orders_lend_1_0x2a42b43a954c7c8b634a0e2e172289075203ad0e.json": {
+      "fetched_at": "2026-08-19T17:09:29.896340+00:00"
+    },
+    "term_finance_orders_lend_1_0x2a830beeb2a3c8376974dad925e405aef1490532.json": {
+      "fetched_at": "2026-08-19T17:09:27.342287+00:00"
+    },
+    "term_finance_orders_lend_1_0x2f9af9b1e06b61468c1534581ed0cc2a8cbefca8.json": {
+      "fetched_at": "2026-08-19T17:10:45.884925+00:00"
+    },
+    "term_finance_orders_lend_1_0x32953c65b8ac676e69263b9438a5628f6b17288c.json": {
+      "fetched_at": "2026-08-19T17:10:59.322207+00:00"
+    },
+    "term_finance_orders_lend_1_0x3896e2d68dd4eecdbd67ae25382bca7e36bcc204.json": {
+      "fetched_at": "2026-08-19T17:09:35.106448+00:00"
+    },
+    "term_finance_orders_lend_1_0x3d04463c464cf0eb5f75bc1ee745eb3e46834af3.json": {
+      "fetched_at": "2026-08-19T17:10:25.319494+00:00"
+    },
+    "term_finance_orders_lend_1_0x40c88c1d9f803c6e61c0987dff4faaf889fb8fca.json": {
+      "fetched_at": "2026-08-19T17:10:38.157763+00:00"
+    },
+    "term_finance_orders_lend_1_0x4ae1989f4c080b81d7de60de4f408f9019ef3473.json": {
+      "fetched_at": "2026-08-19T17:09:50.219762+00:00"
+    },
+    "term_finance_orders_lend_1_0x4d0838eb45f5f1c7ecab00ff662ad614e2700e84.json": {
+      "fetched_at": "2026-08-19T17:10:30.419600+00:00"
+    },
+    "term_finance_orders_lend_1_0x4f95a205514c8cc0f891bca6534fece269db9359.json": {
+      "fetched_at": "2026-08-19T17:09:03.632797+00:00"
+    },
+    "term_finance_orders_lend_1_0x57d8335db5be3a164a9b2f4cc2f8ed532d8842ab.json": {
+      "fetched_at": "2026-08-19T17:10:01.361994+00:00"
+    },
+    "term_finance_orders_lend_1_0x5912587a9bbd9bfbb643d610ddf4928145687dce.json": {
+      "fetched_at": "2026-08-19T17:10:43.280870+00:00"
+    },
+    "term_finance_orders_lend_1_0x5d75bd75240a6a6e3170b1ea78a1e8eec3b6be29.json": {
+      "fetched_at": "2026-08-19T17:09:40.135552+00:00"
+    },
+    "term_finance_orders_lend_1_0x5d9925c6a909f2c73c9138de78020cf947076e43.json": {
+      "fetched_at": "2026-08-19T17:10:20.041384+00:00"
+    },
+    "term_finance_orders_lend_1_0x5fcb8eb1faf61cec17cbdb3d0e98e89b921a401e.json": {
+      "fetched_at": "2026-08-19T17:09:22.077178+00:00"
+    },
+    "term_finance_orders_lend_1_0x6337a95fb9e8f8d4231ab90484bba917103759f5.json": {
+      "fetched_at": "2026-08-19T17:09:08.940906+00:00"
+    },
+    "term_finance_orders_lend_1_0x6c192c284cfa34ddf944c3c965fc1d988ed6720a.json": {
+      "fetched_at": "2026-08-19T17:10:09.310159+00:00"
+    },
+    "term_finance_orders_lend_1_0x6f62180aea1a5981b7211847231f4223ea91f748.json": {
+      "fetched_at": "2026-08-19T17:11:09.942430+00:00"
+    },
+    "term_finance_orders_lend_1_0x7659a8183e6d049ee526cccedd7906bde5a08634.json": {
+      "fetched_at": "2026-08-19T17:09:32.600396+00:00"
+    },
+    "term_finance_orders_lend_1_0x76d8d552048b5ebfabf435f8e1a73b238acbe519.json": {
+      "fetched_at": "2026-08-19T17:11:07.463378+00:00"
+    },
+    "term_finance_orders_lend_1_0x7e83a725bd95062aef382f7a3589477fd5ba833b.json": {
+      "fetched_at": "2026-08-19T17:11:04.726321+00:00"
+    },
+    "term_finance_orders_lend_1_0x7ea57316bb308eed5b5bd40960b9f7dc701e218f.json": {
+      "fetched_at": "2026-08-19T17:09:24.624231+00:00"
+    },
+    "term_finance_orders_lend_1_0x83dfe7a9b606a6c4c8682f6a0838f5202839dfce.json": {
+      "fetched_at": "2026-08-19T17:10:14.299263+00:00"
+    },
+    "term_finance_orders_lend_1_0x8a4eb5e2c408c949c427f47f4a4b78e3786dd7b0.json": {
+      "fetched_at": "2026-08-19T17:09:06.385854+00:00"
+    },
+    "term_finance_orders_lend_1_0x90b0a7c901c4cddf5deefd1648eff325870c3ee1.json": {
+      "fetched_at": "2026-08-19T17:09:19.224119+00:00"
+    },
+    "term_finance_orders_lend_1_0x94e96230c6e394f697c70710cf26ddd54c9e19ce.json": {
+      "fetched_at": "2026-08-19T17:09:42.639604+00:00"
+    },
+    "term_finance_orders_lend_1_0x963eaa6e4d7184cfe0dfe668192da983b68b6533.json": {
+      "fetched_at": "2026-08-19T17:09:56.087884+00:00"
+    },
+    "term_finance_orders_lend_1_0x968cb0dece9160b27e55dd8c635ce768067473fa.json": {
+      "fetched_at": "2026-08-19T17:09:01.038743+00:00"
+    },
+    "term_finance_orders_lend_1_0xa6a212caa56241a94f3bf994a52d56a02e915d37.json": {
+      "fetched_at": "2026-08-19T17:10:54.227100+00:00"
+    },
+    "term_finance_orders_lend_1_0xa7de1a7118e2bbe17c0928673966f466b18ade77.json": {
+      "fetched_at": "2026-08-19T17:09:11.241954+00:00"
+    },
+    "term_finance_orders_lend_1_0xab0536496debdf8d95d8e2450a9f684f8592ddb7.json": {
+      "fetched_at": "2026-08-19T17:10:51.721047+00:00"
+    },
+    "term_finance_orders_lend_1_0xb27d75270b133ebdaa184e56c36325580b445dea.json": {
+      "fetched_at": "2026-08-19T17:11:12.459483+00:00"
+    },
+    "term_finance_orders_lend_1_0xbb3fc7101d67b9a73f0912683be129bd2b90f54c.json": {
+      "fetched_at": "2026-08-19T17:09:58.828941+00:00"
+    },
+    "term_finance_orders_lend_1_0xbbea57820fd077d03f31111bfdb949b2523b7f2f.json": {
+      "fetched_at": "2026-08-19T17:10:17.085322+00:00"
+    },
+    "term_finance_orders_lend_1_0xc1615710a0c80e57a10b076af8e43db8d79c1181.json": {
+      "fetched_at": "2026-08-19T17:10:22.774441+00:00"
+    },
+    "term_finance_orders_lend_1_0xc3a76dc3560de0fbbc33a9212505e803c4e55022.json": {
+      "fetched_at": "2026-08-19T17:10:11.819212+00:00"
+    },
+    "term_finance_orders_lend_1_0xc8006dec63d7d2f6b45a0f5de90390a86a6b950d.json": {
+      "fetched_at": "2026-08-19T17:11:02.135266+00:00"
+    },
+    "term_finance_orders_lend_1_0xcaa7de2689ad754a5316fa891bc03f47055b0f37.json": {
+      "fetched_at": "2026-08-19T17:11:15.004537+00:00"
+    },
+    "term_finance_orders_lend_1_0xcbb788be5db4cb0ab8346cf888086aabaf0231ac.json": {
+      "fetched_at": "2026-08-19T17:09:13.774006+00:00"
+    },
+    "term_finance_orders_lend_1_0xcd3338f82772078f99c5105ba15eecfdd537eec8.json": {
+      "fetched_at": "2026-08-19T17:10:06.783107+00:00"
+    },
+    "term_finance_orders_lend_1_0xcd3983d26c8d05301dd688ce2e25e59bd8337e4d.json": {
+      "fetched_at": "2026-08-19T17:10:27.791546+00:00"
+    },
+    "term_finance_orders_lend_1_0xda24a7b05d2bf87127e97eb081ae66f4ecf83988.json": {
+      "fetched_at": "2026-08-19T17:10:40.779818+00:00"
+    },
+    "term_finance_orders_lend_1_0xe53c30a308e6d7ad5c44e1dd6fb1f3ea99dfd410.json": {
+      "fetched_at": "2026-08-19T17:10:49.190994+00:00"
+    },
+    "term_finance_orders_lend_1_0xf0bc0d1972fb1896b1e37e6422f842594dc2ceed.json": {
+      "fetched_at": "2026-08-19T17:10:32.920653+00:00"
+    },
+    "term_finance_orders_lend_1_0xfabe2bd0dc804615f1c8d5cb4ca6288f386338b0.json": {
+      "fetched_at": "2026-08-19T17:09:45.170657+00:00"
+    },
+    "term_finance_orders_lend_1_0xfb6cf064a782a87a270a9a25e6c067ebc157fef4.json": {
+      "fetched_at": "2026-08-19T17:10:35.440706+00:00"
+    },
+    "term_finance_orders_lend_42161_0xd542379900e030557bd2b1ead80d9b5da323ea2f.json": {
+      "fetched_at": "2026-08-19T17:11:17.028579+00:00"
+    },
+    "term_finance_repos.json": {
+      "fetched_at": "2026-08-19T17:08:57.939679+00:00"
+    },
+    "termmax_market_config_list_1.json": {
+      "fetched_at": "2026-08-19T17:08:50.785532+00:00"
+    },
+    "termmax_market_list_with_collection_1.json": {
+      "fetched_at": "2026-08-19T17:08:53.140580+00:00"
+    }
+  },
+  "version": 1
+}

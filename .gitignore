@@ -1,0 +1,15 @@
+# Foundry build products and broadcast records: the stack keeps them on Docker volumes.
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Local overrides and secrets never belong here; .env is public settings and is committed.
+.env.local
+*.key
+
+# Editors and OS
+.DS_Store
+.vscode/
+.idea/
+__pycache__/
+*.pyc

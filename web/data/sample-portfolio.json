@@ -1,0 +1,395 @@
+{
+  "schema_version": "PortfolioSnapshot/v1",
+  "method_version": "portfolio-browser-v1",
+  "provenance": {
+    "kind": "LOCAL_DEMO_FIXTURE",
+    "label": "LOCAL_DEMO_FIXTURE / illustrative only",
+    "as_of": "2026-08-30T12:00:00Z",
+    "source": "checked-in sample of a fully priced book; not a wallet assertion"
+  },
+  "account": "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
+  "scope": "REGISTERED_ASSETS_ONLY",
+  "chains": [
+    {
+      "chain_id": 1,
+      "finalized_block_ref": "0x1e84800",
+      "rpc_status": "FIXTURE_OK",
+      "source_timestamp": "2026-08-30T12:00:00Z"
+    },
+    {
+      "chain_id": 10,
+      "finalized_block_ref": "0x2b67c1a",
+      "rpc_status": "FIXTURE_OK",
+      "source_timestamp": "2026-08-30T12:00:00Z"
+    },
+    {
+      "chain_id": 56,
+      "finalized_block_ref": "0x3d7a901",
+      "rpc_status": "FIXTURE_OK",
+      "source_timestamp": "2026-08-30T12:00:00Z"
+    },
+    {
+      "chain_id": 8453,
+      "finalized_block_ref": "0x9a71e2b",
+      "rpc_status": "FIXTURE_OK",
+      "source_timestamp": "2026-08-30T12:00:00Z"
+    },
+    {
+      "chain_id": 42161,
+      "finalized_block_ref": "0x6f11bd0",
+      "rpc_status": "FIXTURE_OK",
+      "source_timestamp": "2026-08-30T12:00:00Z"
+    }
+  ],
+  "positions": [
+    {
+      "id": "eth-usdc-mainnet",
+      "position_type": "erc20",
+      "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "chain_id": 1,
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "asset_type": "stablecoin",
+      "is_stablecoin": true,
+      "issuer": "Circle",
+      "raw_units": "24000000000",
+      "decimals": 6,
+      "price_micros": "999800",
+      "status": "SUPPORTED",
+      "deployable": true,
+      "price_source": "fixture: independent observed stablecoin quote",
+      "source_timestamp": "2026-08-30T11:58:00Z",
+      "yield_bps": 0,
+      "rate_kind": "declared_demo"
+    },
+    {
+      "id": "base-usdc",
+      "position_type": "erc20",
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "chain_id": 8453,
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "asset_type": "stablecoin",
+      "is_stablecoin": true,
+      "issuer": "Circle",
+      "raw_units": "16000000000",
+      "decimals": 6,
+      "price_micros": "1000100",
+      "status": "SUPPORTED",
+      "deployable": true,
+      "price_source": "fixture: independent observed stablecoin quote",
+      "source_timestamp": "2026-08-30T11:58:00Z",
+      "yield_bps": 0,
+      "rate_kind": "declared_demo"
+    },
+    {
+      "id": "eth-weth",
+      "position_type": "erc20",
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "chain_id": 1,
+      "symbol": "WETH",
+      "name": "Wrapped Ether",
+      "asset_type": "variable_income",
+      "is_stablecoin": false,
+      "issuer": "Ethereum",
+      "raw_units": "5700000000000000000",
+      "decimals": 18,
+      "price_micros": "3512000000",
+      "status": "SUPPORTED",
+      "risk_supported": true,
+      "price_source": "fixture: observed spot price",
+      "source_timestamp": "2026-08-30T11:57:00Z",
+      "yield_bps": 0,
+      "rate_kind": "declared_demo"
+    },
+    {
+      "id": "pt-usde-2026-12",
+      "position_type": "erc20",
+      "address": "0x1111111111111111111111111111111111111111",
+      "chain_id": 1,
+      "symbol": "PT-USDe",
+      "name": "Principal Token USDe 31 Dec 2026",
+      "asset_type": "fixed_income",
+      "issuer": "Pendle",
+      "raw_units": "103600000000000000000000",
+      "decimals": 18,
+      "price_micros": "965000",
+      "status": "SUPPORTED",
+      "fixed_income_supported": true,
+      "maturity": "2026-12-31",
+      "price_source": "fixture: dated market observation",
+      "source_timestamp": "2026-08-30T11:56:00Z",
+      "rate_bps": 452,
+      "yield_bps": 452,
+      "rate_kind": "declared_demo",
+      "category": "native"
+    },
+    {
+      "id": "tbill-3m",
+      "position_type": "erc20",
+      "address": "0xtbiltbiltbiltbiltbiltbiltbiltbiltbiltbil",
+      "chain_id": 1,
+      "symbol": "TBILL",
+      "name": "OpenEden T-Bills",
+      "asset_type": "fixed_income",
+      "issuer": "OpenEden",
+      "raw_units": "120000000000",
+      "decimals": 6,
+      "price_micros": "998200",
+      "status": "SUPPORTED",
+      "fixed_income_supported": true,
+      "maturity": "2026-12-03",
+      "rate_bps": 484,
+      "price_source": "fixture: dated market observation",
+      "source_timestamp": "2026-08-30T11:56:00Z",
+      "yield_bps": 484,
+      "rate_kind": "declared_demo",
+      "category": "rwa"
+    },
+    {
+      "id": "ousg-9m",
+      "position_type": "erc20",
+      "address": "0xousgousgousgousgousgousgousgousgousgousg",
+      "chain_id": 1,
+      "symbol": "OUSG",
+      "name": "Ondo Short-Term US Treasuries",
+      "asset_type": "fixed_income",
+      "issuer": "Ondo",
+      "raw_units": "95000000000",
+      "decimals": 6,
+      "price_micros": "1052000",
+      "status": "SUPPORTED",
+      "fixed_income_supported": true,
+      "maturity": "2027-05-27",
+      "rate_bps": 501,
+      "price_source": "fixture: dated market observation",
+      "source_timestamp": "2026-08-30T11:56:00Z",
+      "yield_bps": 501,
+      "rate_kind": "declared_demo",
+      "category": "rwa"
+    },
+    {
+      "id": "buidl-2y",
+      "position_type": "erc20",
+      "address": "0xbuidbuidbuidbuidbuidbuidbuidbuidbuidbuid",
+      "chain_id": 1,
+      "symbol": "BUIDL",
+      "name": "BlackRock USD Institutional",
+      "asset_type": "fixed_income",
+      "issuer": "BlackRock",
+      "raw_units": "60000000000",
+      "decimals": 6,
+      "price_micros": "1013000",
+      "status": "SUPPORTED",
+      "fixed_income_supported": true,
+      "maturity": "2028-09-28",
+      "rate_bps": 471,
+      "price_source": "fixture: dated market observation",
+      "source_timestamp": "2026-08-30T11:56:00Z",
+      "yield_bps": 471,
+      "rate_kind": "declared_demo",
+      "category": "rwa"
+    },
+    {
+      "id": "bond-4y",
+      "position_type": "erc20",
+      "address": "0xbondbondbondbondbondbondbondbondbondbond",
+      "chain_id": 1,
+      "symbol": "mTBILL",
+      "name": "Midas US Treasury Bill Token",
+      "asset_type": "fixed_income",
+      "issuer": "Midas",
+      "raw_units": "40000000000",
+      "decimals": 6,
+      "price_micros": "1004500",
+      "status": "SUPPORTED",
+      "fixed_income_supported": true,
+      "maturity": "2030-09-18",
+      "rate_bps": 442,
+      "price_source": "fixture: dated market observation",
+      "source_timestamp": "2026-08-30T11:56:00Z",
+      "yield_bps": 442,
+      "rate_kind": "declared_demo",
+      "category": "rwa"
+    },
+    {
+      "id": "long-7y",
+      "position_type": "erc20",
+      "address": "0xlonglonglonglonglonglonglonglonglonglong",
+      "chain_id": 1,
+      "symbol": "STBT",
+      "name": "Matrixdock Short-term Treasury Bill",
+      "asset_type": "fixed_income",
+      "issuer": "Matrixdock",
+      "raw_units": "20000000000",
+      "decimals": 6,
+      "price_micros": "991000",
+      "status": "SUPPORTED",
+      "fixed_income_supported": true,
+      "maturity": "2033-09-02",
+      "rate_bps": 415,
+      "price_source": "fixture: dated market observation",
+      "source_timestamp": "2026-08-30T11:56:00Z",
+      "yield_bps": 415,
+      "rate_kind": "declared_demo",
+      "category": "rwa"
+    }
+  ],
+  "opportunity_candidate": {
+    "id": "pt-usdc-2027-06-30",
+    "name": "PT-USDC \u00b7 30 Jun 2027",
+    "protocol": "Pendle",
+    "chain": "Ethereum",
+    "verdict": "BID",
+    "rate_bps": 684,
+    "depth_usd_micros": "250000000000",
+    "current_protocol_share_bps": 500,
+    "projected_protocol_share_bps": 1200,
+    "evidence_as_of": "2026-08-28T09:00:00Z",
+    "reason_codes": [
+      "INCOME_INCREASE",
+      "MANDATE_PASS",
+      "MISSING_EXECUTION_QUOTE"
+    ],
+    "cost_ledger": {
+      "source_swap": "0",
+      "price_impact": "1250000",
+      "bridge": "0",
+      "integrator_fee": "0",
+      "fenorium_fee": "0",
+      "gas": "1800000",
+      "entry_cost": "0"
+    }
+  },
+  "nav_series": {
+    "method_version": "fixture/declared-nav-series-v1",
+    "source": "checked-in sample; illustrative only, no external flows declared",
+    "points": [
+      {
+        "as_of": "2026-07-31",
+        "nav_usd_micros": "488953888238"
+      },
+      {
+        "as_of": "2026-08-01",
+        "nav_usd_micros": "489338531963"
+      },
+      {
+        "as_of": "2026-08-02",
+        "nav_usd_micros": "489723175688"
+      },
+      {
+        "as_of": "2026-08-03",
+        "nav_usd_micros": "490107819414"
+      },
+      {
+        "as_of": "2026-08-04",
+        "nav_usd_micros": "490492463139"
+      },
+      {
+        "as_of": "2026-08-05",
+        "nav_usd_micros": "490877106864"
+      },
+      {
+        "as_of": "2026-08-06",
+        "nav_usd_micros": "491261750590"
+      },
+      {
+        "as_of": "2026-08-07",
+        "nav_usd_micros": "491646394315"
+      },
+      {
+        "as_of": "2026-08-08",
+        "nav_usd_micros": "492031038040"
+      },
+      {
+        "as_of": "2026-08-09",
+        "nav_usd_micros": "492415681766"
+      },
+      {
+        "as_of": "2026-08-10",
+        "nav_usd_micros": "492800325491"
+      },
+      {
+        "as_of": "2026-08-11",
+        "nav_usd_micros": "493184969216"
+      },
+      {
+        "as_of": "2026-08-12",
+        "nav_usd_micros": "493569612941"
+      },
+      {
+        "as_of": "2026-08-13",
+        "nav_usd_micros": "493954256668"
+      },
+      {
+        "as_of": "2026-08-14",
+        "nav_usd_micros": "494338900392"
+      },
+      {
+        "as_of": "2026-08-15",
+        "nav_usd_micros": "494723544119"
+      },
+      {
+        "as_of": "2026-08-16",
+        "nav_usd_micros": "495108187844"
+      },
+      {
+        "as_of": "2026-08-17",
+        "nav_usd_micros": "495492831569"
+      },
+      {
+        "as_of": "2026-08-18",
+        "nav_usd_micros": "495877475295"
+      },
+      {
+        "as_of": "2026-08-19",
+        "nav_usd_micros": "496262119020"
+      },
+      {
+        "as_of": "2026-08-20",
+        "nav_usd_micros": "496646762745"
+      },
+      {
+        "as_of": "2026-08-21",
+        "nav_usd_micros": "497031406471"
+      },
+      {
+        "as_of": "2026-08-22",
+        "nav_usd_micros": "497416050196"
+      },
+      {
+        "as_of": "2026-08-23",
+        "nav_usd_micros": "497800693921"
+      },
+      {
+        "as_of": "2026-08-24",
+        "nav_usd_micros": "498185337648"
+      },
+      {
+        "as_of": "2026-08-25",
+        "nav_usd_micros": "498569981372"
+      },
+      {
+        "as_of": "2026-08-26",
+        "nav_usd_micros": "498954625097"
+      },
+      {
+        "as_of": "2026-08-27",
+        "nav_usd_micros": "499339268824"
+      },
+      {
+        "as_of": "2026-08-28",
+        "nav_usd_micros": "499723912549"
+      },
+      {
+        "as_of": "2026-08-29",
+        "nav_usd_micros": "500108556274"
+      },
+      {
+        "as_of": "2026-08-30",
+        "nav_usd_micros": "500493200000"
+      }
+    ],
+    "external_flows": "none"
+  }
+}

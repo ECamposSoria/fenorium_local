@@ -1,0 +1,36 @@
+{
+  "data": {
+    "protocol_orders": {
+      "orders": [
+        {
+          "id": "synthetic-1-0x330732581d30076137a1159b3ae8780158d902be-0x83dfe7a9b606a6c4c8682f6a0838f5202839dfce-0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "offerRate": "20000000000000000",
+          "purchaseTokenAmount": "25860191662275819489",
+          "remainingAmount": "25860191662275819489",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0x76dd96710a73675d9cf9523a046f1587ca9031d4-0x83dfe7a9b606a6c4c8682f6a0838f5202839dfce-0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "offerRate": "20000000000000000",
+          "purchaseTokenAmount": "1021497406477862637286",
+          "remainingAmount": "1021497406477862637286",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0x9f1c3173581ced1204136cbc628d2fb2407d7ac4-0x83dfe7a9b606a6c4c8682f6a0838f5202839dfce-0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "offerRate": "20000000000000000",
+          "purchaseTokenAmount": "1172678687690166121386",
+          "remainingAmount": "1172678687690166121386",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0xfc36c2edb18829308fa9ee9500e8be6520a47caf-0x83dfe7a9b606a6c4c8682f6a0838f5202839dfce-0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "offerRate": "20000000000000000",
+          "purchaseTokenAmount": "22247940068153660269",
+          "remainingAmount": "22247940068153660269",
+          "isSynthetic": true
+        }
+      ]
+    }
+  }
+}

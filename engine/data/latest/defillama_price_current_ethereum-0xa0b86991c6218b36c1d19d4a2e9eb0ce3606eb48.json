@@ -1,0 +1,11 @@
+{
+  "coins": {
+    "ethereum:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+      "decimals": 6,
+      "symbol": "USDC",
+      "price": 0.9997612354270109,
+      "timestamp": 1787159390,
+      "confidence": 0.99
+    }
+  }
+}

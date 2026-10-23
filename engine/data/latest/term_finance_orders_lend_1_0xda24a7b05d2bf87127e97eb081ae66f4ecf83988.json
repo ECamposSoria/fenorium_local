@@ -1,0 +1,22 @@
+{
+  "data": {
+    "protocol_orders": {
+      "orders": [
+        {
+          "id": "synthetic-1-0x000ecfd73e2e523767e161a99690e6ef8c1b8029-0xda24a7b05d2bf87127e97eb081ae66f4ecf83988-0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "offerRate": "29921052631579000",
+          "purchaseTokenAmount": "4586151295",
+          "remainingAmount": "4586151295",
+          "isSynthetic": true
+        },
+        {
+          "id": "synthetic-1-0x047cfddd06018f53f54262fe64f2744ecd463fea-0xda24a7b05d2bf87127e97eb081ae66f4ecf83988-0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "offerRate": "39417290577200698",
+          "purchaseTokenAmount": "49983694738",
+          "remainingAmount": "49983694738",
+          "isSynthetic": true
+        }
+      ]
+    }
+  }
+}

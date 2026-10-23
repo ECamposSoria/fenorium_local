@@ -1,0 +1,11 @@
+{
+  "counts": {
+    "not_listed": 11,
+    "ok": 24,
+    "rate_limited": 31
+  },
+  "generated_at": "2026-08-22T12:42:49Z",
+  "note": "429 = rate limited (buyable). 404 = not listed by the vendor (structural).",
+  "source": "engine cached CoinGecko per-contract market_chart responses",
+  "total_requests": 66
+}

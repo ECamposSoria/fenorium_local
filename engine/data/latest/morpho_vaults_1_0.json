@@ -1,0 +1,3615 @@
+{
+  "data": {
+    "vaults": {
+      "pageInfo": {
+        "countTotal": 450
+      },
+      "items": [
+        {
+          "address": "0xfeaC08ffA38d95ec5Ed7C46c933C8891a44C5F26",
+          "symbol": "sparkUSDCbc",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xFDe988570C0440Fc49FFEF4b0355bE53C879885b",
+          "symbol": "DBD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xFDe11264001397547e8457735bDdBcb62A73F33d",
+          "symbol": "KEKEL",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xfD1241C4fc37680De370dDc20eBF7bC5e561E1c1",
+          "symbol": "duneUSDC",
+          "state": {
+            "netApy": 5.203441353789626e-07,
+            "totalAssetsUsd": 9.997664292098455e-07
+          }
+        },
+        {
+          "address": "0xfbDEE8670b273E12b019210426E70091464b02Ab",
+          "symbol": "MC.wM",
+          "state": {
+            "netApy": 3.351020974658243e-06,
+            "totalAssetsUsd": 4.885908359380922
+          }
+        },
+        {
+          "address": "0xfBC84DBfAA2196853FdB6cAE52ef8F56DD76770a",
+          "symbol": "BOLDCS",
+          "state": {
+            "netApy": 0.0012904198690617973,
+            "totalAssetsUsd": 1059.8157365868767
+          }
+        },
+        {
+          "address": "0xFB219e20e7Ad26345FD3474EBA6C9250482971Cf",
+          "symbol": "phiUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 159815.585698543
+          }
+        },
+        {
+          "address": "0xFa7ED49Eb24A6117D8a3168EEE69D26b45C40C63",
+          "symbol": "aZCHF",
+          "state": {
+            "netApy": 0.061796174320585096,
+            "totalAssetsUsd": 9323.274474725242
+          }
+        },
+        {
+          "address": "0xF9bdDd4A9b3A45f980e11fDDE96e16364dDBEc49",
+          "symbol": "ymvOG-USDC",
+          "state": {
+            "netApy": 0.07884402865692654,
+            "totalAssetsUsd": 9421754.918876074
+          }
+        },
+        {
+          "address": "0xF9B85b19F6885511165505299648E6d052E8D4C8",
+          "symbol": "AlphaPingCore",
+          "state": {
+            "netApy": 0.04271890787853665,
+            "totalAssetsUsd": 13.45020269157813
+          }
+        },
+        {
+          "address": "0xF9A61C85Bfe6cbc586c8704AD7cdEa7695e81AeD",
+          "symbol": "TPUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xF94fC6A60f1FAd0fb9652df0e261bE7D9064C370",
+          "symbol": "gUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xf8Db59ad207b34DB4E028fA03CbCef5F75214E38",
+          "symbol": "MUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xF8899E64Bb269Cd333a486A70ea883Dd0E2FD451",
+          "symbol": "MV",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xf79F51f8F473eD34f6b2b13ee74c3208286D53EB",
+          "symbol": "AVGWETHCORE",
+          "state": {
+            "netApy": 0.01579568459797278,
+            "totalAssetsUsd": 16.64300874995468
+          }
+        },
+        {
+          "address": "0xF685241626B66b8aACab5a6B1925B1AcDB095871",
+          "symbol": "HckUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xF62f6060CB3833Daeb61b6AD960d6d531A0867d2",
+          "symbol": "aiWETH",
+          "state": {
+            "netApy": 2763.324005076855,
+            "totalAssetsUsd": 60.75606465853226
+          }
+        },
+        {
+          "address": "0xF587f2e8AfF7D76618d3B6B4626621860FbD54e3",
+          "symbol": "gtcbBTCc",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 3994.144051195007
+          }
+        },
+        {
+          "address": "0xf4670D639898ebeb0c8D401E1df423e37b922A93",
+          "symbol": "styvUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xF2eFEBE45180C8c04edFdBfF3d88e58C9D61a03E",
+          "symbol": "apUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0.9997674289762747
+          }
+        },
+        {
+          "address": "0xf2e50b4b4254Db03683d2773bC784c546F0a25d9",
+          "symbol": "zf-meUSDC",
+          "state": {
+            "netApy": 0.04585043315319126,
+            "totalAssetsUsd": 160488.2267115454
+          }
+        },
+        {
+          "address": "0xf29ce940178C8794802fB48a6c1B2EdDdAC96431",
+          "symbol": "luloUSDC",
+          "state": {
+            "netApy": 0.08487968972964036,
+            "totalAssetsUsd": 4157779.4486289397
+          }
+        },
+        {
+          "address": "0xF2315Eb6B19019B7c0AeD91d562E2f6fAe26DB36",
+          "symbol": "LMFAO<b>LOL</b>",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xf1fd8AC6346eC7BC4116Ba7aDc81102B2BC4C52D",
+          "symbol": "MC_USDCP",
+          "state": {
+            "netApy": 0.04117233898252112,
+            "totalAssetsUsd": 2.4980124009580034
+          }
+        },
+        {
+          "address": "0xF1fd0D68B39FE514FD3dd3aE3BcC5FE4FE2Da0e6",
+          "symbol": "sfUSDT",
+          "state": {
+            "netApy": 0.02501162395970317,
+            "totalAssetsUsd": 0.010581862868185412
+          }
+        },
+        {
+          "address": "0xF1CfaA17d21B399F122B8615FAc12F95766eBed3",
+          "symbol": "pcHYUSDC",
+          "state": {
+            "netApy": 0.07274641747065203,
+            "totalAssetsUsd": 1000385.1773605873
+          }
+        },
+        {
+          "address": "0xF03F45AFB809412649Bfb879105517e39e28d406",
+          "symbol": "sbxUSDC",
+          "state": {
+            "netApy": 0.00016691631681844916,
+            "totalAssetsUsd": 9.997664292098455e-07
+          }
+        },
+        {
+          "address": "0xEF8C049Df1e798FEc8645709867966410a711941",
+          "symbol": "PEPE/USDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xef0B6b77E014A9EB897b56466ea53175E14B9F34",
+          "symbol": "YLV-USDC",
+          "state": {
+            "netApy": 2979.6255633983856,
+            "totalAssetsUsd": 12660.81232218595
+          }
+        },
+        {
+          "address": "0xEF0aDE42a4885604AfF94033F8F8c474BAeC5C4E",
+          "symbol": "bEURC",
+          "state": {
+            "netApy": 0.03998725477823913,
+            "totalAssetsUsd": 2.334223461284035e-06
+          }
+        },
+        {
+          "address": "0xeDc72B49542E4362c677b8369bC23882Ed635A75",
+          "symbol": "NUSDS",
+          "state": {
+            "netApy": 4.468927655197025e-05,
+            "totalAssetsUsd": 149782.569958161
+          }
+        },
+        {
+          "address": "0xeC3B2CC4C6a8fC9a13620A91622483b56E2E6fD9",
+          "symbol": "pufethweth86lltv",
+          "state": {
+            "netApy": 2.431743832019908,
+            "totalAssetsUsd": 109.26859861594771
+          }
+        },
+        {
+          "address": "0xEbFA750279dEfa89b8D99bdd145a016F6292757b",
+          "symbol": "gtUSDCmkr",
+          "state": {
+            "netApy": 0.0419444976470565,
+            "totalAssetsUsd": 1121.9957393434813
+          }
+        },
+        {
+          "address": "0xeBb1ce9c7c18f0AB128e711B4f5C3C20fEB1f158",
+          "symbol": "mvlUSDC",
+          "state": {
+            "netApy": 2.2075200002436572e-10,
+            "totalAssetsUsd": 6249.465741327536
+          }
+        },
+        {
+          "address": "0xEB4388bb10cB60388Ea8b6927F39945203C1FED3",
+          "symbol": "ib-wNXM",
+          "state": {
+            "netApy": 3.0022272450668416e-08,
+            "totalAssetsUsd": 5.8844322175426464
+          }
+        },
+        {
+          "address": "0xE89371eAaAC6D46d4C3ED23453241987916224FC",
+          "symbol": "ymvOG-WETH",
+          "state": {
+            "netApy": 0.01878060089911114,
+            "totalAssetsUsd": 159308.9902771806
+          }
+        },
+        {
+          "address": "0xE87ed29896B91421ff43f69257ABF78300e40c7a",
+          "symbol": "Re7wstETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0.00010646162585535481
+          }
+        },
+        {
+          "address": "0xE6F0ce5394B3D15b4aB1216D84F544b8f38E4D69",
+          "symbol": "Api3-dCOMP-USDC",
+          "state": {
+            "netApy": 0.11215746027501039,
+            "totalAssetsUsd": 166.6267457668322
+          }
+        },
+        {
+          "address": "0xe41a0583334f0dc4E023Acd0bFef3667F6FE0597",
+          "symbol": "sparkUSDS",
+          "state": {
+            "netApy": 0.00027269799898905247,
+            "totalAssetsUsd": 1230.0340417384577
+          }
+        },
+        {
+          "address": "0xe2a8c78cBC766b1D472e0Bc52D5c1e512BCa2C1c",
+          "symbol": "PKUSRV",
+          "state": {
+            "netApy": 2979.9579868427436,
+            "totalAssetsUsd": 6.315010959859113e-19
+          }
+        },
+        {
+          "address": "0xe272BDd255d0256DDD04DA9AC4BADa04D9f16399",
+          "symbol": "OTSS1",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xe12B879cE6Cd2B37dE0AE888F86a7b57FF26a212",
+          "symbol": "yiUSDC",
+          "state": {
+            "netApy": 3.7970677528435118e-06,
+            "totalAssetsUsd": 217.87527081181065
+          }
+        },
+        {
+          "address": "0xE11dbbCe9D0bfbe919a8427C3AE5E04E9572cf68",
+          "symbol": "",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xe108fbc04852B5df72f9E44d7C29F47e7A993aDd",
+          "symbol": "kpk_USDC_Prime",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 3824.145559623771
+          }
+        },
+        {
+          "address": "0xE0C98605f279e4D7946d25B75869c69802823763",
+          "symbol": "Re7WBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 68870.9897507924
+          }
+        },
+        {
+          "address": "0xE01813b0A12B14CC13BD5E9F0E8a2Aa7543617a1",
+          "symbol": "HYUSDC",
+          "state": {
+            "netApy": 0.03260723476649002,
+            "totalAssetsUsd": 23.287926349864453
+          }
+        },
+        {
+          "address": "0xDfbfc1A08EED81A3Da75C5079fa19EFF476a8b6f",
+          "symbol": "Cap USDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xdef1Fce2df6270Fdf7E1214343BeBbaB8583D43d",
+          "symbol": "IMF-USDS",
+          "state": {
+            "netApy": 0.002821983945934317,
+            "totalAssetsUsd": 819438.7173379994
+          }
+        },
+        {
+          "address": "0xdEF169B328eaE0d27Ea9D74053fAa0B733F3Bbb6",
+          "symbol": "IMF-wstETH",
+          "state": {
+            "netApy": 0.00040796568815888766,
+            "totalAssetsUsd": 21.22588825281798
+          }
+        },
+        {
+          "address": "0xDE0a65391f73aa130b7543AF2ce547Fd00Ec372a",
+          "symbol": "sfDAI",
+          "state": {
+            "netApy": 0.0491303715773209,
+            "totalAssetsUsd": 0.10724649505132126
+          }
+        },
+        {
+          "address": "0xdd5b53a4C95E81F5c26C31640901AE935711025B",
+          "symbol": "",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xdd0f28e19C1780eb6396170735D45153D261490d",
+          "symbol": "gtUSDC",
+          "state": {
+            "netApy": 0.04568307771491381,
+            "totalAssetsUsd": 28082935.705245163
+          }
+        },
+        {
+          "address": "0xDCD35020c5bB97016358578131f012Baa9F53cf3",
+          "symbol": "dForce USDC",
+          "state": {
+            "netApy": 0.04350875384767496,
+            "totalAssetsUsd": 21051.02329314237
+          }
+        },
+        {
+          "address": "0xdC94785959B73F7A168452b3654E44fEc6A750e4",
+          "symbol": "gtLBTCc",
+          "state": {
+            "netApy": 0.0004159794791574756,
+            "totalAssetsUsd": 72390.59837255714
+          }
+        },
+        {
+          "address": "0xdC2Dd5189F70Fe2832D9caf7b17d27AA3D79dbE1",
+          "symbol": "yDG-USDC",
+          "state": {
+            "netApy": 0.04657503313697293,
+            "totalAssetsUsd": 1.0501256640155747
+          }
+        },
+        {
+          "address": "0xdBB316375B4dC992B2c8827D120c09dFB1d3455D",
+          "symbol": "msolvbtcbbn",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 67.38037758180344
+          }
+        },
+        {
+          "address": "0xdB93466fA32b9f898881c225bAB921C1035c6d26",
+          "symbol": "EURX",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xdaD4e51d64c3B65A9d27aD9F3185B09449712065",
+          "symbol": "kpk_USDT_Prime",
+          "state": {
+            "netApy": 0.02477249086682359,
+            "totalAssetsUsd": 0.10152230839019902
+          }
+        },
+        {
+          "address": "0xDaBD12c08D568731af203288eb46Faf6C726aB07",
+          "symbol": "sen-tBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xda4D1A3187Eba9Ecaa137867bD4541f78D51638e",
+          "symbol": "aMUSD",
+          "state": {
+            "netApy": 1.5768000001243148e-10,
+            "totalAssetsUsd": 17.90084061756146
+          }
+        },
+        {
+          "address": "0xDA4063Ec62c3F3c1D2BdBf7Dbfb2b2C906f8E8b2",
+          "symbol": "MC_USDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xdA1F00d47054A1807f6bf2403Ce48a14d894A18b",
+          "symbol": "rdcDAI",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xd917e605F7405eEBABff101B026fB130122E0B3b",
+          "symbol": "yd-scbBTC",
+          "state": {
+            "netApy": 0.0324151419149239,
+            "totalAssetsUsd": 47.944232637026076
+          }
+        },
+        {
+          "address": "0xD8FEaE012ffa83e6649c509F848Dc4bA0E4F3dfB",
+          "symbol": "frontierUSDC",
+          "state": {
+            "netApy": 0.044661106632732935,
+            "totalAssetsUsd": 0.016334183920430456
+          }
+        },
+        {
+          "address": "0xd73270593E2542e5A43b8c7FBE4F2d5c9c4A443c",
+          "symbol": "pUSDT",
+          "state": {
+            "netApy": 0.02247497930467471,
+            "totalAssetsUsd": 647.1178599451404
+          }
+        },
+        {
+          "address": "0xD6816A95FE4A1dc5Df7ae62f257e83c11d617788",
+          "symbol": "MaxUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xd663fBF4F1ab3B555A2E6a1485306A4b0F89518d",
+          "symbol": "reUSDT",
+          "state": {
+            "netApy": 0.0250127797000588,
+            "totalAssetsUsd": 1.0285568708657842
+          }
+        },
+        {
+          "address": "0xd63070114470f685b75B74D60EEc7c1113d33a3D",
+          "symbol": "USUALUSDC+",
+          "state": {
+            "netApy": 0.07918043053367115,
+            "totalAssetsUsd": 3516058.036290771
+          }
+        },
+        {
+          "address": "0xD5Ac156319f2491d4ad1Ec4aA5ed0ED48C0fa173",
+          "symbol": "9SUSDCcore",
+          "state": {
+            "netApy": 0.03980608204493896,
+            "totalAssetsUsd": 1.4487965243930097
+          }
+        },
+        {
+          "address": "0xd564F765F9aD3E7d2d6cA782100795a885e8e7C8",
+          "symbol": "kpk_ETH_Prime",
+          "state": {
+            "netApy": 0.010230948903206553,
+            "totalAssetsUsd": 7023.865377441876
+          }
+        },
+        {
+          "address": "0xD50DA5F859811A91fD1876C9461fD39c23C747Ad",
+          "symbol": "MC-USR",
+          "state": {
+            "netApy": 1.4540314091026446e-06,
+            "totalAssetsUsd": 59315.22124834464
+          }
+        },
+        {
+          "address": "0xD50B9Bbf136D1BD5CD5AC6ed9b3F26c458a6d4A6",
+          "symbol": "adUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0.8352368674876397
+          }
+        },
+        {
+          "address": "0xd4e95092a8f108728c49f32A30f30556896563b5",
+          "symbol": "kpkUSDT",
+          "state": {
+            "netApy": 0.003336229303539638,
+            "totalAssetsUsd": 583.7186097958189
+          }
+        },
+        {
+          "address": "0xd4cD451d6f99AB9269FBfd0Ca7E2C9d1ebebe87a",
+          "symbol": "ceresUSDe",
+          "state": {
+            "netApy": 0.0003875206862684906,
+            "totalAssetsUsd": 113.1981674672018
+          }
+        },
+        {
+          "address": "0xd41830d88dfD08678b0B886E0122193d54b02Acc",
+          "symbol": "MC_PTs",
+          "state": {
+            "netApy": 1.5641856122333828e-08,
+            "totalAssetsUsd": 19606.333318355235
+          }
+        },
+        {
+          "address": "0xD3468749951Ed99566c528CCcF56dB3d23BDdF43",
+          "symbol": "svUSDC",
+          "state": {
+            "netApy": 0.00031649387133224474,
+            "totalAssetsUsd": 0.10781881079170659
+          }
+        },
+        {
+          "address": "0xd1aE35a2D9249Bf72EB9319DCE2b7658bE106A83",
+          "symbol": "MHILBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0xD138BBE603e5cfB872cf636EF929F62dC9B137a5",
+          "symbol": "CapUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 89.9789786288861
+          }
+        },
+        {
+          "address": "0xD05cA07A28573437a148F9d589aa5a4C7FD63e6e",
+          "symbol": "",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xCEaa95811FA0651C04A0F0b4D454C5F1a8556a5F",
+          "symbol": "CyUSD",
+          "state": {
+            "netApy": 0.04257354484464866,
+            "totalAssetsUsd": 10.824932021378864
+          }
+        },
+        {
+          "address": "0xcE22b5Fb17ccbc0C5d87DC2e0dF47DD71E3AdC0a",
+          "symbol": "sUSDu",
+          "state": {
+            "netApy": 4.609360683765297e-05,
+            "totalAssetsUsd": 34932.171927298084
+          }
+        },
+        {
+          "address": "0xCdaea3dde6cE5969aA1414A82A3A681cEd51Ce72",
+          "symbol": "hyperUSDCc",
+          "state": {
+            "netApy": 0.0501015969831098,
+            "totalAssetsUsd": 1203.84234190164
+          }
+        },
+        {
+          "address": "0xCcAbB9099bF5973d43288f217cF158348E3B9bB5",
+          "symbol": "pUSDC",
+          "state": {
+            "netApy": 0.00015936470438952956,
+            "totalAssetsUsd": 54.50790157196976
+          }
+        },
+        {
+          "address": "0xcbd3f67d660b5485Cc872Dfa31CdBe5C03101E89",
+          "symbol": "SUV",
+          "state": {
+            "netApy": 2978.4329368894387,
+            "totalAssetsUsd": 241.6714794140518
+          }
+        },
+        {
+          "address": "0xcB82e29930835A937429D4BCAD0a6fa6636755D7",
+          "symbol": "ADP",
+          "state": {
+            "netApy": 1338.3976071031348,
+            "totalAssetsUsd": 11052.520708890219
+          }
+        },
+        {
+          "address": "0xcb7E96E1d4DFe35Ac674AF5Fa121Bcd9B0AAb1b1",
+          "symbol": "JUSD LVLUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xca7c196f00e04A5e1c71B91476d0d58f82499734",
+          "symbol": "tkUSDC",
+          "state": {
+            "netApy": 1338.4307550971178,
+            "totalAssetsUsd": 68731.86877453684
+          }
+        },
+        {
+          "address": "0xC8D921298D59187e8a46e0072D2e9B3B2F9190b3",
+          "symbol": "ARB-CANAUSDT-V1",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xc88eFFD6e74D55c78290892809955463468E982A",
+          "symbol": "kpk_ETH_Yield",
+          "state": {
+            "netApy": 0.0004959224601027605,
+            "totalAssetsUsd": 2.1248360035348206
+          }
+        },
+        {
+          "address": "0xc82b74bC114D7e2D4047Ccf14f7a6109b654Ab91",
+          "symbol": "hWBTC",
+          "state": {
+            "netApy": 0.0027627236205379963,
+            "totalAssetsUsd": 22317.08057620508
+          }
+        },
+        {
+          "address": "0xC71eF24cBE7fC859bD0C1F34eae087aCC7aAE633",
+          "symbol": "pUSDC",
+          "state": {
+            "netApy": 0.031139093459469157,
+            "totalAssetsUsd": 0.010261602629409856
+          }
+        },
+        {
+          "address": "0xC5E96d92C156c5328aA7952Fd21D10349b91B434",
+          "symbol": "testlvl",
+          "state": {
+            "netApy": 1140.2315569953332,
+            "totalAssetsUsd": 0.0029339980522476417
+          }
+        },
+        {
+          "address": "0xc5C44cB3fF1450B5325f212E02ffdfe5c92cf2Cf",
+          "symbol": "n-WETH",
+          "state": {
+            "netApy": 3.571616695910449e-05,
+            "totalAssetsUsd": 208.55348529325238
+          }
+        },
+        {
+          "address": "0xC59928341D08fEf900C6FA847fA9D775D27e482f",
+          "symbol": "sfUSDC",
+          "state": {
+            "netApy": 5.391841192596942,
+            "totalAssetsUsd": 0.13987232227860344
+          }
+        },
+        {
+          "address": "0xc582F04d8a82795aa2Ff9c8bb4c1c889fe7b754e",
+          "symbol": "gtusdcf",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1911264.9747696277
+          }
+        },
+        {
+          "address": "0xc554929a61d862F2741077F8aafa147479c0b308",
+          "symbol": "hyETH",
+          "state": {
+            "netApy": 0.02286274220649051,
+            "totalAssetsUsd": 5.945582964142264e-11
+          }
+        },
+        {
+          "address": "0xc54b4E08C1Dcc199fdd35c6b5Ab589ffD3428a8d",
+          "symbol": "vbgtUSDT",
+          "state": {
+            "netApy": 0.02134654222195936,
+            "totalAssetsUsd": 3978251.723460456
+          }
+        },
+        {
+          "address": "0xC50Abc20468b1b5597321d57002a6D4ed0AD0209",
+          "symbol": "brrrUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xC3be62EBD4dbb46901F241d5144Cde38a7f8a954",
+          "symbol": "Wth",
+          "state": {
+            "netApy": 0.06561769964875803,
+            "totalAssetsUsd": 0.632849869904406
+          }
+        },
+        {
+          "address": "0xC21DB71648B18C5B9E038d88393C9b254cf8eaC8",
+          "symbol": "ERY",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1354.3374351789373
+          }
+        },
+        {
+          "address": "0xc2007A9c48Eecb36868Cf9D1da5D8566e90bf042",
+          "symbol": "dForce USDT",
+          "state": {
+            "netApy": 0.031379988323949455,
+            "totalAssetsUsd": 62439.82518434067
+          }
+        },
+        {
+          "address": "0xc1D460067923C6F0d171a6E08E579f9Ceae3D797",
+          "symbol": "KdPYUSD",
+          "state": {
+            "netApy": 0.047589302704954296,
+            "totalAssetsUsd": 0.11499192545719726
+          }
+        },
+        {
+          "address": "0xC1d3e596984982bfBAefC85387107c26c319E465",
+          "symbol": "XXtestUSDc",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xC0A14627D6a23f70c809777CEd873238581C1032",
+          "symbol": "MC.USD0",
+          "state": {
+            "netApy": 0.00017078829832508076,
+            "totalAssetsUsd": 7.814568433990087e-06
+          }
+        },
+        {
+          "address": "0xc080f56504e0278828A403269DB945F6c6D6E014",
+          "symbol": "gteUSDc",
+          "state": {
+            "netApy": 0.021538680960191323,
+            "totalAssetsUsd": 495559.35998666025
+          }
+        },
+        {
+          "address": "0xc02Aabef00f0571E27bB66Cc37c7057e1A850cC2",
+          "symbol": "MWETH",
+          "state": {
+            "netApy": 0.0014844805554711164,
+            "totalAssetsUsd": 2.1227326122730745
+          }
+        },
+        {
+          "address": "0xC004b0C1eaeA96d3ea0A08C2f0eFAa0DF93B6450",
+          "symbol": "synUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 48.24228937786304
+          }
+        },
+        {
+          "address": "0xbF34DE704C23E3Ad125c3f5e1510dadcd27B298D",
+          "symbol": "CSINSTUSDT",
+          "state": {
+            "netApy": 0.019445112196809514,
+            "totalAssetsUsd": 10.39502491517621
+          }
+        },
+        {
+          "address": "0xbeEffff0629438aD198c47F80d66FA4Be5C0caF6",
+          "symbol": "grove-bbqAUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.0241318910977522
+          }
+        },
+        {
+          "address": "0xbEEffF79FFA3EE2D1bfcC32dE9cFd8129528D0E4",
+          "symbol": "safe-bbqWSTETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 3837.6455524368534
+          }
+        },
+        {
+          "address": "0xbeeFfF68CC520D68f82641EFF84330C631E2490E",
+          "symbol": "bbqDAI",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 221426.65054540746
+          }
+        },
+        {
+          "address": "0xBEeFFF209270748ddd194831b3fa287a5386f5bC",
+          "symbol": "bbqUSDC",
+          "state": {
+            "netApy": 0.059555564130675843,
+            "totalAssetsUsd": 15746444.491411097
+          }
+        },
+        {
+          "address": "0xBEEFF900ec6faB1465252D2fBe731db8d1Ad5FD9",
+          "symbol": "safe-bbqWBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 7.237267424865798
+          }
+        },
+        {
+          "address": "0xBEeff2b772fa2F443cbd1Dd6D33b0C4bebF4aeb7",
+          "symbol": "bbqAUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 2997.1601080708324
+          }
+        },
+        {
+          "address": "0xbeEfdDbd3bef4726bCF9627a9BA3B901D4958745",
+          "symbol": "steakUSDTethena",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.0335519179801167
+          }
+        },
+        {
+          "address": "0xBeEfDA19BC6114633FC17e6d074A6A2b472C756f",
+          "symbol": "steakUSDS",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.0000355138387633
+          }
+        },
+        {
+          "address": "0xBEeFd1C0C6C1F7c94DC6b989DBA2E983A47A26A8",
+          "symbol": "steakUSDL",
+          "state": {
+            "netApy": 5.485613325305655,
+            "totalAssetsUsd": 1.1509137075202432e-12
+          }
+        },
+        {
+          "address": "0xbEeFCe6c76C7D7A8066562Fe9FF0e343a52dD92F",
+          "symbol": "safe-steakUSDC",
+          "state": {
+            "netApy": 0.04238717407301562,
+            "totalAssetsUsd": 4210154.96639484
+          }
+        },
+        {
+          "address": "0xBeEFC1CDAfc5b4a649b54D07AFc6bF0f75C6F4E2",
+          "symbol": "steakUSDTBethena",
+          "state": {
+            "netApy": 0.02325119093056481,
+            "totalAssetsUsd": 7514560.316628072
+          }
+        },
+        {
+          "address": "0xbEEFC01767ed5086f35deCb6C00e6C12bc7476C1",
+          "symbol": "csUSDL",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 2.5679933926086976e-08
+          }
+        },
+        {
+          "address": "0xbEeFc011e94f43b8B7b455eBaB290C7Ab4E216f1",
+          "symbol": "csUSDL",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 5.1838401854783096e-08
+          }
+        },
+        {
+          "address": "0xBeeFBedc6fF26A7C4234434e2944dBDb6D4FbF37",
+          "symbol": "steakEURC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 363.041428301322
+          }
+        },
+        {
+          "address": "0xBEefb9f61CC44895d8AEc381373555a64191A9c4",
+          "symbol": "vbshUSDC",
+          "state": {
+            "netApy": 0.04307987702824634,
+            "totalAssetsUsd": 12884082.636792721
+          }
+        },
+        {
+          "address": "0xBeEFB45B6F9acB175e70acF16dC20D6120044c70",
+          "symbol": "safe-steakETH",
+          "state": {
+            "netApy": 0.017897006182250978,
+            "totalAssetsUsd": 104464.26104957149
+          }
+        },
+        {
+          "address": "0xBEEFa260c2CE39122367cEAb0b4F94e6068cAcb6",
+          "symbol": "steakEURA",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xbEEfa1aBfEbE621DF50ceaEF9f54FdB73648c92C",
+          "symbol": "steakUSDA",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0xbeEf96B330ef1Fe7Ebe41eCe0Bd4a41A94Bc03DC",
+          "symbol": "cronosUSDC",
+          "state": {
+            "netApy": 0.04194445930088233,
+            "totalAssetsUsd": 1367894.2518824053
+          }
+        },
+        {
+          "address": "0xbEEF8DF2Ce4BaB5420123F9BF80dea4c65673257",
+          "symbol": "bbqCBBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 54.65265082353828
+          }
+        },
+        {
+          "address": "0xbEEF8833f9Ff8e9D950Df3CEFb78DA88931C0450",
+          "symbol": "bbqUSRresolv",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0.13337379427908028
+          }
+        },
+        {
+          "address": "0xBeEf796ae50ba5423857CAc27DD36369cfc8241b",
+          "symbol": "steakPAXG",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 6.723475527590599
+          }
+        },
+        {
+          "address": "0xBeeF7959aE71D4e45e1863dae0B94C35244AF816",
+          "symbol": "steakPAXG",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.792926807357493
+          }
+        },
+        {
+          "address": "0xBEEF6806363b51a90fFD1a632a8de32873b63a9E",
+          "symbol": "steakUSDCrwa",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0.9997664292098456
+          }
+        },
+        {
+          "address": "0xBEeF47b9F76C9672B967A7b88d0afFf245Be13ad",
+          "symbol": "safe-steakUSDT",
+          "state": {
+            "netApy": 0.02476377094093152,
+            "totalAssetsUsd": 3125991.1814107974
+          }
+        },
+        {
+          "address": "0xbEEf390D2e65d6E43A67875106d4A48f700F2832",
+          "symbol": "safe-bbqUSDC",
+          "state": {
+            "netApy": 0.062196542368793406,
+            "totalAssetsUsd": 1906803.228300745
+          }
+        },
+        {
+          "address": "0xbEEF36A5C1372F8D7d211527FCE9f83FE02d8A73",
+          "symbol": "bbqETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 48663.35749665364
+          }
+        },
+        {
+          "address": "0xbeEF346d7099865208Ff331e4f648f4154DDAa05",
+          "symbol": "reservoirUSDC",
+          "state": {
+            "netApy": 0.05859939895582811,
+            "totalAssetsUsd": 679313.8861070186
+          }
+        },
+        {
+          "address": "0xBEEf2B5FD3D94469b7782aeBe6364E6e6FB1B709",
+          "symbol": "grove-bbqUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 11.261602004197707
+          }
+        },
+        {
+          "address": "0xBEeF1f5Bd88285E5B239B6AAcb991d38ccA23Ac9",
+          "symbol": "infinifiUSDC",
+          "state": {
+            "netApy": 0.11578361385140105,
+            "totalAssetsUsd": 1207295.4470697083
+          }
+        },
+        {
+          "address": "0xbEeF1898443D2eB9C9C471e073f46A3928dB21dE",
+          "symbol": "bbqUSDCterm",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.6287574809500693
+          }
+        },
+        {
+          "address": "0xBeEf11eCb698f4B5378685C05A210bdF71093521",
+          "symbol": "steakRUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 92.22992802617753
+          }
+        },
+        {
+          "address": "0xbEEf11C63d7173BdCC2037e7220eE9Bd0cCDA862",
+          "symbol": "steakUSDClevel",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1644.0751913444915
+          }
+        },
+        {
+          "address": "0xbEef11A6Ca3C67bbEa90e5601beDBE78832dd789",
+          "symbol": "steakUSDCV",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.135997624537356
+          }
+        },
+        {
+          "address": "0xbEEf0c18715ACDdC14a3123a608F491319F1C28C",
+          "symbol": "safe-bbqUSDT",
+          "state": {
+            "netApy": 0.04738598124570353,
+            "totalAssetsUsd": 1788248.4162999531
+          }
+        },
+        {
+          "address": "0xbeEf094333AEdD535c130958c204E84f681FD9FA",
+          "symbol": "steakWBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 68.20079529140239
+          }
+        },
+        {
+          "address": "0xbEeF087c8430C0f9dCBa39BA866Eb7c22200599B",
+          "symbol": "steakEURC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.1671117306420176
+          }
+        },
+        {
+          "address": "0xbeEF07E929F84466a591De130e4154667214F491",
+          "symbol": "steakEURCV",
+          "state": {
+            "netApy": 0.0014099807619086914,
+            "totalAssetsUsd": 1.1703354426850625
+          }
+        },
+        {
+          "address": "0xbEeF06E7027EB8A1F0ab6ceF743542EA31b8492b",
+          "symbol": "steakEURe",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xBEEf050ecd6a16c4e7bfFbB52Ebba7846C4b8cD4",
+          "symbol": "steakETH",
+          "state": {
+            "netApy": 0.018811669372985347,
+            "totalAssetsUsd": 25581338.46452169
+          }
+        },
+        {
+          "address": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+          "symbol": "steakUSDT",
+          "state": {
+            "netApy": 0.023988679779317606,
+            "totalAssetsUsd": 90991588.86339311
+          }
+        },
+        {
+          "address": "0xbeef033b4520267C5acFcb45414117b633fCb3Dd",
+          "symbol": "steakUSDM",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.0152888237980204
+          }
+        },
+        {
+          "address": "0xbEEF02e5E13584ab96848af90261f0C8Ee04722a",
+          "symbol": "steakPYUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 58510.14073483933
+          }
+        },
+        {
+          "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+          "symbol": "steakUSDC",
+          "state": {
+            "netApy": 0.044594376093048886,
+            "totalAssetsUsd": 74468858.8550702
+          }
+        },
+        {
+          "address": "0xbEEf0075e03A5cE0D84d4ACcF3481363E0584F5c",
+          "symbol": "steakM",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.000463313029858
+          }
+        },
+        {
+          "address": "0xBE40491F3261Fd42724F1AEb465796eb11c06ddF",
+          "symbol": "Re7FRAX",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 937.4924529824556
+          }
+        },
+        {
+          "address": "0xbdd4859050468fBc11Dec07113a6e633608A1372",
+          "symbol": "svUSDT",
+          "state": {
+            "netApy": 0.0235492530507262,
+            "totalAssetsUsd": 32535.531504993123
+          }
+        },
+        {
+          "address": "0xbdbF0494Af9826ba25bcb810e23C36Bc6D8378fA",
+          "symbol": "dreamUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xBD4073e6E929F197a9d18e22A68C276E8B400375",
+          "symbol": "ZAIMorpho",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0xBC0B65E3c2f78320c2D72b1A2D6ef85CdD9e702F",
+          "symbol": "PYHYEURC",
+          "state": {
+            "netApy": 0.03998710896261811,
+            "totalAssetsUsd": 8582.107567830366
+          }
+        },
+        {
+          "address": "0xBBfaF69e3B932f38541a130CD5f3cB0e7100Fa0d",
+          "symbol": "sbxEURC",
+          "state": {
+            "netApy": 0.03998710896261811,
+            "totalAssetsUsd": 4.66844692256807e-06
+          }
+        },
+        {
+          "address": "0xbbC901782e2409751ac7bB7C6a778080570600E0",
+          "symbol": "BUS",
+          "state": {
+            "netApy": 3.1536000004972595e-10,
+            "totalAssetsUsd": 8502.306735775646
+          }
+        },
+        {
+          "address": "0xba04de02ED8cecc3befb8575a95d56D901c9C602",
+          "symbol": "hcbBTC",
+          "state": {
+            "netApy": 0.005718140944962919,
+            "totalAssetsUsd": 85105.55654899153
+          }
+        },
+        {
+          "address": "0xB9C9158aB81f90996cAD891fFbAdfBaad733c8C6",
+          "symbol": "recbBTC",
+          "state": {
+            "netApy": 1.9844981773045685e-05,
+            "totalAssetsUsd": 350.26954955986764
+          }
+        },
+        {
+          "address": "0xb90291c9627CF5A6B0AE203e8F93EC83F54B3c38",
+          "symbol": "CM",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 9.996091883795023e-07
+          }
+        },
+        {
+          "address": "0xB8C9Ae462626Ec6162645F3E7e3441E7918c89F0",
+          "symbol": "BUSDCV",
+          "state": {
+            "netApy": 1996.2393752424973,
+            "totalAssetsUsd": 38.55466665219256
+          }
+        },
+        {
+          "address": "0xB8C7F2a4B3bF76CC04bd55Ebc259b33a67b3b36d",
+          "symbol": "spDAI",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xb88bCE156594F066278434f2Bb94e129A3211C1F",
+          "symbol": "axLLP",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xB83ddaAC0dE644E5778dEA84d3C3480A0F6C8bAA",
+          "symbol": "TUSDSV1V",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xB7fC92B6ddc6612623812106e5B7532D3a48420B",
+          "symbol": "pcETH",
+          "state": {
+            "netApy": 0.01990522637563577,
+            "totalAssetsUsd": 5752698.087067372
+          }
+        },
+        {
+          "address": "0xB78fc16378A2955f11Dd380511Fd13C43CBac9ba",
+          "symbol": "brrrUSDCv1",
+          "state": {
+            "netApy": 2976.593052878732,
+            "totalAssetsUsd": 86.22439979371141
+          }
+        },
+        {
+          "address": "0xB632d9b2Cf8d022339C21d4486Aba3184fBfC287",
+          "symbol": "zf-meUSDT",
+          "state": {
+            "netApy": 0.025001098778822544,
+            "totalAssetsUsd": 4801.238706522948
+          }
+        },
+        {
+          "address": "0xb5e4576C2FAA16b0cC59D1A2f3366164844Ef9E0",
+          "symbol": "tacCBBTC",
+          "state": {
+            "netApy": 0.00012679392141384246,
+            "totalAssetsUsd": 80.8497383762691
+          }
+        },
+        {
+          "address": "0xb5a4d705bb345D8C5753878AAFC6969547AFC061",
+          "symbol": "HckUSDC",
+          "state": {
+            "netApy": 2979.9579868427436,
+            "totalAssetsUsd": 33.64927567591658
+          }
+        },
+        {
+          "address": "0xB4c1029E29F09093BE7BFa61C5D1D2d0AdDE9abb",
+          "symbol": "0x5003121c11daf46d7ce8c1ebc1c51cbc3a8002a9",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0xB3f4D94A209045Ef35661e657Db9ADAc584141f1",
+          "symbol": "Api3CoreUSDC",
+          "state": {
+            "netApy": 0.03581558374343611,
+            "totalAssetsUsd": 0.06469988446631515
+          }
+        },
+        {
+          "address": "0xB352fd86B73D72bc16817aa101dfB1C03C95Bd24",
+          "symbol": "BWC(USDC)",
+          "state": {
+            "netApy": 0.03980604430212503,
+            "totalAssetsUsd": 1.7331980809774759
+          }
+        },
+        {
+          "address": "0xB2d9F816e615cdAB2d0Bd201DCcb650CDFC44134",
+          "symbol": "TESTINGUSDC",
+          "state": {
+            "netApy": 8.514720003625023e-10,
+            "totalAssetsUsd": 3.167619963651306
+          }
+        },
+        {
+          "address": "0xB24704424191943dC5BB9aFE7C4EeD0fC4b1fA72",
+          "symbol": "LLNS-zkBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.9992183767590046e-06
+          }
+        },
+        {
+          "address": "0xB2376cC88EA47C80fFC3De60dAe8F2F48BC872a3",
+          "symbol": "sdFRXUSDv1",
+          "state": {
+            "netApy": 0.0026028783331139807,
+            "totalAssetsUsd": 1.017670703062488
+          }
+        },
+        {
+          "address": "0xb1A90da78f33A54FC7B4BEDad5880221d263456A",
+          "symbol": "senPYUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xB1A757A68D4a04a6B5A0F06d0cB4FD739048F614",
+          "symbol": "apWETH",
+          "state": {
+            "netApy": 0.003050155485079311,
+            "totalAssetsUsd": 2.798283367647169
+          }
+        },
+        {
+          "address": "0xb12376f591622975E85422D0ab5616dA273df97a",
+          "symbol": "INV TWG USDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 9.997664292098455e-07
+          }
+        },
+        {
+          "address": "0xb0f05E4De970A1aaf77f8C2F823953a367504BA9",
+          "symbol": "aUSDC",
+          "state": {
+            "netApy": 0.06388737584990072,
+            "totalAssetsUsd": 1650612.9837543978
+          }
+        },
+        {
+          "address": "0xAe86261C403E8Da7B71Dcd3343ED9F1c8A972d63",
+          "symbol": "ellenUSDC",
+          "state": {
+            "netApy": 0.0580367233464064,
+            "totalAssetsUsd": 318401.1811150063
+          }
+        },
+        {
+          "address": "0xA8875aaeBc4f830524e35d57F9772FfAcbdD6C45",
+          "symbol": "gtusdcrwa",
+          "state": {
+            "netApy": 0.0833741784244187,
+            "totalAssetsUsd": 11309728.841760043
+          }
+        },
+        {
+          "address": "0xa79a5fb6f619dA3ED71087Fb5cD33B16A5B666B5",
+          "symbol": "nfxUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xA726EcC858652a6917a8ee5Ca7e1D2963191A43f",
+          "symbol": "phiEURC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 125069.67987074658
+          }
+        },
+        {
+          "address": "0xa71D08A159258553a5Ac190d60Fa919425Ff02EA",
+          "symbol": "hUSDT",
+          "state": {
+            "netApy": 0.021212082494951927,
+            "totalAssetsUsd": 6917147.8025682755
+          }
+        },
+        {
+          "address": "0xa5aA40F27DAeDE9748822ef836170f202e196B5A",
+          "symbol": "steakM",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1.0063350119535197
+          }
+        },
+        {
+          "address": "0xA4790AA534bf8D26EfB8DF6CB446caeECE782f73",
+          "symbol": "KdUSDC",
+          "state": {
+            "netApy": 0.04553456962207953,
+            "totalAssetsUsd": 1.2766257478523528
+          }
+        },
+        {
+          "address": "0xa3fC33543bEee52bC60bAbC80aF3d29789637B6D",
+          "symbol": "CSWETH",
+          "state": {
+            "netApy": 0.019905216244060484,
+            "totalAssetsUsd": 34.53011439339649
+          }
+        },
+        {
+          "address": "0xa281f2Ded799e63f2dBa12164824DD1Ea8d39B24",
+          "symbol": "BTIB01V",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0xA2284171d67575934f7CB8fd9446b0a4996eAdB1",
+          "symbol": "sgUSDCV",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0xA1FF9C28Ebc160c1Dcde4b9aA9551f617880c6fb",
+          "symbol": "REUSDCVAULT",
+          "state": {
+            "netApy": 0.08340293634405935,
+            "totalAssetsUsd": 1.0489099480376556
+          }
+        },
+        {
+          "address": "0xA1b60d96e5C50dA627095B9381dc5a46AF1a9a42",
+          "symbol": "steakUSDQ",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 216.55445307441676
+          }
+        },
+        {
+          "address": "0xA0804346780b4c2e3bE118ac957D1DB82F9d7484",
+          "symbol": "bbqUSDT",
+          "state": {
+            "netApy": 0.03740164728878989,
+            "totalAssetsUsd": 23227969.669841155
+          }
+        },
+        {
+          "address": "0xA02F5E93f783baF150Aa1F8b341Ae90fe0a772f7",
+          "symbol": "Re7cbBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 41.97838321522208
+          }
+        },
+        {
+          "address": "0xa00A5B20F487D0113784F85FBa88db66a408F1e0",
+          "symbol": "agUSDC",
+          "state": {
+            "netApy": 8.10374414715721e-06,
+            "totalAssetsUsd": 2624.4851367198066
+          }
+        },
+        {
+          "address": "0x9f5576CCBdF64e84f6e8c546DEb65E706966E26d",
+          "symbol": "erETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x9eFC6415af8f07d0D757C9F7c75251e33170fF0F",
+          "symbol": "sgEURCV",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x9D4B8BBe39E42F371bE3dbC86Ea6e6B34F123B11",
+          "symbol": "TESTCSUSDC",
+          "state": {
+            "netApy": 0.004596170373970848,
+            "totalAssetsUsd": 2.0149162644659433
+          }
+        },
+        {
+          "address": "0x9cAF2EC3c6E9d9Af0447bDa6f24EAc60745E9a2a",
+          "symbol": "USDTesting",
+          "state": {
+            "netApy": 0.026199876871130116,
+            "totalAssetsUsd": 1.476380787650613
+          }
+        },
+        {
+          "address": "0x9B7cca326004967f9D2B7cF5F2328d82cF65b302",
+          "symbol": "augustAUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 674251.6311077857
+          }
+        },
+        {
+          "address": "0x9B5E92fd227876b4C07a8c02367E2CB23c639DfA",
+          "symbol": "CSYUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 3103530.0698946933
+          }
+        },
+        {
+          "address": "0x9a8bC3B04b7f3D87cfC09ba407dCED575f2d61D8",
+          "symbol": "MCwETH",
+          "state": {
+            "netApy": 0.01789665802137226,
+            "totalAssetsUsd": 3881760.962817526
+          }
+        },
+        {
+          "address": "0x9A36c86678CAdA1aD9646B99976206Fc0410d9E1",
+          "symbol": "EURC",
+          "state": {
+            "netApy": 0.043523843501677296,
+            "totalAssetsUsd": 12.507070420386366
+          }
+        },
+        {
+          "address": "0x998D6B176eD2a57660cEb76d8421cDf00c752a8c",
+          "symbol": "exsUSDS",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x98cF0B67Da0F16E1F8f1a1D23ad8Dc64c0c70E0b",
+          "symbol": "MCcbBTC",
+          "state": {
+            "netApy": 0.056295640096536946,
+            "totalAssetsUsd": 898.7741898728756
+          }
+        },
+        {
+          "address": "0x98bF4be2415e405ac902ac5dCb197f68AAcBBB65",
+          "symbol": "WETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x987FE7691bd513B03ea90392cAE37675CE0293Fb",
+          "symbol": "MyCool-W",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x9861937124611b0B674b18c640e73480f10A5213",
+          "symbol": "STRN",
+          "state": {
+            "netApy": 1248.624424950298,
+            "totalAssetsUsd": 9.597757720414518e-05
+          }
+        },
+        {
+          "address": "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9",
+          "symbol": "hUSDC",
+          "state": {
+            "netApy": 0.03857445133472716,
+            "totalAssetsUsd": 16687281.216569161
+          }
+        },
+        {
+          "address": "0x973f758aA6C15bafa8bBEFfD4b9449F5b5885edD",
+          "symbol": "n-USDC",
+          "state": {
+            "netApy": 0.00044094842552375597,
+            "totalAssetsUsd": 190118.0890493429
+          }
+        },
+        {
+          "address": "0x965Ec3552427B8258BD0a0c7baA234618fc98D01",
+          "symbol": "edgeUSDT",
+          "state": {
+            "netApy": 0.026199881725466025,
+            "totalAssetsUsd": 30.963017561985254
+          }
+        },
+        {
+          "address": "0x9646eBD6346C8C3a9f3d408f71C312eB0CbE8507",
+          "symbol": "penUSDT",
+          "state": {
+            "netApy": 3.518228187016876,
+            "totalAssetsUsd": 1018.1631894253572
+          }
+        },
+        {
+          "address": "0x95EeF579155cd2C5510F312c8fA39208c3Be01a8",
+          "symbol": "Re7USDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 22202.312970721425
+          }
+        },
+        {
+          "address": "0x959de0785A58a587a77FcFc079f09a131a27187B",
+          "symbol": "lEUR",
+          "state": {
+            "netApy": 0.043523835965615265,
+            "totalAssetsUsd": 2.334223461284035e-06
+          }
+        },
+        {
+          "address": "0x94643e86aa5E38DDAc6c7791C1297f4E40cD96c1",
+          "symbol": "1337USDC",
+          "state": {
+            "netApy": 2979.9579472655896,
+            "totalAssetsUsd": 85704876.42047559
+          }
+        },
+        {
+          "address": "0x92Da51BE45A9a4002E0f85C5443D95602fCBbf7F",
+          "symbol": "USDC DOJO",
+          "state": {
+            "netApy": 0.006675047726812919,
+            "totalAssetsUsd": 6.9983650044689194e-06
+          }
+        },
+        {
+          "address": "0x91af035b1C43bEf2cb3d6E2A4CEbD800852F03c3",
+          "symbol": "USUAL_RIMU",
+          "state": {
+            "netApy": 0.2216366295293346,
+            "totalAssetsUsd": 0.19023408966558747
+          }
+        },
+        {
+          "address": "0x9178eBE0691593184c1D785a864B62a326cc3509",
+          "symbol": "kpk_USDC_Yield",
+          "state": {
+            "netApy": 0.0783540627026858,
+            "totalAssetsUsd": 71.53342197866597
+          }
+        },
+        {
+          "address": "0x90880852B607065152360aB718b8a7a6bA979281",
+          "symbol": "dForce WETH",
+          "state": {
+            "netApy": 0.0166804969964785,
+            "totalAssetsUsd": 106.18620595513073
+          }
+        },
+        {
+          "address": "0x8fE7B529B89e06d6c17BBCE7b096Df4fE34455AA",
+          "symbol": "kinto-usdc",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x8FA31cA7c72e5E3939ef64D55BBE4d526dfc76C9",
+          "symbol": "blueUSDT",
+          "state": {
+            "netApy": 0.038483976997513616,
+            "totalAssetsUsd": 2.0445456554060732
+          }
+        },
+        {
+          "address": "0x8F40e713a1Cfeff2A052E0c610C8118Be3f75b12",
+          "symbol": "CSINSTUSDC",
+          "state": {
+            "netApy": 0.0392197037100554,
+            "totalAssetsUsd": 1.8766025780504778
+          }
+        },
+        {
+          "address": "0x8eB67A509616cd6A7c1B3c8C21D48FF57df3d458",
+          "symbol": "gtUSDCcore",
+          "state": {
+            "netApy": 0.06569254001325975,
+            "totalAssetsUsd": 5819219.989171504
+          }
+        },
+        {
+          "address": "0x8E3C0A68F8065Dc666065f16cf902596A60d540e",
+          "symbol": "MCwBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x8CB3649114051cA5119141a34C200D65dc0Faa73",
+          "symbol": "gtUSDT",
+          "state": {
+            "netApy": 0.025100074608139192,
+            "totalAssetsUsd": 5951371.255178116
+          }
+        },
+        {
+          "address": "0x8c69f21B1b4822bfDe1f0700D70E6Ec97A27B8a5",
+          "symbol": "DLV",
+          "state": {
+            "netApy": 2979.9471864356674,
+            "totalAssetsUsd": 7716.555587215329
+          }
+        },
+        {
+          "address": "0x8Be3f517a3382Ec57a730C41b739717b214b375d",
+          "symbol": "smellDAI",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x8b96Ed36DD3393FB4a8Bfe36b91b40AA5a4f7235",
+          "symbol": "pJPYC",
+          "state": {
+            "netApy": 4.698401997456093e-06,
+            "totalAssetsUsd": 3.140909976679304
+          }
+        },
+        {
+          "address": "0x8B3b3a5657f1B5169712c9e06437fe80645637C7",
+          "symbol": "deprecated2",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x8a0D114B72A5ba5ABF37283EF98708945db4423e",
+          "symbol": "ZAI-MM-VAULT",
+          "state": {
+            "netApy": 2.2040512828920673e-07,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x89D80f5e9BC88d8021b352064ae73F0eAf79EBd8",
+          "symbol": "Re7USDA",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x8986cbE8b98C342888Aa2787C2979b6E32a40149",
+          "symbol": "aUSDC",
+          "state": {
+            "netApy": 2068.2717377446415,
+            "totalAssetsUsd": 33.95590803882095
+          }
+        },
+        {
+          "address": "0x89610f2125A54547A7FB2A1B7926Be734A632255",
+          "symbol": "nWETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x889dd190bB6b0662DB3fE0AAc29eEDCa3D2ba22A",
+          "symbol": "MC_sUSDS",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x888883f0eDDF69Ca4BfD00Af93714Ff97F188888",
+          "symbol": "hyperUSDTc",
+          "state": {
+            "netApy": 0.022647059877943323,
+            "totalAssetsUsd": 112654.04887480439
+          }
+        },
+        {
+          "address": "0x87cb57D154ED695c4652ed755D49D7C99708b943",
+          "symbol": "alpha8USDC",
+          "state": {
+            "netApy": 1333.7227630274413,
+            "totalAssetsUsd": 1978.7417437513034
+          }
+        },
+        {
+          "address": "0x874E7Fb1aBb4c27a7BbEeeFA39E888b63181939C",
+          "symbol": "AlphaPingPrime",
+          "state": {
+            "netApy": 0.042432497205991807,
+            "totalAssetsUsd": 3.708083697617857
+          }
+        },
+        {
+          "address": "0x83b779E6eC421a676a9A20743679914680A928f9",
+          "symbol": "hyperBastionUSDT",
+          "state": {
+            "netApy": 0.025009363911490265,
+            "totalAssetsUsd": 10.320039231909922
+          }
+        },
+        {
+          "address": "0x833AdaeF212c5cD3f78906B44bBfb18258F238F0",
+          "symbol": "bbqWSTETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 717429.5260954296
+          }
+        },
+        {
+          "address": "0x81AE586dE7876a4C06163bEe0598AD2471E67322",
+          "symbol": "JULIANUSDC",
+          "state": {
+            "netApy": 0.045534552938258706,
+            "totalAssetsUsd": 588.3455075700405
+          }
+        },
+        {
+          "address": "0x812B2C6Ab3f4471c0E43D4BB61098a9211017427",
+          "symbol": "vbgtWBTC",
+          "state": {
+            "netApy": 2.924333707586298e-07,
+            "totalAssetsUsd": 25902612.906421416
+          }
+        },
+        {
+          "address": "0x80b82A65d5E081272b00065d545eb09aDf68B989",
+          "symbol": "Test",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x7f838C4c70B841A4979aF44053c8965f4694F9E5",
+          "symbol": "\"><img src=x onerror=alert()>",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x7f172587B13f85992e8d36c1D8723dFd1bDD931E",
+          "symbol": "MZAI",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x7C3f446cBC012aebEb21e9Fe66e69AE312f87cc1",
+          "symbol": "mevEURCV",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x7b755795b59c183F246805313E97976814e33cE9",
+          "symbol": "novaUSDC",
+          "state": {
+            "netApy": 0.04532451477833159,
+            "totalAssetsUsd": 0.1182273790862103
+          }
+        },
+        {
+          "address": "0x7B2aa84b12c8F8F267E113EE722a152fF5D8a275",
+          "symbol": "yd-sWETH",
+          "state": {
+            "netApy": 0.007850180057317125,
+            "totalAssetsUsd": 12.50345192724814
+          }
+        },
+        {
+          "address": "0x79FD640000F8563A866322483524a4b48f1Ed702",
+          "symbol": "gtusdtf",
+          "state": {
+            "netApy": 0.023745657356560857,
+            "totalAssetsUsd": 11493363.280225018
+          }
+        },
+        {
+          "address": "0x79970dbE7bd03958fA442Bdd041A51a68946ce2C",
+          "symbol": "CPT48",
+          "state": {
+            "netApy": 3.153600000049726e-11,
+            "totalAssetsUsd": 18707.514350017518
+          }
+        },
+        {
+          "address": "0x7993A99d5227F764A710C0De5317332Cc28C6636",
+          "symbol": "KdUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x794705195807451207df19A387A1fda12914140e",
+          "symbol": "sen-MUSD",
+          "state": {
+            "netApy": 2.2075200002436572e-10,
+            "totalAssetsUsd": 9.9128277708796e-19
+          }
+        },
+        {
+          "address": "0x78Fc2c2eD1A4cDb5402365934aE5648aDAd094d0",
+          "symbol": "Re7WETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 610545.7341537569
+          }
+        },
+        {
+          "address": "0x78B18E07dc43017fcEaabaD0751d6464c0F56b25",
+          "symbol": "gtmsETHc",
+          "state": {
+            "netApy": 0.04506856253094221,
+            "totalAssetsUsd": 3052965.446337108
+          }
+        },
+        {
+          "address": "0x786977528B0265C5C5Bc9544ac56C863c03e34D1",
+          "symbol": "LTSTRAT-USDS",
+          "state": {
+            "netApy": 3.8146988537864044e-05,
+            "totalAssetsUsd": 371457.0357950367
+          }
+        },
+        {
+          "address": "0x78077F8Ba6a9bB0909878De65195ccAc4294Ca21",
+          "symbol": "deprecated",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x7802B8C35bFCB5B9a44a8dcC135b8Fda0fEd70F3",
+          "symbol": "MUSDT",
+          "state": {
+            "netApy": 0.005338203014452869,
+            "totalAssetsUsd": 1.01608674624075
+          }
+        },
+        {
+          "address": "0x777791C4d6DC2CE140D00D2828a7C93503c67777",
+          "symbol": "hyperUSDCa",
+          "state": {
+            "netApy": 0.07501118861302992,
+            "totalAssetsUsd": 2415517.5480295694
+          }
+        },
+        {
+          "address": "0x7777773E9C2635B0c78A189Bb81D7540CD777777",
+          "symbol": "adpETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x76deDAf4Ec78777716BdEba484037C9d5fBF5D11",
+          "symbol": "aUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x761F0E9A916FB3CD9b2BDbe9ade07D6Fe730c84b",
+          "symbol": "sen-cbBTC",
+          "state": {
+            "netApy": 1.0182616274485169e-05,
+            "totalAssetsUsd": 3.010617192458795
+          }
+        },
+        {
+          "address": "0x757eaFF4D8fAc610c60029522c433c47ae63199D",
+          "symbol": "CUSDO",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x75741A12B36D181f44F389E0c6B1E0210311e3Ff",
+          "symbol": "steakEURCV",
+          "state": {
+            "netApy": 0.007967472362311386,
+            "totalAssetsUsd": 1938478.889503927
+          }
+        },
+        {
+          "address": "0x7526e974d8A8469d29EE606630215245287a07Bf",
+          "symbol": "ccmUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x749794E985Af5a9A384B9cEe6D88DaB4CE1576A1",
+          "symbol": "MC_USD0",
+          "state": {
+            "netApy": 1338.4307642632612,
+            "totalAssetsUsd": 230886.6949272036
+          }
+        },
+        {
+          "address": "0x73Ea4fff78a427d8b9bd77216aF4c42e78E2F5b8",
+          "symbol": "GTEST",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 10086.14222341006
+          }
+        },
+        {
+          "address": "0x73e65DBD630f90604062f6E02fAb9138e713edD9",
+          "symbol": "spDAI",
+          "state": {
+            "netApy": 18.382672632570188,
+            "totalAssetsUsd": 1105.793546105941
+          }
+        },
+        {
+          "address": "0x739d8a60ED4b14E4cB6DCAEAF79d2ec0Ca092237",
+          "symbol": "svETH",
+          "state": {
+            "netApy": 0.01525849896023054,
+            "totalAssetsUsd": 113816.38872572249
+          }
+        },
+        {
+          "address": "0x7286193fE6077bfd9bD69715C832EB48c55DF01f",
+          "symbol": "Optimex USDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 254.9415101983563
+          }
+        },
+        {
+          "address": "0x7204B7Dbf9412567835633B6F00C3Edc3a8D6330",
+          "symbol": "csUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 45682.14242111289
+          }
+        },
+        {
+          "address": "0x71cb2F8038B2C5D65ddc740B2F3268890CD2A89C",
+          "symbol": "senRLUSD",
+          "state": {
+            "netApy": 0.022165637885922185,
+            "totalAssetsUsd": 3.024281270209531
+          }
+        },
+        {
+          "address": "0x719b4b1F4c512F9a519F13D106EFA0B66bBACAD5",
+          "symbol": "fwmUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x7193794ec82f527Efb618Ac50C078D348eCBA4b6",
+          "symbol": "erUSDC",
+          "state": {
+            "netApy": 2979.2433186234994,
+            "totalAssetsUsd": 1026.6880786298561
+          }
+        },
+        {
+          "address": "0x711a68a82dd80cB0435b281aF76B0B80804eFab9",
+          "symbol": "augustUSDC",
+          "state": {
+            "netApy": 0.07823694136041934,
+            "totalAssetsUsd": 267.50265559626314
+          }
+        },
+        {
+          "address": "0x701907283a57FF77E255C3f1aAD790466B8CE4ef",
+          "symbol": "mhyETH",
+          "state": {
+            "netApy": 0.01789697982782293,
+            "totalAssetsUsd": 3054947.0857424308
+          }
+        },
+        {
+          "address": "0x6Fd59570172411Fc810258FeF8A12cE1b7EF60d7",
+          "symbol": "mUSDC",
+          "state": {
+            "netApy": 0.07823677800867372,
+            "totalAssetsUsd": 51.363461192979685
+          }
+        },
+        {
+          "address": "0x6EA03c62a5d63AEFa4b9289c727CB5341Aa615a4",
+          "symbol": "vXCN",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x6Ddc39fDa3EA91824bb66841b95ab7aED3a5b883",
+          "symbol": "naUSDT",
+          "state": {
+            "netApy": 0.002673439385249313,
+            "totalAssetsUsd": 0.24885070822870034
+          }
+        },
+        {
+          "address": "0x6D84E690150bf1B0F99e6CF02C7a1fE352489713",
+          "symbol": "USCD_OFFICE",
+          "state": {
+            "netApy": 2731.973093391929,
+            "totalAssetsUsd": 11.437114999911213
+          }
+        },
+        {
+          "address": "0x6D6D386C4855d9b604D7E14c70526407F6272394",
+          "symbol": "hyperETHa",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 239.09923135683445
+          }
+        },
+        {
+          "address": "0x6D4Ff9d68101341BD9D4A510a90E2Ff8BF7de950",
+          "symbol": "Skale",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x6D4e530B8431a52FFDA4516BA4Aadc0951897F8C",
+          "symbol": "steakUSDCrwa",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 4424.094072437554
+          }
+        },
+        {
+          "address": "0x6C26793c7F1e2785c09b460676e797b716f0Bc8E",
+          "symbol": "kUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 44378.6145012901
+          }
+        },
+        {
+          "address": "0x6BCD56D505843a96a3e026942033486a6c0bAaf2",
+          "symbol": "ABCOE",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x6ACa9D74215e9512d9608aFF3e87dac0d9ce6218",
+          "symbol": "hWETH",
+          "state": {
+            "netApy": 0.016894351528114335,
+            "totalAssetsUsd": 10.663360059682171
+          }
+        },
+        {
+          "address": "0x69a61A331d56a6fE6ea1226dE89744982Ffca4C4",
+          "symbol": "PYHYWETH",
+          "state": {
+            "netApy": 0.0010895848895204586,
+            "totalAssetsUsd": 0.07189804261295595
+          }
+        },
+        {
+          "address": "0x68Cae900D68BC148244663FCc15d896271020b81",
+          "symbol": "sfETH",
+          "state": {
+            "netApy": 0.0008919921160265222,
+            "totalAssetsUsd": 4.165469551366003e-15
+          }
+        },
+        {
+          "address": "0x68Aea7b82Df6CcdF76235D46445Ed83f85F845A3",
+          "symbol": "oevUSDC",
+          "state": {
+            "netApy": 0.045845017598749954,
+            "totalAssetsUsd": 8452552.371166464
+          }
+        },
+        {
+          "address": "0x6859B34a9379122d25A9FA46f0882d434fee36c3",
+          "symbol": "gtmsUSDc",
+          "state": {
+            "netApy": 0.006701621933439337,
+            "totalAssetsUsd": 15306227.6524846
+          }
+        },
+        {
+          "address": "0x67E23A4bc1195d66326D07609c3F20eD9a0B87E4",
+          "symbol": "lumenUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x6772f9DF45df72E44c701998337292e8aaFC1c62",
+          "symbol": "xaueUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x67315dd969B8Cd3a3520C245837Bf71f54579C75",
+          "symbol": "llama-crvUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 3007.506664139266
+          }
+        },
+        {
+          "address": "0x6701957aaA39e9352a42729Cc65436a4C945cB90",
+          "symbol": "AlphaPingPtFrontierUSDC",
+          "state": {
+            "netApy": 0.0007656502676948201,
+            "totalAssetsUsd": 13431.149602862806
+          }
+        },
+        {
+          "address": "0x66320aFF501D091D0929E7208977a0a94b823B43",
+          "symbol": "hypercbBTCa",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 7.639706084792668
+          }
+        },
+        {
+          "address": "0x6619F92861C760AD11BA0D56E8ED63A33EccE22B",
+          "symbol": "asZCHF",
+          "state": {
+            "netApy": 0.01047748230070873,
+            "totalAssetsUsd": 954.7918472760293
+          }
+        },
+        {
+          "address": "0x64a4fb7Ab60fC4A7E52960DF0F1dcae06675aae9",
+          "symbol": "gnoméUSUAL",
+          "state": {
+            "netApy": 0.2345760535268018,
+            "totalAssetsUsd": 1.8109151243806607e-20
+          }
+        },
+        {
+          "address": "0x64964E162Aa18d32f91eA5B24a09529f811AEB8e",
+          "symbol": "Re7USDCp",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 30.065568920691
+          }
+        },
+        {
+          "address": "0x633ceC920306495ee526cAD96464087DF5204889",
+          "symbol": "acrdxUSDC-V1",
+          "state": {
+            "netApy": 0.0011321841261381757,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x62fE596d59fB077c2Df736dF212E0AFfb522dC78",
+          "symbol": "CSUSDC",
+          "state": {
+            "netApy": 0.0639955331702552,
+            "totalAssetsUsd": 1628984.1218680039
+          }
+        },
+        {
+          "address": "0x62efA7CAcC11CAA959A8f956EC4F683302397e5c",
+          "symbol": "ynUSDC",
+          "state": {
+            "netApy": 0.018200857574486324,
+            "totalAssetsUsd": 15.37862916225313
+          }
+        },
+        {
+          "address": "0x62578B2C9676E951c476d77406f8914e5446b661",
+          "symbol": "HTP USDC",
+          "state": {
+            "netApy": 4.1696907893158224e-07,
+            "totalAssetsUsd": 614930.5223754334
+          }
+        },
+        {
+          "address": "0x62067831C193810F3b044Cc42249632b5d08Bc6b",
+          "symbol": "KabuUSDC",
+          "state": {
+            "netApy": 0.03980438430828493,
+            "totalAssetsUsd": 0.025366073841912203
+          }
+        },
+        {
+          "address": "0x6188C18CB1c9Ef246aDf4454cC184a84A4Fc5465",
+          "symbol": "vertexUSDCig",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x60d715515d4411f7F43e4206dc5d4a3677f0eC78",
+          "symbol": "Re7USDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 3261.935753091213
+          }
+        },
+        {
+          "address": "0x5Dc3Bd5a89E033e8ae54B6e5AE967C98EdB5B4c4",
+          "symbol": "M11C USDC",
+          "state": {
+            "netApy": 1997.1958948765796,
+            "totalAssetsUsd": 1531.6626607622165
+          }
+        },
+        {
+          "address": "0x5B8b9FA8e4145eE06025F642cAdB1B47e5F39F04",
+          "symbol": "OUSD-V1",
+          "state": {
+            "netApy": 0.062228067703600655,
+            "totalAssetsUsd": 2958585.7016446465
+          }
+        },
+        {
+          "address": "0x5b56F90340dBAa6a8693DADb141D620f0e154fE6",
+          "symbol": "AVGUSDCCORE",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 343094.74223794334
+          }
+        },
+        {
+          "address": "0x5a545AB9D7d08Aa8625bf78CB8EB1080b0393cf8",
+          "symbol": "edgeWETH",
+          "state": {
+            "netApy": 0.019905197685587926,
+            "totalAssetsUsd": 2.0827347756830014e-15
+          }
+        },
+        {
+          "address": "0x59D9571A54593a5EC47d6A20837D96745ECF5C37",
+          "symbol": "specUSDC",
+          "state": {
+            "netApy": 4.818071240690151e-07,
+            "totalAssetsUsd": 19.80556791710074
+          }
+        },
+        {
+          "address": "0x59C878Ebe28D5ef2Ce230eED29422Cc7a2bf9953",
+          "symbol": "arbcapmmUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x5994cAAC1cc0EBE4D31e73dF46155c26D24B15Df",
+          "symbol": "sakuraUSDC",
+          "state": {
+            "netApy": 0.04553450104036715,
+            "totalAssetsUsd": 9.997664292098455e-07
+          }
+        },
+        {
+          "address": "0x59307D26FAc64FF9AEfA9371e00299521aA2263B",
+          "symbol": "abweth",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x56A76b428244a50513ec81e225a293d128fd581D",
+          "symbol": "sparkUSDCbc",
+          "state": {
+            "netApy": 0.044625843309531815,
+            "totalAssetsUsd": 11420274.193847561
+          }
+        },
+        {
+          "address": "0x5593bf07cB1aDa24462EF23240c530441BBAd3e8",
+          "symbol": "sgfUSDCV",
+          "state": {
+            "netApy": 0.11269956584607126,
+            "totalAssetsUsd": 5073.213645422217
+          }
+        },
+        {
+          "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+          "symbol": "adpUSDC",
+          "state": {
+            "netApy": 53.59814945968196,
+            "totalAssetsUsd": 160763701.5195097
+          }
+        },
+        {
+          "address": "0x5541693d0090f2C9b386D2144b7138933265f209",
+          "symbol": "erUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x5440Ea551935782fE87FE7BdBE9C4A101755179B",
+          "symbol": "yUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x53675a75A0D6E5C13DBfb0d691EA679357ca5DDa",
+          "symbol": "gtUSDCmkr",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x52aCfdF7Cee53d6Bf23aE20d78e3175564C55ef4",
+          "symbol": "dusdc",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x5285047B35b357157f3948925ac604FcCa4850a8",
+          "symbol": "sbxUSDCV",
+          "state": {
+            "netApy": 0.5877367551950032,
+            "totalAssetsUsd": 1.9997793769889936e-18
+          }
+        },
+        {
+          "address": "0x52317a47585A6ACDfbD7a29B494c3E2baAE96aBc",
+          "symbol": "aMUSD",
+          "state": {
+            "netApy": 8.659785974959444e-08,
+            "totalAssetsUsd": 82.24380536370258
+          }
+        },
+        {
+          "address": "0x515d0e660E02C2c149a025d47f352EE6cB236B93",
+          "symbol": "sparkUSDS",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x51056b3F809f4cFE17E1A8715B82f5dbbCA5a5A1",
+          "symbol": "meUSDC",
+          "state": {
+            "netApy": 0.00013646469945207513,
+            "totalAssetsUsd": 394.8235901973089
+          }
+        },
+        {
+          "address": "0x5085Dd6FAd07c12e38fae01bc2a4938d2C08B1Bc",
+          "symbol": "aprUSR",
+          "state": {
+            "netApy": 0.11537873801328816,
+            "totalAssetsUsd": 84.58987706223547
+          }
+        },
+        {
+          "address": "0x500331c9fF24D9d11aee6B07734Aa72343EA74a5",
+          "symbol": "gtDAIcore",
+          "state": {
+            "netApy": 0.044964153573009556,
+            "totalAssetsUsd": 2315921.6320562866
+          }
+        },
+        {
+          "address": "0x4Ff4186188f8406917293A9e01A1ca16d3cf9E59",
+          "symbol": "sbMorphoUSDC",
+          "state": {
+            "netApy": 0.041146379173206654,
+            "totalAssetsUsd": 10732666.259008648
+          }
+        },
+        {
+          "address": "0x4ff0DE50900E3d999ab2c6F957918773992aa35a",
+          "symbol": "LCUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x4fddD263891e6EdC5A56ed306B64FEAB2a4af74d",
+          "symbol": "fwmDAI",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x4FBB60166199d36dD2fB09005154F0938B6d717B",
+          "symbol": "AnzenUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 9.997664292098455e-07
+          }
+        },
+        {
+          "address": "0x4F460bb11cf958606C69A963B4A17f9DaEEea8b6",
+          "symbol": "fxUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 3635.208500111979
+          }
+        },
+        {
+          "address": "0x4f2F15FbED585E09F17BdA9Ec873e614a569E636",
+          "symbol": "senPYUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 2.000050882383485e-06
+          }
+        },
+        {
+          "address": "0x4F2ba48FaF0bA42c4E4b7871d3861418c83aE568",
+          "symbol": "Sova USDC",
+          "state": {
+            "netApy": 1996.9246347095075,
+            "totalAssetsUsd": 25043.17170703913
+          }
+        },
+        {
+          "address": "0x4EDfaB296F8Eb15aC0907CF9eCb7079b1679Da57",
+          "symbol": "aprUSDe",
+          "state": {
+            "netApy": 0.0003875206862684906,
+            "totalAssetsUsd": 84390.64544015483
+          }
+        },
+        {
+          "address": "0x4d52545235A3dF246a8928c583E47AE7eeC4aCfE",
+          "symbol": "Re7USDf",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 5840.898979482871
+          }
+        },
+        {
+          "address": "0x4d135cC7623D07b0ccF8931c1fAb5D67a40b0F46",
+          "symbol": "3JUSDC",
+          "state": {
+            "netApy": 0.001916049645676072,
+            "totalAssetsUsd": 1.4009347061274466
+          }
+        },
+        {
+          "address": "0x4cA0E178c94f039d7F202E09d8d1a655Ed3fb6b6",
+          "symbol": "USDC RWA",
+          "state": {
+            "netApy": 0.008224710541611203,
+            "totalAssetsUsd": 765.5101384196953
+          }
+        },
+        {
+          "address": "0x48ee006b5CA63863Bb550F63C78cE36862C42074",
+          "symbol": "BestUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x48889608059f5c83041fe701580FF4DDDF737E4d",
+          "symbol": "adpETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x4881Ef0BF6d2365D3dd6499ccd7532bcdBCE0658",
+          "symbol": "gtLRTcore",
+          "state": {
+            "netApy": 0.01704973551643508,
+            "totalAssetsUsd": 2951271.713172738
+          }
+        },
+        {
+          "address": "0x480be0C8e7f480A94d5B7Cd0e9A21E8EDDf4A91b",
+          "symbol": "AUSDt",
+          "state": {
+            "netApy": 8.690425141169389e-05,
+            "totalAssetsUsd": 16.016928230502703
+          }
+        },
+        {
+          "address": "0x47fe8Ab9eE47DD65c24df52324181790b9F47EfC",
+          "symbol": "aWETH",
+          "state": {
+            "netApy": 0.028739958429024402,
+            "totalAssetsUsd": 963918.221163251
+          }
+        },
+        {
+          "address": "0x466e855072d87284314200DEDB9bfDa7145859bc",
+          "symbol": "gtstgusdc",
+          "state": {
+            "netApy": 0.04719479054317368,
+            "totalAssetsUsd": 7.116263460399919
+          }
+        },
+        {
+          "address": "0x45c1875F1C48622b3D9740Af2D7dc62Bc9a72422",
+          "symbol": "reGOLD",
+          "state": {
+            "netApy": 0.0008540689743531411,
+            "totalAssetsUsd": 0.00448975096681624
+          }
+        },
+        {
+          "address": "0x4529437099Ad37ba6fc87d6e11d233f7fc8Fc0F1",
+          "symbol": "EURCTesting",
+          "state": {
+            "netApy": 0.04024167359361799,
+            "totalAssetsUsd": 1.7493639321598993
+          }
+        },
+        {
+          "address": "0x443df5eEE3196e9b2Dd77CaBd3eA76C3dee8f9b2",
+          "symbol": "gtWBTCc",
+          "state": {
+            "netApy": 0.00025803627108878814,
+            "totalAssetsUsd": 2255573.6784671596
+          }
+        },
+        {
+          "address": "0x4427ceE946c626A60084000C2AbACCa9342FD8BD",
+          "symbol": "ee",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x440aee600E9661FA76fB47ef74c4b8F711F52924",
+          "symbol": "LampRWA",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x43fD147d5319B8Cf39a6e57143684Efca9CF3613",
+          "symbol": "Re7tBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x4339C355728327852Fcd4c142fE87C06371E795C",
+          "symbol": "TEESTEEETT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x42D425Fb918acBbd73B10B851979E8fc469B3e9A",
+          "symbol": "hDAI",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 2513.6424605760044
+          }
+        },
+        {
+          "address": "0x425651EA3ab6240A317794579ed62fcF7E7E817e",
+          "symbol": "Cypher",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x420690B889D474771539521B3d8C2aE276BA3880",
+          "symbol": "IMF-WETH",
+          "state": {
+            "netApy": 9.789516109000102e-06,
+            "totalAssetsUsd": 6.6653930127455325
+          }
+        },
+        {
+          "address": "0x40DD8f13395a1dD5C8aB5B6a7ecDb4F782838E45",
+          "symbol": "SPCSUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x3FA495ecB30E4910bAC2a31818fd68d0DBb042a4",
+          "symbol": "sfUSDC",
+          "state": {
+            "netApy": 5.348885048684104,
+            "totalAssetsUsd": 0.01404971762968596
+          }
+        },
+        {
+          "address": "0x3f604074F3F12Ff70c29e6bCC9232c707DC4D970",
+          "symbol": "PRIME",
+          "state": {
+            "netApy": 0.045534456264424664,
+            "totalAssetsUsd": 0.010144629957192303
+          }
+        },
+        {
+          "address": "0x3E379e09F4a9a4617b5AE6C45288F01a3D278c7F",
+          "symbol": "TPUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x3Dfe70B05657949A5dB340754aD664810ac63b21",
+          "symbol": "WETH-ARM",
+          "state": {
+            "netApy": 0.01758379835667711,
+            "totalAssetsUsd": 2726587.638217052
+          }
+        },
+        {
+          "address": "0x3DC15A363f5Dcf3B9dB90a5C0e2a5Cdf8f1CD77E",
+          "symbol": "ymvOG-DAI",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 122.20070698149483
+          }
+        },
+        {
+          "address": "0x3d46c7Bf79FeDDeeC7d0C2939c0be35e4Ffa2970",
+          "symbol": "",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x3c754561CD0B4df9513b7B6bC200963620c7b77e",
+          "symbol": "LampHY",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x3c124fB80e6eedD88D108C2F04013AE5CD571Abc",
+          "symbol": "fUSDf",
+          "state": {
+            "netApy": 0.005249807195900932,
+            "totalAssetsUsd": 10387.588442031578
+          }
+        },
+        {
+          "address": "0x3bc4697F484F48f219B3f1Fdd2AD39cb3e986923",
+          "symbol": "PHYUSDCETH",
+          "state": {
+            "netApy": 0.1405946589873746,
+            "totalAssetsUsd": 576.5559069197155
+          }
+        },
+        {
+          "address": "0x3af9477CdB6E291150Dc9E19724b9097C102c188",
+          "symbol": "eqAUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x3a02F089f212dAEF4E54ec2616FFf71952A74B15",
+          "symbol": "USDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x39Ae00999470c00E1f10603eDa39f0F1b1E979E7",
+          "symbol": "bachata_USDC",
+          "state": {
+            "netApy": 0.0860936602331707,
+            "totalAssetsUsd": 11.146859810883722
+          }
+        },
+        {
+          "address": "0x38Bc32F98c6D5C2Bb8c743a4Aa364b4F529fD1Ac",
+          "symbol": "sweapUSDC",
+          "state": {
+            "netApy": 1338.1233930060307,
+            "totalAssetsUsd": 9.997664292098457e-06
+          }
+        },
+        {
+          "address": "0x38A4E979425D93DcC20af37bE22966D1bff9ecD0",
+          "symbol": "naEURC",
+          "state": {
+            "netApy": 0.03998679670210934,
+            "totalAssetsUsd": 2.334223461284035e-06
+          }
+        },
+        {
+          "address": "0x38989BBA00BDF8181F4082995b3DEAe96163aC5D",
+          "symbol": "bbETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 88461.45213395488
+          }
+        },
+        {
+          "address": "0x38248d715336d4CAd20d3e12E8dc34DA596f9d6c",
+          "symbol": "RIMUusdc",
+          "state": {
+            "netApy": 0.09597768872507893,
+            "totalAssetsUsd": 0.010325587680879286
+          }
+        },
+        {
+          "address": "0x36716540fcAB3eE593651Ea4A00A48c85D6Fd74C",
+          "symbol": "senPYUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 2.000050882383485e-06
+          }
+        },
+        {
+          "address": "0x35dD24fA0cad1cAE633616436cECEDC99a19Ae9f",
+          "symbol": "testUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x34eCe536d2ae03192B06c0A67030D1Faf4c0Ba43",
+          "symbol": "sgfEURCV",
+          "state": {
+            "netApy": 0.026208829988417313,
+            "totalAssetsUsd": 138723.82947292124
+          }
+        },
+        {
+          "address": "0x341193ED21711472e71aECa4A942123452bd0ddA",
+          "symbol": "Re7USDCc",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 18025.82036625983
+          }
+        },
+        {
+          "address": "0x3365184e87d2Bd75961780454A5810BEc956F0dD",
+          "symbol": "OHMsUSDS",
+          "state": {
+            "netApy": 0.1251470764643707,
+            "totalAssetsUsd": 32.81435872675854
+          }
+        },
+        {
+          "address": "0x31A5684983EeE865d943A696AAC155363bA024f9",
+          "symbol": "vbgtWETH",
+          "state": {
+            "netApy": 0.01697907416855941,
+            "totalAssetsUsd": 13036655.161239913
+          }
+        },
+        {
+          "address": "0x311D1F9F998DCb5Ad794a2584d5DEB603b970d9b",
+          "symbol": "cozyUSDC",
+          "state": {
+            "netApy": 0.04284076606824644,
+            "totalAssetsUsd": 20.306924787422314
+          }
+        },
+        {
+          "address": "0x310533D92D93c0dD7608D9A7B13017DA88a4828C",
+          "symbol": "fwmUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x30A4fB0c64313613c3633807971482eDf3182618",
+          "symbol": "JUSD Vault test",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x30881Baa943777f92DC934d53D3bFdF33382cab3",
+          "symbol": "steakUSDR",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 857.5730769105897
+          }
+        },
+        {
+          "address": "0x2F21c6499fa53a680120e654a27640Fc8Aa40BeD",
+          "symbol": "USDC",
+          "state": {
+            "netApy": 1.8289635285517552e-06,
+            "totalAssetsUsd": 5610.962293924157
+          }
+        },
+        {
+          "address": "0x2f1aBb81ed86Be95bcf8178bA62C8e72D6834775",
+          "symbol": "pWBTC",
+          "state": {
+            "netApy": 0.002924675875599939,
+            "totalAssetsUsd": 2613.653479930159
+          }
+        },
+        {
+          "address": "0x2ed10624315b74a78f11FAbedAa1A228c198aEfB",
+          "symbol": "gteurcc",
+          "state": {
+            "netApy": 0.03802468167649205,
+            "totalAssetsUsd": 1244776.279343514
+          }
+        },
+        {
+          "address": "0x2E87d6bfA3F2A932e0c70A32607c0B839404984D",
+          "symbol": "PUSDSHY",
+          "state": {
+            "netApy": 9.460800000447534e-11,
+            "totalAssetsUsd": 139701.48246085434
+          }
+        },
+        {
+          "address": "0x2e52Efab5be3c4AacDb832386F5a670Fe1C60555",
+          "symbol": "bbETH",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x2D9926E6a6B84476ed5718972159F3e4B33DbCCd",
+          "symbol": "SVMEe",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 2.0000710276775267e-18
+          }
+        },
+        {
+          "address": "0x2d8283b177D2e6AD92E09BDf13e10d1c2cE327d0",
+          "symbol": "appx",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x2Ccb3717b04Df3603b1471738d4d500Fa8e57b85",
+          "symbol": "Ellen01",
+          "state": {
+            "netApy": 1716.037189172489,
+            "totalAssetsUsd": 2.899322644708552e-05
+          }
+        },
+        {
+          "address": "0x2C793f5cB25B35A99648783c01E6cCCC200D2096",
+          "symbol": "senPYUSDcore",
+          "state": {
+            "netApy": 0.04272978697482816,
+            "totalAssetsUsd": 166.5411928986298
+          }
+        },
+        {
+          "address": "0x2C75C49c2807eEb8bbFBE1aD49eA543abBEe63d8",
+          "symbol": "SyStUSD Stratagies",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0.005499849754464022
+          }
+        },
+        {
+          "address": "0x2C3Cc1C02856894345797Cf6ee76aE76AC0f4031",
+          "symbol": "M11C lvlUSD",
+          "state": {
+            "netApy": 0.2266479235538763,
+            "totalAssetsUsd": 5417.262986253192
+          }
+        },
+        {
+          "address": "0x2C25f6C25770fFEC5959D34B94Bf898865e5D6b1",
+          "symbol": "bbUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 12900.96343639091
+          }
+        },
+        {
+          "address": "0x2bB005127069A0F0325Fb7370967E8A2b64FB77E",
+          "symbol": "ymv-WBTC",
+          "state": {
+            "netApy": 0.0005849312275894146,
+            "totalAssetsUsd": 3244670.3485910334
+          }
+        },
+        {
+          "address": "0x2a79E2c69ff4d3a50BF335153e4c09Fa360F3386",
+          "symbol": "mUSD0",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x29F2Cbc1e6F3250e008f91b3FFA5ffa7C460a0Fc",
+          "symbol": "inf-usdcmfone",
+          "state": {
+            "netApy": 0.0932896482712194,
+            "totalAssetsUsd": 0.10380974741057511
+          }
+        },
+        {
+          "address": "0x29B5D891f1E9390074271BE40670157081e614a3",
+          "symbol": "PGDX",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x28d24D4380B26A1Ef305Ad8D8DB258159E472F33",
+          "symbol": "USUAL_MV",
+          "state": {
+            "netApy": 0.20883205620284326,
+            "totalAssetsUsd": 12198.7503372651
+          }
+        },
+        {
+          "address": "0x25D385fCab771e36a826BBFB47e2Ddaa2f19D449",
+          "symbol": "SIMPLE",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 31176.37111274526
+          }
+        },
+        {
+          "address": "0x252c546687e45463DC3061e7Fb710f1673a975eC",
+          "symbol": "1337ETH",
+          "state": {
+            "netApy": 0.0014845230343576259,
+            "totalAssetsUsd": 2.0827347756830014e-15
+          }
+        },
+        {
+          "address": "0x23D4D3A21741F13c3DA4B7922bAf678208A18dEc",
+          "symbol": "MUER",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x23B1BAAE491471deF5Be350e63282Fa687874924",
+          "symbol": "sen-USDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x2371e134e3455e0593363cBF89d3b6cf53740618",
+          "symbol": "gtWETH",
+          "state": {
+            "netApy": 0.018706570749132626,
+            "totalAssetsUsd": 8877893.637488866
+          }
+        },
+        {
+          "address": "0x234E5AE16eDf321AB5c2DDeBb0CCdf05aACb233b",
+          "symbol": "testWETH",
+          "state": {
+            "netApy": 0.01737862303229867,
+            "totalAssetsUsd": 2.0827347756830014e-15
+          }
+        },
+        {
+          "address": "0x225C119fFaf1CaddCfCDb493283eDF4b816Bf773",
+          "symbol": "USUALUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x214B47C50057eFaa7adc1B1C2608C3751Cd77D78",
+          "symbol": "aprUSDC",
+          "state": {
+            "netApy": 1338.4307642632612,
+            "totalAssetsUsd": 337228.6729694775
+          }
+        },
+        {
+          "address": "0x20b8020cC34F7105bE5605300FcCa00728f0a5d1",
+          "symbol": "MC.USD0",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x20B415F25D06848Cc6247513e5c30F5848B5CDCd",
+          "symbol": "yd-sWBTC",
+          "state": {
+            "netApy": 0.004185725084311454,
+            "totalAssetsUsd": 141.44636759300286
+          }
+        },
+        {
+          "address": "0x1e6ffa4e9F63d10B8820A3ab52566Af881Dab53c",
+          "symbol": "gtWETHe",
+          "state": {
+            "netApy": 0.017896961947900757,
+            "totalAssetsUsd": 19207.28086994114
+          }
+        },
+        {
+          "address": "0x1E2aAaDcF528b9cC08F43d4fd7db488cE89F5741",
+          "symbol": "9SUSDC11Core",
+          "state": {
+            "netApy": 0.0005257264563936839,
+            "totalAssetsUsd": 54313.96276599278
+          }
+        },
+        {
+          "address": "0x1c530D6de70c05A81bF1670157b9d928e9699089",
+          "symbol": "MCwBTC",
+          "state": {
+            "netApy": 0.00292551152548103,
+            "totalAssetsUsd": 1803.727713206099
+          }
+        },
+        {
+          "address": "0x1B4cd53a1A8e5F50aB6320EF34E5fB4D3df7B6f6",
+          "symbol": "gtAUSDc",
+          "state": {
+            "netApy": 0.002588755393130173,
+            "totalAssetsUsd": 151.92569375410034
+          }
+        },
+        {
+          "address": "0x19fa187F0A5e653C9C1b98Ba380e3B3399B114F7",
+          "symbol": "JTT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x19f91632ba0367cD7B1fc8816071cB31519e5d8a",
+          "symbol": "testMM",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55",
+          "symbol": "senPYUSD",
+          "state": {
+            "netApy": 0.047588823803955245,
+            "totalAssetsUsd": 3.065803995722996
+          }
+        },
+        {
+          "address": "0x1941aDa601B91Ea7538E73442a1a632E8F9Ffb70",
+          "symbol": "pUSDC",
+          "state": {
+            "netApy": 0.04088921270449627,
+            "totalAssetsUsd": 163.72717218074993
+          }
+        },
+        {
+          "address": "0x186514400e52270cef3D80e1c6F8d10A75d47344",
+          "symbol": "bbUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 5051.861744990179
+          }
+        },
+        {
+          "address": "0x1518652736c4eFD9DFA46D68aE83b69C8af802F0",
+          "symbol": "xIxGxNxOxRxEx",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x13AA4f80AD5F06cE4f1A3a3cA58C37059F0EE4c5",
+          "symbol": "sdUSDCv1",
+          "state": {
+            "netApy": 0.0008081985089698758,
+            "totalAssetsUsd": 0.08066915364008402
+          }
+        },
+        {
+          "address": "0x132E6C9C33A62D7727cd359b1f51e5B566E485Eb",
+          "symbol": "resolvUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1030730.2606216404
+          }
+        },
+        {
+          "address": "0x1265a81d42d513Df40d0031f8f2e1346954d665a",
+          "symbol": "MC.eUSDC",
+          "state": {
+            "netApy": 1338.429174762145,
+            "totalAssetsUsd": 513970.3890207537
+          }
+        },
+        {
+          "address": "0x125D41A6e5dbf455cD9Df8F80BCC6fd172D52Cc6",
+          "symbol": "gtUSDAcore",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x10Becd2559671b36E9D43C8cE6c0B86E16C59420",
+          "symbol": "\"pcUSDC\"",
+          "state": {
+            "netApy": 0.04553443486561336,
+            "totalAssetsUsd": 100773.41169559419
+          }
+        },
+        {
+          "address": "0x109eDC846C98BB468a79AFdB4688a519416f1Dc4",
+          "symbol": "wvEURC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x103085e1aa4E8D7A41045B5CBe472EF5301C93B4",
+          "symbol": "suUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x101b77d83c40207FA3A616E8b3aAeED166Dad03e",
+          "symbol": "fUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x0F359FD18BDa75e9c49bC027E7da59a4b01BF32a",
+          "symbol": "reUSDC",
+          "state": {
+            "netApy": 0.0783239262457102,
+            "totalAssetsUsd": 13616.125176878066
+          }
+        },
+        {
+          "address": "0x0c6aec603d48eBf1cECc7b247a2c3DA08b398DC1",
+          "symbol": "kpk_EURC_Yield",
+          "state": {
+            "netApy": 0.03998676295397258,
+            "totalAssetsUsd": 2578.1125284368695
+          }
+        },
+        {
+          "address": "0x0C36327e93F749a7eec04603410dF776150f47DE",
+          "symbol": "abrc",
+          "state": {
+            "netApy": 2978.6226368033854,
+            "totalAssetsUsd": 1445.8450419341564
+          }
+        },
+        {
+          "address": "0x0C1B9c8559A9706ffD5324B3AaF33D0f7b7177e4",
+          "symbol": "ethenasenPYUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x0bB2751a90fFF62e844b1521637DeD28F3f5046A",
+          "symbol": "9SETHCore",
+          "state": {
+            "netApy": 0.01579567460332342,
+            "totalAssetsUsd": 3862.650317744114
+          }
+        },
+        {
+          "address": "0x0B6C8ef0DE1Be5ed1B59E6e7a67fB9442FB9E49C",
+          "symbol": "DPK.Eth",
+          "state": {
+            "netApy": 2979.9579868427436,
+            "totalAssetsUsd": 717562.3306574593
+          }
+        },
+        {
+          "address": "0x0B5281e1fa7fC7c1f0890F311d5f04D55c0Fd63c",
+          "symbol": "sUSDu+",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x0B2d98BBF3E38Df1D1B7Be7343732E32e8B1F818",
+          "symbol": "capUSDC",
+          "state": {
+            "netApy": 9.460800000447534e-11,
+            "totalAssetsUsd": 103113.86773871271
+          }
+        },
+        {
+          "address": "0x09C4C7B1D2e9Aa7506db8B76f1dBbD61c08c114b",
+          "symbol": "EVST",
+          "state": {
+            "netApy": 0.0472442580701982,
+            "totalAssetsUsd": 10079.518896787114
+          }
+        },
+        {
+          "address": "0x097FFEDb80d4b2Ca6105a07a4D90eB739C45A666",
+          "symbol": "steakUSDTlite",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 1497.1372106278682
+          }
+        },
+        {
+          "address": "0x0963232eB842BAF53E8e517691f81745C1F228a0",
+          "symbol": "ymv-USDT",
+          "state": {
+            "netApy": 0.023955871634470566,
+            "totalAssetsUsd": 3633769.8578161686
+          }
+        },
+        {
+          "address": "0x093223c1FfE8e796D0643C01f8FBA62a3aBF6c00",
+          "symbol": "senPYUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x08A7CC3c379fe36380d3F3e4EDea3FD9b07e36D4",
+          "symbol": "ezUSD",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x08995EC16F3FAD0C357B3Da68Eee09A88932DEc0",
+          "symbol": "steakUSDClite",
+          "state": {
+            "netApy": 0.03980594071433952,
+            "totalAssetsUsd": 1.070909808312418
+          }
+        },
+        {
+          "address": "0x061fd7757bc028551fe001b8844d0B312838F08d",
+          "symbol": "drfUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x05e13DE0ce29a9Df350EF54fE37a8729af06Ecc3",
+          "symbol": "fUSDT",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        },
+        {
+          "address": "0x05BbAbbbAE447129A03d3B36c7D6e62fECD2Cee5",
+          "symbol": "mvUSDC-DREY",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": null
+          }
+        },
+        {
+          "address": "0x059Fc6723b9bF77DbF4283C8d7C90eA8Af44EF10",
+          "symbol": "sbMorphotBTC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 21.435967349434804
+          }
+        },
+        {
+          "address": "0x0562AE950276B24F3eAE0d0a518dADB7Ad2F8D66",
+          "symbol": "edgeUSDC",
+          "state": {
+            "netApy": 0.04584224004280615,
+            "totalAssetsUsd": 1420.6620373226297
+          }
+        },
+        {
+          "address": "0x0551DE0FF64E0ef199CA5714700F1c648E9Fca88",
+          "symbol": "phiwstETH",
+          "state": {
+            "netApy": 3.998110536422627e-06,
+            "totalAssetsUsd": 105.49268285934018
+          }
+        },
+        {
+          "address": "0x0404fD1a77756EB029F06b5CDea88B2B2ddC2fEE",
+          "symbol": "elixirUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 3071.690237267996
+          }
+        },
+        {
+          "address": "0x01ff97514d77Bf3D1f989b382eC33C02F74038be",
+          "symbol": "flagshipUSDC",
+          "state": {
+            "netApy": 0.04497213644383733,
+            "totalAssetsUsd": 0.09755120956372147
+          }
+        },
+        {
+          "address": "0x018f8f5F52AAfF23FF838aE4637aFe22713FB428",
+          "symbol": "USDC",
+          "state": {
+            "netApy": 0.0642558394159737,
+            "totalAssetsUsd": 405880.1234087767
+          }
+        },
+        {
+          "address": "0x00B6f2C15E4439749f192D10c70f65354848Cf4b",
+          "symbol": "9SUSR",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 2.5895807203172314
+          }
+        },
+        {
+          "address": "0x00B2681EC02650B16A2E4F6D34ea7d8866ed8eA4",
+          "symbol": "ckUSDC",
+          "state": {
+            "netApy": 0,
+            "totalAssetsUsd": 0
+          }
+        }
+      ]
+    }
+  },
+  "extensions": {
+    "complexity": 85000,
+    "maximumComplexity": 1000000
+  }
+}

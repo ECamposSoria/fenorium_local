@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/execution-lifecycle.schema.json",
+  "title": "Fenorium execution lifecycle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision_hash",
+    "state",
+    "as_of",
+    "lifi_transaction_id",
+    "source_tx",
+    "destination_tx",
+    "outcome"
+  ],
+  "properties": {
+    "decision_hash": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "state": {
+      "type": "string",
+      "enum": [
+        "QUOTED",
+        "PASSPORT_READY",
+        "USER_SIGNED",
+        "SOURCE_PENDING",
+        "BRIDGED",
+        "DESTINATION_PENDING",
+        "SETTLED",
+        "FAILED_DESTINATION",
+        "REFUND_PENDING",
+        "REFUNDED",
+        "EXPIRED"
+      ]
+    },
+    "as_of": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "lifi_transaction_id": {"type": ["string", "null"]},
+    "source_tx": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]+$"},
+    "destination_tx": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]+$"},
+    "outcome": {
+      "oneOf": [
+        {"$ref": "outcome-bundle-v1.schema.json"},
+        {"type": "null"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/lifi-status-observation.schema.json",
+  "title": "LI.FI Status Observation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "observed_at",
+    "status",
+    "substatus",
+    "suggested_state",
+    "reason_code",
+    "transaction_id",
+    "source_tx",
+    "destination_tx"
+  ],
+  "properties": {
+    "schema_version": {"const": "fenorium/lifi-status-observation/v1"},
+    "method_version": {"type": "string", "minLength": 1},
+    "observed_at": {"$ref": "common.schema.json#/$defs/utcTimestamp"},
+    "status": {
+      "type": "string",
+      "enum": ["NOT_FOUND", "INVALID", "PENDING", "DONE", "FAILED"]
+    },
+    "substatus": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "WAIT_SOURCE_CONFIRMATIONS",
+        "WAIT_DESTINATION_TRANSACTION",
+        "BRIDGE_NOT_AVAILABLE",
+        "CHAIN_NOT_AVAILABLE",
+        "REFUND_IN_PROGRESS",
+        "UNKNOWN_ERROR",
+        "COMPLETED",
+        "PARTIAL",
+        "REFUNDED"
+      ]
+    },
+    "suggested_state": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "SOURCE_PENDING",
+        "DESTINATION_PENDING",
+        "SETTLED",
+        "FAILED_DESTINATION",
+        "REFUND_PENDING",
+        "REFUNDED"
+      ]
+    },
+    "reason_code": {"$ref": "common.schema.json#/$defs/reasonCode"},
+    "transaction_id": {"type": ["string", "null"], "minLength": 1},
+    "source_tx": {"type": ["string", "null"], "pattern": "^0x[0-9a-f]{64}$"},
+    "destination_tx": {"type": ["string", "null"], "pattern": "^0x[0-9a-f]{64}$"}
+  }
+}

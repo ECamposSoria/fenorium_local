@@ -1,0 +1,354 @@
+{
+  "route_chains": {
+    "1": {"name": "Ethereum", "rpc_url": "https://ethereum-rpc.publicnode.com", "native": {"symbol": "ETH", "decimals": 18}},
+    "10": {"name": "OP Mainnet", "rpc_url": "https://optimism-rpc.publicnode.com", "native": {"symbol": "ETH", "decimals": 18}},
+    "56": {"name": "BNB Chain", "rpc_url": "https://bsc-rpc.publicnode.com", "native": {"symbol": "BNB", "decimals": 18}},
+    "8453": {"name": "Base", "rpc_url": "https://base-rpc.publicnode.com", "native": {"symbol": "ETH", "decimals": 18}},
+    "42161": {"name": "Arbitrum", "rpc_url": "https://arbitrum-one-rpc.publicnode.com", "native": {"symbol": "ETH", "decimals": 18}},
+    "100": {"name": "Gnosis", "rpc_url": "https://rpc.gnosischain.com", "native": {"symbol": "xDAI", "decimals": 18}, "explorer": "https://gnosis.blockscout.com", "tokens": [{"symbol": "USDC", "address": "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83", "decimals": 6}], "pay_only": true},
+    "130": {"name": "Unichain", "rpc_url": "https://mainnet.unichain.org", "native": {"symbol": "ETH", "decimals": 18}, "explorer": "https://unichain.blockscout.com", "tokens": [{"symbol": "USDC", "address": "0x078D782b760474a361dDA0AF3839290b0EF57AD6", "decimals": 6}], "pay_only": true},
+    "137": {"name": "Polygon", "rpc_url": "https://polygon-bor-rpc.publicnode.com", "native": {"symbol": "POL", "decimals": 18}, "explorer": "https://polygonscan.com", "tokens": [{"symbol": "USDC", "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359", "decimals": 6}], "pay_only": true},
+    "143": {"name": "Monad", "rpc_url": "https://rpc.monad.xyz", "native": {"symbol": "MON", "decimals": 18}, "explorer": "https://monadscan.com", "tokens": [{"symbol": "USDC", "address": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603", "decimals": 6}], "pay_only": true},
+    "146": {"name": "Sonic", "rpc_url": "https://rpc.soniclabs.com", "native": {"symbol": "S", "decimals": 18}, "explorer": "https://explorer.soniclabs.com", "tokens": [{"symbol": "USDC", "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894", "decimals": 6}], "pay_only": true},
+    "196": {"name": "XLayer", "rpc_url": "https://rpc.xlayer.tech", "native": {"symbol": "OKB", "decimals": 18}, "explorer": "https://www.oklink.com/xlayer", "tokens": [{"symbol": "USDC", "address": "0x74b7F16337b8972027F6196A17a631aC6dE26d22", "decimals": 6}], "pay_only": true},
+    "324": {"name": "zkSync", "rpc_url": "https://mainnet.era.zksync.io", "native": {"symbol": "ETH", "decimals": 18}, "explorer": "https://explorer.zksync.io", "tokens": [{"symbol": "USDC", "address": "0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4", "decimals": 6}], "pay_only": true},
+    "480": {"name": "World Chain", "rpc_url": "https://worldchain-mainnet.g.alchemy.com/public", "native": {"symbol": "ETH", "decimals": 18}, "explorer": "https://worldscan.org", "tokens": [{"symbol": "USDC", "address": "0x79A02482A880bCE3F13e09Da970dC34db4CD24d1", "decimals": 6}], "pay_only": true},
+    "999": {"name": "HyperEVM", "rpc_url": "https://rpc.hyperliquid.xyz/evm", "native": {"symbol": "HYPE", "decimals": 18}, "explorer": "https://hyperevmscan.io", "tokens": [{"symbol": "USDC", "address": "0xb88339CB7199b77E23DB6E890353E22632Ba630f", "decimals": 6}], "pay_only": true},
+    "1672": {"name": "Pharos", "rpc_url": "https://rpc.pharos.xyz", "native": {"symbol": "PROS", "decimals": 18}, "explorer": "https://www.pharosscan.xyz", "tokens": [{"symbol": "USDC", "address": "0xC879C018dB60520F4355C26eD1a6D572cdAC1815", "decimals": 6}], "pay_only": true},
+    "2818": {"name": "Morph", "rpc_url": "https://rpc.morph.network", "native": {"symbol": "ETH", "decimals": 18}, "explorer": "https://explorer.morph.network", "tokens": [{"symbol": "USDC", "address": "0xCfb1186F4e93D60E60a8bDd997427D1F33bc372B", "decimals": 6}], "pay_only": true},
+    "4326": {"name": "MegaETH", "rpc_url": "https://mainnet.megaeth.com/rpc", "native": {"symbol": "ETH", "decimals": 18}, "explorer": "https://mega.etherscan.io", "tokens": [{"symbol": "USDm", "address": "0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7", "decimals": 18}], "pay_only": true},
+    "5000": {"name": "Mantle", "rpc_url": "https://rpc.mantle.xyz", "native": {"symbol": "MNT", "decimals": 18}, "explorer": "https://explorer.mantle.xyz", "tokens": [{"symbol": "USDC", "address": "0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9", "decimals": 6}], "pay_only": true},
+    "5042": {"name": "Arc", "rpc_url": "https://rpc.drpc.mainnet.arc.io", "native": {"symbol": "USDC", "decimals": 18}, "explorer": "https://explorer.arc.io", "tokens": [{"symbol": "USDC", "address": "0x3600000000000000000000000000000000000000", "decimals": 6}], "pay_only": true, "offer_native": false},
+    "42220": {"name": "Celo", "rpc_url": "https://forno.celo.org", "native": {"symbol": "CELO", "decimals": 18}, "explorer": "https://celoscan.io", "tokens": [{"symbol": "USDC", "address": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C", "decimals": 6}], "pay_only": true},
+    "43114": {"name": "Avalanche", "rpc_url": "https://api.avax.network/ext/bc/C/rpc", "native": {"symbol": "AVAX", "decimals": 18}, "explorer": "https://snowtrace.io", "tokens": [{"symbol": "USDC", "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E", "decimals": 6}], "pay_only": true},
+    "57073": {"name": "Ink", "rpc_url": "https://rpc-gel.inkonchain.com", "native": {"symbol": "ETH", "decimals": 18}, "explorer": "https://explorer.inkonchain.com", "tokens": [{"symbol": "USDC", "address": "0x2D270e6886d130D724215A266106e6832161EAEd", "decimals": 6}], "pay_only": true},
+    "59144": {"name": "Linea", "rpc_url": "https://rpc.linea.build", "native": {"symbol": "ETH", "decimals": 18}, "explorer": "https://lineascan.build", "tokens": [{"symbol": "USDC", "address": "0x176211869cA2b568f2A7D4EE941E073a821EE1ff", "decimals": 6}], "pay_only": true},
+    "534352": {"name": "Scroll", "rpc_url": "https://rpc.scroll.io", "native": {"symbol": "ETH", "decimals": 18}, "explorer": "https://scrollscan.com", "tokens": [{"symbol": "USDC", "address": "0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "decimals": 6}], "pay_only": true}
+  },
+  "route_quotes": {
+    "enabled": true,
+    "fromAddress": "0x000000000000000000000000000000000000bEEF"
+  },
+  "note": "Mainnet instruments are purchased through a same-chain route the server fetches and checks for the connected wallet; the server must also have execution enabled. The two Base Sepolia demo instruments below are a separate testnet demo, and a demo fill says nothing about any mainnet instrument's price, liquidity or verdict.",
+  "execution_enabled": true,
+  "fees_enabled": true,
+  "deployment": {
+    "chain_id": 84532,
+    "chain_name": "Base Sepolia",
+    "chain_id_hex": "0x14a34",
+    "rpc_url": "https://sepolia.base.org",
+    "explorer_url": "https://sepolia.basescan.org",
+    "payment_token": {
+      "symbol": "mUSDC",
+      "name": "Mock USDC",
+      "address": "0xfECb2EfF5603b44daD440561cA3cD889F29239ac",
+      "decimals": 6,
+      "faucet_address": "0xfECb2EfF5603b44daD440561cA3cD889F29239ac",
+      "faucet_method": "mint(address,uint256)"
+    },
+    "sales": {
+      "mGT": {
+        "instrument_address": "0xe72A18aDF4Fdb9DF991ad4218B7199d324214f54",
+        "sale_address": "0x4c4b088C374363e70e3Fd4daDC6C71b3970f91Db",
+        "gated": true,
+        "quote_signature": "quote(uint256)",
+        "purchase_signature": "purchase(uint256,uint256)",
+        "sell_quote_signature": "sellQuote(uint256)",
+        "sell_signature": "sell(uint256,uint256)"
+      },
+      "mPT": {
+        "instrument_address": "0x5C8Ea45363e98e8647eE3759ac888E12817E86a3",
+        "sale_address": "0xfeCD071FCBcDfc27A2eA189E527A1E7EB90299E5",
+        "gated": false,
+        "quote_signature": "quote(uint256)",
+        "purchase_signature": "purchase(uint256,uint256)",
+        "sell_quote_signature": "sellQuote(uint256)",
+        "sell_signature": "sell(uint256,uint256)"
+      }
+    },
+    "declared": {
+      "0xe72a18adf4fdb9df991ad4218b7199d324214f54": {
+        "symbol": "mGT",
+        "rate_bps": 525
+      },
+      "0x5c8ea45363e98e8647ee3759ac888e12817e86a3": {
+        "symbol": "mPT",
+        "rate_bps": 475
+      },
+      "0x3e3cb7d30181e1df2db97fce867adcc5a0c08f1e": {
+        "symbol": "mFT",
+        "rate_bps": 440
+      },
+      "0xfd9c6631d34d23df4a3e27f9c760cea4cdefc906": {
+        "symbol": "mVY",
+        "rate_bps": 310
+      },
+      "0xfecb2eff5603b44dad440561ca3cd889f29239ac": {
+        "symbol": "mUSDC",
+        "unit_price_usd_fixed": "100000000"
+      }
+    }
+  },
+  "schema_uid": "0xc6c30d8537afcc25aca394ef6b70c65d8378ae3a9416a9944c2f75e6feb71823",
+  "instruments": [
+    {
+      "name": "BUIDL \u2014 BlackRock USD Institutional Digital Liquidity",
+      "address": "0x7712c34205737192402172409a8F7ccef8aA2AEc",
+      "chain": 1,
+      "decimals": 6,
+      "readonly": true,
+      "rate_bps": null,
+      "rate_kind": "not measured by Par",
+      "depth_usd": null
+    },
+    {
+      "name": "OUSG \u2014 Ondo Short-Term U.S. Government Bond Fund",
+      "address": "0x1B19C19393e2d034D8Ff31ff34c81252FcBbee92",
+      "chain": 1,
+      "decimals": 18,
+      "readonly": true,
+      "rate_bps": null,
+      "rate_kind": "not measured by Par",
+      "depth_usd": null
+    },
+    {
+      "name": "USDY \u2014 Ondo U.S. Dollar Yield",
+      "address": "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
+      "chain": 1,
+      "decimals": 18,
+      "readonly": true,
+      "rate_bps": null,
+      "rate_kind": "not measured by Par",
+      "depth_usd": null
+    },
+    {
+      "name": "bIB01 \u2014 Backed IB01 $ Treasury Bond 0-1yr",
+      "address": "0xCA30c93B02514f86d5C86a6e375E3A330B435Fb5",
+      "chain": 1,
+      "decimals": 18,
+      "readonly": true,
+      "rate_bps": null,
+      "rate_kind": "not measured by Par",
+      "depth_usd": null
+    },
+    {
+      "name": "mGT \u2014 Mock Gated Treasury (Par testnet)",
+      "address": "0xe72A18aDF4Fdb9DF991ad4218B7199d324214f54",
+      "chain": 84532,
+      "decimals": 6,
+      "readonly": false,
+      "rate_bps": null,
+      "rate_kind": "demo instrument \u2014 no rate is claimed",
+      "depth_usd": 10000000
+    },
+    {
+      "name": "mPT \u2014 Mock Permissionless Treasury (Par testnet)",
+      "address": "0x5C8Ea45363e98e8647eE3759ac888E12817E86a3",
+      "chain": 84532,
+      "decimals": 6,
+      "readonly": false,
+      "rate_bps": null,
+      "rate_kind": "demo instrument \u2014 no rate is claimed",
+      "depth_usd": 10000000
+    }
+  ],
+  "price_sources": {
+    "chains": {
+      "1": {
+        "feeds": {
+          "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
+            "address": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+            "expected_description": "ETH / USD",
+            "heartbeat_seconds": 3600
+          },
+          "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+            "address": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6",
+            "expected_description": "USDC / USD",
+            "heartbeat_seconds": 82800
+          },
+          "0xdac17f958d2ee523a2206206994597c13d831ec7": {
+            "address": "0x3E7d1eAB13ad0104d2750B8863b489D65364e32D",
+            "expected_description": "USDT / USD",
+            "heartbeat_seconds": 86400
+          },
+          "0x6b175474e89094c44da98b954eedeac495271d0f": {
+            "address": "0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9",
+            "expected_description": "DAI / USD",
+            "heartbeat_seconds": 3600
+          }
+        },
+        "uniswap_v3": [
+          {
+            "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+            "quote": {
+              "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+              "decimals": 6
+            },
+            "window_seconds": 1800,
+            "fee_tiers": [
+              100,
+              500,
+              3000,
+              10000
+            ],
+            "assets": [
+              "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+              "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "0x6b175474e89094c44da98b954eedeac495271d0f"
+            ],
+            "minimum_liquidity": "1000000"
+          },
+          {
+            "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+            "quote": {
+              "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+              "decimals": 18
+            },
+            "window_seconds": 1800,
+            "fee_tiers": [
+              100,
+              500,
+              3000
+            ],
+            "assets": [
+              "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+            ],
+            "minimum_liquidity": "1000000"
+          }
+        ]
+      },
+      "8453": {
+        "feeds": {
+          "0x4200000000000000000000000000000000000006": {
+            "address": "0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70",
+            "expected_description": "ETH / USD",
+            "heartbeat_seconds": 1200
+          },
+          "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+            "address": "0x7e860098F58bBFC8648a4311b374B1D669a2bc6B",
+            "expected_description": "USDC / USD",
+            "heartbeat_seconds": 86400
+          }
+        },
+        "uniswap_v3": [
+          {
+            "factory": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+            "quote": {
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+              "decimals": 6
+            },
+            "window_seconds": 1800,
+            "fee_tiers": [
+              500,
+              3000,
+              10000
+            ],
+            "assets": [
+              "0x4200000000000000000000000000000000000006"
+            ],
+            "minimum_liquidity": "1000000"
+          }
+        ]
+      },
+      "42161": {
+        "feeds": {
+          "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": {
+            "address": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+            "expected_description": "ETH / USD",
+            "heartbeat_seconds": 1755
+          },
+          "0xaf88d065e77c8cc2239327c5edb3a432268e5831": {
+            "address": "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3",
+            "expected_description": "USDC / USD",
+            "heartbeat_seconds": 255
+          }
+        },
+        "uniswap_v3": [
+          {
+            "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+            "quote": {
+              "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+              "decimals": 6
+            },
+            "window_seconds": 1800,
+            "fee_tiers": [
+              500,
+              3000,
+              10000
+            ],
+            "assets": [
+              "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+            ],
+            "minimum_liquidity": "1000000"
+          }
+        ]
+      },
+      "10": {
+        "feeds": {
+          "0x4200000000000000000000000000000000000006": {
+            "address": "0x13e3Ee699D1909E989722E753853AE30b17e08c5",
+            "expected_description": "ETH / USD",
+            "heartbeat_seconds": 1200
+          },
+          "0x0b2c639c533813f4aa9d7837caf62653d097ff85": {
+            "address": "0x16a9FA2FDa030272Ce99B29CF780dFA30361E0f3",
+            "expected_description": "USDC / USD",
+            "heartbeat_seconds": 86400
+          }
+        },
+        "uniswap_v3": [
+          {
+            "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+            "quote": {
+              "address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+              "decimals": 6
+            },
+            "window_seconds": 1800,
+            "fee_tiers": [
+              500,
+              3000,
+              10000
+            ],
+            "assets": [
+              "0x4200000000000000000000000000000000000006"
+            ],
+            "minimum_liquidity": "1000000"
+          }
+        ]
+      },
+      "56": {
+        "feeds": {
+          "0x2170ed0880ac9a755fd29b2688956bd959f933f8": {
+            "address": "0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e",
+            "expected_description": "ETH / USD",
+            "heartbeat_seconds": 60
+          },
+          "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": {
+            "address": "0x51597f405303C4377E36123cBc172b13269EA163",
+            "expected_description": "USDC / USD",
+            "heartbeat_seconds": 900
+          }
+        },
+        "uniswap_v3": [
+          {
+            "factory": "0xdB1d10011AD0Ff90774D0C6Bb92e5C5c8b4461F7",
+            "quote": {
+              "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+              "decimals": 18
+            },
+            "window_seconds": 1800,
+            "fee_tiers": [
+              500,
+              3000,
+              10000
+            ],
+            "assets": [
+              "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"
+            ],
+            "minimum_liquidity": "1000000"
+          }
+        ]
+      }
+    }
+  }
+}

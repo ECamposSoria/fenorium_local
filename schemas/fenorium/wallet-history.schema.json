@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/wallet-history.schema.json",
+  "title": "WalletHistory v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method_version",
+    "as_of",
+    "wallet",
+    "complete",
+    "events",
+    "scanned_chains",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fenorium/wallet-history/v1"
+    },
+    "method_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "as_of": {
+      "$ref": "common.schema.json#/$defs/utcTimestamp"
+    },
+    "wallet": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identity",
+          "chain_id",
+          "token",
+          "symbol",
+          "decimals",
+          "counterparty",
+          "direction",
+          "raw_amount",
+          "block_number",
+          "transaction_hash",
+          "log_index",
+          "occurred_at",
+          "registered_identity",
+          "verified",
+          "valued"
+        ],
+        "properties": {
+          "identity": {
+            "type": "string"
+          },
+          "chain_id": {
+            "type": "integer"
+          },
+          "token": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{40}$"
+          },
+          "symbol": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "decimals": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "counterparty": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{40}$"
+          },
+          "direction": {
+            "enum": [
+              "IN",
+              "OUT",
+              "SELF"
+            ]
+          },
+          "raw_amount": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "block_number": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "transaction_hash": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{64}$"
+          },
+          "log_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "occurred_at": {
+            "$ref": "common.schema.json#/$defs/utcTimestamp"
+          },
+          "registered_identity": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "valued": {
+            "const": false
+          }
+        }
+      }
+    },
+    "scanned_chains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "chain_id",
+          "event_count",
+          "verified_count",
+          "complete"
+        ],
+        "properties": {
+          "chain_id": {
+            "type": "integer"
+          },
+          "event_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "verified_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "complete": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "chain_id",
+          "identity",
+          "reason_code",
+          "detail"
+        ],
+        "properties": {
+          "chain_id": {
+            "type": "integer"
+          },
+          "identity": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason_code": {
+            "$ref": "common.schema.json#/$defs/reasonCode"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

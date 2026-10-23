@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fenorium.com/schemas/metric-result.schema.json",
+  "title": "MetricResult v1",
+  "$ref": "common.schema.json#/$defs/metricResult"
+}

@@ -1,0 +1,890 @@
+[
+  {
+    "address": "0x079121644a9d78fe546fd67cd08116a8814300e8",
+    "name": "Principal Token: sw-WUSDN(USDN) 2027/01/12",
+    "symbol": "PT-sw-WUSDN(USDN)-2027/01/12",
+    "decimals": 18,
+    "chainId": 1,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 45385.52580425427,
+      "underlying": 55980.21692837057,
+      "usd": 56120.39961505238
+    },
+    "yt": {
+      "address": "0x060f447C38A160BFB1673B47f50b10d709A4EDcE",
+      "decimals": 18,
+      "chainId": 1
+    },
+    "ibt": {
+      "address": "0x06a491e3efee37eb191d0434f54be6e42509f9d3",
+      "name": "Spectra ERC4626 Wrapper: Wrapped Ultimate Synthetic Delta Neutral",
+      "symbol": "sw-WUSDN",
+      "decimals": 18,
+      "chainId": 1,
+      "rate": "1233437664021140353",
+      "spotRate": "1233437664021140353",
+      "apr": {
+        "total": 149.77677169693712,
+        "details": {
+          "base": 149.77677169693712
+        }
+      },
+      "price": {
+        "underlying": 1.2334376640211404,
+        "usd": 1.236526373123827
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0x99999999999999cc837c997b882957dafdcb1af9.svg",
+      "protocol": "SMARDEX"
+    },
+    "baseIbt": {
+      "address": "0x99999999999999Cc837C997B882957daFdCb1Af9",
+      "name": "Wrapped Ultimate Synthetic Delta Neutral",
+      "symbol": "WUSDN",
+      "decimals": 18,
+      "chainId": 1,
+      "price": {
+        "usd": 1.236526373123827
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0x99999999999999cc837c997b882957dafdcb1af9.svg"
+    },
+    "underlying": {
+      "address": "0xde17a000ba631c5d7c2bd9fb692efea52d90dee2",
+      "name": "Ultimate Synthetic Delta Neutral",
+      "symbol": "USDN",
+      "decimals": 18,
+      "chainId": 1,
+      "price": {
+        "usd": 1.0025041468999876
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xde17a000ba631c5d7c2bd9fb692efea52d90dee2.svg"
+    },
+    "maturity": 1799712017,
+    "createdAt": 1768182347,
+    "pools": [
+      {
+        "address": "0xd0aad31c66b459a37f306c19c11c7a9b0654c1fa",
+        "chainId": 1,
+        "lpt": {
+          "address": "0xd0aad31c66b459a37f306c19c11c7a9b0654c1fa",
+          "decimals": 18,
+          "chainId": 1,
+          "supply": "2308640543028261461398",
+          "price": {
+            "underlying": 1.0611666709301601,
+            "usd": 1.0638239881595402
+          }
+        },
+        "liquidity": {
+          "underlying": 2449.8523994196976,
+          "usd": 2455.9871897111316
+        },
+        "ptApy": 20.67899132316495,
+        "ytLeverage": 13.108550259194013,
+        "impliedApy": 21.368288267143875,
+        "lpApy": {
+          "total": 45.980970914968836,
+          "details": {
+            "fees": 0,
+            "pt": 16.626098896022125,
+            "ibt": 29.35487201894671
+          }
+        },
+        "ibtToPt": "1329260827527220225",
+        "ptToIbt": "748893876330518121",
+        "spotPrice": "750594209111683387",
+        "ptPrice": {
+          "underlying": 0.9258111679145101,
+          "usd": 0.9281295350806171
+        },
+        "ytPrice": {
+          "underlying": 0.0741888320854899,
+          "usd": 0.07437461181937048
+        },
+        "ibtAmount": "389276726355812058767",
+        "ptAmount": "2081176581474768549575",
+        "feeRate": "18444110",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "22641862",
+        "ptToIbtFee": "22641862",
+        "lastPrices": "767316949834038500",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "maturityValue": {
+      "underlying": 0.8107422281397599,
+      "usd": 1.0025041468999876
+    },
+    "tags": [
+      "stable"
+    ]
+  },
+  {
+    "address": "0x0c70be04fdb5f4df8c5ff3573624cb76676cfdc4",
+    "name": "Principal Token: sUSG(USG) 2026/09/01",
+    "symbol": "PT-sUSG(USG)-2026/09/01",
+    "decimals": 18,
+    "chainId": 1,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 0.027414845721470953,
+      "underlying": 0.028366476564948513,
+      "usd": 0.028236057479061983
+    },
+    "yt": {
+      "address": "0xfb4e59541e308ee1E61f608892245e5da607FA14",
+      "decimals": 18,
+      "chainId": 1
+    },
+    "ibt": {
+      "address": "0xf17d6f98a5c6eaa99d149079984119e0a4ef6900",
+      "name": "Savings USG",
+      "symbol": "sUSG",
+      "decimals": 18,
+      "chainId": 1,
+      "rate": "1034712245078667512",
+      "spotRate": "1034712245078667512",
+      "apr": {
+        "total": 9.722427290228563,
+        "details": {
+          "base": 9.722427290228563
+        }
+      },
+      "price": {
+        "underlying": 1.0347122450786674,
+        "usd": 1.0299550019698949
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xf17d6f98a5c6eaa99d149079984119e0a4ef6900.png"
+    },
+    "underlying": {
+      "address": "0xb1c2db5d6ca03fce73dbd304d320bf76c55ae1b1",
+      "name": "Tangent USD",
+      "symbol": "USG",
+      "decimals": 18,
+      "chainId": 1,
+      "price": {
+        "usd": 0.9954023515896336
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xb1c2db5d6ca03fce73dbd304d320bf76c55ae1b1.svg"
+    },
+    "maturity": 1788220825,
+    "createdAt": 1781099111,
+    "pools": [
+      {
+        "address": "0x16fda3e759c5ff8d34198abf453a7f8f043515d5",
+        "chainId": 1,
+        "lpt": {
+          "address": "0x16fda3e759c5ff8d34198abf453a7f8f043515d5",
+          "decimals": 18,
+          "chainId": 1,
+          "supply": "53555489002248825",
+          "price": {
+            "underlying": 1.022613434199231,
+            "usd": 1.0179118171690655
+          }
+        },
+        "liquidity": {
+          "underlying": 0.054766562528808814,
+          "usd": 0.05451476512965701
+        },
+        "ptApy": 16.680913140056,
+        "ytLeverage": 141.6346921173688,
+        "impliedApy": 20.007556871030374,
+        "lpApy": {
+          "total": 13.181209264403574,
+          "details": {
+            "fees": 0,
+            "pt": 8.29140748817296,
+            "ibt": 4.889801776230614
+          }
+        },
+        "ibtToPt": "1040099414671597872",
+        "ptToIbt": "959628715749750277",
+        "spotPrice": "960537205829967468",
+        "ptPrice": {
+          "underlying": 0.9938796087259159,
+          "usd": 0.9893100997227616
+        },
+        "ytPrice": {
+          "underlying": 0.0061203912740842,
+          "usd": 0.006092251866872086
+        },
+        "ibtAmount": "26620269276872394",
+        "ptAmount": "27739199099049799",
+        "feeRate": "9457923",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "9457923",
+        "ptToIbtFee": "9457923",
+        "lastPrices": "948441207992280375",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "maturityValue": {
+      "underlying": 0.9664522718816105,
+      "usd": 0.9954023515896335
+    }
+  },
+  {
+    "address": "0x17c8b7a23ddfe64c7cd0b3594dbed67c8c2e6eb5",
+    "name": "Principal Token: ynRWAx(USDC) 2026/10/15",
+    "symbol": "PT-ynRWAx(USDC)-2026/10/15",
+    "decimals": 18,
+    "chainId": 1,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 79667.28073120516,
+      "underlying": 87193.448741,
+      "usd": 87171.72167986192
+    },
+    "yt": {
+      "address": "0x1D4311F2412Cf1d5eAf901Cc994ff7cB658A3113",
+      "decimals": 18,
+      "chainId": 1
+    },
+    "ibt": {
+      "address": "0x01ba69727e2860b37bc1a2bd56999c1afb4c15d8",
+      "name": "YieldNest RWA MAX",
+      "symbol": "ynRWAx",
+      "decimals": 18,
+      "chainId": 1,
+      "rate": "1093376",
+      "spotRate": "1094470",
+      "apr": {
+        "total": 12.222837273455834,
+        "details": {
+          "base": 12.222837273455834
+        }
+      },
+      "price": {
+        "underlying": 1.09447,
+        "usd": 1.0941972774853255
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0x01ba69727e2860b37bc1a2bd56999c1afb4c15d8.svg",
+      "protocol": "YieldNest"
+    },
+    "underlying": {
+      "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "name": "USD Coin",
+      "symbol": "USDC",
+      "decimals": 6,
+      "chainId": 1,
+      "price": {
+        "usd": 0.9997508177339949
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.svg"
+    },
+    "maturity": 1792022416,
+    "createdAt": 1760611643,
+    "pools": [
+      {
+        "address": "0x8ee494461b402abf3b26cbcb87030847fcbf6183",
+        "chainId": 1,
+        "lpt": {
+          "address": "0x8ee494461b402abf3b26cbcb87030847fcbf6183",
+          "decimals": 18,
+          "chainId": 1,
+          "supply": "97049864601847156899128",
+          "price": {
+            "underlying": 1.0933016759548533,
+            "usd": 1.0930292445658116
+          }
+        },
+        "liquidity": {
+          "underlying": 106104.7796203911,
+          "usd": 106078.34019097131
+        },
+        "ptApy": 10.928289183335572,
+        "ytLeverage": 58.40439201027918,
+        "impliedApy": 11.388136527774705,
+        "lpApy": {
+          "total": 11.498695719248293,
+          "details": {
+            "fees": 1.0153891061293052e-06,
+            "pt": 6.113051705773794,
+            "ibt": 5.385642998085393
+          }
+        },
+        "ibtToPt": "1111003532804071543",
+        "ptToIbt": "898939467781282145",
+        "spotPrice": "899513127151434569",
+        "ptPrice": {
+          "underlying": 0.983506,
+          "usd": 0.9832609277462904
+        },
+        "ytPrice": {
+          "underlying": 0.016494,
+          "usd": 0.016489889987704513
+        },
+        "ibtAmount": "42716594057449017336613",
+        "ptAmount": "60256190688799644539555",
+        "feeRate": "6332197",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "6377171",
+        "ptToIbtFee": "6377171",
+        "lastPrices": "899985067179245665",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "maturityValue": {
+      "underlying": 0.914598454694451,
+      "usd": 1.000751139118954
+    },
+    "tags": [
+      "stable"
+    ]
+  },
+  {
+    "address": "0x316f61a5b02118b37230814e008b547de671e505",
+    "name": "Principal Token: sUSG(USG) 2026/09/25",
+    "symbol": "PT-sUSG(USG)-2026/09/25",
+    "decimals": 18,
+    "chainId": 1,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 6211.385022471764,
+      "underlying": 6426.996141649769,
+      "usd": 6397.447073055682
+    },
+    "yt": {
+      "address": "0x807F99d44b25edBBB163047119a2E6a1A3b0af3A",
+      "decimals": 18,
+      "chainId": 1
+    },
+    "ibt": {
+      "address": "0xf17d6f98a5c6eaa99d149079984119e0a4ef6900",
+      "name": "Savings USG",
+      "symbol": "sUSG",
+      "decimals": 18,
+      "chainId": 1,
+      "rate": "1034712245078667512",
+      "spotRate": "1034712245078667512",
+      "apr": {
+        "total": 9.722427290228563,
+        "details": {
+          "base": 9.722427290228563
+        }
+      },
+      "price": {
+        "underlying": 1.0347122450786674,
+        "usd": 1.0299550019698949
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xf17d6f98a5c6eaa99d149079984119e0a4ef6900.png"
+    },
+    "underlying": {
+      "address": "0xb1c2db5d6ca03fce73dbd304d320bf76c55ae1b1",
+      "name": "Tangent USD",
+      "symbol": "USG",
+      "decimals": 18,
+      "chainId": 1,
+      "price": {
+        "usd": 0.9954023515896336
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xb1c2db5d6ca03fce73dbd304d320bf76c55ae1b1.svg"
+    },
+    "maturity": 1790294601,
+    "createdAt": 1781791139,
+    "pools": [
+      {
+        "address": "0x57a769a84509f5bfc872f8a475d2d3cf66e5ee6b",
+        "chainId": 1,
+        "lpt": {
+          "address": "0x57a769a84509f5bfc872f8a475d2d3cf66e5ee6b",
+          "decimals": 18,
+          "chainId": 1,
+          "supply": "9944614206065938298532",
+          "price": {
+            "underlying": 1.0213007069871736,
+            "usd": 1.016605125415188
+          }
+        },
+        "liquidity": {
+          "underlying": 10156.441519369833,
+          "usd": 10109.745772163324
+        },
+        "ptApy": 15.571959050607598,
+        "ytLeverage": 64.53931684134305,
+        "impliedApy": 16.287552085280275,
+        "lpApy": {
+          "total": 13.387122947287581,
+          "details": {
+            "fees": 0.08467080573022479,
+            "pt": 9.53033553260632,
+            "ibt": 3.7721166089510354
+          }
+        },
+        "ibtToPt": "1049707658036162129",
+        "ptToIbt": "951477643714141087",
+        "spotPrice": "952061744099879370",
+        "ptPrice": {
+          "underlying": 0.985109944691098,
+          "usd": 0.9805807555198529
+        },
+        "ytPrice": {
+          "underlying": 0.014890055308901985,
+          "usd": 0.014821596069780745
+        },
+        "ibtAmount": "3808310843988978411685",
+        "ptAmount": "6311386395050042587474",
+        "feeRate": "5979900",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "6134737",
+        "ptToIbtFee": "6134737",
+        "lastPrices": "951836056393292663",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "multipliers": {
+      "yt": [
+        {
+          "name": "15 Tangent Points/day per YT unit"
+        }
+      ],
+      "lp": [
+        {
+          "name": "15 Tangent Points/day per $"
+        }
+      ]
+    },
+    "maturityValue": {
+      "underlying": 0.9664522718816105,
+      "usd": 0.9954023515896335
+    }
+  },
+  {
+    "address": "0x3af4b295a730408568fa8d7af70cb6c282ffb698",
+    "name": "Principal Token: sw-fusnstETH(stETH) 2026/11/01",
+    "symbol": "PT-sw-fusnstETH(stETH)-2026/11/01",
+    "decimals": 18,
+    "chainId": 1,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 0.03718502895266366,
+      "underlying": 0.04003094257028271,
+      "usd": 83.49978990084121
+    },
+    "yt": {
+      "address": "0xdCC21c32eD31FC7f8b29b46C7C6a131032E32D69",
+      "decimals": 18,
+      "chainId": 1
+    },
+    "ibt": {
+      "address": "0xfa9d4a1bdd5d98081e9465ecff6ed0c57f42a3d5",
+      "name": "Spectra ERC4626 Wrapper: Fusion stETH looping Ethereum",
+      "symbol": "sw-fusnstETH",
+      "decimals": 18,
+      "chainId": 1,
+      "rate": "1073627085286738130",
+      "spotRate": "1076533855096412194",
+      "apr": {
+        "total": 3.797197387565432,
+        "details": {
+          "base": 3.797197387565432
+        }
+      },
+      "price": {
+        "underlying": 1.076533855096412,
+        "usd": 2245.5217127069063
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xb8a451107a9f87fde481d4d686247d6e43ed715e.svg",
+      "protocol": "Fusion"
+    },
+    "baseIbt": {
+      "address": "0xB8a451107A9f87FDe481D4D686247D6e43Ed715e",
+      "name": "Fusion stETH looping Ethereum",
+      "symbol": "fusnstETH",
+      "decimals": 20,
+      "chainId": 1,
+      "price": {
+        "usd": 2245.5217127069063
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xb8a451107a9f87fde481d4d686247d6e43ed715e.svg"
+    },
+    "underlying": {
+      "address": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+      "name": "Liquid staked Ether 2.0",
+      "symbol": "stETH",
+      "decimals": 18,
+      "chainId": 1,
+      "price": {
+        "usd": 2085.881184392294
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xae7ab96520de3a18e5e111b5eaab095312d7fe84.svg"
+    },
+    "maturity": 1793491218,
+    "createdAt": 1777628507,
+    "pools": [
+      {
+        "address": "0x3e37bb4b71a33136c288c75096d71f5e20e97f7e",
+        "chainId": 1,
+        "lpt": {
+          "address": "0x3e37bb4b71a33136c288c75096d71f5e20e97f7e",
+          "decimals": 18,
+          "chainId": 1,
+          "supply": "78528137198866163",
+          "price": {
+            "underlying": 1.0158087915401428,
+            "usd": 2118.8564452138576
+          }
+        },
+        "liquidity": {
+          "underlying": 0.07976957214987876,
+          "usd": 166.38984963445566
+        },
+        "ptApy": 4.6290352498210785,
+        "ytLeverage": 97.71755323191887,
+        "impliedApy": 4.942334609380694,
+        "lpApy": {
+          "total": 4.204520401041096,
+          "details": {
+            "fees": 0,
+            "pt": 2.2666828152416145,
+            "ibt": 1.9378375857994814
+          }
+        },
+        "ibtToPt": "1083426133098289138",
+        "ptToIbt": "921890326390887640",
+        "spotPrice": "922443925305441843",
+        "ptPrice": {
+          "underlying": 0.9903607828661392,
+          "usd": 2065.774922740502
+        },
+        "ytPrice": {
+          "underlying": 0.009639217133860895,
+          "usd": 20.106261651792256
+        },
+        "ibtAmount": "37814971047336331",
+        "ptAmount": "38754493167527351",
+        "feeRate": "5998871",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "6001247",
+        "ptToIbtFee": "6001247",
+        "lastPrices": "936241252666091403",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "maturityValue": {
+      "underlying": 0.9314221052209444,
+      "usd": 2091.528560968807
+    }
+  },
+  {
+    "address": "0xadc8a6dfb57ff6124ca0750384154aaa655fc137",
+    "name": "Principal Token: wmooStakeDao_pmUSD-frxUSD(pmfrxUSD) 2026/08/26",
+    "symbol": "PT-wmooStakeDao_pmUSD-frxUSD(pmfrxUSD)-2026/08/26",
+    "decimals": 18,
+    "chainId": 1,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 51.37960386221186,
+      "underlying": 57.28884033517761,
+      "usd": 35.501185631061254
+    },
+    "yt": {
+      "address": "0xB3C3D149B5FF98B7f74b24dE4bB3286119467BBa",
+      "decimals": 18,
+      "chainId": 1
+    },
+    "ibt": {
+      "address": "0xcce0c3e32edac5be866789af14c709718943872d",
+      "name": "WMoo StakeDao pmUSD-frxUSD",
+      "symbol": "wmooStakeDao_pmUSD-frxUSD",
+      "decimals": 18,
+      "chainId": 1,
+      "rate": "1115011328012822886",
+      "spotRate": "1115011328012822886",
+      "apr": {
+        "total": 15.335549525097614,
+        "details": {
+          "base": 15.335549525097614
+        }
+      },
+      "price": {
+        "underlying": 1.1150113280128229,
+        "usd": 0.6909587260786824
+      }
+    },
+    "underlying": {
+      "address": "0xbf5047039f2980c21eb5692c790bad8a9533b900",
+      "name": "pmUSD/frxUSD",
+      "symbol": "pmfrxUSD",
+      "decimals": 18,
+      "chainId": 1,
+      "price": {
+        "usd": 0.6196876289231172
+      }
+    },
+    "maturity": 1787702408,
+    "createdAt": 1772122859,
+    "pools": [
+      {
+        "address": "0x27f769cb054f143a7bc544ce5dd43d1e64a6f5a5",
+        "chainId": 1,
+        "lpt": {
+          "address": "0x27f769cb054f143a7bc544ce5dd43d1e64a6f5a5",
+          "decimals": 18,
+          "chainId": 1,
+          "supply": "98549937042993667593",
+          "price": {
+            "underlying": 1.0857754628343732,
+            "usd": 0.6728416221067328
+          }
+        },
+        "liquidity": {
+          "underlying": 107.00310350515478,
+          "usd": 66.30849949852426
+        },
+        "ptApy": 4.8259629495902345,
+        "ytLeverage": 217.63614196214994,
+        "impliedApy": 17.031648274143564,
+        "lpApy": {
+          "total": 10.150563474861976,
+          "details": {
+            "fees": 0,
+            "pt": 2.3809262517418643,
+            "ibt": 7.769637223120111
+          }
+        },
+        "ibtToPt": "1115916736366936483",
+        "ptToIbt": "892730997369907251",
+        "spotPrice": "894425992101418792",
+        "ptPrice": {
+          "underlying": 0.9972951132621896,
+          "usd": 0.618011444074058
+        },
+        "ytPrice": {
+          "underlying": 0.0027048867378104,
+          "usd": 0.0016761848490593123
+        },
+        "ibtAmount": "48620396137788140259",
+        "ptAmount": "52763086161158367094",
+        "feeRate": "18948054",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "18950177",
+        "ptToIbtFee": "18950177",
+        "lastPrices": "897323134402486453",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "maturityValue": {
+      "underlying": 0.8968518748434633,
+      "usd": 0.6196876289231172
+    }
+  },
+  {
+    "address": "0xae27f0e72475f6b3af3b92ddc78da36acf994d7e",
+    "name": "Principal Token: ESPN(USDS) 2026/12/08",
+    "symbol": "PT-ESPN(USDS)-2026/12/08",
+    "decimals": 18,
+    "chainId": 1,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 1.8325387845385688,
+      "underlying": 204.2727637353594,
+      "usd": 204.27943908551046
+    },
+    "yt": {
+      "address": "0xefAa6014bBdc9cCb5568fB918bA73816A94fDC8c",
+      "decimals": 18,
+      "chainId": 1
+    },
+    "ibt": {
+      "address": "0xb250c9e0f7be4cff13f94374c993ac445a1385fe",
+      "name": "ETH Strategy Perpetual Note",
+      "symbol": "ESPN",
+      "decimals": 18,
+      "chainId": 1,
+      "rate": "111469817424243522517",
+      "spotRate": "111469817424243522517",
+      "apr": {
+        "total": 2.4483577671088996,
+        "details": {
+          "base": 2.4483577671088996
+        }
+      },
+      "price": {
+        "underlying": 111.46981742424352,
+        "usd": 111.47346010302738
+      }
+    },
+    "underlying": {
+      "address": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+      "name": "USDS Stablecoin",
+      "symbol": "USDS",
+      "decimals": 18,
+      "chainId": 1,
+      "price": {
+        "usd": 1.0000326786108387
+      }
+    },
+    "maturity": 1796688023,
+    "createdAt": 1765161611,
+    "pools": [
+      {
+        "address": "0x1618f07908d5c9875478d74e26127b763e7be271",
+        "chainId": 1,
+        "lpt": {
+          "address": "0x1618f07908d5c9875478d74e26127b763e7be271",
+          "decimals": 18,
+          "chainId": 1,
+          "supply": "494763945363473097744",
+          "price": {
+            "underlying": 1.078457910360656,
+            "usd": 1.0784931528670143
+          }
+        },
+        "liquidity": {
+          "underlying": 533.5820906384849,
+          "usd": 533.5995273599754
+        },
+        "ptApy": 5.0340829815148425,
+        "ytLeverage": 46.62683757540353,
+        "impliedApy": 6.22980273937328,
+        "lpApy": {
+          "total": 2.9037353238827945,
+          "details": {
+            "fees": 0,
+            "pt": 0.8865630407854233,
+            "ibt": 2.0171722830973713
+          }
+        },
+        "ibtToPt": "113136387095195556911",
+        "ptToIbt": "8778637542359872",
+        "spotPrice": "8808709091691113",
+        "ptPrice": {
+          "underlying": 0.9819051941940824,
+          "usd": 0.9819372814918039
+        },
+        "ytPrice": {
+          "underlying": 0.018094805805917616,
+          "usd": 0.01809539711903475
+        },
+        "ibtAmount": "3943774432101704053",
+        "ptAmount": "96453298662389398716",
+        "feeRate": "26922341",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "34136813",
+        "ptToIbtFee": "34136813",
+        "lastPrices": "8740094368637974",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "maturityValue": {
+      "underlying": 0.008971038287378682,
+      "usd": 1.0000326786108384
+    }
+  },
+  {
+    "address": "0xded720ef5558a1607c4fe39299cd2a95e88a0b4b",
+    "name": "Principal Token: STAK(yn-RWA/USD) 2026/10/15",
+    "symbol": "PT-STAK(yn-RWA/USD)-2026/10/15",
+    "decimals": 18,
+    "chainId": 1,
+    "rate": "1000000000000000000000000000",
+    "tvl": {
+      "ibt": 185240.36813238545,
+      "underlying": 196550.64679737447,
+      "usd": 205576.03807449294
+    },
+    "yt": {
+      "address": "0x72C5ad070b5dE94Cd07Fc965bdBBf1DcfF192556",
+      "decimals": 18,
+      "chainId": 1
+    },
+    "ibt": {
+      "address": "0xd1573de52fff44dd92d275e20fdab0296ccff141",
+      "name": "STAK",
+      "symbol": "STAK",
+      "decimals": 18,
+      "chainId": 1,
+      "rate": "1059997313137174169",
+      "spotRate": "1061057310450311344",
+      "apr": {
+        "total": 0.3081074353538993,
+        "details": {
+          "base": 0.3081074353538993
+        }
+      },
+      "price": {
+        "underlying": 1.0610573104503114,
+        "usd": 1.109779904602512
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xd1573de52fff44dd92d275e20fdab0296ccff141.svg",
+      "protocol": "YieldNest"
+    },
+    "underlying": {
+      "address": "0xffd3b4d343a8964a5c3c1caac20f319c41a97bff",
+      "name": "ynRWAx/ynUSDx",
+      "symbol": "yn-RWA/USD",
+      "decimals": 18,
+      "chainId": 1,
+      "price": {
+        "usd": 1.0459189090658287
+      },
+      "logoURI": "https://tokens.spectra.finance/images/tokens/1/0xffd3b4d343a8964a5c3c1caac20f319c41a97bff.svg"
+    },
+    "maturity": 1792022423,
+    "createdAt": 1767879167,
+    "pools": [
+      {
+        "address": "0x09b1d5860e50a67ce46788813892f7028caa64ae",
+        "chainId": 1,
+        "lpt": {
+          "address": "0x09b1d5860e50a67ce46788813892f7028caa64ae",
+          "decimals": 18,
+          "chainId": 1,
+          "supply": "172775731855882077950075",
+          "price": {
+            "underlying": 1.0475785562889839,
+            "usd": 1.0956822207545298
+          }
+        },
+        "liquidity": {
+          "underlying": 180996.15173935753,
+          "usd": 189307.29757234204
+        },
+        "ptApy": 13.54494700747395,
+        "ytLeverage": 45.63315714874855,
+        "impliedApy": 14.494469232405383,
+        "lpApy": {
+          "total": 10.9079963098692,
+          "details": {
+            "fees": 0.10554924590540082,
+            "pt": 10.73861123521863,
+            "ibt": 0.06383582874516865
+          }
+        },
+        "ibtToPt": "1080966204972543559",
+        "ptToIbt": "922725083897500931",
+        "spotPrice": "923911042461809855",
+        "ptPrice": {
+          "underlying": 0.9793432225872841,
+          "usd": 1.0243135949695052
+        },
+        "ytPrice": {
+          "underlying": 0.02065677741271592,
+          "usd": 0.021605314096323488
+        },
+        "ibtAmount": "35342138238186685102933",
+        "ptAmount": "146526542236573232823814",
+        "feeRate": "10611207",
+        "outFee": "0",
+        "midFee": "0",
+        "ibtToPtFee": "12833059",
+        "ptToIbtFee": "12833059",
+        "lastPrices": "922964523168091678",
+        "type": "CURVE_SNG"
+      }
+    ],
+    "maturityValue": {
+      "underlying": 0.9433986177195055,
+      "usd": 1.0469648279748944
+    }
+  }
+]
