@@ -1,8 +1,8 @@
 # Fenorium local
 
-The Fenorium fixed-income terminal, running entirely on your own machine: a local blockchain, the
-same smart contracts that are deployed on the Base Sepolia testnet, the platform that rates and
-serves them, and the terminal page. Nothing here talks to a public network.
+The Fenorium fixed-income terminal on your own machine: a local blockchain, the contracts deployed on
+the Base Sepolia testnet, the platform that rates them, and the terminal page. Nothing here talks to
+a public network.
 
 Fenorium exists in three places:
 
@@ -14,15 +14,12 @@ Fenorium exists in three places:
 
 ## What you need
 
-- Docker with Compose v2 (Docker Desktop on macOS or Windows, Docker Engine on Linux).
-- `make` (ships with macOS and Linux; on Windows use WSL).
-- A browser wallet such as MetaMask, for buying and selling.
-- About 3 GB of disk for the images and 2 GB of free memory while it runs. The optional chat
-  assistant needs about 2 GB more disk (its image and the default model) and about 2.5 GB of
-  memory while it answers.
-
-The first `make up` downloads the images (Foundry, Python) and compiles the contracts; later runs
-reuse them.
+- Docker with Compose v2: Docker Desktop on macOS or Windows, Docker Engine on Linux.
+- `make`: included on macOS and Linux; on Windows, use WSL.
+- A browser wallet such as MetaMask, to buy and sell.
+- 3 GB of disk and 2 GB of free memory for the stack.
+- For the optional [chat](#chat-optional): about 2 GB more disk and 2.5 GB more memory with the
+  default model, or an NVIDIA graphics card for the larger models.
 
 ## Start it
 
@@ -32,143 +29,112 @@ cd fenorium_local
 make up
 ```
 
-`make up` does, in order:
+The first run downloads the images and compiles the contracts. `make up` then:
 
-1. starts **Anvil**, Foundry's local Ethereum node, presenting as Base Sepolia (chain id 84532)
-   with two-second blocks;
+1. starts Anvil, Foundry's local node, as Base Sepolia (chain id 84532, two-second blocks);
 2. places the Ethereum Attestation Service at its Base Sepolia addresses and registers the demo
-   credential schema (the same schema UID as on the testnet, because the UID is the hash of the
-   schema definition);
-3. deploys, from source, in the order they were deployed on Base Sepolia: the gated and
-   permissionless treasury mocks (mGT, mPT), the fixed-term and variable-yield mocks (mFT, mVY),
-   the mock USDC with its faucet and the two sales, the two desks that buy instruments back, then
-   the 132 catalog instruments with their desks; the addresses are the same on every machine
-   because the deployer is Anvil's first development account starting from nonce zero;
-4. issues the demo credential to the development accounts, so the gated instruments can be bought;
-5. regenerates every data file from that deployment and the chain (manifests, the page's catalog
-   and simulated portfolios, the universe the platform serves, rated at every size);
-6. starts the platform and serves the terminal.
+   credential schema;
+3. deploys every contract from source in the testnet's order: the mGT, mPT, mFT and mVY mocks, the
+   mock USDC with its faucet and sales, the buy-back desks, and the 132 catalog instruments, at the
+   same addresses on every machine;
+4. gives the demo credential to development accounts #0, #1 and #2;
+5. rebuilds every data file from the chain and rates every instrument at every size;
+6. starts the platform and prints the terminal's URL.
 
-When it finishes it prints the URL. `make status` shows the deployed addresses, `make logs`
-follows the platform, `make down` stops everything but keeps the chain, `make reset` wipes the
-chain so the next `make up` deploys again. After a reset, MetaMask still remembers the old chain's
-transaction count for each account: open the account's Settings → Advanced → "Clear activity tab
-data" before sending again, or the first transaction fails with a nonce error. The terminal itself
-notices the reset (it reads the chain, not its own memory of it) and rereads the wallet's history.
+| Command | What it does |
+| --- | --- |
+| `make status` | lists the deployed addresses |
+| `make logs` | follows the platform's log |
+| `make down` | stops everything and keeps the chain |
+| `make reset` | wipes the chain, so the next `make up` deploys again |
+
+After `make reset`, clear MetaMask's history for each account (Settings → Advanced → Clear activity
+tab data), or its first transaction fails with a nonce error.
 
 ## Use it with a wallet
 
-The chain runs at `http://127.0.0.1:8545` with chain id **84532**. MetaMask already knows that
-chain id as "Base Sepolia" and will not add a second network with it, so edit that network:
-Settings → Networks → Base Sepolia → RPC URL `http://127.0.0.1:8545`. Switch it back when you are
-done with the local stack.
+The chain runs at `http://127.0.0.1:8545` with chain id **84532**. MetaMask treats that id as Base
+Sepolia and will not add a second network with it, so edit the existing one: Settings → Networks →
+Base Sepolia → RPC URL `http://127.0.0.1:8545`. Change it back when you are done.
 
-Import one of Anvil's development accounts. They are published by Foundry, exist on every Anvil
-chain with 10,000 ETH, and must never be used on a real network:
+Import one of Anvil's development accounts. Foundry publishes them, they hold 10,000 ETH on every
+Anvil chain, and they must never be used on a real network:
 
 | Account | Address | Private key |
 | --- | --- | --- |
 | #1 | 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 | 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d |
 | #2 | 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC | 0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a |
 
-Accounts #0, #1 and #2 hold the demo credential, so they can buy the gated instruments as well as
-the permissionless ones. Then, in the terminal:
+Both hold the demo credential, so they can buy the gated instruments too. In the terminal:
 
-1. open an instrument from the Market, connect the wallet, and use **Get mUSDC from faucet** on
-   its purchase card (the mock USDC mints to anyone);
-2. approve and buy; the holding appears in the Portfolio, valued at the desk's declared price;
-3. sell back to the desk from the same card;
-4. the **Analytics** tab shows the yield at every size, the declared price path, the cashflow
-   terms and the instrument against its peers; the Portfolio's **Risk** tab shows the risk of what
-   you hold.
+1. open an instrument from the Market, connect the wallet, and use **Get mUSDC from faucet** on its
+   purchase card;
+2. approve and buy: the holding appears in the Portfolio;
+3. sell it back to the desk from the same card;
+4. see the yield at every size, the price path and the cashflows in the instrument's **Analytics**
+   tab, and the risk of what you hold in the Portfolio's **Risk** tab.
 
 ## What is real and what is declared
 
-The contracts are real: ERC-20 tokens, desks that quote, sell and buy back, a gated token that
-checks an on-chain credential. Their economics — rates, maturities, tiers, depth — are declared
-by the scenario generator, not observed in a market, and every screen says so ("DECLARED TESTNET
-… not a market observation"). On mainnet the same platform rates live markets from their own
-data; on the testnet and here it rates these declarations with the same engine.
-
-The eight simulated portfolios on the Portfolio screen are fixtures: positions in the deployed
-instruments, no transactions behind them.
+The contracts are real: tokens, desks that sell and buy back, and a gated token that checks an
+on-chain credential. Their rates, maturities and depth are declared by a scenario generator, and
+every screen says so. On mainnet the same engine rates live markets; here it rates these
+declarations. The eight simulated portfolios are fixtures with no transactions behind them.
 
 ## Chat (optional)
 
-The **Explain** button opens a chat about what the terminal shows: the market in your current
-filter and sort order, the instrument you selected with its analytics, and the portfolio you are
-viewing. Ask it to explain a figure, compare instruments, or suggest which ones fit what you are
-looking for. It cannot trade, and nothing leaves your machine: the language model runs in its own
-container and only the platform talks to it.
+The **Explain** button opens a chat about what the terminal shows: the market as you filtered and
+sorted it, the instrument you selected, and the portfolio you are viewing. It explains figures,
+compares instruments and suggests ones that fit what you ask. It cannot trade, and nothing leaves
+your machine.
 
 ```bash
-make model          # once: fetches the default model (Qwen3 1.7B, about 1 GB)
-make assistant      # starts it; the Explain button appears in the terminal
-make assistant-down # stops it
+make model           # once: downloads the model
+make assistant       # starts the chat; the Explain button appears in the terminal
+make assistant-down  # stops it
 ```
 
-**Read its answers against the table.** Every figure it quotes should come from the data it was
-given, and any number it writes that is not in that data is highlighted as "not a figure Fenorium
-supplied". Fenorium also counts, groups and ranks the rows itself and hands the model the results,
-because small models count and sort badly. A local model can still pick the wrong row or mix two
-rows up, which no check can catch, so treat it as a guide to the screen, not as the screen.
+With an NVIDIA graphics card, run `make model GPU=1` and `make assistant GPU=1` instead. That needs
+an NVIDIA driver from the 580 series or newer and Docker with GPU access: Docker Desktop with WSL2 on
+Windows, or the NVIDIA Container Toolkit on Linux. Docker on a Mac cannot use the GPU, so there the
+chat runs on the CPU.
 
-**How accurate it is.** Each model below was asked the same 73 questions about one screen: the
-market, a selected instrument and a portfolio. The questions covered lookups, rankings, counts,
-comparisons, returns to maturity and things the screen does not show, and every answer was read by
-hand.
+**Pick the model for your machine.** Set `LOCAL_ASSISTANT_MODEL` in `.env`, then run `make model`
+and `make assistant` again. All of them are Qwen3 models quantized to 4 bits:
+
+| Model | Quantization | Download | Needs |
+|---|---|---|---|
+| `qwen3-1.7b` (default) | 4-bit, QVAC's build | about 1 GB | any computer with 2.5 GB of free memory; over a minute per answer |
+| `qwen3-4b` | Q4_K_M | about 2.5 GB | 4 GB of free memory; two to three times slower than the 1.7B |
+| `qwen3-8b` (default with `GPU=1`) | Q4_K_M | 5.0 GB | an NVIDIA card with 8 GB |
+| `qwen3-14b` | Q4_K_M | 9.0 GB | an NVIDIA card with 12 GB |
+| `qwen3-30b-a3b` (recommended) | Q4_K_M | 18.6 GB | an NVIDIA card with 24 GB, and `LOCAL_ASSISTANT_MEMORY=24g` in `.env` |
+
+We recommend `qwen3-30b-a3b` on a 24 GB card such as an RTX 3090 or 4090. Only about 3 billion of
+its 30 billion parameters work on each word, so it should answer about as fast as the 8B. On a
+smaller card the runtime keeps what does not fit in the computer's memory (32 GB or more), which is
+slower. The 1.7B shows the chat working on any computer; for good answers, use a graphics card.
+
+**How accurate it is.** Each model was asked the same 73 questions about one screen, and every
+answer was checked by hand:
 
 | Model | Ran on | Correct answers | Time per answer |
 |---|---|---|---|
-| `qwen3-8b` (GPU default) | RTX 4070 Laptop GPU, 8 GB | 55 of 73 | about 4 s |
+| `qwen3-8b` | RTX 4070 Laptop GPU, 8 GB | 55 of 73 | about 4 s |
 | `qwen3-8b`, thinking on | the same card | 61 of 73 | about 16 s |
 | Gemini 3.8 Flash, for comparison | Fenorium's hosted testnet | 69 of 73 | about 3 s |
 
-The CPU default, `qwen3-1.7b`, is there to show the chat working on any computer, not for its
-answers. On a 16-core machine without a GPU it takes over a minute per answer, and although it now
-gets most counts right, it still misreads single rows and some rankings.
+`LOCAL_ASSISTANT_THINKING=1` in `.env` lets the model reason before it answers: more correct
+answers, four times slower, so use it on a graphics card only. If an answer comes back empty, ask
+again.
 
-**Choosing the model.** Set `LOCAL_ASSISTANT_MODEL` in `.env`, then run `make model` and
-`make assistant` again (add `GPU=1` on an NVIDIA card). All of them are Qwen3 models quantized to
-4 bits:
-
-| Model | Quantization | Download | Runs well on |
-|---|---|---|---|
-| `qwen3-1.7b` (default on a CPU) | 4-bit, QVAC's build | about 1 GB | any computer with 2.5 GB of free memory |
-| `qwen3-4b` | Q4_K_M | about 2.5 GB | a CPU with 4 GB free, two to three times slower than the 1.7B |
-| `qwen3-8b` (default with `GPU=1`) | Q4_K_M | 5.0 GB | an NVIDIA card with 8 GB; it uses 6.2 GB |
-| `qwen3-14b` | Q4_K_M | 9.0 GB | an NVIDIA card with 12 GB or more |
-| `qwen3-30b-a3b` (recommended) | Q4_K_M | 18.6 GB | an NVIDIA card with 24 GB |
-
-**What we recommend.** `qwen3-30b-a3b` at Q4_K_M, on an NVIDIA card with 24 GB of memory such as an
-RTX 3090 or 4090, with `LOCAL_ASSISTANT_MEMORY=24g` in `.env`. Only about 3 billion of its 30 billion
-parameters work on each word, so on a card that holds it, it should answer about as fast as the 8B.
-On an 8 GB card `qwen3-8b` is the largest model that runs entirely on the card. On a smaller card
-the runtime places as much of a larger model as fits on the card and the rest in the computer's
-memory (32 GB or more), and answers more slowly. The 14B and 30B models download from Qwen's own
-Hugging Face pages, and the runtime checks each file against the checksum Hugging Face publishes.
-
-**Thinking.** `LOCAL_ASSISTANT_THINKING=1` in `.env` lets the model reason before it answers. On the
-RTX 4070 it raised the 8B from 55 to 61 correct answers out of 73, at about 16 seconds per answer
-instead of 4. One answer in 73 came back empty because the reasoning used up the whole answer
-budget; asking again helps. Use it on a graphics card only: on a CPU each answer would take several
-minutes.
-
-**With an NVIDIA graphics card.** `make assistant GPU=1` builds a variant with NVIDIA's CUDA 13
-runtime (about 5 GB) and runs Qwen3 8B on the card unless `LOCAL_ASSISTANT_MODEL` says otherwise
-(`make model GPU=1` fetches it first).
-It needs an NVIDIA driver from the 580 series or newer and Docker with GPU access: Docker Desktop
-with the WSL2 backend on Windows, or the NVIDIA Container Toolkit on Linux. Docker on a Mac cannot
-use the GPU, so there the assistant runs on the CPU. Without a usable card the GPU variant answers on
-the CPU like the default one.
-
-Measured on an RTX 4070 Laptop GPU (8 GB), with Docker Engine and the NVIDIA Container Toolkit
-inside WSL2 Ubuntu 24.04: the first answer takes about 20 seconds (the model loading onto the card),
-later ones 4 to 6 seconds, with the model using about 6.2 GB of video memory.
+Every figure the chat quotes should come from the screen, and any number that does not is
+highlighted. Fenorium counts and ranks the rows itself and gives the model the results, but a model
+can still pick the wrong row, so check its answers against the table.
 
 ## How this repository is built
 
 `engine/`, `deploy/platform/`, `web/`, `scripts/`, `contracts/`, `assistant/`, `research/` and
-`schemas/` are exported unchanged from the Fenorium repository at the commit recorded in
-`UPSTREAM`. This repository owns `Makefile`, `docker-compose.yml`, `images/` and `chain/`. `chain/predeploys.json` records where the EAS code came from and its
-hash. `make test` runs the contracts' own test suite in the Foundry image.
+`schemas/` are exported unchanged from the Fenorium repository at the commit in `UPSTREAM`. This
+repository owns `Makefile`, `docker-compose.yml`, `images/` and `chain/`; `chain/predeploys.json`
+records where the EAS code came from and its hash. `make test` runs the contracts' test suite.
