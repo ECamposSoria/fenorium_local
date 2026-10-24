@@ -1474,7 +1474,7 @@
     const inline = value => {
       const safe = String(value).split(/(\d[\d,]*(?:\.\d+)?)/).map(part => flagged.has(part)
         ? `<mark class="assistant-unverified" title="Not a figure Fenorium supplied">${esc(part)}</mark>` : esc(part)).join("");
-      return safe.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+      return safe.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>").replace(/`([^`]+)`/g, "<code>$1</code>");
     };
     const blocks = []; let lines = [], kind = null;
     const flush = () => {
