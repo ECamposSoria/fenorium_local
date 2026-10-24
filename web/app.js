@@ -7874,10 +7874,13 @@
     return Array.from(String(value ?? "UNKNOWN").replace(/0x[0-9a-fA-F]{40}/g, "[address omitted]")).slice(0, limit).join("");
   }
 
-  function assistantNetCell(row) {
+  // The screen's net cell holds an annual rate or, inside the holding period, a return to maturity.
+  // The chat gets them in separate columns so a header never calls a return to maturity an APY.
+  function assistantNetCells(row) {
     const markup = cell(row, "net");
     const horizon = markup.match(/title="(To maturity \([^)]*\))/);
-    return U.assistantPlain(markup) + (horizon ? ` · ${U.assistantPlain(horizon[1])}` : "");
+    const value = U.assistantRateValue(row, U.assistantPlain(markup) + (horizon ? ` · ${U.assistantPlain(horizon[1])}` : ""));
+    return horizon ? ["N/A", value] : [value, "N/A"];
   }
 
   function portfolioScreenOptions(activeRecord = viewedRecord(), viewed = viewedWallet()) {
@@ -7910,7 +7913,7 @@
     const cells = row => {
       const score = row.fenorium_score;
       return [row.symbol || row.name, row.name, row.venue, row.chain, U.assistantPlain(cell(row, "maturity")),
-        U.assistantRateValue(row, U.assistantPlain(cell(row, "headline"))), U.assistantRateValue(row, assistantNetCell(row)),
+        U.assistantRateValue(row, U.assistantPlain(cell(row, "headline"))), ...assistantNetCells(row),
         marketFieldState(row, "verdict").status === "N/A" ? "N/A" : score == null ? "UNKNOWN" : String(typeof score === "object" ? score.score ?? "UNKNOWN" : score),
         ...["depth", "tvl"].map(key => marketFieldState(row, key).status === "MEASURED" ? compactUsd(marketFieldState(row, key).value) : marketFieldState(row, key).status),
         marketFieldState(row, "permission").value === "GATED" ? "yes" : marketFieldState(row, "permission").value === "PERMISSIONLESS" ? "no" : "unknown"].map(value => chatText(value));
@@ -7929,7 +7932,7 @@
       trade_size: formatNotional(state.notionalSize),
       market: {category: state.filters.category || "All", rows_total: all.length,
         sort: state.sort?.key ? `${headerLabel(state.sort.key, columns.find(([key]) => key === state.sort.key)?.[1] || state.sort.key)}, ${state.sort.dir === -1 ? "highest" : "lowest"} first` : "screen order",
-        columns: ["Symbol", "Name", "Venue", "Chain", "Maturity", "Headline APY", "Net APY at trade size", "Fenorium Score", "Depth", "TVL", "Gated"], rows: rows.map(cells)},
+        columns: ["Symbol", "Name", "Venue", "Chain", "Maturity", "Headline APY", "Net APY at trade size", "Net return to maturity at trade size", "Fenorium Score", "Depth", "TVL", "Gated"], rows: rows.map(cells)},
       instrument, portfolio});
   }
 

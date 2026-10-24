@@ -127,14 +127,31 @@ function validateAskRequest(body) {
 
 export function modelSettings(env = process.env) {
   const name = env.FENORIUM_ASSISTANT_MODEL || 'qwen3-1.7b';
+  // Registry names for the models QVAC ships; Hugging Face URLs (checked against the Hub's SHA-256)
+  // for the larger Qwen3 models it does not.
   const sources = { 'qwen3-1.7b': 'QWEN3_1_7B_INST_Q4', 'qwen3-4b': 'QWEN3_4B_INST_Q4_K_M',
-    'qwen3-8b': 'QWEN3_8B_INST_Q4_K_M' };
+    'qwen3-8b': 'QWEN3_8B_INST_Q4_K_M',
+    'qwen3-14b': 'https://huggingface.co/Qwen/Qwen3-14B-GGUF/resolve/main/Qwen3-14B-Q4_K_M.gguf',
+    'qwen3-30b-a3b': 'https://huggingface.co/Qwen/Qwen3-30B-A3B-GGUF/resolve/main/Qwen3-30B-A3B-Q4_K_M.gguf' };
   if (!Object.hasOwn(sources, name)) throw new Error('invalid FENORIUM_ASSISTANT_MODEL');
   const ctxSize = Number(env.FENORIUM_ASSISTANT_CTX ?? 8192);
   if (!Number.isSafeInteger(ctxSize) || ctxSize < 1) throw new Error('invalid FENORIUM_ASSISTANT_CTX');
   const device = env.FENORIUM_ASSISTANT_DEVICE ?? 'auto';
   if (!['auto', 'cpu'].includes(device)) throw new Error('invalid FENORIUM_ASSISTANT_DEVICE');
-  return { source: sources[name], ctxSize, device };
+  const thinking = env.FENORIUM_ASSISTANT_THINKING ?? '0';
+  if (!['0', '1'].includes(thinking)) throw new Error('invalid FENORIUM_ASSISTANT_THINKING');
+  return { source: sources[name], ctxSize, device, thinking: thinking === '1' };
+}
+
+// A registry model carries its engine; a URL model names it, and its download must match the
+// checksum Hugging Face publishes.
+export function modelLoadOptions(settings, sdk) {
+  const url = settings.source.startsWith('https://');
+  return {
+    modelSrc: url ? settings.source : sdk[settings.source],
+    ...(url ? { modelType: 'llamacpp-completion', requireHttpChecksum: true } : {}),
+    modelConfig: { ctx_size: settings.ctxSize, ...(settings.device === 'cpu' ? { device: 'cpu' } : {}) },
+  };
 }
 
 function validateChatRequest(body) {
@@ -184,7 +201,7 @@ function thinkingFilter() {
   };
 }
 
-async function streamChat(req, res, request, getRuntime) {
+async function streamChat(req, res, request, getRuntime, settings) {
   let run, iterator, runtime, disconnected = false, cancelIssued = false, cancelRetried = false;
   const cancelRun = () => {
     if (!run?.requestId) return;
@@ -208,7 +225,7 @@ async function streamChat(req, res, request, getRuntime) {
     if (!runtime) return json(res, 502, { error: 'assistant unavailable' });
     const history = [{ role: 'system', content: request.system },
       ...request.messages.map(message => ({ ...message }))];
-    history.at(-1).content += '\n/no_think';
+    if (!settings.thinking) history.at(-1).content += '\n/no_think';
     const isOverflow = (error, event = false) =>
       (typeof runtime.sdk.ContextOverflowError === 'function' && error instanceof runtime.sdk.ContextOverflowError) ||
       error?.name === 'ContextOverflowError' ||
@@ -305,11 +322,7 @@ async function optionalQvac(env = process.env) {
   runtimePromise = (async () => {
     try {
       const sdk = await import('@qvac/sdk');
-      const settings = modelSettings(env);
-      runtimeModel = await sdk.loadModel({
-        modelSrc: sdk[settings.source],
-        modelConfig: { ctx_size: settings.ctxSize, ...(settings.device === 'cpu' ? { device: 'cpu' } : {}) },
-      });
+      runtimeModel = await sdk.loadModel(modelLoadOptions(modelSettings(env), sdk));
       return { sdk, modelId: runtimeModel };
     } catch {
       runtimeModel = undefined;
@@ -342,7 +355,7 @@ async function makeExplanation(request, getRuntime) {
 }
 
 export function createAssistantServer({ env = process.env, pairingToken = createPairingToken(env), runtime } = {}) {
-  modelSettings(env);
+  const settings = modelSettings(env);
   const getRuntime = () => runtime === undefined ? optionalQvac(env) : Promise.resolve(runtime);
   let busy = false;
   const origins = allowedOrigins(env.FENORIUM_ASSISTANT_ORIGINS);
@@ -381,7 +394,7 @@ export function createAssistantServer({ env = process.env, pairingToken = create
       if (busy) return json(res, 503, { error: 'busy' });
       busy = true;
       try {
-        if (url.pathname === '/chat') return await streamChat(req, res, request, getRuntime);
+        if (url.pathname === '/chat') return await streamChat(req, res, request, getRuntime, settings);
         return json(res, 200, await makeExplanation(request, getRuntime));
       } finally { busy = false; }
     } catch (error) {

@@ -109,18 +109,51 @@ make assistant-down # stops it
 
 **Read its answers against the table.** Every figure it quotes should come from the data it was
 given, and any number it writes that is not in that data is highlighted as "not a figure Fenorium
-supplied". A small local model can still pick the wrong row or mix two rows up, which no check can
-catch, so treat it as a guide to the screen, not as the screen. Fenorium computes every figure
-itself; the model only reads them.
+supplied". Fenorium also counts, groups and ranks the rows itself and hands the model the results,
+because small models count and sort badly. A local model can still pick the wrong row or mix two
+rows up, which no check can catch, so treat it as a guide to the screen, not as the screen.
 
-**Choosing the model.** Set `LOCAL_ASSISTANT_MODEL` in `.env`, then `make model` and `make assistant`
-again:
+**How accurate it is.** Each model below was asked the same 73 questions about one screen: the
+market, a selected instrument and a portfolio. The questions covered lookups, rankings, counts,
+comparisons, returns to maturity and things the screen does not show, and every answer was read by
+hand.
 
-| Model | Download | Memory | Use |
+| Model | Ran on | Correct answers | Time per answer |
 |---|---|---|---|
-| `qwen3-1.7b` (default) | about 1 GB | about 2.5 GB | any machine; about a minute per answer on the CPU it was tested on |
-| `qwen3-4b` | about 2.5 GB | about 4 GB | fewer mistakes, roughly 2–3 times slower on a CPU |
-| `qwen3-8b` | about 5 GB | about 6 GB | a graphics card (below) |
+| `qwen3-8b` (GPU default) | RTX 4070 Laptop GPU, 8 GB | 55 of 73 | about 4 s |
+| `qwen3-8b`, thinking on | the same card | 61 of 73 | about 16 s |
+| Gemini 3.8 Flash, for comparison | Fenorium's hosted testnet | 69 of 73 | about 3 s |
+
+The CPU default, `qwen3-1.7b`, is there to show the chat working on any computer, not for its
+answers. On a 16-core machine without a GPU it takes over a minute per answer, and although it now
+gets most counts right, it still misreads single rows and some rankings.
+
+**Choosing the model.** Set `LOCAL_ASSISTANT_MODEL` in `.env`, then run `make model` and
+`make assistant` again (add `GPU=1` on an NVIDIA card). All of them are Qwen3 models quantized to
+4 bits:
+
+| Model | Quantization | Download | Runs well on | Measured here |
+|---|---|---|---|---|
+| `qwen3-1.7b` (default on a CPU) | 4-bit, QVAC's build | about 1 GB | any computer with 2.5 GB of free memory | partly |
+| `qwen3-4b` | Q4_K_M | about 2.5 GB | a CPU with 4 GB free, two to three times slower than the 1.7B | no |
+| `qwen3-8b` (default with `GPU=1`) | Q4_K_M | 5.0 GB | an NVIDIA card with 8 GB; it uses 6.2 GB | yes |
+| `qwen3-14b` | Q4_K_M | 9.0 GB | an NVIDIA card with 12 GB or more | no |
+| `qwen3-30b-a3b` (recommended) | Q4_K_M | 18.6 GB | an NVIDIA card with 24 GB | no |
+
+**What we recommend.** `qwen3-30b-a3b` at Q4_K_M, on an NVIDIA card with 24 GB of memory such as an
+RTX 3090 or 4090, with `LOCAL_ASSISTANT_MEMORY=24g` in `.env`. Only about 3 billion of its 30 billion
+parameters work on each word, so on a card that holds it, it should answer about as fast as the 8B.
+We have not been able to run it: the largest card we have has 8 GB, and there `qwen3-8b` is the
+largest model that runs entirely on the card. On a smaller card the runtime puts what fits on the
+card and keeps the rest in the computer's memory (32 GB or more); that works but is slower, and we
+have not measured it either. The 14B and 30B models download from Qwen's own Hugging Face pages, and
+the runtime checks each file against the checksum Hugging Face publishes.
+
+**Thinking.** `LOCAL_ASSISTANT_THINKING=1` in `.env` lets the model reason before it answers. On the
+RTX 4070 it raised the 8B from 55 to 61 correct answers out of 73, at about 16 seconds per answer
+instead of 4. One answer in 73 came back empty because the reasoning used up the whole answer
+budget; asking again helps. Use it on a graphics card only: on a CPU each answer would take several
+minutes.
 
 **With an NVIDIA graphics card.** `make assistant GPU=1` builds a variant with NVIDIA's CUDA 13
 runtime (about 5 GB) and runs Qwen3 8B on the card unless `LOCAL_ASSISTANT_MODEL` says otherwise
@@ -132,7 +165,7 @@ the CPU like the default one.
 
 Measured on an RTX 4070 Laptop GPU (8 GB), with Docker Engine and the NVIDIA Container Toolkit
 inside WSL2 Ubuntu 24.04: the first answer takes about 20 seconds (the model loading onto the card),
-later ones about 6 seconds, with the model using about 6.2 GB of video memory.
+later ones 4 to 6 seconds, with the model using about 6.2 GB of video memory.
 
 ## How this repository is built
 

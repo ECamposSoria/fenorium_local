@@ -1362,8 +1362,10 @@
     }).join("")}</tr>`).join("")}</tbody></table></div>`;
   }
 
+  // An availability label is a bold status with a small caption ("N/A", "Not applicable"); without a
+  // separator the plain text runs them together ("N/ANot applicable").
   function assistantPlain(markup) {
-    return String(markup ?? "").replace(/<[^>]*>/g, "").replace(/&(?:amp|lt|gt|quot|#39);/g,
+    return String(markup ?? "").replace(/<\/b><small>/g, "</b> · <small>").replace(/<[^>]*>/g, "").replace(/&(?:amp|lt|gt|quot|#39);/g,
       value => ({"&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#39;": "'"}[value]));
   }
 

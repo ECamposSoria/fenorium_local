@@ -128,6 +128,9 @@ services:
       FENORIUM_ASSISTANT_START_HINT: make assistant
       # The same window the assistant loads its model with: the platform fits the prompt to it.
       FENORIUM_ASSISTANT_CTX: ${LOCAL_ASSISTANT_CTX:-8192}
+      # Thinking gives the model a 2,048-token answer budget and a 15-minute wait; the assistant
+      # reads the same setting.
+      FENORIUM_ASSISTANT_THINKING: ${LOCAL_ASSISTANT_THINKING:-0}
     read_only: true
     tmpfs:
       - /tmp:size=64m,mode=1777,noexec,nosuid,nodev
@@ -166,6 +169,7 @@ services:
       FENORIUM_ASSISTANT_PAIRING_TOKEN: ${LOCAL_ASSISTANT_PAIRING_TOKEN:?set LOCAL_ASSISTANT_PAIRING_TOKEN in .env}
       FENORIUM_ASSISTANT_MODEL: ${LOCAL_ASSISTANT_MODEL:-qwen3-1.7b}
       FENORIUM_ASSISTANT_CTX: ${LOCAL_ASSISTANT_CTX:-8192}
+      FENORIUM_ASSISTANT_THINKING: ${LOCAL_ASSISTANT_THINKING:-0}
       # The CPU image carries no GPU backend; the runtime answers on the CPU without being told.
     volumes:
       - assistant-home:/home/node
