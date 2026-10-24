@@ -48,6 +48,7 @@ class Rate:
 
 # Per client and endpoint class; reports have their own allowance because they spend no LI.FI quota.
 CLIENT_RATES: dict[str, dict[str, Rate]] = {
+    "assistant": {"ip": Rate(6, 4), "session": Rate(6, 4)},
     "route": {"ip": Rate(12, 6), "wallet": Rate(8, 4), "session": Rate(8, 4)},
     "route-report": {"ip": Rate(60, 20), "wallet": Rate(30, 10), "session": Rate(30, 10)},
     "wallet-read": {"ip": Rate(20, 6), "wallet": Rate(10, 4), "session": Rate(10, 4)},

@@ -1,0 +1,21 @@
+# The assistant on an NVIDIA GPU: `make assistant GPU=1`.
+# Needs an NVIDIA driver and Docker with GPU access: the NVIDIA Container Toolkit on Linux, Docker
+# Desktop with the WSL2 backend on Windows.
+# The image adds the CUDA 13 runtime (driver 580 or newer on the host); with no usable device the
+# assistant answers on the CPU as before.
+services:
+  assistant:
+    build:
+      target: gpu
+    image: fenorium-local-assistant-gpu:${UPSTREAM_COMMIT:-dev}
+    environment:
+      # The runtime places the model's layers on the card itself, as many as its free memory holds.
+      # On a card the larger model answers faster than the small one does on a CPU (about 5 GB of video memory).
+      FENORIUM_ASSISTANT_MODEL: ${LOCAL_ASSISTANT_MODEL:-qwen3-8b}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

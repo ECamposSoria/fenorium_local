@@ -6,11 +6,13 @@
 #   make status  what is running and what was deployed
 #   make logs    follow the platform's log
 #   make test    run the contract test suite in the Foundry image
-#   make assistant  start the optional Explain assistant (http://127.0.0.1:8787)
-#   make model   fetch the assistant's language model once (about 1 GB)
+#   make assistant  start the optional chat assistant (GPU=1 for an NVIDIA card)
+#   make model   fetch the assistant's language model once (about 1 GB for the default)
 #   make doctor  check the prerequisites
 SHELL := /bin/sh
 COMPOSE := docker compose -p fenorium-local --env-file .env
+# `make assistant GPU=1` adds the NVIDIA override; without it the assistant runs on the CPU.
+ASSISTANT_COMPOSE := $(COMPOSE) -f docker-compose.yml $(if $(GPU),-f docker-compose.gpu.yml,)
 export UPSTREAM_COMMIT := $(shell cat UPSTREAM 2>/dev/null || echo unknown)
 
 .PHONY: up down reset status logs test doctor assistant model assistant-down
@@ -53,12 +55,12 @@ doctor:
 	@echo "prerequisites ok"
 
 assistant:
-	$(COMPOSE) --profile assistant up -d --build assistant
-	@echo "Explain assistant: http://127.0.0.1:8787 · pairing token: $$(grep -E '^LOCAL_ASSISTANT_PAIRING_TOKEN=' .env | cut -d= -f2)"
+	$(ASSISTANT_COMPOSE) --profile assistant up -d --build assistant
+	@echo "Chat assistant started$(if $(GPU), on the GPU,). Open Explain in the terminal; the first answer waits for the model to load."
 
 model:
-	$(COMPOSE) --profile assistant build assistant
-	$(COMPOSE) --profile assistant run --rm --entrypoint node assistant /app/chain/assistant-warm.mjs
+	$(ASSISTANT_COMPOSE) --profile assistant build assistant
+	$(ASSISTANT_COMPOSE) --profile assistant run --rm --entrypoint node assistant /app/chain/assistant-warm.mjs
 
 assistant-down:
 	$(COMPOSE) --profile assistant stop assistant

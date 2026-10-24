@@ -17,8 +17,9 @@ Fenorium exists in three places:
 - Docker with Compose v2 (Docker Desktop on macOS or Windows, Docker Engine on Linux).
 - `make` (ships with macOS and Linux; on Windows use WSL).
 - A browser wallet such as MetaMask, for buying and selling.
-- About 3 GB of disk for the images and 2 GB of free memory while it runs; the optional Explain
-  assistant needs 2 GB more disk for its model and about 2.5 GB of memory while it answers.
+- About 3 GB of disk for the images and 2 GB of free memory while it runs. The optional chat
+  assistant needs about 2 GB more disk (its image and the default model) and about 2.5 GB of
+  memory while it answers.
 
 The first `make up` downloads the images (Foundry, Python) and compiles the contracts; later runs
 reuse them.
@@ -92,21 +93,43 @@ data; on the testnet and here it rates these declarations with the same engine.
 The eight simulated portfolios on the Portfolio screen are fixtures: positions in the deployed
 instruments, no transactions behind them.
 
-## Explain (optional)
+## Chat (optional)
 
-The **Explain** button asks a small language model to paraphrase facts the platform has already
-computed; it never computes anything itself, and a grounding check rejects anything the model adds.
-It runs on your machine only, as a separate container:
+The **Explain** button opens a chat about what the terminal shows: the market in your current
+filter and sort order, the instrument you selected with its analytics, and the portfolio you are
+viewing. Ask it to explain a figure, compare instruments, or suggest which ones fit what you are
+looking for. It cannot trade, and nothing leaves your machine: the language model runs in its own
+container and only the platform talks to it.
 
 ```bash
-make assistant      # starts it at http://127.0.0.1:8787 and prints the pairing token
-make model          # optional: fetches Qwen3 1.7B (about 1 GB) through the QVAC runtime
+make model          # once: fetches the default model (Qwen3 1.7B, about 1 GB)
+make assistant      # starts it; the Explain button appears in the terminal
+make assistant-down # stops it
 ```
 
-In the terminal, open Explain, paste the pairing token printed by `make assistant` (it is also in
-`.env`, since the assistant is reachable only from this machine), select facts and ask. Without the
-model fetched, or on a machine where the QVAC runtime cannot run, the assistant still answers with
-the selected facts and says that no model answered.
+**Read its answers against the table.** Every figure it quotes should come from the data it was
+given, and any number it writes that is not in that data is highlighted as "not a figure Fenorium
+supplied". A small local model can still pick the wrong row or mix two rows up, which no check can
+catch, so treat it as a guide to the screen, not as the screen. Fenorium computes every figure
+itself; the model only reads them.
+
+**Choosing the model.** Set `LOCAL_ASSISTANT_MODEL` in `.env`, then `make model` and `make assistant`
+again:
+
+| Model | Download | Memory | Use |
+|---|---|---|---|
+| `qwen3-1.7b` (default) | about 1 GB | about 2.5 GB | any machine; about a minute per answer on the CPU it was tested on |
+| `qwen3-4b` | about 2.5 GB | about 4 GB | fewer mistakes, roughly 2–3 times slower on a CPU |
+| `qwen3-8b` | about 5 GB | about 6 GB | a graphics card (below) |
+
+**With an NVIDIA graphics card.** `make assistant GPU=1` builds a variant with NVIDIA's CUDA 13
+runtime (about 5 GB) and runs Qwen3 8B on the card unless `LOCAL_ASSISTANT_MODEL` says otherwise
+(`make model GPU=1` fetches it first).
+It needs an NVIDIA driver from the 580 series or newer and Docker with GPU access: Docker Desktop
+with the WSL2 backend on Windows, or the NVIDIA Container Toolkit on Linux. Docker on a Mac cannot
+use the GPU, so there the assistant runs on the CPU. Without a usable card the GPU variant answers on
+the CPU like the default one. (The GPU variant was built and its CPU fallback tested when this
+repository was published; it has not yet been run on a card.)
 
 ## How this repository is built
 

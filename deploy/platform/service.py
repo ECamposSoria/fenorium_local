@@ -17,11 +17,14 @@ import json
 import mimetypes
 import os
 import re
+import select
+import socket
 from pathlib import Path
-from threading import RLock
+from threading import Event, RLock, Thread
 from typing import Any
 from urllib.parse import parse_qs, unquote, urlsplit
 
+from .assistant import Assistant, AssistantError
 from .execution_gate import CLOSED, ExecutionGate, from_environment
 from .instruments import FRESH_UNDER_SECONDS, STALE_UNDER_SECONDS, InstrumentDirectory
 from .current_prices import CurrentPrices
@@ -179,6 +182,13 @@ POST_PATHS = frozenset(
 # Opting in to outbound requests is a deployment decision, and it defaults off. Without it the
 # platform speaks to nothing, exactly as it did before `/v1/execution-routes` existed; with the
 # router absent that endpoint refuses rather than inventing a route.
+ASSISTANT_BACKEND_VARIABLE = "FENORIUM_ASSISTANT_BACKEND"
+ASSISTANT_URL_VARIABLE = "FENORIUM_ASSISTANT_URL"
+ASSISTANT_PAIRING_TOKEN_VARIABLE = "FENORIUM_ASSISTANT_PAIRING_TOKEN"
+GEMINI_API_KEY_VARIABLE = "FENORIUM_GEMINI_API_KEY"
+GEMINI_MODEL_VARIABLE = "FENORIUM_GEMINI_MODEL"
+ASSISTANT_ACCESS_KEY_VARIABLE = "FENORIUM_ASSISTANT_ACCESS_KEY"
+ASSISTANT_DAILY_LIMIT_VARIABLE = "FENORIUM_ASSISTANT_DAILY_LIMIT"
 ROUTER_ENVIRONMENT_VARIABLE = "FENORIUM_ROUTER"
 LIFI_ROUTER = "lifi"
 TENOR_MARKETS_VARIABLE = "FENORIUM_TENOR_MARKETS"
@@ -333,7 +343,9 @@ class PlatformHTTPServer(ThreadingHTTPServer):
         wallets: Any = None,
         limits: ClientLimits | None = None,
         trusted_proxies: str = DEFAULT_TRUSTED_PROXIES,
+        assistant: Any = None,
     ):
+        self.assistant = assistant if assistant is not None else Assistant.from_env(os.environ)
         self.api = api
         self.wallets = wallets
         self.limits = limits or ClientLimits()
@@ -388,7 +400,7 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
         self.send_header(
             "Content-Security-Policy",
             "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
-            "connect-src 'self' http://127.0.0.1:8787 https:; img-src 'self' data:; "
+            "connect-src 'self' https:; img-src 'self' data:; "
             "font-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'",
         )
         self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()")
@@ -901,6 +913,10 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
                 },
             )
             return
+        if path == "/v1/assistant":
+            data = {"schema_version": "fenorium/assistant-status/1", **self.server.assistant.status()}
+            self._send_json(HTTPStatus.OK, self.server.api.envelope(data))
+            return
         if path == "/v1/universe":
             try:
                 size_usd = _size_usd(urlsplit(self.path).query)
@@ -1008,9 +1024,78 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _assistant_chat(self, raw: bytes) -> None:
+        session = None
+        monitor = None
+        finished = Event()
+        started = False
+        try:
+            try:
+                body = _decode_request_body(raw)
+            except (UnicodeDecodeError, json.JSONDecodeError):
+                raise APIError("INVALID_JSON", "request body is not valid UTF-8 JSON")
+            if self._limited("assistant"):
+                return
+            session = self.server.assistant.prepare(body, self.headers.get("X-Fenorium-Assistant-Key"))
+            def watch_disconnect():
+                while not finished.wait(0.1):
+                    try:
+                        readable, _, _ = select.select([self.connection], [], [], 0)
+                        if readable and not self.connection.recv(1, socket.MSG_PEEK | socket.MSG_DONTWAIT):
+                            session.cancel()
+                            return
+                    except (OSError, ValueError):
+                        return
+
+            if hasattr(session, "cancel"):
+                monitor = Thread(target=watch_disconnect, daemon=True)
+                monitor.start()
+            if hasattr(session, "open"):
+                session.open()
+            if getattr(session, "closed", False):
+                return
+            self.send_response(HTTPStatus.OK)
+            self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("X-Accel-Buffering", "no")
+            self.send_header("Connection", "close")
+            self.end_headers()
+            started = True
+            self.close_connection = True
+            for event in session:
+                self.wfile.write(json_bytes(event) + b"\n")
+                self.wfile.flush()
+        except AssistantError as error:
+            if started:
+                self.wfile.write(json_bytes({"type": "error", "code": error.code,
+                                             "message": str(error)}) + b"\n")
+                self.wfile.flush()
+            else:
+                payload = {"schema_version": "fenorium/platform-error/1", "error": error.code,
+                           "message": str(error)}
+                encoded = json_bytes(payload)
+                self.send_response(error.status)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Content-Length", str(len(encoded)))
+                self.send_header("Cache-Control", "no-store")
+                if error.retry_after is not None:
+                    self.send_header("Retry-After", str(error.retry_after))
+                self.end_headers()
+                self.wfile.write(encoded)
+        except APIError as error:
+            self._error(error)
+        except (BrokenPipeError, ConnectionResetError):
+            self.close_connection = True
+        finally:
+            finished.set()
+            if monitor is not None:
+                monitor.join(0.2)
+            if session is not None and hasattr(session, "close"):
+                session.close()
+
     def do_POST(self) -> None:  # noqa: N802 - stdlib hook
         path = self._path()
-        if path not in POST_PATHS:
+        if path not in POST_PATHS and path != "/v1/assistant/chat":
             self._send_json(HTTPStatus.NOT_FOUND, {"error": "NOT_FOUND"})
             return
         content_type = self.headers.get_content_type()
@@ -1030,12 +1115,18 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
         except ValueError:
             self._error(APIError("INVALID_CONTENT_LENGTH", "Content-Length must be an integer"))
             return
+        if path == "/v1/assistant/chat" and (length < 0 or length > 64 * 1024):
+            self._error(APIError("INVALID_FIELD", "assistant request must be at most 64 KiB"))
+            return
         if length < 0 or length > MAX_BODY_BYTES:
             self._error(APIError("BODY_TOO_LARGE", "request body exceeds the 1 MiB limit", status=HTTPStatus.REQUEST_ENTITY_TOO_LARGE))
             return
         raw = self.rfile.read(length)
         if len(raw) != length:
             self._error(APIError("INCOMPLETE_BODY", "request body ended before Content-Length"))
+            return
+        if path == "/v1/assistant/chat":
+            self._assistant_chat(raw)
             return
         digest = hashlib.sha256(raw).hexdigest()
         try:
@@ -1159,6 +1250,7 @@ def create_server(
     wallets: bool = False,
     trusted_proxies: str | None = None,
     limits: ClientLimits | None = None,
+    assistant: Any = None,
 ) -> PlatformHTTPServer:
     resolved = from_environment() if gate is None else gate
     # One clock for the service and the API it wraps: freshness for authorisation is judged
@@ -1215,6 +1307,7 @@ def create_server(
         acquisition_status_path=Path(universe_path).parent / ACQUIRE_DIRECTORY / ACQUISITION_STATUS_FILE,
         trusted_proxies=trusted_proxies or DEFAULT_TRUSTED_PROXIES,
         limits=limits,
+        assistant=assistant,
     )
     if wallets:
         server.wallets = WalletReader(

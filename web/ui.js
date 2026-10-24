@@ -1230,12 +1230,16 @@
     return P.instrumentId(row);
   }
 
+  function instrumentSnapshotWarning(data) {
+    return `These analytics come from the market snapshot of ${utcStamp(data.generated_at)} (${String(data.source_sha256 || "").slice(0, 12)}), newer than the one the rest of this page shows. Refresh the market data to see one snapshot everywhere.`;
+  }
+
   function instrumentAnalytics(row, state, peers, sizeUsd) {
     if (row.simulation === true) return `<p>Analytics come from the platform; a simulated instrument has none.</p>`;
     if (state?.status === "loading") return `<p role="status">Loading analytics…</p>`;
     if (state?.status !== "ready" || !state.data) return `<p>Analytics unavailable · ${esc(state?.error || "No platform analytics available")}</p>${state?.retryable ? '<button type="button" class="ghost" data-analytics-retry>Retry</button>' : ""}`;
     const charts = root.FenoriumCharts || {}, data = state.data;
-    const snapshot = state.otherSnapshot ? `<p class="portfolio-scope">These analytics come from the market snapshot of ${esc(utcStamp(data.generated_at))} (${esc(String(data.source_sha256 || "").slice(0, 12))}), newer than the one the rest of this page shows. Refresh the market data to see one snapshot everywhere.</p>`
+    const snapshot = state.otherSnapshot ? `<p class="portfolio-scope">${esc(instrumentSnapshotWarning(data))}</p>`
       : state.otherDay ? `<p class="portfolio-scope">These analytics were rated today; the rest of this page was rated on ${esc(state.otherDay)}. Refresh the market data to see one rating everywhere.</p>` : "";
     return `<div class="instrument-analytics">${snapshot}${instrumentYield(row, data, sizeUsd, charts)}${instrumentHistory(row, data, charts)}${instrumentCashflow(row, data.terms || {}, charts, data.size_curve?.days_to_maturity ?? null)}${state.otherSnapshot || state.otherDay
       ? `<section class="panel"><header><h2>Against its peers</h2></header><p>Peers are ranked within one market snapshot, and this page still shows an older one. Refresh the market data to compare this instrument with its peers.</p></section>`
@@ -1358,17 +1362,132 @@
     }).join("")}</tr>`).join("")}</tbody></table></div>`;
   }
 
-  function renderAssistant(facts, answer, status, guidance) {
-    const factsElement = $("assistant-facts");
-    if (factsElement) {
-      factsElement.innerHTML = (facts || []).length
-        ? `<dl class="facts-list">${facts.map((fact) => `<div><dt>${esc(fact.field_ref)}</dt><dd><b>${esc(stateText(fact.status))}</b><span>${esc(fact.value == null ? "No value" : `${fact.value} ${fact.unit || ""}`)}</span><small>${esc(explain(fact.reason_code || "Recorded evidence"))} · ${esc(fact.source_ref || "local")}</small></dd></div>`).join("")}</dl>`
-        : `<p class="cell-sub">No deterministic facts are currently selected.</p>`;
+  function assistantPlain(markup) {
+    return String(markup ?? "").replace(/<[^>]*>/g, "").replace(/&(?:amp|lt|gt|quot|#39);/g,
+      value => ({"&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#39;": "'"}[value]));
+  }
+
+  // With includeDetail the card's own qualifier travels with its value ("to maturity · 12.0 days",
+  // "modelled · annualized"): without it an annualized cost reads as a one-time fee.
+  function assistantMetricPairs(markup, includeDetail = false) {
+    return [...String(markup).matchAll(/<div class="label">([\s\S]*?)<\/div><div class="value[^"]*">([\s\S]*?)<\/div>(?:<div class="detail[^"]*">([\s\S]*?)<\/div>)?/g)]
+      .map(match => [Array.from(assistantPlain(match[1])).slice(0, 80).join(""), Array.from(assistantPlain(match[2]) + (includeDetail && assistantPlain(match[3] || "").trim() ? " · " + assistantPlain(match[3]) : "")).slice(0, 200).join("")]);
+  }
+
+  function assistantRateValue(row, value, holdings = false) {
+    return !["executable", "declared_demo"].includes(row.rate_kind) && /[0-9]%/.test(value)
+      ? `${value} · ${rateKindNote(row)}` : value;
+  }
+
+  function assistantInstrumentContext(row, data, sizeUsd, otherSnapshot = false, otherDay = null) {
+    const facts = assistantMetricPairs(summary(row, null, null, sizeUsd), true);
+    for (const pair of facts) {
+      if (pair[0] === "Headline Yield" || pair[0].startsWith("Net Yield @")) pair[1] = assistantRateValue(row, pair[1]);
     }
-    const answerElement = $("assistant-answer");
-    if (answerElement) answerElement.textContent = answer || "No explanation returned. Deterministic output is unchanged.";
-    const statusElement = $("assistant-status");
-    if (statusElement) statusElement.innerHTML = guidance ? `<span>${esc(status || "Assistant unavailable. Deterministic output remains unchanged.")}</span><code>${esc(guidance)}</code>` : esc(status || "Explanation grounded in the displayed facts.");
+    facts.push(["Maturity", row.maturity || "UNKNOWN"], ["Venue", row.venue || "UNKNOWN"], ["Chain", row.chain || "UNKNOWN"]);
+    const analytics = [];
+    if (data) {
+      if (otherSnapshot || otherDay) {
+        const rendered = instrumentAnalytics(row, {status: "ready", data, otherSnapshot, otherDay}, [], sizeUsd);
+        const warning = rendered.match(/<p class="portfolio-scope">([\s\S]*?)<\/p>/);
+        if (warning) analytics.push(["Note", assistantPlain(warning[1])]);
+      }
+      const history = instrumentHistory(row, data, {});
+      const provenance = history.match(/<p class="cell-sub">([\s\S]*?)<\/p>/);
+      if (provenance) analytics.push(["Price history", assistantPlain(provenance[1])]);
+      if (row.rate_kind !== "declared_demo" && data.price_history?.provenance === "modelled") {
+        analytics.push(["Method", data.price_history.method || "UNKNOWN"]);
+      }
+      const curve = data.size_curve;
+      for (const point of (curve?.points || []).slice(0, 25)) {
+        const rated = {...row, rating: point.rating, days_to_maturity: curve.days_to_maturity ?? row.days_to_maturity};
+        const hp = Number(rated.days_to_maturity) < Number(curve.holding_period_days ?? P.HOLDING_PERIOD_DAYS) ? holdingOf(rated) : null;
+        analytics.push([`${usdN(point.size_usd)} → ${hp ? `net return to maturity · ${Number(hp.days).toFixed(1)} days` : "net APY"}`, point.rating?.computable === true ? pct(hp ? hp.net_bps : point.rating.net_bps) : NOT_COMPUTABLE]);
+      }
+      analytics.push(...assistantMetricPairs(history));
+      if (data.terms) {
+        const rendered = instrumentCashflow(row, data.terms, {}, data.size_curve?.days_to_maturity ?? null);
+        for (const match of rendered.matchAll(/<div class="kv[^"]*"><span>([\s\S]*?)<\/span><b(?: [^>]*)?>([\s\S]*?)<\/b><\/div>/g)) {
+          analytics.push([Array.from(assistantPlain(match[1])).slice(0, 80).join(""), Array.from(assistantPlain(match[2])).slice(0, 200).join("")]);
+        }
+      }
+    }
+    return {title: row.symbol || row.name || "Selected instrument", facts: facts.slice(0, 60), analytics: analytics.slice(0, 60)};
+  }
+
+  function assistantRiskPairs(snapshot) {
+    const markup = valuedRiskPanel(snapshot);
+    const pairs = [];
+    for (const match of markup.matchAll(/<p>([\s\S]*?)<\/p>(?:<ul>([\s\S]*?)<\/ul>)?/g)) {
+      const text = assistantPlain(match[1]);
+      const label = text.startsWith("Daily price history") ? "Risk coverage" : text.startsWith("Modelled daily prices") ? "Note" : "Excluded from risk";
+      const items = [...(match[2] || "").matchAll(/<li>([\s\S]*?)<\/li>/g)].map(item => assistantPlain(item[1]));
+      let value = text;
+      for (const item of items) {
+        if (Array.from(value + " " + item).length > 200) {
+          pairs.push([label, Array.from(value).slice(0, 200).join("")]);
+          value = item;
+        } else value += " " + item;
+      }
+      pairs.push([label, Array.from(value).slice(0, 200).join("")]);
+    }
+    return [...pairs, ...assistantMetricPairs(markup)].slice(0, 60);
+  }
+
+  function assistantPortfolioContext(snapshot, universe, kind, options = {}) {
+    const rows = P.portfolioRows(snapshot.positions || [], universe, snapshot.provenance?.as_of);
+    const kpiMarkup = portfolioKpis(snapshot, rows, "summary", options);
+    // A card's scope ("discovered assets · REGISTERED_ASSETS_ONLY") is in its info icon's tooltip.
+    const cardNotes = new Map([...kpiMarkup.matchAll(/<div class="label">([^<]*)<svg[\s\S]*?<title>([\s\S]*?)<\/title>/g)]
+      .map(match => [assistantPlain(match[1]).trim(), assistantPlain(match[2])]));
+    const kpis = kpiMarkup.replace(/<svg\b[\s\S]*?<\/svg>/g, "");
+    const timestamp = snapshot.provenance?.as_of;
+    const parsed = timestamp ? new Date(timestamp) : null;
+    const updated = parsed && Number.isFinite(parsed.getTime()) ? parsed.toISOString().replace("T", " ").replace(/\.\d{3}Z$/, " UTC") : "UNKNOWN · No snapshot";
+    const facts = [["Portfolio as of", updated]];
+    const refreshNotice = options.error
+      ? `Refresh failed: ${esc(options.error.code)} · ${esc(options.error.message)}. Showing the previous snapshot at the timestamp above.`
+      : options.loading ? "Refresh in progress; showing the previous snapshot." : "";
+    if (refreshNotice) facts.push(["Note", Array.from(assistantPlain(refreshNotice)).slice(0, 200).join("")]);
+    facts.push(...assistantMetricPairs(kpis, true).filter(pair => ["Portfolio Value (NAV)", "Valuation Coverage"].includes(pair[0]))
+      .map(([label, value]) => [label, Array.from([...new Set(`${value} · ${cardNotes.get(label) || ""}`.split(" · ").filter(Boolean))].join(" · ")).slice(0, 200).join("")]));
+    const positions = options.serverPortfolio?.positions || [];
+    for (const position of positions.slice(0, 50)) {
+      const label = Array.from(`${position.venue || "UNKNOWN"} · ${position.instrument_id || "UNKNOWN"}`);
+      facts.push([label.length > 80 ? label.slice(0, 79).join("") + "…" : label.join(""), portfolioMoney(position.present_value_usd_micros)]);
+    }
+    if (positions.length > 50) {
+      const remaining = positions.slice(50).map(position => asBigInt(position.present_value_usd_micros));
+      const total = remaining.every(value => value != null) ? remaining.reduce((sum, value) => sum + value, 0n).toString() : null;
+      facts.push(["Other venue positions", `${remaining.length} more · ${portfolioMoney(total)}`]);
+    }
+    return {kind, facts: facts.slice(0, 60),
+      columns: ["Symbol", "Amount", "Value", "Maturity", "Yield (APY)"],
+      holdings_total: rows.length,
+      holdings: rows.slice(0, 40).map(row => [row.symbol || row.name || "UNKNOWN", tokenQuantity(row.raw_units, row.decimals).replace(NOT_COMPUTABLE, "UNKNOWN"),
+        portfolioMoney(row.value_usd_micros), ["N/A", "UNKNOWN"].includes(row.maturity_bucket) ? row.maturity_bucket : row.maturity || (row.days_to_maturity == null ? "UNKNOWN" : `${row.days_to_maturity} days`), assistantRateValue(row, portfolioPercent(row.yield_bps), true)]),
+      risk: snapshot.analytics ? assistantRiskPairs(snapshot) : []};
+  }
+
+  function assistantMarkup(text, unverified = []) {
+    const flagged = new Set(unverified.filter(value => /^\d[\d,]*(?:\.\d+)?$/.test(value)));
+    const inline = value => {
+      const safe = String(value).split(/(\d[\d,]*(?:\.\d+)?)/).map(part => flagged.has(part)
+        ? `<mark class="assistant-unverified" title="Not a figure Fenorium supplied">${esc(part)}</mark>` : esc(part)).join("");
+      return safe.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    };
+    const blocks = []; let lines = [], kind = null;
+    const flush = () => {
+      if (lines.length) blocks.push(kind === "p" ? `<p>${lines.join("<br>")}</p>` : `<${kind}>${lines.map(line => `<li>${line}</li>`).join("")}</${kind}>`);
+      lines = []; kind = null;
+    };
+    for (const line of String(text || "").split("\n")) {
+      if (!line.trim()) { flush(); continue; }
+      const next = /^\d+\. /.test(line) ? "ol" : /^[-*] /.test(line) ? "ul" : "p";
+      if (kind && kind !== next) flush();
+      kind = next; lines.push(inline(next === "p" ? line : line.replace(/^(?:[-*] |\d+\. )/, "")));
+    }
+    flush(); return blocks.join("");
   }
 
   // Risk (owner 2026-10-20, moved from the rail): the dashboard measures this portfolio, so it
@@ -2386,7 +2505,7 @@
     renderEvidence,
     renderExecution,
     renderCompare,
-    renderAssistant,
+    assistantPlain, assistantRateValue, assistantMarkup, assistantInstrumentContext, assistantPortfolioContext,
     compareFields,
     comparisonValue,
     numericMetric,

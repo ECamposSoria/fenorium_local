@@ -118,6 +118,16 @@ services:
       FENORIUM_LIFI_INTEGRATOR: ""
       FENORIUM_LIFI_FEE: ""
       FENORIUM_WALLET_READS: "on"
+      # The chat answers from the local assistant over the Compose network; the page never talks to
+      # it directly, and the token stays between these two containers.
+      FENORIUM_ASSISTANT_BACKEND: local
+      # LOCAL_ASSISTANT_URL points the chat at a model running elsewhere, e.g. on a GPU machine.
+      FENORIUM_ASSISTANT_URL: ${LOCAL_ASSISTANT_URL:-http://assistant:8787}
+      FENORIUM_ASSISTANT_MODEL: ${LOCAL_ASSISTANT_MODEL:-qwen3-1.7b}
+      FENORIUM_ASSISTANT_PAIRING_TOKEN: ${LOCAL_ASSISTANT_PAIRING_TOKEN:?set LOCAL_ASSISTANT_PAIRING_TOKEN in .env}
+      FENORIUM_ASSISTANT_START_HINT: make assistant
+      # The same window the assistant loads its model with: the platform fits the prompt to it.
+      FENORIUM_ASSISTANT_CTX: ${LOCAL_ASSISTANT_CTX:-8192}
     read_only: true
     tmpfs:
       - /tmp:size=64m,mode=1777,noexec,nosuid,nodev
@@ -140,24 +150,27 @@ services:
     networks:
       - local
 
-  # Optional: the Explain assistant. `make assistant` starts it, `make model` fetches its model.
+  # Optional: the chat's language model. `make assistant` starts it, `make model` fetches the model.
+  # Only the platform calls it, over this network; it publishes no port.
   assistant:
     build:
       context: .
       dockerfile: images/assistant.Dockerfile
+      target: cpu
     image: fenorium-local-assistant:${UPSTREAM_COMMIT:-dev}
     container_name: fenorium-local-assistant
     profiles: ["assistant"]
-    ports:
-      - "127.0.0.1:8787:8787"
     environment:
       FENORIUM_ASSISTANT_PORT: "8787"
       FENORIUM_ASSISTANT_ORIGINS: http://127.0.0.1:${LOCAL_PLATFORM_PORT:-8517},http://localhost:${LOCAL_PLATFORM_PORT:-8517}
       FENORIUM_ASSISTANT_PAIRING_TOKEN: ${LOCAL_ASSISTANT_PAIRING_TOKEN:?set LOCAL_ASSISTANT_PAIRING_TOKEN in .env}
+      FENORIUM_ASSISTANT_MODEL: ${LOCAL_ASSISTANT_MODEL:-qwen3-1.7b}
+      FENORIUM_ASSISTANT_CTX: ${LOCAL_ASSISTANT_CTX:-8192}
+      # The CPU image carries no GPU backend; the runtime answers on the CPU without being told.
     volumes:
       - assistant-home:/home/node
     restart: unless-stopped
-    mem_limit: 4g
+    mem_limit: ${LOCAL_ASSISTANT_MEMORY:-6g}
     networks:
       - local
 

@@ -44,8 +44,8 @@
   // scan can extend.
   const TRANSFER_CACHE_KEY = "fenorium.transfers.v1";
   const TRANSFER_CACHE_LIMIT = 400000;
-  const ASSISTANT_URL = "http://127.0.0.1:8787/ask";
-  const ASSISTANT_HELP = "Run locally: cd repo && FENORIUM_ASSISTANT_ORIGINS=<origin> node assistant/serve.mjs";
+  const ASSISTANT_KEY = "fenorium.assistant.access-key";
+  const chat = {status: null, key: safeStorageGet(ASSISTANT_KEY), turns: [], controller: null, serial: 0, paint: null};
   const PURCHASE_STAGES = P.PURCHASE_STAGES;
   const DISCONNECTED_ACCOUNT = "__disconnected__";
   const FALLBACK_DEFAULT_COLUMNS = Object.freeze({
@@ -934,6 +934,9 @@
       for (let index = 0; index < (storage?.length || 0); index += 1) keys.push(storage.key(index));
       for (const key of keys) if (typeof key === "string" && key.startsWith("fenorium.")) safeStorageRemove(key);
     } catch (_) { /* no storage: nothing was remembered */ }
+    chat.key = null; stopAssistantChat(); chat.turns = [];
+    if ($("assistant-question")) $("assistant-question").value = "";
+    renderAssistantChat(); updateAssistantVisibility();
     state.watchedWallets = [];
     state.settings = {notional_usd: null, score_only: false};
     state.settingsError = null;
@@ -982,6 +985,7 @@
         <p class="cell-sub">This browser remembers ${escape(remembered.join(", "))}. Fenorium keeps no account or profile of you; routes you request and orders you sign are recorded on the platform as transaction evidence, and forgetting here removes only what this browser holds.</p>
         <button type="button" class="button secondary" id="forget-browser-data">Forget this browser's data</button>
       </section>
+      ${chat.status?.access === "key" ? `<section class="panel"><header><h2>Assistant access key</h2></header><div class="settings-row"><label>Assistant access key<input id="assistant-access-key" type="password" autocomplete="off" value="${escape(chat.key || "")}"></label><button type="button" class="button secondary" id="assistant-key-save">Save</button><button type="button" class="button secondary" id="assistant-key-remove">Remove</button></div></section>` : ""}
       <section class="panel"><header><h2>About</h2></header>
         <div class="kv"><span>Build</span><b>${escape($("build-id")?.textContent || "Local build")}</b></div>
         <div class="kv"><span>Universe as of</span><b>${escape(validTime(state.metadata?.generated_at) ? new Date(state.metadata.generated_at).toISOString().replace("T", " ").slice(0, 16) + " UTC" : "Not loaded")}</b></div>
@@ -7695,27 +7699,7 @@
       state.snapshot = null;
       state.candidate = null;
     }
-    U.renderPortfolioScreen?.(state.snapshot, state.universe, state.portfolioTab, {...state.holdingsOptions, ...state.exposureOptions, // The sample book is a fixture, not this wallet: forwarding a failed scan's state made it
-      // say "Refresh failed" and "Showing the previous snapshot" about data that never refreshed.
-      loading: state.sampleVisible !== true && activeRecord?.loading === true,
-      error: state.sampleVisible === true ? null : activeRecord?.error,
-      transferHistory: state.sampleVisible ? null : state.transferHistory,
-      simulatedActivity: scenarioShowing() ? state.testnetActivity : null,
-      historyStatus: transferHistoryStatus(),
-      transferScanSuppressed: !state.sampleVisible && Boolean(viewed.account) && state.transferScanSuppressed,
-      connected: !state.sampleVisible && Boolean(viewed.account) && (viewed.connected || Boolean(state.provider?.request)),
-      serverPortfolio: !state.sampleVisible && activeRecord?.source === "server"
-        ? {positions: activeRecord.venuePositions || [], totals: activeRecord.snapshot?.totals} : null,
-      performance: state.sampleVisible ? null : P.derivePortfolioPerformance(state.transferHistory, activeRecord?.finalizedRead),
-      // What the platform priced each transfer at, and what it says each asset earned.
-      transferValues: state.sampleVisible ? null : state.history?.values || null,
-      indexedRows: state.sampleVisible ? null : state.history?.indexedRows || null,
-      indexed: state.sampleVisible ? null : state.history?.indexed || null,
-      scannedChains: state.sampleVisible ? null : state.history?.scannedChains || null,
-      // An index read that failed, so the Transactions tab says so instead of "reading".
-      historyError: state.sampleVisible || state.history ? null : state.historyError || null,
-      serverPerformance: state.sampleVisible || !activeRecord?.snapshot ? null : state.history?.performance || null,
-      transferOptions: state.transferOptions});
+    U.renderPortfolioScreen?.(state.snapshot, state.universe, state.portfolioTab, portfolioScreenOptions(activeRecord, viewed));
     decorateSaleActions();
     // The venue positions and the lending orders are the viewed wallet's. Under a fixture they
     // would put two books on one screen (review dg): hidden while it shows, back when it goes,
@@ -7770,7 +7754,7 @@
   }
 
   function assistantAsOf() {
-    const choices = [state.snapshot?.provenance?.as_of, state.metadata?.as_of, state.metadata?.generated_at];
+    const choices = [state.metadata?.as_of, state.metadata?.generated_at];
     const chosen = choices.find(validTime);
     return chosen ? new Date(chosen).toISOString() : null;
   }
@@ -7886,59 +7870,228 @@
     return P.createAssistantEnvelope({ as_of: assistantAsOf(), facts: buildAssistantFacts() });
   }
 
-  function renderAssistantUnavailable(facts, status = "Assistant unavailable. Deterministic output remains unchanged.") {
-    U.renderAssistant?.(facts, "No local assistant answer. Deterministic output remains unchanged.", status, ASSISTANT_HELP);
+  function chatText(value, limit = 200) {
+    return Array.from(String(value ?? "UNKNOWN").replace(/0x[0-9a-fA-F]{40}/g, "[address omitted]")).slice(0, limit).join("");
   }
 
-  async function askAssistant() {
-    const tokenElement = $("pairing-token");
-    const questionElement = $("assistant-question");
-    const facts = buildAssistantFacts();
-    const token = tokenElement?.value.trim() || "";
-    if (!token) {
-      U.renderAssistant?.(
-        facts,
-        "No local assistant answer was requested.",
-        "Pairing token not supplied. Deterministic output remains unchanged.",
-        ASSISTANT_HELP,
-      );
-      return null;
+  function assistantNetCell(row) {
+    const markup = cell(row, "net");
+    const horizon = markup.match(/title="(To maturity \([^)]*\))/);
+    return U.assistantPlain(markup) + (horizon ? ` · ${U.assistantPlain(horizon[1])}` : "");
+  }
+
+  function portfolioScreenOptions(activeRecord = viewedRecord(), viewed = viewedWallet()) {
+    return {...state.holdingsOptions, ...state.exposureOptions, // The sample book is a fixture, not this wallet: forwarding a failed scan's state made it
+      // say "Refresh failed" and "Showing the previous snapshot" about data that never refreshed.
+      loading: state.sampleVisible !== true && activeRecord?.loading === true,
+      error: state.sampleVisible === true ? null : activeRecord?.error,
+      transferHistory: state.sampleVisible ? null : state.transferHistory,
+      simulatedActivity: scenarioShowing() ? state.testnetActivity : null,
+      historyStatus: transferHistoryStatus(),
+      transferScanSuppressed: !state.sampleVisible && Boolean(viewed.account) && state.transferScanSuppressed,
+      connected: !state.sampleVisible && Boolean(viewed.account) && (viewed.connected || Boolean(state.provider?.request)),
+      serverPortfolio: !state.sampleVisible && activeRecord?.source === "server"
+        ? {positions: activeRecord.venuePositions || [], totals: activeRecord.snapshot?.totals} : null,
+      performance: state.sampleVisible ? null : P.derivePortfolioPerformance(state.transferHistory, activeRecord?.finalizedRead),
+      // What the platform priced each transfer at, and what it says each asset earned.
+      transferValues: state.sampleVisible ? null : state.history?.values || null,
+      indexedRows: state.sampleVisible ? null : state.history?.indexedRows || null,
+      indexed: state.sampleVisible ? null : state.history?.indexed || null,
+      scannedChains: state.sampleVisible ? null : state.history?.scannedChains || null,
+      // An index read that failed, so the Transactions tab says so instead of "reading".
+      historyError: state.sampleVisible || state.history ? null : state.historyError || null,
+      serverPerformance: state.sampleVisible || !activeRecord?.snapshot ? null : state.history?.performance || null,
+      transferOptions: state.transferOptions};
+  }
+
+  function buildChatContext() {
+    const all = state.notionalPending || state.universeError ? [] : filteredRows();
+    const rows = all.slice(0, 60);
+    const cells = row => {
+      const score = row.fenorium_score;
+      return [row.symbol || row.name, row.name, row.venue, row.chain, U.assistantPlain(cell(row, "maturity")),
+        U.assistantRateValue(row, U.assistantPlain(cell(row, "headline"))), U.assistantRateValue(row, assistantNetCell(row)),
+        marketFieldState(row, "verdict").status === "N/A" ? "N/A" : score == null ? "UNKNOWN" : String(typeof score === "object" ? score.score ?? "UNKNOWN" : score),
+        ...["depth", "tvl"].map(key => marketFieldState(row, key).status === "MEASURED" ? compactUsd(marketFieldState(row, key).value) : marketFieldState(row, key).status),
+        marketFieldState(row, "permission").value === "GATED" ? "yes" : marketFieldState(row, "permission").value === "PERMISSIONLESS" ? "no" : "unknown"].map(value => chatText(value));
+    };
+    const selected = state.selected;
+    const cached = selected && withRatingDay(instrumentAnalyticsCache.get(instrumentAnalyticsKey(selected)));
+    const snapshot = state.sampleVisible || scenarioShowing() ? state.snapshot : viewedRecord()?.snapshot || state.snapshot;
+    const instrument = selected ? U.assistantInstrumentContext(selected, cached?.status === "ready" ? cached.data : null, state.notionalSize, cached?.otherSnapshot, cached?.otherDay) : null;
+    const portfolio = snapshot ? U.assistantPortfolioContext(snapshot, state.universe,
+      scenarioShowing() ? "simulated" : state.sampleVisible ? "sample" : viewedWallet().connected ? "connected" : "watched", portfolioScreenOptions()) : null;
+    const sanitize = value => Array.isArray(value) ? value.map(sanitize) : value && typeof value === "object"
+      ? Object.fromEntries(Object.entries(value).map(([key, child]) => [key, sanitize(child)])) : typeof value === "string" ? chatText(value) : value;
+    return sanitize({schema_version: "fenorium/assistant-context/1", as_of: assistantAsOf(),
+      screen: ["overview", "market", "asset", "wallet", "settings"].includes(state.view) ? state.view : "overview",
+      workspace: testnetWorkspace()?.local ? "local" : isTestnetReady() ? "testnet" : "mainnet",
+      trade_size: formatNotional(state.notionalSize),
+      market: {category: state.filters.category || "All", rows_total: all.length,
+        sort: state.sort?.key ? `${headerLabel(state.sort.key, columns.find(([key]) => key === state.sort.key)?.[1] || state.sort.key)}, ${state.sort.dir === -1 ? "highest" : "lowest"} first` : "screen order",
+        columns: ["Symbol", "Name", "Venue", "Chain", "Maturity", "Headline APY", "Net APY at trade size", "Fenorium Score", "Depth", "TVL", "Gated"], rows: rows.map(cells)},
+      instrument, portfolio});
+  }
+
+  function updateAssistantVisibility() {
+    const visible = Boolean(chat.status?.backend && (chat.status.access === "open" || chat.key));
+    if ($("assistant-toggle")) $("assistant-toggle").hidden = !visible;
+    if (!visible) {
+      if ($("assistant-panel")) $("assistant-panel").hidden = true;
+      $("assistant-toggle")?.setAttribute("aria-expanded", "false");
     }
-    const asOf = assistantAsOf();
-    if (!asOf) {
-      U.renderAssistant?.(
-        facts,
-        "No local assistant answer was requested.",
-        "Assistant unavailable because no valid source timestamp exists. Deterministic output remains unchanged.",
-        null,
-      );
-      return null;
-    }
-    const envelope = buildAssistantEnvelope();
-    U.renderAssistant?.(facts, "Asking the local assistant…", "Local assistant request pending.", null);
+  }
+
+  async function loadAssistantStatus() {
     try {
-      const response = await root.fetch(ASSISTANT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "X-Fenorium-Pairing-Token": token },
-        body: JSON.stringify({ question: questionElement?.value || "Explain the supplied facts.", envelope }),
-      });
-      let body = null;
-      try {
-        body = await response.json();
-      } catch (_) {
-        body = null;
+      const response = await root.fetch("/v1/assistant", {cache: "no-store"});
+      if (!response.ok) throw new Error("Assistant status unavailable");
+      const body = await response.json();
+      chat.status = body.data || body;
+    } catch (_) { /* Keep the last known status so a transient refresh does not hide the pill. */ }
+    updateAssistantVisibility();
+    renderSettingsScreen();
+    const panel = $("assistant-panel");
+    if (panel && !panel.hidden) assistantContextLine();
+  }
+
+  function saveAssistantKey() {
+    chat.key = $("assistant-access-key")?.value.trim() || null;
+    if (chat.key) safeStorageSet(ASSISTANT_KEY, chat.key);
+    else safeStorageRemove(ASSISTANT_KEY);
+    updateAssistantVisibility();
+    renderSettingsScreen();
+  }
+
+  function assistantError(status, body = {}, retry = null) {
+    const code = body.code || (typeof body.error === "string" ? body.error : body.error?.code);
+    if (code === "ASSISTANT_EMPTY_ANSWER") return "The assistant returned no answer. Try asking again.";
+    if (code === "ASSISTANT_QUESTION_TOO_LONG") return "This question is too long for the local model. Shorten it and ask again.";
+    if (status === 401) return "The assistant access key was refused. Update it in Settings.";
+    if (status === 429) return `Too many questions — try again in ${/^\d+$/.test(String(retry)) ? retry : 60} s`;
+    if (status === 503 && code === "ASSISTANT_NOT_RUNNING" && chat.status?.backend === "local") return "The local assistant isn't running." + (chat.status.start_hint ? ` Start it with \`${chat.status.start_hint}\`.` : "");
+    if (status === 503 && code === "ASSISTANT_BUSY") return "The assistant is answering another question. Try again in a moment.";
+    return "The assistant could not answer. Nothing else on the page changed.";
+  }
+
+  function assistantErrorMarkup(error) {
+    const hint = String(error).match(/^(The local assistant isn't running\. Start it with )`(.+)`\.$/);
+    return hint ? `${U.esc(hint[1])}<code>${U.esc(hint[2])}</code>.` : U.esc(error);
+  }
+
+  function renderAssistantChat() {
+    const list = $("assistant-messages");
+    if (list) {
+      list.innerHTML = chat.turns.map(turn => `<article class="assistant-turn assistant-turn-${turn.role}"><b>${turn.role === "user" ? "You" : "Fenorium"}</b>${U.assistantMarkup(turn.content, turn.unverified || [])}${turn.unverified?.length ? `<p class="assistant-note">${turn.unverified.length} ${turn.unverified.length === 1 ? "figure above is" : "figures above are"} not in Fenorium's data — the assistant computed or guessed them.</p>` : ""}${turn.error ? `<p class="assistant-note">${assistantErrorMarkup(turn.error)}</p>` : ""}</article>`).join("");
+      list.scrollTop = list.scrollHeight;
+    }
+    if ($("send-assistant")) $("send-assistant").textContent = chat.controller ? "Stop" : "Send";
+  }
+
+  function paintAssistantChat() {
+    if (chat.paint != null) return;
+    chat.paint = root.setTimeout(() => { chat.paint = null; renderAssistantChat(); }, 50);
+  }
+
+  function stopAssistantChat() { chat.controller?.abort(); }
+  function newAssistantChat() {
+    stopAssistantChat(); chat.turns = []; chat.contextSummary = null; assistantContextLine(); renderAssistantChat();
+    $("assistant-question")?.focus?.();
+  }
+
+  function assistantContextLine(context = buildChatContext(), summary = chat.contextSummary) {
+    const status = chat.status?.available === false
+      ? chat.status.backend === "local" ? "The local assistant isn't running." + (chat.status.start_hint ? ` Start it with <code>${U.esc(chat.status.start_hint)}</code>.` : "")
+        : "The assistant is not available right now."
+      : null;
+    const parts = summary
+      ? [summary.market_rows_total > 0 ? "Market" : null,
+        summary.market_rows_total > 0 ? `${summary.market_rows} of ${summary.market_rows_total} rows` : null,
+        summary.instrument, summary.portfolio ? "Portfolio" : null]
+      : [context.market ? "Market" : null, context.market ? `${context.market.rows.length} rows` : null,
+        context.instrument?.title, context.portfolio ? "Portfolio" : null];
+    const contextLine = "Sees: " + parts.filter(Boolean).join(" · ");
+    if ($("assistant-context")) $("assistant-context").innerHTML = `${status ? `${status}<br>` : ""}${U.esc(contextLine)}`;
+  }
+
+  function assistantRequestBody(messages, context) {
+    const payload = {schema_version: "fenorium/assistant-chat-request/1", messages, context};
+    const encode = () => JSON.stringify(payload);
+    let body = encode();
+    for (const entries of [context.market?.rows, context.portfolio?.holdings, context.instrument?.analytics,
+      context.portfolio?.risk, context.instrument?.facts, context.portfolio?.facts]) {
+      while (entries?.length && new root.TextEncoder().encode(body).length > 65536) { entries.pop(); body = encode(); }
+    }
+    while (messages.length > 1 && new root.TextEncoder().encode(body).length > 65536) {
+      messages.splice(0, 2); body = encode();
+    }
+    return body;
+  }
+
+  async function sendAssistantChat() {
+    if (chat.controller) { stopAssistantChat(); return null; }
+    const field = $("assistant-question");
+    const question = field?.value.trim() || "";
+    if (!question || question.length > 4000) return null;
+    const context = buildChatContext();
+    if (!context.as_of) {
+      chat.turns.push({role: "user", content: question}, {role: "assistant", content: "", error: "The screen has no valid source timestamp. Reload the market before asking."});
+      renderAssistantChat(); return null;
+    }
+    // A failed or stopped turn stays visible, but cannot break alternation in the next request.
+    const history = chat.turns.filter(turn => turn.complete).map(({role, content}) => ({role, content: Array.from(content).slice(0, 4000).join("")}));
+    const messages = [...history.slice(-10), {role: "user", content: question}];
+    const user = {role: "user", content: question};
+    const answer = {role: "assistant", content: "", unverified: []};
+    chat.turns.push(user, answer);
+    const controller = new root.AbortController(); chat.controller = controller;
+    const body = assistantRequestBody(messages, context);
+    field.value = ""; assistantContextLine(context); renderAssistantChat();
+    let reader = null;
+    try {
+      const response = await root.fetch("/v1/assistant/chat", {method: "POST", signal: controller.signal,
+        headers: {"Content-Type": "application/json", "Idempotency-Key": `assistant-${PORTFOLIO_SESSION_ID}-${++chat.serial}`,
+          ...(chat.key ? {"X-Fenorium-Assistant-Key": chat.key} : {})},
+        body});
+      if (!response.ok) {
+        let body = {}; try { body = await response.json(); } catch (_) { /* HTTP status still identifies the failure. */ }
+        answer.error = assistantError(response.status, body, response.headers?.get?.("Retry-After"));
+        return null;
       }
-      if (!response.ok || !body?.assistant_status || body.assistant_status === "assistant-unavailable") {
-        renderAssistantUnavailable(body?.deterministic?.facts || facts);
-        return body;
-      }
-      const answer = body.explanation_status === "grounded" ? body.explanation : "No grounded explanation returned.";
-      const status = body.explanation_status === "grounded" ? "Explanation grounded in the displayed facts." : "The local assistant returned no grounded explanation. Deterministic output remains unchanged.";
-      U.renderAssistant?.(body.deterministic?.facts || facts, answer, status, null);
-      return body;
-    } catch (_) {
-      renderAssistantUnavailable(facts);
+      let finished = false;
+      const line = text => {
+        if (!text.trim() || finished) return;
+        const event = JSON.parse(text);
+        if (event.type === "start" && event.context) { chat.contextSummary = event.context; assistantContextLine(context); }
+        if (event.type === "delta") { answer.content += String(event.text || ""); paintAssistantChat(); }
+        if (event.type === "done") {
+          answer.unverified = Array.isArray(event.unverified) ? event.unverified : [];
+          answer.complete = user.complete = Boolean(answer.content.trim());
+          if (!answer.complete) answer.error = assistantError(503, {code: "ASSISTANT_EMPTY_ANSWER"});
+          finished = true;
+        }
+        if (event.type === "error") { answer.error = assistantError(503, event); finished = true; }
+      };
+      if (response.body) {
+        reader = response.body.getReader(); const decoder = new root.TextDecoder(); let pending = "";
+        while (!controller.signal.aborted) {
+          const chunk = await reader.read();
+          pending += chunk.done ? decoder.decode() : decoder.decode(chunk.value, {stream: true});
+          const lines = pending.split("\n"); pending = lines.pop(); lines.forEach(line);
+          if (chunk.done) { if (pending.trim()) line(pending); break; }
+        }
+      } else (await response.text()).split("\n").forEach(line);
+      if (!finished && !controller.signal.aborted) answer.error = assistantError(500);
+      return answer;
+    } catch (error) {
+      answer.error = error.name === "AbortError" ? "Answer stopped." : assistantError(500);
       return null;
+    } finally {
+      if (controller.signal.aborted) { try { await reader?.cancel?.(); } catch (_) { /* Already closed. */ } }
+      reader?.releaseLock?.();
+      if (chat.controller === controller) chat.controller = null;
+      if (chat.paint != null) { root.clearTimeout(chat.paint); chat.paint = null; }
+      renderAssistantChat();
     }
   }
 
@@ -8258,13 +8411,17 @@
       if (button.id === "assistant-toggle") {
         const panel = $("assistant-panel");
         if (panel) panel.hidden = !panel.hidden;
+        if (panel && !panel.hidden) { assistantContextLine(); $("assistant-question")?.focus?.(); void loadAssistantStatus(); }
         button.setAttribute("aria-expanded", String(panel ? !panel.hidden : false));
       }
       if (button.id === "assistant-close") {
         $("assistant-panel").hidden = true;
         $("assistant-toggle")?.setAttribute("aria-expanded", "false");
       }
-      if (button.id === "send-assistant") void askAssistant();
+      if (button.id === "send-assistant") void sendAssistantChat();
+      if (button.id === "assistant-new") newAssistantChat();
+      if (button.id === "assistant-key-save") saveAssistantKey();
+      if (button.id === "assistant-key-remove") { chat.key = null; safeStorageRemove(ASSISTANT_KEY); updateAssistantVisibility(); renderSettingsScreen(); }
     });
 
     document.addEventListener("change", (event) => {
@@ -8405,6 +8562,14 @@
     });
 
     document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && $("assistant-panel") && !$("assistant-panel").hidden) {
+        $("assistant-panel").hidden = true; $("assistant-toggle")?.setAttribute("aria-expanded", "false"); $("assistant-toggle")?.focus?.(); return;
+      }
+      // Enter that confirms an input-method candidate (Chinese, Japanese, Korean) is not a send.
+      if (event.target?.id === "assistant-question" && event.key === "Enter" && !event.shiftKey
+        && !event.isComposing && event.keyCode !== 229) {
+        event.preventDefault(); if (!chat.controller) void sendAssistantChat(); return;
+      }
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         $("global-search")?.focus?.();
@@ -8479,6 +8644,7 @@
       state.wallet.message = state.testnetWorkspace.error || "Testnet workspace is unavailable. No wallet or network requests were started.";
       state.universeError = { message: state.wallet.message, reason_code: "TESTNET_WORKSPACE_UNAVAILABLE" };
       mountTestnetToolbar();
+      void loadAssistantStatus();
       root.FenoriumCharts?.bindTooltips?.(document);
       void renderBuildId();
       renderWalletSwitcher();
@@ -8513,6 +8679,7 @@
     } else {
       state.universeError = { message: universe.reason?.message || String(universe.reason), reason_code: universe.reason?.reason_code || "UNIVERSE_REQUEST_FAILED" };
     }
+    void loadAssistantStatus();
     root.FenoriumCharts?.bindTooltips?.(document);
     void renderBuildId();
     renderWalletSwitcher();
@@ -8671,7 +8838,7 @@
     assistantAssetSegment,
     assistantReasonCode,
     assistantInstrumentFacts,
-    askAssistant,
+    assistantRequestBody, buildChatContext, loadAssistantStatus, saveAssistantKey, assistantError, sendAssistantChat, stopAssistantChat, newAssistantChat,
     setPurchaseAmount,
     refreshPurchase,
     performPurchase,
