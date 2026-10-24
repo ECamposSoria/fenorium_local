@@ -18,8 +18,9 @@ Fenorium exists in three places:
 - `make`: included on macOS and Linux; on Windows, use WSL.
 - A browser wallet such as MetaMask, to buy and sell.
 - 3 GB of disk and 2 GB of free memory for the stack.
-- For the optional [chat](#chat-optional): about 2 GB more disk and 2.5 GB more memory with the
-  default model, or an NVIDIA graphics card for the larger models.
+- For the optional [chat](#chat-optional): an NVIDIA graphics card with 24 GB of memory, such as an
+  RTX 3090 or 4090, 32 GB of system memory and about 25 GB more disk. A card with 8 GB runs a smaller
+  model with weaker answers; without a graphics card the chat only shows how it works.
 
 ## Start it
 
@@ -89,31 +90,32 @@ compares instruments and suggests ones that fit what you ask. It cannot trade, a
 your machine.
 
 ```bash
-make model           # once: downloads the model
-make assistant       # starts the chat; the Explain button appears in the terminal
-make assistant-down  # stops it
+make model GPU=1      # once: downloads the model
+make assistant GPU=1  # starts the chat; the Explain button appears in the terminal
+make assistant-down   # stops it
 ```
 
-With an NVIDIA graphics card, run `make model GPU=1` and `make assistant GPU=1` instead. That needs
-an NVIDIA driver from the 580 series or newer and Docker with GPU access: Docker Desktop with WSL2 on
-Windows, or the NVIDIA Container Toolkit on Linux. Docker on a Mac cannot use the GPU, so there the
-chat runs on the CPU.
+`GPU=1` needs an NVIDIA driver from the 580 series or newer and Docker with GPU access: Docker
+Desktop with WSL2 on Windows, or the NVIDIA Container Toolkit on Linux. Without it, `make model` and
+`make assistant` run Qwen3 1.7B on the CPU, which shows how the chat works but does not give
+reliable answers. Docker on a Mac cannot use the GPU.
 
-**Pick the model for your machine.** Set `LOCAL_ASSISTANT_MODEL` in `.env`, then run `make model`
-and `make assistant` again. All of them are Qwen3 models quantized to 4 bits:
+**Pick the model for your machine.** Set `LOCAL_ASSISTANT_MODEL` in `.env`, then run
+`make model GPU=1` and `make assistant GPU=1` again. All of them are Qwen3 models quantized to 4 bits:
 
 | Model | Quantization | Download | Needs |
 |---|---|---|---|
-| `qwen3-1.7b` (default) | 4-bit, QVAC's build | about 1 GB | any computer with 2.5 GB of free memory; over a minute per answer |
+| `qwen3-1.7b` (without `GPU=1`) | 4-bit, QVAC's build | about 1 GB | any computer; a demonstration only, over a minute per answer |
 | `qwen3-4b` | Q4_K_M | about 2.5 GB | 4 GB of free memory; two to three times slower than the 1.7B |
 | `qwen3-8b` (default with `GPU=1`) | Q4_K_M | 5.0 GB | an NVIDIA card with 8 GB |
 | `qwen3-14b` | Q4_K_M | 9.0 GB | an NVIDIA card with 12 GB |
-| `qwen3-30b-a3b` (recommended) | Q4_K_M | 18.6 GB | an NVIDIA card with 24 GB, and `LOCAL_ASSISTANT_MEMORY=24g` in `.env` |
+| `qwen3-30b-a3b` (recommended) | Q4_K_M | 18.6 GB | an NVIDIA card with 24 GB |
 
-We recommend `qwen3-30b-a3b` on a 24 GB card such as an RTX 3090 or 4090. Only about 3 billion of
-its 30 billion parameters work on each word, so it should answer about as fast as the 8B. On a
+We recommend `qwen3-30b-a3b` on a 24 GB card such as an RTX 3090 or 4090: set
+`LOCAL_ASSISTANT_MODEL=qwen3-30b-a3b` and `LOCAL_ASSISTANT_MEMORY=24g` in `.env`. Only about 3 billion
+of its 30 billion parameters work on each word, so it should answer about as fast as the 8B. On a
 smaller card the runtime keeps what does not fit in the computer's memory (32 GB or more), which is
-slower. The 1.7B shows the chat working on any computer; for good answers, use a graphics card.
+slower.
 
 **How accurate it is.** Each model was asked the same 73 questions about one screen, and every
 answer was checked by hand:
