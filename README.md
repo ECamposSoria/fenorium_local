@@ -128,8 +128,11 @@ runtime (about 5 GB) and runs Qwen3 8B on the card unless `LOCAL_ASSISTANT_MODEL
 It needs an NVIDIA driver from the 580 series or newer and Docker with GPU access: Docker Desktop
 with the WSL2 backend on Windows, or the NVIDIA Container Toolkit on Linux. Docker on a Mac cannot
 use the GPU, so there the assistant runs on the CPU. Without a usable card the GPU variant answers on
-the CPU like the default one. (The GPU variant was built and its CPU fallback tested when this
-repository was published; it has not yet been run on a card.)
+the CPU like the default one.
+
+Measured on an RTX 4070 Laptop GPU (8 GB), with Docker Engine and the NVIDIA Container Toolkit
+inside WSL2 Ubuntu 24.04: the first answer takes about 20 seconds (the model loading onto the card),
+later ones about 6 seconds, with the model using about 6.2 GB of video memory.
 
 ## How this repository is built
 
