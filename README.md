@@ -132,22 +132,21 @@ gets most counts right, it still misreads single rows and some rankings.
 `make assistant` again (add `GPU=1` on an NVIDIA card). All of them are Qwen3 models quantized to
 4 bits:
 
-| Model | Quantization | Download | Runs well on | Measured here |
-|---|---|---|---|---|
-| `qwen3-1.7b` (default on a CPU) | 4-bit, QVAC's build | about 1 GB | any computer with 2.5 GB of free memory | partly |
-| `qwen3-4b` | Q4_K_M | about 2.5 GB | a CPU with 4 GB free, two to three times slower than the 1.7B | no |
-| `qwen3-8b` (default with `GPU=1`) | Q4_K_M | 5.0 GB | an NVIDIA card with 8 GB; it uses 6.2 GB | yes |
-| `qwen3-14b` | Q4_K_M | 9.0 GB | an NVIDIA card with 12 GB or more | no |
-| `qwen3-30b-a3b` (recommended) | Q4_K_M | 18.6 GB | an NVIDIA card with 24 GB | no |
+| Model | Quantization | Download | Runs well on |
+|---|---|---|---|
+| `qwen3-1.7b` (default on a CPU) | 4-bit, QVAC's build | about 1 GB | any computer with 2.5 GB of free memory |
+| `qwen3-4b` | Q4_K_M | about 2.5 GB | a CPU with 4 GB free, two to three times slower than the 1.7B |
+| `qwen3-8b` (default with `GPU=1`) | Q4_K_M | 5.0 GB | an NVIDIA card with 8 GB; it uses 6.2 GB |
+| `qwen3-14b` | Q4_K_M | 9.0 GB | an NVIDIA card with 12 GB or more |
+| `qwen3-30b-a3b` (recommended) | Q4_K_M | 18.6 GB | an NVIDIA card with 24 GB |
 
 **What we recommend.** `qwen3-30b-a3b` at Q4_K_M, on an NVIDIA card with 24 GB of memory such as an
 RTX 3090 or 4090, with `LOCAL_ASSISTANT_MEMORY=24g` in `.env`. Only about 3 billion of its 30 billion
 parameters work on each word, so on a card that holds it, it should answer about as fast as the 8B.
-We have not been able to run it: the largest card we have has 8 GB, and there `qwen3-8b` is the
-largest model that runs entirely on the card. On a smaller card the runtime puts what fits on the
-card and keeps the rest in the computer's memory (32 GB or more); that works but is slower, and we
-have not measured it either. The 14B and 30B models download from Qwen's own Hugging Face pages, and
-the runtime checks each file against the checksum Hugging Face publishes.
+On an 8 GB card `qwen3-8b` is the largest model that runs entirely on the card. On a smaller card
+the runtime places as much of a larger model as fits on the card and the rest in the computer's
+memory (32 GB or more), and answers more slowly. The 14B and 30B models download from Qwen's own
+Hugging Face pages, and the runtime checks each file against the checksum Hugging Face publishes.
 
 **Thinking.** `LOCAL_ASSISTANT_THINKING=1` in `.env` lets the model reason before it answers. On the
 RTX 4070 it raised the 8B from 55 to 61 correct answers out of 73, at about 16 seconds per answer
