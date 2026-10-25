@@ -2011,7 +2011,7 @@
     }
     if (key === "rate_kind") return U.esc(U.stateLabel(row.rate_kind));
     if (key === "tier") return U.esc(U.stateLabel?.(row.tier) || row.tier);
-    if (key === "permission") return U.esc(U.stateText?.(row.gate.status) || row.gate.status);
+    if (key === "permission") return U.permissionCell(row.gate.status);
     if (key === "address") return U.esc(row.address);
     if (key === "execution_mode") return `<span class="execution-cell ${row.is_demo ? "demo" : mainnetExecutionOpen() ? "routable" : "read-only"}">${U.esc(row.is_demo ? "Base Sepolia demo purchase" : mainnetExecutionOpen() ? "Mainnet · route on request" : "Mainnet execution disabled")}</span>`;
     return U.esc(row[key] || "NOT COMPUTABLE");

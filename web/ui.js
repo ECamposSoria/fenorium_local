@@ -389,6 +389,16 @@
     return `<span class="availability ${className}" title="${esc(stateText(status))}"><b>${status}</b><small>${detail}</small></span>`;
   }
 
+  // The column states only what the transfer probe established; the probe's caveat stays in the
+  // tooltip, and a row the probe never settled is not given either word.
+  const PERMISSION_LABELS = Object.freeze({PERMISSIONLESS: "Permissionless", GATED: "Permissioned", RESTRICTED: "Permissioned"});
+
+  function permissionCell(status) {
+    const label = PERMISSION_LABELS[status];
+    if (!label) return availability({status: "UNKNOWN"});
+    return `<span title="${esc(stateText(status))}">${label}</span>`;
+  }
+
   function typeIndicator(category) {
     const normalized = String(category || "unknown").toLowerCase();
     const label = P.MARKET_CATEGORY_LABELS?.[normalized] || "Unknown type";
@@ -1418,7 +1428,8 @@
     if (field === "headline" && rewardQualifier(row)) {
       return rewardHeadline(row) || `${esc(value)}<small class="cell-sub">${esc(rewardQualifier(row))}</small>`;
     }
-    const rendered = esc(field === "permission" ? stateText(value) : value);
+    if (field === "permission") return permissionCell(row.gate?.status);
+    const rendered = esc(value);
     if (field === "net" || field === "execution") {
       const basis = `<small class="cell-sub">Annualized</small>`;
       return rendered + basis + costFigureContext(row);
@@ -2580,6 +2591,7 @@
     scoreChip,
     identity,
     availability,
+    permissionCell,
     sourceContext,
     costFigureContext,
     sizeCostContext,
