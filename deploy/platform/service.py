@@ -37,6 +37,7 @@ from .route_tracker import RouteTracker
 from .on_demand_prices import OnDemandPrices
 from .wallets import RoutableTokens, WalletBusy, WalletReader
 from .api import APIError, PlatformAPI, json_bytes
+from .score_ledger import ScoreLedger, maturity_parameter, positive_parameter
 from engine.onchain import ChainReader
 from engine.registry import parse_asset_id, registry, registry_document
 from engine.rating import NET_AFTER_COSTS, RATING_METHOD_VERSION
@@ -355,6 +356,7 @@ class PlatformHTTPServer(ThreadingHTTPServer):
         self.gate = gate
         self.web_root = web_root.resolve()
         self.universe_path = Path(universe_path).resolve()
+        self.score_ledger = ScoreLedger(self.universe_path.parent / "ledger")
         self.routable = routable or RoutableTokens(self.universe_path.parent / ACQUIRE_DIRECTORY / "lifi-tokens.json")
         self.clock = clock or (lambda: datetime.now(UTC))
         self.idempotency = _IdempotencyCache()
@@ -909,6 +911,37 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
         # The platform terminal is same-origin. It intentionally exposes no CORS surface.
         self._send_json(HTTPStatus.METHOD_NOT_ALLOWED, {"error": "CORS_DISABLED"})
 
+    def _score_ledger(self, path: str) -> None:
+        ledger = self.server.score_ledger
+        params = parse_qs(urlsplit(self.path).query, keep_blank_values=True)
+        try:
+            if path.endswith("/snapshot"):
+                stamp = positive_parameter(params, "generated_at_unix")
+                raw = ledger.snapshot(stamp)
+                self.send_response(HTTPStatus.OK)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(raw)))
+                self.send_header("Cache-Control", "public, max-age=31536000, immutable")
+                self.end_headers()
+                self.wfile.write(raw)
+                return
+            if path.endswith("/history"):
+                chain_id = positive_parameter(params, "chain_id") if "chain_id" in params else None
+                keys = params.get("key", [])
+                if len(keys) != 1 or not keys[0].strip() or len(keys[0]) > 512:
+                    raise ValueError("key must identify one instrument")
+                data = ledger.history(chain_id, keys[0].lower(), maturity_parameter(params))
+            else:
+                data = ledger.index()
+        except FileNotFoundError:
+            self._send_json(HTTPStatus.NOT_FOUND, {"error": "SNAPSHOT_NOT_FOUND"})
+        except (ValueError, TypeError) as error:
+            self._send_json(HTTPStatus.BAD_REQUEST, {"error": "INVALID_LEDGER_REQUEST", "message": str(error)})
+        except OSError:
+            self._send_json(HTTPStatus.SERVICE_UNAVAILABLE, {"error": "SCORE_LEDGER_UNAVAILABLE"})
+        else:
+            self._send_json(HTTPStatus.OK, self.server.api.envelope(data))
+
     def do_GET(self) -> None:  # noqa: N802 - stdlib hook
         path = self._path()
         if path.startswith("/v1/"):
@@ -942,6 +975,9 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
                 # The API's envelope, so a deployment that charges a fee says so here too rather
                 # than answering the universe as if it charged nothing.
                 self._send_json(HTTPStatus.OK, self.server.api.envelope(data))
+            return
+        if path in {"/v1/score-ledger", "/v1/score-ledger/snapshot", "/v1/score-ledger/history"}:
+            self._score_ledger(path)
             return
         if path == "/v1/registry":
             try:

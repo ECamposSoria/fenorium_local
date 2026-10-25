@@ -633,6 +633,44 @@
     return hours < 1 ? `${minutes}m ago` : hours < 48 ? `${hours}h ago` : `${Math.floor(hours / 24)}d ago`;
   }
 
+  let scoreLedgerLatest = null;
+
+  function scoreLedgerTxUrl(entry) {
+    const chain = Number(entry?.chain_id);
+    const explorer = chain === 8453 ? "https://basescan.org"
+      : chain === 84532 ? root.FenoriumApp?.deploymentEndpoints?.().explorerUrl : null;
+    return explorer && /^0x[0-9a-f]{64}$/i.test(entry?.tx_hash || "")
+      ? `${explorer.replace(/\/$/, "")}/tx/${entry.tx_hash}` : null;
+  }
+
+  function scoreLedgerTxText(entry) {
+    const hash = entry?.tx_hash || "";
+    return /^0x[0-9a-f]{64}$/i.test(hash)
+      ? `<span title="${esc(hash)}">tx ${esc(hash.slice(0, 6))}…${esc(hash.slice(-4))}</span>` : "";
+  }
+
+  function setScoreLedger(ledger) {
+    scoreLedgerLatest = [...(ledger?.entries || [])].sort((a, b) => b.generated_at_unix - a.generated_at_unix)[0] || null;
+  }
+
+  function scoreHistory(history) {
+    let body;
+    if (history?.status === "error") body = '<p class="empty-state">Score history unavailable</p>';
+    else if (!history || history.status === "idle" || history.status === "loading") body = '<p class="empty-state">Loading score history…</p>';
+    else {
+      const rows = [...(history?.points || [])].sort((a, b) => Date.parse(b.generated_at) - Date.parse(a.generated_at)).slice(0, 30);
+      body = rows.length ? `<div class="table-wrap"><table><thead><tr><th>Date (UTC)</th><th>Score</th><th>Record</th></tr></thead><tbody>${rows.map(point => {
+        const date = new Date(point.generated_at).toISOString().slice(0, 16).replace("T", " ") + " UTC";
+        const base = scoreLedgerTxUrl(point);
+        const file = Number.isSafeInteger(point.generated_at_unix) && point.generated_at_unix > 0
+          ? `/v1/score-ledger/snapshot?generated_at_unix=${point.generated_at_unix}` : null;
+        const title = `IPFS CID ${point.cid} · sha256 ${point.sha256}`;
+        return `<tr><td>${esc(date)}</td><td>${scoreChip(point)}</td><td>${base ? `<a class="tx-link" href="${esc(base)}" target="_blank" rel="noopener noreferrer">Base ↗</a>` : scoreLedgerTxText(point)} ${file ? `<a class="tx-link" href="${esc(file)}" title="${esc(title)}" target="_blank" rel="noopener noreferrer">File ↗</a>` : ""}</td></tr>`;
+      }).join("")}</tbody></table></div>` : '<p class="empty-state">No recorded history yet: scores are recorded on Base each time the universe is published.</p>';
+    }
+    return `<section class="panel" aria-label="Score history"><header><h2>Score history</h2></header>${body}</section>`;
+  }
+
   function freshness(metadata, error) {
     const element = $("universe-status");
     if (!element) return;
@@ -664,6 +702,16 @@
     element.innerHTML = unsettled
       ? `<span class="status-symbol" aria-hidden="true">●</span><strong>Fixed-Income Universe is ${esc(stateLabel(status))}</strong><span class="meta">${esc(warning)}Cached snapshot · Generated ${esc(metadata.generated_at || metadata.as_of)} (${esc(relative(metadata.freshness?.age_seconds))})${esc(inputDetail)}</span><button class="method-link ghost" type="button" data-utility="methodology">Universe status &amp; methodology ↗</button>`
       : `<span class="status-symbol" aria-hidden="true">●</span><span class="meta">Universe ${esc(stateLabel(status))} · ${esc(warning)}Generated ${esc(metadata.generated_at || metadata.as_of)} (${esc(relative(metadata.freshness?.age_seconds))})${esc(inputDetail)}</span><button class="method-link ghost" type="button" data-utility="methodology">Universe status &amp; methodology ↗</button>`;
+    const ledgerUrl = scoreLedgerTxUrl(scoreLedgerLatest);
+    const recordedAt = Date.parse(scoreLedgerLatest?.generated_at);
+    const displayedAt = Date.parse(metadata.generated_at);
+    if (Number.isFinite(recordedAt) && Number.isFinite(displayedAt) && recordedAt <= displayedAt) {
+      const label = recordedAt === displayedAt ? "Scores recorded on Base"
+        : `Last recorded on Base: ${new Date(recordedAt).toISOString().slice(0, 16).replace("T", " ")} UTC`;
+      element.innerHTML += ledgerUrl
+        ? ` <a class="tx-link" href="${esc(ledgerUrl)}" target="_blank" rel="noopener noreferrer"> · ${esc(label)} ↗</a>`
+        : ` · ${esc(label)} · ${scoreLedgerTxText(scoreLedgerLatest)}`;
+    }
   }
 
   function renderFixedIncome(universe, metadata, error) {
@@ -1319,7 +1367,7 @@
       : instrumentPeers(row, peers, sizeUsd, charts)}</div>`;
   }
 
-  function asset(row, tab, metadata, candidate, purchase, sizeUsd, analytics, peers) {
+  function asset(row, tab, metadata, candidate, purchase, sizeUsd, analytics, peers, history) {
     if (!row) return;
     tab = tab === "analytics" || tab === "maturity" ? "analytics" : "summary";
     const copy = $("copy-address");
@@ -1343,6 +1391,7 @@
     content.innerHTML = tab === "summary"
       ? `${summary(row, metadata, purchase, sizeUsd)}${costLedger(candidate)}${row.is_demo === true || row.simulation === true ? readOnlyExecutionNotice(row) : ""}<details id="asset-provenance" class="panel"><summary>Evidence and provenance</summary>${riskCoverage(row)}${provenancePreview(row, metadata)}<button class="ghost" type="button" data-execute-action="export">Export Decision Bundle</button></details>`
       : instrumentAnalytics(row, analytics, peers || [], sizeUsd);
+    if (tab === "summary") content.innerHTML += scoreHistory(history);
   }
 
   function renderRisk(positions) {
@@ -2575,6 +2624,7 @@
   }
 
   root.FenoriumUI = {
+    scoreHistory, scoreLedgerTxUrl, setScoreLedger,
     setDeploymentState,
     executionMode,
     portfolioScreen, renderPortfolioScreen, analyticsScreen, portfolioUnavailable, holdingsCsv, transactionsCsv, transferDisplayCells, transactionScreen, collapseSelfTransfers, valuedTransferRows, allTransferRows, portfolioLabel,

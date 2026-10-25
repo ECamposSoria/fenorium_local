@@ -330,6 +330,10 @@
     sampleError: null,
     universe: [],
     metadata: null,
+    scoreLedger: null,
+    scoreLedgerStatus: "idle",
+    scoreLedgerRetried: false,
+    scoreLedgerLoadedAt: null,
     universeError: null,
     config: null,
     serverExecution: false,
@@ -1111,7 +1115,9 @@
       throw error;
     }
     if (!body) throw Error("universe response is not valid JSON");
-    return validateUniverseEnvelope(body, sizeUsd);
+    const result = validateUniverseEnvelope(body, sizeUsd);
+    void loadScoreLedger();
+    return result;
   }
 
   // What this build was configured to accept. A server saying execution is on when the client
@@ -2206,6 +2212,20 @@
       renderOverview();
     }
     state.view = view;
+    if (view === "asset" && state.scoreLedgerStatus === "error" && !state.scoreLedgerRetried) {
+      state.scoreLedgerRetried = true;
+      void loadScoreLedger();
+    } else if (view === "asset" && state.scoreLedgerStatus === "ready"
+      && P.clockNow() - state.scoreLedgerLoadedAt > 10 * 60 * 1000) {
+      void loadScoreLedger();
+    }
+    if (view === "asset" && state.selected) {
+      const key = scoreHistoryKey(state.selected);
+      if (scoreHistoryCache.get(key)?.status === "error") {
+        scoreHistoryCache.delete(key);
+        void ensureScoreHistory(state.selected);
+      }
+    }
     if (view === "wallet") renderWalletScreen();
     if (view === "settings") renderSettingsScreen();
     if (typeof document !== "undefined") {
@@ -2336,6 +2356,71 @@
   }
 
   const instrumentAnalyticsCache = new Map();
+  const scoreHistoryCache = new Map();
+  let scoreLedgerLoading = false;
+
+  function instrumentKey(row) {
+    const address = row?.address || row?.market_id || row?.market_address;
+    if (address) return String(address).toLowerCase();
+    return "name:" + ["venue", "chain", "name"].map(field => String(row?.[field] || "").toLowerCase()).join("|");
+  }
+
+  function scoreHistoryKey(row) {
+    const entries = state.scoreLedger?.entries;
+    if (!entries?.length) return null;
+    const latest = Math.max(...entries.map(entry => entry.generated_at_unix));
+    return JSON.stringify([row?.chain_id, instrumentKey(row), row?.maturity || "", latest]);
+  }
+
+  async function ensureScoreHistory(row) {
+    const cacheKey = scoreHistoryKey(row);
+    if (cacheKey === null || scoreHistoryCache.has(cacheKey)) return;
+    const [chain, key, maturity] = JSON.parse(cacheKey);
+    scoreHistoryCache.set(cacheKey, {status: "loading"});
+    try {
+      const maturityQuery = maturity ? `&maturity=${encodeURIComponent(maturity)}` : "";
+      const chainQuery = chain == null ? "" : `chain_id=${encodeURIComponent(chain)}&`;
+      const response = await root.fetch(`/v1/score-ledger/history?${chainQuery}key=${encodeURIComponent(key)}${maturityQuery}`, {
+        cache: "no-store", headers: {Accept: "application/json"},
+      });
+      if (!response.ok) throw Error("Score history unavailable");
+      const body = await response.json();
+      if (!Array.isArray(body.data) || body.data.some(point => !point || !Number.isFinite(Date.parse(point.generated_at)))) {
+        throw Error("Invalid score history");
+      }
+      scoreHistoryCache.set(cacheKey, {status: "ready", points: body.data});
+    } catch (_) {
+      scoreHistoryCache.set(cacheKey, {status: "error"});
+    }
+    if (scoreHistoryKey(state.selected) === cacheKey) renderSelectedAsset();
+  }
+
+  async function loadScoreLedger() {
+    if (scoreLedgerLoading) return;
+    scoreLedgerLoading = true;
+    state.scoreLedgerStatus = "idle";
+    try {
+      const response = await root.fetch("/v1/score-ledger", {cache: "no-store"});
+      if (!response.ok) throw Error("Score history unavailable");
+      const body = await response.json();
+      if (!Array.isArray(body?.data?.entries) || body.data.entries.some(entry =>
+        !entry || !Number.isSafeInteger(entry.generated_at_unix) || entry.generated_at_unix <= 0)) {
+        throw Error("Invalid score ledger");
+      }
+      state.scoreLedger = body.data;
+      state.scoreLedgerStatus = "ready";
+      state.scoreLedgerLoadedAt = P.clockNow();
+      U.setScoreLedger?.(body.data);
+      U.freshness?.(state.metadata, state.universeError);
+    } catch (_) {
+      state.scoreLedger = null;
+      state.scoreLedgerStatus = "error";
+      U.setScoreLedger?.(null);
+    } finally {
+      scoreLedgerLoading = false;
+    }
+    if (state.view === "asset" && state.selected) renderSelectedAsset();
+  }
   let instrumentAnalyticsRequest = 0;
   let instrumentAnalyticsSelection = null;
 
@@ -2413,11 +2498,14 @@
       }
     }
     if (state.assetTab === "analytics") void ensureInstrumentAnalytics();
+    void ensureScoreHistory(state.selected);
     U.asset(displayRow(state.selected), state.assetTab, rowMetadata(state.selected), state.candidate,
       isSimulatedRow(state.selected) ? null : purchaseView(state.selected), state.notionalSize,
       withRatingDay(instrumentAnalyticsCache.get(key)) || (P.instrumentId(state.selected) === null
         ? {status: "error", error: "this instrument has no platform id"} : {status: "loading"}),
-      marketPopulation(state.universe, "").rows.map(displayRow));
+      marketPopulation(state.universe, "").rows.map(displayRow), state.scoreLedgerStatus === "ready"
+        ? scoreHistoryCache.get(scoreHistoryKey(state.selected)) || {status: "ready", points: []}
+        : {status: state.scoreLedgerStatus});
     root.FenoriumCharts?.bindTooltips?.(root.document);
   }
 
@@ -8624,6 +8712,7 @@
   }
 
   async function init() {
+    void loadScoreLedger();
     const testnetModule = root.FenoriumTestnet;
     if (testnetModule) {
       // Close every wallet-backed path while workspace configuration and fixture data load.
