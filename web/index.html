@@ -134,10 +134,12 @@
                 <details class="notional-info">
                   <summary aria-label="Notional model and depth-gate information"><span aria-hidden="true">ⓘ</span></summary>
                   <div id="notional-model-help">
-                  Reported depth below notional refuses the rating; depth is not TVL. A stated flat
-                  30 bp base fee applies at every size. Additional impact is a <b>modelled estimate</b> using
-                  100 bp × (size / reported depth)<sup>1/2</sup>, rounded up to integer bps. It is
-                  not measured slippage or a live executable quote.
+                  Reported depth below notional refuses the rating; depth is not TVL. The entry cost is a
+                  stated flat 30 bp base fee, the cost of size, and Fenorium's routing fee on routed token
+                  purchases where this deployment charges one. The cost of size is <b>measured</b> from LI.FI
+                  quotes at increasing sizes where they exist; otherwise it is a <b>modelled estimate</b> of
+                  100 bp × (size / reported depth)<sup>1/2</sup>, rounded up to integer bps. Each instrument
+                  says which one applies. Neither is a live executable quote.
                 </div>
               </details>
               </span>

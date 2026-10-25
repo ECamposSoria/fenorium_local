@@ -161,6 +161,9 @@ class HttpClient:
         # rest of the run. Both are kept per host for that reason.
         self._host_last: dict[str, float] = {}
         self._host_delay: dict[str, float] = {}
+        # A host that served an anti-bot challenge serves one for the rest of the run: Blockscout
+        # did 34 times in one night, each a request whose answer could never be evidence.
+        self._challenged_hosts: set[str] = set()
 
     @staticmethod
     def utc_now() -> datetime:
@@ -257,6 +260,14 @@ class HttpClient:
             return None
         return seconds if 0.0 <= seconds <= MAX_RETRY_AFTER_SECONDS else None
 
+    @staticmethod
+    def _is_challenge(response: Any) -> bool:
+        """Cloudflare's interstitial, which a client without a browser never gets past."""
+        headers = getattr(response, "headers", None)
+        if isinstance(headers, Mapping) and str(headers.get("cf-mitigated", "")).lower() == "challenge":
+            return True
+        return response.status_code in (403, 503) and "<title>Just a moment" in (response.text or "")[:2000]
+
     def _archive(self, source: str, name: str, payload: Any, endpoint: str) -> Any:
         now = self.utc_now()
         stamp = now.strftime("%Y-%m-%dT%H-%M-%S.%fZ")
@@ -337,7 +348,11 @@ class HttpClient:
         error: str | None = None
         host = self._host_of(url)
         asked_to_wait: float | None = None
-        for attempt in range(self.retries + 1):
+        attempts = self.retries + 1
+        if host in self._challenged_hosts:
+            error = f"not requested: {host} served an anti-bot challenge earlier in this run"
+            attempts = 0
+        for attempt in range(attempts):
             self._pace(host)
             try:
                 response = self.session.request(
@@ -364,6 +379,10 @@ class HttpClient:
                     return self._archive(source, name, payload, endpoint)
                 body = response.text[:300].replace("\n", " ")
                 error = f"HTTP {response.status_code}: {body}"
+                if self._is_challenge(response):
+                    self._challenged_hosts.add(host)
+                    self.log.warning("%s served an anti-bot challenge; not asked again in this run", host)
+                    break
                 if response.status_code == 429:
                     # The refusal is information about this host whether or not we try again.
                     self._slow_down(host)
