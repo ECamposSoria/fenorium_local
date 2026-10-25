@@ -25,7 +25,7 @@ up: doctor
 	$(COMPOSE) up -d anvil
 	$(COMPOSE) up deployer
 	$(COMPOSE) up builder
-	$(COMPOSE) up -d platform
+	$(COMPOSE) up -d --no-deps platform
 	@echo
 	@echo "Fenorium local is up: http://127.0.0.1:$$(grep -E '^LOCAL_PLATFORM_PORT=' .env | cut -d= -f2 || echo 8517)"
 	@echo "Chain RPC for your wallet: http://127.0.0.1:$$(grep -E '^LOCAL_CHAIN_PORT=' .env | cut -d= -f2 || echo 8545) (chain id 84532)"
