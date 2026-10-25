@@ -49,6 +49,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))   # the engine's own classifier decides gate status, not a copy of it
+from engine.rate_conventions import rate_convention
 # The scheduled wrapper points this at a same-filesystem candidate. The normal command and
 # isolated venue command keep the canonical path, and no secret is accepted through this setting.
 OUT = Path(os.environ.get("FENORIUM_UNIVERSE_OUTPUT", ROOT / "web" / "universe.json")).resolve()
@@ -64,6 +65,7 @@ from engine.midnight import MIDNIGHT_VENUES
 from engine.rpc_endpoints import rpc_endpoints
 from engine.portfolio.contracts import redact_endpoints
 from engine.variable_yield import (
+    _reward_fields,
     MulticallChunkError,
     MulticallRead,
     VenueResult,
@@ -344,6 +346,7 @@ def native_rows() -> list[dict]:
             "obtainable": p.get("obtainable"),
             "reason": p.get("reason"),
         }
+        row["rate_convention"] = rate_convention(row)
         loan_address = p.get("underlying_address")
         market_id = p.get("market_id")
         if (p.get("venue") in MIDNIGHT_VENUES and isinstance(market_id, str) and market_id
@@ -464,7 +467,7 @@ def rwa_rows(pools: list[dict] | None = None) -> tuple[list[dict], str | None]:
         if key in seen:
             continue
         seen.add(key)
-        apy = p.get("apy")
+        apy = p.get("apyBase")
         # The address map is Ethereum-only. The same fund deployed on another chain is a
         # different contract with its own gate, and stamping the mainnet address onto it would
         # report a compliance registry that instrument does not use.
@@ -479,6 +482,7 @@ def rwa_rows(pools: list[dict] | None = None) -> tuple[list[dict], str | None]:
             "address": known[1] if known else None,
             "decimals": known[2] if known else None,
             "rate_bps": None if apy is None else round(float(apy) * 100),
+            **_reward_fields(p, None if apy is None else round(float(apy) * 100)),
             # The issuer's published figure. Par has not shown it obtainable at any size.
             "rate_kind": None if apy is None else "issuer_quoted",
             # Deliberately None. See the module docstring: fund size is not obtainable depth.
@@ -609,6 +613,7 @@ def verified_rwa_rows(pools: list[dict] | None) -> list[dict]:
             "address": address,
             "decimals": decimals,
             "rate_bps": None if apy is None else round(float(apy) * 100),
+            **_reward_fields(own or {}, None if apy is None else round(float(apy) * 100)),
             "rate_kind": None if apy is None else "issuer_quoted",
             # Filled by the obtainability pass from a live route, not from fund size.
             "depth_usd": None,
@@ -918,6 +923,7 @@ def testnet_rows(declared_at: datetime | None = None, *, mocks_manifest_path=Non
                 "verdict": "BID" if t["fenorium_score"] >= 60 else "NO BID",
                 "score_source": DEMO_SCORE_SOURCE,
             })
+        rows[-1]["rate_convention"] = rate_convention(rows[-1])
         stamp_demo_evidence(rows[-1], declaration_time)
     return rows
 
@@ -996,6 +1002,7 @@ def testnet_catalog_rows(declared_at: datetime | None = None, *,
             if score < 60:
                 row["rejection"] = "credit"
                 row["reason"] = f"NO BID (credit) — declared demo score {score} is below 60. " + row["reason"]
+        row["rate_convention"] = rate_convention(row)
         stamp_demo_evidence(row, declaration_time)
         rows.append(row)
     return rows
@@ -1736,6 +1743,7 @@ def row_rating_point(row: dict) -> dict:
 def rerate_snapshot(payload: dict) -> None:
     """Upgrade only rating arithmetic, preserving snapshot timestamps and market evidence."""
     for row in payload["instruments"]:
+        row.setdefault("rate_convention", rate_convention(row))
         if (not row.get("rating")
                 and (row.get("is_stablecoin") is True or row.get("category") == "stablecoin")):
             continue
@@ -1917,6 +1925,7 @@ def main(argv: list[str] | None = None) -> int:
     everything = (native + vaults + rwa + verified_rwa_rows(pools)
                   + settlement_rows() + demo_rows)
     for row in everything:
+        row["rate_convention"] = rate_convention(row)
         row.setdefault("maturity_timestamp", None)
     eligibility = measure_eligibility(everything)
     (obtainable, unobtainable, gated,

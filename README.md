@@ -83,7 +83,7 @@ declarations. The eight simulated portfolios are fixtures with no transactions b
 
 ## Chat (optional)
 
-The **Explain** button opens a chat about what the terminal shows: the market as you filtered and
+**Nori**, Fenorium's AI assistant, is a chat about what the terminal shows: the market as you filtered and
 sorted it, the instrument you selected, and the portfolio you are viewing. It explains figures,
 compares instruments and suggests ones that fit what you ask. It cannot trade, and nothing leaves
 your machine.
@@ -101,7 +101,7 @@ Then:
 
 ```bash
 make model GPU=1      # once: downloads the model
-make assistant GPU=1  # starts the chat; the Explain button appears in the terminal
+make assistant GPU=1  # starts the chat; the Nori button appears in the terminal
 make assistant-down   # stops it
 ```
 

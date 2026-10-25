@@ -50,16 +50,16 @@
   const DISCONNECTED_ACCOUNT = "__disconnected__";
   const FALLBACK_DEFAULT_COLUMNS = Object.freeze({
     mixed: Object.freeze([
-      "verdict", "instrument", "maturity", "headline", "net", "execution", "depth", "tier",
+      "verdict", "instrument", "maturity", "headline", "net", "net_to_maturity", "execution", "depth", "tier",
     ]),
     native: Object.freeze([
-      "verdict", "instrument", "maturity", "headline", "net", "execution", "depth", "tier",
+      "verdict", "instrument", "maturity", "headline", "net", "net_to_maturity", "execution", "depth", "tier",
     ]),
     rwa: Object.freeze([
-      "instrument", "headline", "net", "execution", "tvl", "rate_kind", "permission",
+      "instrument", "headline", "net", "net_to_maturity", "execution", "tvl", "rate_kind", "permission",
     ]),
     vault: Object.freeze([
-      "instrument", "headline", "net", "execution", "depth", "tvl", "rate_kind",
+      "instrument", "headline", "net", "net_to_maturity", "execution", "depth", "tvl", "rate_kind",
     ]),
   });
 
@@ -1665,11 +1665,10 @@
       // (owner 2026-10-20). A row whose cell reads N/A (the score does not apply to its
       // category) or UNKNOWN sorts last whichever way the column points (review dl).
       verdict: P.marketFieldApplies?.(row, "verdict") !== false && Number.isFinite(row.fenorium_score) ? row.fenorium_score : null,
-      headline: row.rate_bps,
-      // The displayed basis: within 30 days of maturity the cells show holding-period figures, and
-      // a column sorts by what it shows.
-      net: row.rating?.computable === true ? (P.holdingPeriod?.(row)?.net_bps ?? row.rating.net_bps) : null,
-      execution: row.rating?.computable === true ? (P.holdingPeriod?.(row)?.cost_bps ?? row.rating.execution_bps) : null,
+      headline: row.rewards_only === true ? null : row.rate_bps,
+      net: row.rating?.computable === true ? row.rating.net_bps : null,
+      net_to_maturity: P.holdingPeriod?.(row)?.net_bps ?? null,
+      execution: P.entryCost?.(row) ?? null,
       depth: row.depth_usd,
       tvl: row.tvl_usd,
       days: row.days_to_maturity,
@@ -1761,8 +1760,9 @@
     ["chain", "Chain"],
     ["maturity", "Maturity"],
     ["headline", "Headline Yield"],
-    ["net", "Net @ selected size"],
-    ["execution", "Execution Cost"],
+    ["net", "Net APY @ selected size"],
+    ["net_to_maturity", "Net to maturity @ selected size"],
+    ["execution", "Entry cost @ selected size"],
     ["depth", "Reported depth · exitable or acquirable"],
     ["tvl", "Fund size (TVL) · reported"],
     ["tier", "Tier"],
@@ -1780,13 +1780,14 @@
   }
 
   function columnLabel(key, label) {
-    return key === "net" ? `Net @ ${formatNotional(state.notionalSize)}` : label;
+    const sized = {net: "Net APY", net_to_maturity: "Net to maturity", execution: "Entry cost"};
+    return sized[key] ? `${sized[key]} @ ${formatNotional(state.notionalSize)}` : label;
   }
 
   // Column headers: the short word, with the full qualifier on hover; the Columns menu and the
   // CSV keep the qualified names.
   const HEADER_LABELS = Object.freeze({
-    verdict: "Score", category: "Type", headline: "Headline", execution: "Cost", depth: "Depth",
+    verdict: "Score", category: "Type", headline: "Headline", net: "Net APY", net_to_maturity: "To maturity", execution: "Entry cost", depth: "Depth",
     tvl: "TVL", rate_kind: "Rate kind", days: "Days", execution_mode: "Execution", chain_id: "Chain ID",
     address: "Address",
   });
@@ -1958,13 +1959,21 @@
   function numericCell(row, key) {
     const field = marketFieldState(row, key);
     if (field.status !== "MEASURED") return field.status;
-    if (key === "headline" || key === "net" || key === "execution") return U.pct(field.value);
+    if (["headline", "net", "net_to_maturity", "execution"].includes(key)) return U.pct(field.value);
     if (key === "depth" || key === "tvl") return `$${Math.round(Number(field.value)).toLocaleString("en-US")}`;
     if (key === "days") return Number(field.value).toFixed(1);
     return null;
   }
 
   function cell(row, key) {
+    if (key === "headline" && U.rewardQualifier(row)) {
+      const headline = U.rewardHeadline(row);
+      if (headline) return headline;
+      const field = marketFieldState(row, key);
+      return (U.availability?.(field) || U.esc(field.status))
+        + `<small class="cell-sub">${U.esc(U.rewardQualifier(row))}</small>`;
+    }
+    if (key === "net_to_maturity" && !P.marketFieldApplies(row, "maturity")) return '<span title="no maturity: held open-ended">—</span>';
     const field = marketFieldState(row, key);
     if (field.status !== "MEASURED") return U.availability?.(field) || U.esc(field.status);
     if (key === "verdict") return U.scoreChip(row, {compact: true});
@@ -1980,23 +1989,21 @@
     if (key === "venue") return U.identity?.("venue", row.venue) || U.esc(row.venue);
     if (key === "chain") return U.identity?.("chain", row.chain) || U.esc(row.chain);
     if (key === "category") return U.typeIndicator?.(row.category) || U.esc(row.category);
-    if (["headline", "net", "execution", "depth", "tvl", "days"].includes(key)) {
+    if (["headline", "net", "net_to_maturity", "execution", "depth", "tvl", "days"].includes(key)) {
       if (key === "depth" || key === "tvl") {
         const source = key === "depth" ? row.depth_source : row.tvl_source;
         return `<span title="${U.esc(`${numericCell(row, key)} · ${key === "depth" ? "Depth" : "TVL"} source: ${source || "not recorded"}`)}">${U.esc(compactUsd(field.value))}</span>`;
       }
       const value = U.esc(numericCell(row, key));
-      if (key === "net" || key === "execution") {
-        // Within 30 days of maturity the cell carries the holding-period figure and the day count;
-        // the annualized one stays in the tooltip (see P.holdingPeriod).
-        const hp = typeof P.holdingPeriod === "function" ? P.holdingPeriod(row) : null;
-        const shown = hp ? U.pct(key === "net" ? hp.net_bps : hp.cost_bps) : numericCell(row, key);
-        const horizon = hp ? `To maturity (${Number(hp.days).toFixed(1)} days remain); annualized ${numericCell(row, key)} · ` : "";
-        return `<span title="${U.esc(`${horizon}Entry costs · ${U.sizeCostContext?.(row) || "UNKNOWN · Not measured"}, not a live executable quote · depth source: ${row.depth_source || "not recorded"}`)}">${U.esc(shown)}${hp ? `<span class="cell-sub"> · ${U.esc(Number(hp.days).toFixed(1))}d</span>` : ""}</span>`;
+      if (["net", "net_to_maturity", "execution"].includes(key)) {
+        const horizon = key === "net" ? "Annualized net" : key === "net_to_maturity"
+          ? `To maturity · ${Number(P.holdingPeriod(row).days).toFixed(1)} days`
+          : `One-off entry cost; annualized ${U.pct(row.rating.execution_bps)}`;
+        return `<span title="${U.esc(`${horizon} · Entry costs · ${U.sizeCostContext?.(row) || "UNKNOWN · Not measured"}, not a live executable quote · depth source: ${row.depth_source || "not recorded"}`)}">${value}</span>`;
       }
       return value;
     }
-    if (key === "maturity") return U.esc(row.maturity);
+    if (key === "maturity") return U.esc(row.maturity) + (row.days_to_maturity != null && Number.isFinite(Number(row.days_to_maturity)) ? `<small class="cell-sub">${Number(row.days_to_maturity).toFixed(1)} days</small>` : "");
     if (key === "rejection") {
       const code = marketFieldState(row, key).value;
       const label = code ? ({credit: "Credit", evidence: "Evidence", market_data: "Market data", size: "Size", none: "None"}[code] || String(code).replace(/_/g, " ")) : "None";
@@ -2088,7 +2095,9 @@
     const visible = columns.filter(([key]) => state.columns.has(key));
     const head = $("market-head");
     if (head) {
-      head.innerHTML = `<tr><th scope="col" class="compare-col"><span class="sr-only">Compare</span></th>${visible.map(([key, label]) => `<th scope="col" title="${U.esc(columnLabel(key, label))}"><button class="sort-action" type="button" data-sort="${key}">${U.esc(headerLabel(key, label))}${state.sort.key === key ? (state.sort.dir === 1 ? " ↑" : " ↓") : ""}</button></th>`).join("")}</tr>`;
+      const defaults = defaultColumnKeys(state.filters.category);
+      head.closest?.("table")?.classList.toggle("market-default-columns", visible.length === defaults.length && visible.every(([key]) => defaults.includes(key)));
+      head.innerHTML = `<tr><th scope="col" class="compare-col"><span class="sr-only">Compare</span></th>${visible.map(([key, label]) => `<th scope="col" data-column="${key}" title="${U.esc(columnLabel(key, label))}"><button class="sort-action" type="button" data-sort="${key}">${U.esc(headerLabel(key, label))}${state.sort.key === key ? (state.sort.dir === 1 ? " ↑" : " ↓") : ""}</button></th>`).join("")}</tr>`;
     }
     const pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
     state.page = Math.min(state.page, pages);
@@ -2098,7 +2107,7 @@
     if (body) {
       body.innerHTML = page.map((row) => `<tr data-row="${row._index}" tabindex="0" aria-current="${state.selected?._index === row._index ? "true" : "false"}" class="${state.selected?._index === row._index ? "selected" : ""}">
         <td class="compare-cell"><input type="checkbox" data-compare="${U.esc(row._key)}" aria-label="Select ${U.esc(row.name)} for comparison" ${state.compareSelection.has(row._key) ? "checked" : ""}></td>
-        ${visible.map(([key]) => `<td class="${["headline", "net", "execution", "depth", "tvl", "days", "chain_id"].includes(key) ? "num" : ""}">${cell(row, key)}</td>`).join("")}
+        ${visible.map(([key]) => `<td data-column="${key}" class="${["headline", "net", "net_to_maturity", "execution", "depth", "tvl", "days", "chain_id"].includes(key) ? "num" : ""}">${cell(row, key)}</td>`).join("")}
       </tr>`).join("") || `<tr><td colspan="${visible.length + 1}" class="empty">No instruments match these filters.</td></tr>`;
       // A keyboard move re-renders the table; focus follows the row that was moved to.
       if (state.focusRow != null) {
@@ -7878,13 +7887,12 @@
     return Array.from(String(value ?? "UNKNOWN").replace(/0x[0-9a-fA-F]{40}/g, "[address omitted]")).slice(0, limit).join("");
   }
 
-  // The screen's net cell holds an annual rate or, inside the holding period, a return to maturity.
-  // The chat gets them in separate columns so a header never calls a return to maturity an APY.
+  // Both columns use the same figures as the market, independently of the remaining term.
   function assistantNetCells(row) {
-    const markup = cell(row, "net");
-    const horizon = markup.match(/title="(To maturity \([^)]*\))/);
-    const value = U.assistantRateValue(row, U.assistantPlain(markup) + (horizon ? ` · ${U.assistantPlain(horizon[1])}` : ""));
-    return horizon ? ["N/A", value] : [value, "N/A"];
+    const hp = P.holdingPeriod?.(row);
+    return [U.assistantRateValue(row, U.assistantPlain(cell(row, "net"))),
+      hp ? U.assistantRateValue(row, `${U.pct(hp.net_bps)} · to maturity · ${Number(hp.days).toFixed(1)} days`)
+        : P.marketFieldApplies(row, "maturity") ? "UNKNOWN · Not measured" : "— · no maturity: held open-ended"];
   }
 
   function portfolioScreenOptions(activeRecord = viewedRecord(), viewed = viewedWallet()) {
@@ -7916,11 +7924,12 @@
     const rows = all.slice(0, 60);
     const cells = row => {
       const score = row.fenorium_score;
-      return [row.symbol || row.name, row.name, row.venue, row.chain, U.assistantPlain(cell(row, "maturity")),
+      return [row.symbol || row.name, row.name, row.venue, row.chain, row.maturity || marketFieldState(row, "maturity").status,
         U.assistantRateValue(row, U.assistantPlain(cell(row, "headline"))), ...assistantNetCells(row),
         marketFieldState(row, "verdict").status === "N/A" ? "N/A" : score == null ? "UNKNOWN" : String(typeof score === "object" ? score.score ?? "UNKNOWN" : score),
         ...["depth", "tvl"].map(key => marketFieldState(row, key).status === "MEASURED" ? compactUsd(marketFieldState(row, key).value) : marketFieldState(row, key).status),
-        marketFieldState(row, "permission").value === "GATED" ? "yes" : marketFieldState(row, "permission").value === "PERMISSIONLESS" ? "no" : "unknown"].map(value => chatText(value));
+        marketFieldState(row, "permission").value === "GATED" ? "yes" : marketFieldState(row, "permission").value === "PERMISSIONLESS" ? "no" : "unknown",
+        U.rewardQualifier?.(row) || "—"].map(value => chatText(value));
     };
     const selected = state.selected;
     const cached = selected && withRatingDay(instrumentAnalyticsCache.get(instrumentAnalyticsKey(selected)));
@@ -7936,7 +7945,7 @@
       trade_size: formatNotional(state.notionalSize),
       market: {category: state.filters.category || "All", rows_total: all.length,
         sort: state.sort?.key ? `${headerLabel(state.sort.key, columns.find(([key]) => key === state.sort.key)?.[1] || state.sort.key)}, ${state.sort.dir === -1 ? "highest" : "lowest"} first` : "screen order",
-        columns: ["Symbol", "Name", "Venue", "Chain", "Maturity", "Headline APY", "Net APY at trade size", "Net return to maturity at trade size", "Fenorium Score", "Depth", "TVL", "Gated"], rows: rows.map(cells)},
+        columns: ["Symbol", "Name", "Venue", "Chain", "Maturity", "Headline APY", "Net APY at trade size", "Net return to maturity at trade size", "Fenorium Score", "Depth", "TVL", "Gated", "Rewards"], rows: rows.map(cells)},
       instrument, portfolio});
   }
 
@@ -7989,7 +7998,7 @@
   function renderAssistantChat() {
     const list = $("assistant-messages");
     if (list) {
-      list.innerHTML = chat.turns.map(turn => `<article class="assistant-turn assistant-turn-${turn.role}"><b>${turn.role === "user" ? "You" : "Fenorium"}</b>${U.assistantMarkup(turn.content, turn.unverified || [])}${turn.unverified?.length ? `<p class="assistant-note">${turn.unverified.length} ${turn.unverified.length === 1 ? "figure above is" : "figures above are"} not in Fenorium's data — the assistant computed or guessed them.</p>` : ""}${turn.error ? `<p class="assistant-note">${assistantErrorMarkup(turn.error)}</p>` : ""}</article>`).join("");
+      list.innerHTML = chat.turns.map(turn => `<article class="assistant-turn assistant-turn-${turn.role}"><b>${turn.role === "user" ? "You" : "Nori"}</b>${U.assistantMarkup(turn.content, turn.unverified || [])}${turn.unverified?.length ? `<p class="assistant-note">${turn.unverified.length} ${turn.unverified.length === 1 ? "figure above is" : "figures above are"} not in Fenorium's data — the assistant computed or guessed them.</p>` : ""}${turn.error ? `<p class="assistant-note">${assistantErrorMarkup(turn.error)}</p>` : ""}</article>`).join("");
       list.scrollTop = list.scrollHeight;
     }
     if ($("send-assistant")) $("send-assistant").textContent = chat.controller ? "Stop" : "Send";
@@ -8151,10 +8160,12 @@
   }
 
   function exportValue(row, key) {
-    if (["headline", "net", "execution", "depth", "tvl", "days"].includes(key)) {
+    if (key === "reward_apy") return U.rewardQualifier(row) ? U.pct(row.reward_apy_bps) : "";
+    if (key === "net_to_maturity" && !P.holdingPeriod?.(row)) return P.marketFieldApplies(row, "maturity") ? "UNKNOWN | Not measured" : "— | no maturity: held open-ended";
+    if (["headline", "net", "net_to_maturity", "execution", "depth", "tvl", "days"].includes(key)) {
       const value = numericCell(row, key);
       const source = (candidate) => candidate == null || candidate === "" ? "UNKNOWN · Not measured" : candidate;
-      if (key === "net" || key === "execution") {
+      if (["net", "net_to_maturity", "execution"].includes(key)) {
         return `${value} | cost_model=${source(row.rating?.cost_model)} | not a live executable quote | depth_source=${source(row.depth_source)}`;
       }
       if (key === "depth") return `${value} | depth_source=${source(row.depth_source)}`;
@@ -8171,7 +8182,7 @@
   }
 
   function exportMarket() {
-    const fields = columns.filter(([key]) => state.columns.has(key));
+    const fields = [...columns.filter(([key]) => state.columns.has(key)), ["reward_apy", "reward_apy"]];
     const quote = (value) => `"${String(value).replaceAll('"', '""')}"`;
     const csv = [fields.map(([key, label]) => columnLabel(key, label)), ...filteredRows().map((row) => fields.map(([key]) => exportValue(row, key)))]
       .map((row) => row.map(quote).join(","))

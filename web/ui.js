@@ -553,7 +553,9 @@
     return {
       executable: "Executable quote",
       indicative: "Indicative · not shown obtainable",
-      realized: "Realized · trailing observation, not an offer",
+      realized: String(row?.rate_source || "").includes("current observation")
+        ? "Realized · current variable rate, not a trailing average"
+        : "Realized · trailing observation, not an offer",
       issuer_quoted: "Issuer quoted · not verified by Fenorium",
       declared_demo: "Declared testnet yield",
     }[String(row?.rate_kind || "")] || "Rate kind UNKNOWN";
@@ -695,6 +697,42 @@
     return typeof P.holdingPeriod === "function" ? P.holdingPeriod(row) : null;
   }
 
+  function maturityUnavailable(row) {
+    const open = !row.maturity && P.marketFieldApplies?.(row, "maturity") === false;
+    return {value: open ? "—" : row.maturity ? NOT_COMPUTABLE : "UNKNOWN",
+      detail: open ? "No maturity · held open-ended" : row.maturity ? "Dated maturity · required inputs unavailable" : "Maturity unknown · required inputs unavailable",
+      title: open ? "no maturity: held open-ended" : row.maturity ? "Maturity exists; required inputs unavailable" : "Maturity or required inputs unavailable"};
+  }
+
+  function entryCostOf(row) {
+    return typeof P.entryCost === "function" ? P.entryCost(row) : null;
+  }
+
+  function rewardQualifier(row) {
+    const value = Number(row?.reward_apy_bps);
+    if (!Number.isFinite(value) || value <= 0) return "";
+    const reward = `Rewards: +${pct(value)}/yr in ${rewardTokenNames(row)} · not included in the net`;
+    return row?.rewards_only === true ? `Rewards only: no base yield · ${reward}` : reward;
+  }
+
+  function rewardTokenNames(row) {
+    const symbols = Array.isArray(row?.reward_token_symbols) ? row.reward_token_symbols : [];
+    const names = [...new Set(symbols.filter(symbol => typeof symbol === "string" && symbol.trim()))];
+    if (!names.length) return "incentive tokens";
+    const unknown = (row?.reward_tokens || []).some((_, index) => !symbols[index]);
+    return `${names.join(", ")} rewards${unknown ? " and incentive tokens" : ""}`;
+  }
+
+  function rewardHeadline(row) {
+    if (!rewardQualifier(row)) return "";
+    const only = row.rewards_only === true;
+    if (!only && row.rate_bps == null) return "";
+    const reward = `+${pct(row.reward_apy_bps)}/yr in ${rewardTokenNames(row)}`;
+    const tooltip = only ? `No base yield: the only return is ${reward}`
+      : `${reward} · paid apart, not included in the net`;
+    return `<span class="reward-headline">${only ? "—" : esc(pct(row.rate_bps))} <span class="reason-tag reward-tag" tabindex="0" title="${esc(tooltip)}">${only ? "rewards only" : "+rewards"}</span></span>`;
+  }
+
   function sizeCostContext(row) {
     const rating = row?.rating;
     if (rating?.computable !== true || !rating.size_cost_basis) return "UNKNOWN · Not measured";
@@ -740,6 +778,7 @@
 
   function inspector(row, metadata, sizeUsd) {
     const size = notionalLabel(sizeUsd);
+    const hp = holdingOf(row);
     const reason = row?.reason || row?.rejection || NOT_COMPUTABLE;
     const demoNotice = row?.simulation === true
       ? `<div class="inspector-demo-note"><b>Simulated · preview catalog</b><span>A synthetic row for the screens: not deployed on any chain, nothing to buy or sell.</span></div>`
@@ -758,7 +797,9 @@
     <button class="ghost inspector-summary-action" type="button" data-open="${esc(row._index)}">${row?.is_demo === true ? "Open full instrument &amp; demo purchase →" : "Open full instrument view →"}</button>
     <div class="metric-mini-grid">
       <div class="metric-mini"><span>Headline Yield</span><b>${esc(numericMetric(row, "headline"))}</b>${sourceContext("Rate source", row.rate_source)}</div>
-      <div class="metric-mini"><span>Net @ ${esc(size)}${holdingOf(row) ? " · to maturity" : ""}</span><b>${esc(holdingOf(row) ? pct(holdingOf(row).net_bps) : numericMetric(row, "net"))}</b>${holdingOf(row) ? `<small class="cell-sub">${esc(Number(holdingOf(row).days).toFixed(1))} days remain · annualized ${esc(numericMetric(row, "net"))}</small>` : ""}${costFigureContext(row)}</div>
+      <div class="metric-mini"><span>Annualized net @ ${esc(size)}</span><b>${esc(numericMetric(row, "net"))}</b>${costFigureContext(row)}</div>
+      <div class="metric-mini"><span>Net to maturity @ ${esc(size)}</span><b${!hp ? ` title="${esc(maturityUnavailable(row).title)}"` : ""}>${hp ? esc(pct(hp.net_bps)) : maturityUnavailable(row).value}</b><small class="cell-sub">${hp ? `to maturity · ${esc(Number(hp.days).toFixed(1))} days` : maturityUnavailable(row).detail}</small></div>
+      ${rewardQualifier(row) ? `<div class="metric-mini"><span>Rewards</span><b>${esc(pct(row.reward_apy_bps))}/yr</b><small class="cell-sub">${esc(rewardQualifier(row))}</small></div>` : ""}
       <div class="metric-mini"><span>Reported depth · exitable or acquirable</span><b>${esc(numericMetric(row, "depth"))}</b>${sourceContext("Depth source", row.depth_source)}</div>
       <div class="metric-mini"><span>Tier</span><b>${esc(textOr(row.tier))}</b>${sourceContext("Tier source", row.tier_source)}</div>
     </div>
@@ -769,6 +810,7 @@
     ${sourceContext("Days source", row.days_to_maturity_source)}
     ${meta("Permission", textOr(row.gate?.status))}
     ${meta("Execution", executionMode(row))}
+    <p class="cell-sub">One-off entry cost · ${entryCostOf(row) == null ? NOT_COMPUTABLE : `${esc(pct(entryCostOf(row)))} at ${esc(size)}`}.</p>
     <p class="cell-sub">Entry costs include a stated flat 30 bp base fee, size cost (${esc(sizeCostContext(row))}), and ${row.rating?.routing_fee_bps === 0 ? "no Fenorium routing fee" : `a ${esc(pct(row.rating?.routing_fee_bps))} Fenorium routing fee`}. This is not a live executable quote.<br>Depth source · ${esc(recordedSource(row.depth_source))}</p>
     <h2 class="section-label">Why this score</h2>
     <p class="full-reason">${esc(explainReason(reason, row))}</p>
@@ -996,7 +1038,8 @@
     const computable = row.rating?.computable === true;
     const hp = holdingOf(row);
     const daysLabel = hp ? `${Number(hp.days).toFixed(1)} days` : "";
-    const net = hp ? pct(hp.net_bps) : numericMetric(row, "net");
+    const net = numericMetric(row, "net");
+    const entryCost = entryCostOf(row);
     const size = notionalLabel(sizeUsd);
     const model = sizeCostContext(row);
     const modelNote = `${model} · not a live executable quote`;
@@ -1005,17 +1048,17 @@
     const metrics = [
       ["Fenorium Score", scoreChip(row), "", ""],
       ["Headline Yield", numericMetric(row, "headline"), "gross rate", ""],
-      [`Net Yield @ ${size}`, net, hp ? `to maturity · ${daysLabel}` : "after entry costs",
-        hp ? `Annualized ${numericMetric(row, "net")} · ${modelNote}` : modelNote],
-      ["Execution Cost", hp ? pct(hp.cost_bps) : numericMetric(row, "execution"), hp ? "to maturity · entry costs" : "entry costs · annualized",
-        hp ? `Annualized ${numericMetric(row, "execution")} · ${modelNote}` : modelNote],
+      [`Annualized Net @ ${size}`, net, "annualized after entry costs", modelNote],
+      ["Net to Maturity", hp ? pct(hp.net_bps) : maturityUnavailable(row).value, hp ? `to maturity · ${daysLabel}` : maturityUnavailable(row).detail, hp ? "" : maturityUnavailable(row).title],
+      ["One-off Entry Cost", entryCost == null ? NOT_COMPUTABLE : pct(entryCost), `at ${size} · not annualized`, modelNote],
       ["Reported depth", numericMetric(row, "depth"), "exitable or acquirable", `Depth source · ${depthSource}`],
       ["Tier", tier === NOT_COMPUTABLE ? NOT_COMPUTABLE : esc(stateLabel(tier)), "classification, not a guarantee", stateText(tier)],
       ["Days to Maturity", numericMetric(row, "days"), row.maturity ? `matures ${row.maturity}` : "", ""],
     ];
+    if (rewardQualifier(row)) metrics.push(["Rewards", `${pct(row.reward_apy_bps)}/yr`, rewardQualifier(row), ""]);
     const tiles = metrics.map(([label, value, note, title]) => {
       const missing = value === NOT_COMPUTABLE;
-      const tooltip = missing ? stateText(NOT_COMPUTABLE) : title;
+      const tooltip = title || (missing ? stateText(NOT_COMPUTABLE) : "");
       return `<div class="metric-card"${tooltip ? ` title="${esc(tooltip)}"` : ""}><div class="label">${esc(label)}</div><div class="value${missing ? " value-unavailable" : ""}">${missing ? "Not available" : value}</div>${note ? `<div class="detail">${esc(note)}</div>` : ""}</div>`;
     }).join("");
     const parameters = computable && row.rating.size_cost_basis !== "MEASURED_LIFI_LADDER" ? `<details class="impact-parameters"><summary>Model parameters</summary><p>${esc(row.rating.impact_coefficient_bps)} bp × (size / reported depth)<sup>${esc(row.rating.impact_exponent)}</sup> at ${esc(size)} · size cost ${esc(row.rating.impact_rounding)} · annualization ${esc(row.rating.annualization_rounding)} · not measured slippage or a live executable quote</p></details>` : "";
@@ -1023,28 +1066,28 @@
       ? `<div class="thesis">
           <div class="thesis-box"><span>YIELD TO MATURITY</span><b>${esc(pct(hp.gross_bps))}</b><small>${esc(pct(row.rating.headline_bps))} headline · ${esc(daysLabel)}</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>BASE FEE</span><b>${esc(pct(row.rating.base_fee_bps))}</b><small>${esc(row.rating.base_fee_bps)} bp entry cost</small></div>
+          <div class="thesis-box"><span>BASE FEE · ONE-OFF</span><b>${esc(pct(row.rating.base_fee_bps))}</b><small>one-off entry cost</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>SIZE COST</span><b>${esc(pct(row.rating.size_cost_bps))}</b><small>${esc(model)}</small></div>
+          <div class="thesis-box"><span>SIZE COST · ONE-OFF</span><b>${esc(pct(row.rating.size_cost_bps))}</b><small>one-off · ${esc(model)}</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>FENORIUM FEE</span><b>${esc(pct(row.rating.routing_fee_bps))}</b><small>${esc(routingFeeCaption(row))}</small></div>
+          <div class="thesis-box"><span>FENORIUM FEE · ONE-OFF</span><b>${esc(pct(row.rating.routing_fee_bps))}</b><small>one-off · ${esc(routingFeeCaption(row))}</small></div>
           <span class="operator" aria-hidden="true">=</span>
-          <div class="thesis-box"><span>NET TO MATURITY</span><b>${esc(net)}</b><small>annualized ${esc(numericMetric(row, "net"))}</small></div>
+          <div class="thesis-box"><span>NET TO MATURITY · ${esc(daysLabel)}</span><b>${esc(pct(hp.net_bps))}</b><small>Annualized net ${esc(net)}</small></div>
         </div>
-        <div class="cell-sub thesis-note"><p>Within ${esc(P.HOLDING_PERIOD_DAYS)} days of maturity the figures are for the ${esc(daysLabel)} that remain, not annualized: a flat entry cost annualized over days is a rate nobody pays. ${esc(recordedSource(row.rating?.size_cost_basis))} Depth source · ${esc(depthSource)}.</p>${parameters}</div>`
+        <div class="cell-sub thesis-note"><p>One-off entry cost ${entryCost == null ? NOT_COMPUTABLE : `${esc(pct(entryCost))} at ${esc(size)}`} · ${esc(recordedSource(row.rating?.size_cost_basis))}. Depth source · ${esc(depthSource)}.</p>${parameters}${rewardQualifier(row) ? `<p>${esc(rewardQualifier(row))}</p>` : ""}</div>`
       : computable
       ? `<div class="thesis">
           <div class="thesis-box"><span>HEADLINE YIELD</span><b>${esc(pct(row.rating.headline_bps))}</b><small>gross rate at maturity</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>BASE FEE</span><b>${esc(numericMetric(row, "base_fee"))}</b><small>${esc(row.rating.base_fee_bps)} bp entry cost · annualized</small></div>
+          <div class="thesis-box"><span>BASE FEE · ANNUALIZED</span><b>${esc(numericMetric(row, "base_fee"))}</b><small>annualized cost · one-off ${esc(pct(row.rating.base_fee_bps))}</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>SIZE COST</span><b>${esc(numericMetric(row, "size_cost"))}</b><small>${esc(model)} · annualized</small></div>
+          <div class="thesis-box"><span>SIZE COST · ANNUALIZED</span><b>${esc(numericMetric(row, "size_cost"))}</b><small>${esc(model)} · annualized · one-off ${esc(pct(row.rating.size_cost_bps))}</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>FENORIUM FEE</span><b>${esc(numericMetric(row, "routing_fee"))}</b><small>${esc(routingFeeCaption(row, " · annualized"))}</small></div>
+          <div class="thesis-box"><span>FENORIUM FEE · ANNUALIZED</span><b>${esc(numericMetric(row, "routing_fee"))}</b><small>${esc(routingFeeCaption(row, " · annualized"))} · one-off ${esc(pct(row.rating.routing_fee_bps))}</small></div>
           <span class="operator" aria-hidden="true">=</span>
-          <div class="thesis-box"><span>NET YIELD @ ${esc(size)}</span><b>${esc(net)}</b><small>after entry costs · not a live quote</small></div>
+          <div class="thesis-box"><span>ANNUALIZED NET YIELD @ ${esc(size)}</span><b>${esc(net)}</b><small>after entry costs · not a live quote</small></div>
         </div>
-        <div class="cell-sub thesis-note"><p>${esc(recordedSource(row.rating?.size_cost_basis))} Depth source · ${esc(depthSource)}.</p>${parameters}</div>`
+        <div class="cell-sub thesis-note"><p>${esc(recordedSource(row.rating?.size_cost_basis))} Depth source · ${esc(depthSource)}.</p>${parameters}${rewardQualifier(row) ? `<p>${esc(rewardQualifier(row))}</p>` : ""}</div>`
       : `<div class="empty"><b>NET YIELD NOT COMPUTABLE</b><p>${esc(ratingRefusal(row.rating?.refusal || net))}</p><small>A refusal never becomes a number; missing size cost is UNKNOWN, not 0.</small></div>`;
     const purchaseMarkup = row.simulation === true ? simulatedInstrumentNotice(row)
       : row.is_demo === true ? demoPurchaseCard(row, purchase) : readOnlyExecutionNotice(row);
@@ -1130,13 +1173,16 @@
     const curve = data.size_curve || {};
     const holding = rating => {
       const days = curve.days_to_maturity ?? row.days_to_maturity;
-      const windowDays = curve.holding_period_days ?? P.HOLDING_PERIOD_DAYS;
-      return Number(days) < Number(windowDays) ? holdingOf({...row, days_to_maturity: days, rating}) : null;
+      const maturity = curve.maturity ?? row.maturity;
+      return holdingOf({...row, maturity, days_to_maturity: days, rating});
     };
     const points = (curve.points || []).map(point => {
       const hp = holding(point.rating);
-      return {...point, headline_bps: point.rating?.computable === true ? (hp ? hp.gross_bps : point.rating.headline_bps) : null,
+      return {...point, maturity: curve.maturity ?? row.maturity,
+        headline_bps: point.rating?.computable === true ? (hp ? hp.gross_bps : point.rating.headline_bps) : null,
+        annualized_net_bps: point.rating?.computable === true ? point.rating.net_bps : null,
         net_bps: point.rating?.computable === true ? (hp ? hp.net_bps : point.rating.net_bps) : null,
+        net_to_maturity_bps: point.rating?.computable === true && hp ? hp.net_bps : null,
         refusal: point.rating?.computable === true ? null : point.rating?.refusal || NOT_COMPUTABLE};
     });
     // The waterfall reads the same snapshot as the curve: the universe row may predate a UTC day
@@ -1148,13 +1194,13 @@
     const toMaturity = !!hp || points.some(point => holding(point.rating));
     const contribution = (value, factor = 1) => value == null || value === "" || !Number.isFinite(Number(value)) ? null : Number(value) * factor;
     const waterfall = rating.computable === true ? [
-      {label: "Headline", value_bps: contribution(rating.headline_bps, hp ? hp.fraction : 1)},
+      {label: "Headline", value_bps: hp ? hp.gross_bps : contribution(rating.headline_bps)},
       {label: "Entry fee", value_bps: contribution(hp ? rating.base_fee_bps : rating.base_fee_annualized_bps, -1)},
       {label: `Size cost (${sizeCostContext({rating})})`, value_bps: contribution(hp ? rating.size_cost_bps : rating.size_cost_annualized_bps, -1)},
       ...(rating.routing_fee_bps > 0 ? [{label: "Fenorium routing fee", value_bps: contribution(hp ? rating.routing_fee_bps : rating.routing_fee_annualized_bps, -1)}] : []),
       {label: "Net", value_bps: hp ? hp.net_bps : rating.net_bps, total: true},
     ] : [];
-    return `<section class="panel"><header><h2>Yield at size</h2><span>${toMaturity ? "to maturity, not annualized" : "Annualized yield"}</span></header><p class="cell-sub">Platform size curve · ${esc(data.source_sha256?.slice(0, 12))} · ${esc(utcStamp(data.generated_at))} · entry costs, not an executable quote</p><div class="grid-2">${charts.instrumentSizeCurve?.(points, {sizeUsd, depthUsd: curve.reported_depth_usd, toMaturity}) || ""}<div><h3>Yield waterfall at ${esc(notionalLabel(sizeUsd))}</h3>${waterfall.length ? charts.instrumentWaterfall?.(waterfall, toMaturity ? "Yield to maturity" : "Annualized yield") || "" : `<p>${esc(ratingRefusal(rating.refusal || NOT_COMPUTABLE))}</p>`}</div></div>${analyticsTable("Yield at size data", ["Position size", "Headline", "Net", "Refusal", "Fenorium Score"], points.map(point => [usdN(point.size_usd), pct(point.headline_bps), pct(point.net_bps), point.refusal || "—", `${point.fenorium_score ?? NOT_COMPUTABLE}${Number(point.fenorium_score) < 60 && point.fenorium_score != null ? ` · below 60 · score cap ${point.score_cap ?? NOT_COMPUTABLE}` : ""}`]))}${analyticsTable("Waterfall data", ["Component", "Yield contribution"], waterfall.map(item => [item.label, pct(item.value_bps)]))}</section>`;
+    return `<section class="panel"><header><h2>Yield at size</h2><span>${toMaturity ? "to maturity, not annualized" : "Annualized yield"}</span></header><p class="cell-sub">Platform size curve · ${esc(data.source_sha256?.slice(0, 12))} · ${esc(utcStamp(data.generated_at))} · entry costs, not an executable quote</p><div class="grid-2">${charts.instrumentSizeCurve?.(points, {sizeUsd, depthUsd: curve.reported_depth_usd, toMaturity}) || ""}<div><h3>Yield waterfall at ${esc(notionalLabel(sizeUsd))}</h3>${waterfall.length ? charts.instrumentWaterfall?.(waterfall, toMaturity ? "Yield to maturity" : "Annualized yield") || "" : `<p>${esc(ratingRefusal(rating.refusal || NOT_COMPUTABLE))}</p>`}</div></div>${analyticsTable("Yield at size data", ["Position size", "Headline", "Annualized Net", "Net to Maturity", "Refusal", "Fenorium Score"], points.map(point => [usdN(point.size_usd), pct(point.headline_bps), pct(point.annualized_net_bps), point.net_to_maturity_bps == null ? point.maturity ? NOT_COMPUTABLE : "—" : pct(point.net_to_maturity_bps), point.refusal || "—", `${point.fenorium_score ?? NOT_COMPUTABLE}${Number(point.fenorium_score) < 60 && point.fenorium_score != null ? ` · below 60 · score cap ${point.score_cap ?? NOT_COMPUTABLE}` : ""}`]))}${analyticsTable("Waterfall data", ["Component", "Yield contribution"], waterfall.map(item => [item.label, pct(item.value_bps)]))}</section>`;
   }
 
   function instrumentHistory(row, data, charts) {
@@ -1324,10 +1370,11 @@
     return [
       ["Fenorium Score", "verdict"],
       ["Headline Yield", "headline"],
-      [`Net @ ${notionalLabel(sizeUsd)}`, "net"],
-      ["Execution Cost", "execution"],
-      ["Size Cost", "size_cost"],
-      ["Fenorium Fee", "routing_fee"],
+      [`Annualized Net @ ${notionalLabel(sizeUsd)}`, "net"],
+      ["Net to Maturity", "maturity_net"],
+      ["One-off Entry Cost", "entry_cost"],
+      ["One-off Size Cost", "size_cost"],
+      ["One-off Fenorium Fee", "routing_fee"],
       ["Reported depth · exitable or acquirable", "depth"],
       ["Tier", "tier"],
       ["Maturity", "maturity"],
@@ -1341,13 +1388,21 @@
 
   function comparisonValue(row, field) {
     if (field === "verdict") return verdict(row);
+    if (field === "entry_cost") {
+      const cost = entryCostOf(row);
+      return cost == null ? NOT_COMPUTABLE : pct(cost);
+    }
+    if (field === "maturity_net") {
+      const hp = holdingOf(row);
+      return hp ? pct(hp.net_bps) : maturityUnavailable(row).value;
+    }
     if (field === "net" || field === "execution") {
       const hp = holdingOf(row);
-      return hp ? pct(field === "net" ? hp.net_bps : hp.cost_bps) : numericMetric(row, field);
+      return numericMetric(row, field);
     }
     if (["size_cost", "routing_fee"].includes(field)) {
-      const hp = holdingOf(row);
-      return hp ? pct(row.rating[`${field}_bps`]) : numericMetric(row, field);
+      const value = row?.rating?.[`${field}_bps`];
+      return row?.rating?.computable === true && value != null && Number.isFinite(Number(value)) ? pct(value) : NOT_COMPUTABLE;
     }
     if (["headline", "depth", "days"].includes(field)) return numericMetric(row, field);
     if (field === "maturity") return textOr(row.maturity);
@@ -1360,19 +1415,24 @@
   }
 
   function comparisonMarkup(row, field, value) {
+    if (field === "headline" && rewardQualifier(row)) {
+      return rewardHeadline(row) || `${esc(value)}<small class="cell-sub">${esc(rewardQualifier(row))}</small>`;
+    }
     const rendered = esc(field === "permission" ? stateText(value) : value);
     if (field === "net" || field === "execution") {
-      const hp = holdingOf(row);
-      const basis = hp ? `<small class="cell-sub">to maturity · ${esc(Number(hp.days).toFixed(1))} days · annualized ${esc(numericMetric(row, field))}</small>` : "";
+      const basis = `<small class="cell-sub">Annualized</small>`;
       return rendered + basis + costFigureContext(row);
     }
+    if (field === "maturity_net") {
+      const hp = holdingOf(row);
+      return rendered + (hp ? `<small class="cell-sub">to maturity · ${esc(Number(hp.days).toFixed(1))} days</small>` : `<small class="cell-sub" title="${esc(maturityUnavailable(row).title)}">${esc(maturityUnavailable(row).detail)}</small>`);
+    }
+    if (field === "entry_cost") return rendered + `<small class="cell-sub">one-off · not annualized</small>`;
     if (field === "depth") return rendered + sourceContext("Depth source", row.depth_source);
     if (field === "size_cost" || field === "routing_fee") {
-      // A one-off cost within the holding window sits beside annualized ones; each cell names its horizon.
-      const hp = holdingOf(row);
-      const horizon = hp ? `to maturity · ${Number(hp.days).toFixed(1)} days` : "annualized";
-      const context = field === "size_cost" ? `${sizeCostContext(row)} · ${horizon}`
-        : row.rating?.routing_fee_bps ? routingFeeCaption(row, ` · ${horizon}`) : "none";
+      // The engine's *_bps fields are one-off entry costs at the selected size.
+      const context = field === "size_cost" ? `${sizeCostContext(row)} · one-off`
+        : row.rating?.routing_fee_bps ? routingFeeCaption(row, " · one-off") : "none";
       return rendered + `<small class="cell-sub">${esc(context)}</small>`;
     }
     return rendered;
@@ -1414,7 +1474,7 @@
   function assistantInstrumentContext(row, data, sizeUsd, otherSnapshot = false, otherDay = null) {
     const facts = assistantMetricPairs(summary(row, null, null, sizeUsd), true);
     for (const pair of facts) {
-      if (pair[0] === "Headline Yield" || pair[0].startsWith("Net Yield @")) pair[1] = assistantRateValue(row, pair[1]);
+      if (pair[0] === "Headline Yield" || pair[0].startsWith("Annualized Net @") || pair[0] === "Net to Maturity") pair[1] = assistantRateValue(row, pair[1]);
     }
     facts.push(["Maturity", row.maturity || "UNKNOWN"], ["Venue", row.venue || "UNKNOWN"], ["Chain", row.chain || "UNKNOWN"]);
     const analytics = [];
@@ -1430,19 +1490,24 @@
       if (row.rate_kind !== "declared_demo" && data.price_history?.provenance === "modelled") {
         analytics.push(["Method", data.price_history.method || "UNKNOWN"]);
       }
-      const curve = data.size_curve;
-      for (const point of (curve?.points || []).slice(0, 25)) {
-        const rated = {...row, rating: point.rating, days_to_maturity: curve.days_to_maturity ?? row.days_to_maturity};
-        const hp = Number(rated.days_to_maturity) < Number(curve.holding_period_days ?? P.HOLDING_PERIOD_DAYS) ? holdingOf(rated) : null;
-        analytics.push([`${usdN(point.size_usd)} → ${hp ? `net return to maturity · ${Number(hp.days).toFixed(1)} days` : "net APY"}`, point.rating?.computable === true ? pct(hp ? hp.net_bps : point.rating.net_bps) : NOT_COMPUTABLE]);
-      }
+      // Keep history and its qualifications before the expendable size curve: the local
+      // prompt budget trims analytics from the end, and both yield columns add curve rows.
       analytics.push(...assistantMetricPairs(history));
+      const curve = data.size_curve;
+      const sizeAnalytics = [];
+      for (const point of (curve?.points || []).slice(0, 25)) {
+        const rated = {...row, maturity: curve.maturity ?? row.maturity, rating: point.rating, days_to_maturity: curve.days_to_maturity ?? row.days_to_maturity};
+        const hp = holdingOf(rated);
+        sizeAnalytics.push([`${usdN(point.size_usd)} → annualized net`, point.rating?.computable === true ? pct(point.rating.net_bps) : NOT_COMPUTABLE]);
+        sizeAnalytics.push([`${usdN(point.size_usd)} → net to maturity${hp ? ` · ${Number(hp.days).toFixed(1)} days` : ""}`, hp ? pct(hp.net_bps) : `${maturityUnavailable(rated).value} · ${maturityUnavailable(rated).detail}`]);
+      }
       if (data.terms) {
         const rendered = instrumentCashflow(row, data.terms, {}, data.size_curve?.days_to_maturity ?? null);
         for (const match of rendered.matchAll(/<div class="kv[^"]*"><span>([\s\S]*?)<\/span><b(?: [^>]*)?>([\s\S]*?)<\/b><\/div>/g)) {
           analytics.push([Array.from(assistantPlain(match[1])).slice(0, 80).join(""), Array.from(assistantPlain(match[2])).slice(0, 200).join("")]);
         }
       }
+      analytics.push(...sizeAnalytics);
     }
     return {title: row.symbol || row.name || "Selected instrument", facts: facts.slice(0, 60), analytics: analytics.slice(0, 60)};
   }
@@ -2541,6 +2606,8 @@
     assistantPlain, assistantRateValue, assistantMarkup, assistantInstrumentContext, assistantPortfolioContext,
     compareFields,
     comparisonValue,
+    rewardQualifier,
+    rewardHeadline,
     numericMetric,
     FRESHNESS_STATUSES,
     NOT_COMPUTABLE,

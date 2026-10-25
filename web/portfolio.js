@@ -223,16 +223,16 @@
   });
   const MARKET_DEFAULT_COLUMNS = Object.freeze({
     mixed: Object.freeze([
-      "verdict", "instrument", "maturity", "headline", "net", "execution", "depth", "tier",
+      "verdict", "instrument", "maturity", "headline", "net", "net_to_maturity", "execution", "depth", "tier",
     ]),
     native: Object.freeze([
-      "verdict", "instrument", "maturity", "headline", "net", "execution", "depth", "tier",
+      "verdict", "instrument", "maturity", "headline", "net", "net_to_maturity", "execution", "depth", "tier",
     ]),
     rwa: Object.freeze([
-      "instrument", "headline", "net", "execution", "tvl", "rate_kind", "permission",
+      "instrument", "headline", "net", "net_to_maturity", "execution", "tvl", "rate_kind", "permission",
     ]),
     vault: Object.freeze([
-      "instrument", "headline", "net", "execution", "depth", "tvl", "rate_kind",
+      "instrument", "headline", "net", "net_to_maturity", "execution", "depth", "tvl", "rate_kind",
     ]),
   });
 
@@ -250,7 +250,8 @@
       maturity: row?.maturity,
       headline: row?.rate_bps,
       net: row?.rating?.computable === true ? row.rating.net_bps : null,
-      execution: row?.rating?.computable === true ? row.rating.execution_bps : null,
+      net_to_maturity: holdingPeriod(row)?.net_bps ?? null,
+      execution: entryCost(row),
       depth: row?.depth_usd,
       tier: row?.tier,
       category: row?.category,
@@ -268,6 +269,8 @@
 
   function marketFieldApplies(row, key) {
     const category = marketCategory(row);
+    if (key === "net_to_maturity") return marketFieldApplies(row, "maturity");
+    if (["maturity", "days"].includes(key) && row?.maturity) return true;
     if (["maturity", "days", "tier", "verdict"].includes(key)) {
       // A stablecoin is the unit of account, not an instrument to score or to hold to maturity.
       if (String(row?.category || "").toLowerCase() === "stablecoin") return false;
@@ -787,22 +790,28 @@
       .replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`)
       .replace(/%40/g, "@");
   }
-  // Within 30 days of maturity the annualized cost is a figure nobody pays: a flat 30 bp entry fee
-  // over 2.4 days annualizes to 46%. What a buyer pays is the yield and the cost over the days that
-  // remain, so the screens show those (owner 2026-10-20) and keep the annualized ones as the tooltip.
-  // Components are the engine's own: headline × days/365 − base fee − size cost − routing fee.
-  const HOLDING_PERIOD_DAYS = 30;
+  // One-off entry costs and term returns share the engine's components. Missing costs never
+  // become zero; annualized net remains the engine's rating.net_bps, independently of the term.
+  function entryCost(row) {
+    const rating = row?.rating;
+    if (rating?.computable !== true) return null;
+    const costs = [rating.base_fee_bps, rating.size_cost_bps, rating.routing_fee_bps];
+    if (costs.some(value => value == null || value === "" || !Number.isFinite(Number(value)))) return null;
+    return costs.reduce((sum, value) => sum + Number(value), 0);
+  }
+
   function holdingPeriod(row) {
     const days = Number(row?.days_to_maturity), rating = row?.rating;
-    if (!Number.isFinite(days) || days <= 0 || days >= HOLDING_PERIOD_DAYS || rating?.computable !== true) return null;
-    if ([rating.headline_bps ?? row.rate_bps, rating.base_fee_bps, rating.size_cost_bps, rating.routing_fee_bps]
-      .some(value => value == null || value === "")) return null;
+    const cost = entryCost(row);
+    if (!row?.maturity || !Number.isFinite(days) || days <= 0 || cost == null) return null;
+    if ((rating.headline_bps ?? row.rate_bps) == null || (rating.headline_bps ?? row.rate_bps) === "") return null;
     const headline = Number(rating.headline_bps ?? row.rate_bps);
-    const baseFee = Number(rating.base_fee_bps), sizeCost = Number(rating.size_cost_bps), routingFee = Number(rating.routing_fee_bps);
-    if (![headline, baseFee, sizeCost, routingFee].every(Number.isFinite)) return null;
+    if (!Number.isFinite(headline)) return null;
     const fraction = days / 365;
-    const gross = headline * fraction;
-    const cost = baseFee + sizeCost + routingFee;
+    const gross = row.rate_convention === "effective_annual"
+      ? (Math.pow(1 + headline / 10000, fraction) - 1) * 10000
+      : headline * fraction;
+    if (!Number.isFinite(gross)) return null;
     return {days, fraction, gross_bps: gross, cost_bps: cost, net_bps: gross - cost,
       annualized_net_bps: rating.net_bps ?? null, annualized_execution_bps: rating.execution_bps ?? null};
   }
@@ -878,6 +887,7 @@
         // 'issuer_quoted' is unverified, and neither is an executable rate. Carrying the number
         // without the qualifier made a Morpho trailing rate render as a plain APY.
         rate_kind: metadata?.rate_kind ?? source.rate_kind ?? null,
+        rate_source: metadata?.rate_source ?? source.rate_source ?? null,
         value_usd_micros: unresolved || value === null ? null : value.toString(),
         status,
         market_index: match ? portfolioUniverseIndex(metadata, match.index) : null,
@@ -1525,7 +1535,7 @@
   }
 
 
-  return { STATUS, REASONS, CHAINS, REGISTRY_CHAINS, FEE_RECIPIENT, chainRole, PURCHASE_STAGES, COST_FIELDS, MARKET_CATEGORY_LABELS, PORTFOLIO_CLASS_LABELS, PORTFOLIO_CLASS_LABELS_ONE, assetClass, MARKET_DEFAULT_COLUMNS, positionIdentity, instrumentId, holdingPeriod, HOLDING_PERIOD_DAYS,
+  return { STATUS, REASONS, CHAINS, REGISTRY_CHAINS, FEE_RECIPIENT, chainRole, PURCHASE_STAGES, COST_FIELDS, MARKET_CATEGORY_LABELS, PORTFOLIO_CLASS_LABELS, PORTFOLIO_CLASS_LABELS_ONE, assetClass, MARKET_DEFAULT_COLUMNS, positionIdentity, instrumentId, holdingPeriod, entryCost,
     MULTICALL3_ADDRESS, MULTICALL_CHUNK_SIZE, TRANSFER_TOPIC, clockNow, maturityDateMs, rowMatured, DEMO_PAIR_MATURITY,
     asBigInt, usdMicrosFromRaw, metricFailure, metricPass, marketCategory, marketFieldApplies, marketFieldState, marketVerdict,
     classifyPosition, coverageSummary, navLowerBound, allocation, concentration, deployableStablecoinCapital,

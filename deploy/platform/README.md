@@ -7,7 +7,7 @@ volume; temporary request bodies remain in memory.
 
 The image is `fenorium-platform:0.1.0` from `python:3.12.11-slim`, running as UID/GID `10001` with
 all Linux capabilities dropped, `no-new-privileges`, a read-only root filesystem, and bounded `/tmp`.
-The optional assistant remains a separate loopback process on `127.0.0.1:8787`.
+Nori, Fenorium's AI assistant, remains an optional separate loopback process on `127.0.0.1:8787`.
 
 ## Local process
 
@@ -60,7 +60,14 @@ hash, and each row's independent `depth_source` / `tvl_source` fields. It also e
 fee assumption, and the exact fallback size-model assumptions. Each rerated row carries
 `rating.cost_model`, `rating.size_cost_bps` and its measured or modelled basis. The routing fee applies
 to LI.FI token purchases; position deposits, lending orders, declared demos and stablecoins are exempt.
-Net yield deducts entry costs only; risk remains in the Score and verdict. Neither a measured ladder
+Market yield columns use these definitions: **Net APY** is the annualized base yield minus annualized
+entry costs; **To maturity** is net return over the remaining maturity (a dash for open-ended rows);
+**Entry cost** is a one-off cost. Reward APY is separate from base yield and excluded from both base
+and net yield. Market and Compare show it with a `+rewards` or `rewards only` chip. The displayed
+reward label uses local LI.FI catalog symbols on the pool's chain, or falls back to "incentive tokens";
+it makes no network request. Served `reward_token_symbols` preserve address order with `null` for
+unknown addresses, including every address when the catalog is absent. The CSV keeps the base
+rate and adds `reward_apy`. Risk remains in the Score and verdict. Neither a measured ladder
 increment nor a modelled size cost is a live executable quote. Invalid syntax returns `INVALID_SIZE_USD`; zero or values above the maximum return
 `SIZE_USD_OUT_OF_RANGE` in the platform error envelope's `reason_code`.
 

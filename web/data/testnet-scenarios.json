@@ -85,6 +85,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 59 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -394,6 +395,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -703,6 +705,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -1012,6 +1015,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -1321,6 +1325,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 53 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -1630,6 +1635,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -1939,6 +1945,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -2248,6 +2255,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -2557,6 +2565,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -2866,6 +2875,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -3175,6 +3185,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -3484,6 +3495,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -3793,6 +3805,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -4102,6 +4115,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -4411,6 +4425,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -4720,6 +4735,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -5029,6 +5045,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -5338,6 +5355,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -5647,6 +5665,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -5956,6 +5975,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -6265,6 +6285,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -6574,6 +6595,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -6883,6 +6905,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -7192,6 +7215,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -7501,6 +7525,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 51 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -7810,6 +7835,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -8119,6 +8145,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -8428,6 +8455,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -8737,6 +8765,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -9046,6 +9075,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -9355,6 +9385,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -9664,6 +9695,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -9973,6 +10005,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -10282,6 +10315,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -10591,6 +10625,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -10900,6 +10935,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -11209,6 +11245,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -11518,6 +11555,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -11827,6 +11865,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -12136,6 +12175,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -12445,6 +12485,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -12754,6 +12795,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -13063,6 +13105,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -13372,6 +13415,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -13681,6 +13725,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 49 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -13990,6 +14035,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -14299,6 +14345,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -14608,6 +14655,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -14917,6 +14965,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -15226,6 +15275,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -15535,6 +15585,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -15844,6 +15895,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -16153,6 +16205,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -16462,6 +16515,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -16771,6 +16825,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -17080,6 +17135,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -17389,6 +17445,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -17698,6 +17755,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -18007,6 +18065,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -18316,6 +18375,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -18625,6 +18685,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -18934,6 +18995,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -19243,6 +19305,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -19552,6 +19615,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -19861,6 +19925,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 47 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -20170,6 +20235,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -20479,6 +20545,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -20788,6 +20855,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -21097,6 +21165,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 58 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -21406,6 +21475,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -21715,6 +21785,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -22024,6 +22095,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -22333,6 +22405,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -22642,6 +22715,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -22951,6 +23025,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -23260,6 +23335,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -23569,6 +23645,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -23878,6 +23955,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -24187,6 +24265,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -24496,6 +24575,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -24805,6 +24885,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -25114,6 +25195,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -25423,6 +25505,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -25732,6 +25815,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -26041,6 +26125,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 45 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -26350,6 +26435,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -26659,6 +26745,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -26968,6 +27055,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -27277,6 +27365,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 56 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -27586,6 +27675,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -27895,6 +27985,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -28204,6 +28295,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -28513,6 +28605,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -28822,6 +28915,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -29131,6 +29225,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -29440,6 +29535,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -29749,6 +29845,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -30058,6 +30155,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -30367,6 +30465,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -30676,6 +30775,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -30985,6 +31085,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -31294,6 +31395,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -31603,6 +31705,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -31912,6 +32015,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -32221,6 +32325,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 43 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -32530,6 +32635,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -32839,6 +32945,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -33148,6 +33255,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -33457,6 +33565,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 54 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -33766,6 +33875,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -34075,6 +34185,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -34384,6 +34495,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -34693,6 +34805,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -35002,6 +35115,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -35311,6 +35425,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -35620,6 +35735,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -35929,6 +36045,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -36238,6 +36355,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -36547,6 +36665,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -36856,6 +36975,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -37165,6 +37285,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -37474,6 +37595,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -37783,6 +37905,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -38092,6 +38215,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -38401,6 +38525,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -38710,6 +38835,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -39019,6 +39145,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -39328,6 +39455,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -39637,6 +39765,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "NO BID (credit) \u2014 synthetic Fenorium Score 52 is below 60. Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -39946,6 +40075,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -40255,6 +40385,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,
@@ -40564,6 +40695,7 @@
         "data_status": "SYNTHETIC",
         "evidence_as_of": "2026-10-20T12:00:00Z",
         "reason": "Deterministic synthetic scenario data; not a market quote or offer.",
+        "rate_convention": "effective_annual",
         "rating": {
           "computable": true,
           "refusal": null,

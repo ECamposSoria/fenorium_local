@@ -40,6 +40,7 @@ from .api import APIError, PlatformAPI, json_bytes
 from engine.onchain import ChainReader
 from engine.registry import parse_asset_id, registry, registry_document
 from engine.rating import NET_AFTER_COSTS, RATING_METHOD_VERSION
+from engine.rate_conventions import rate_convention
 from engine.registry.instruments import fixed_income_terms, instrument_id
 from engine.portfolio.analytics import (
     DAILY_RETURN_PLACES, MIN_ES_OBSERVATIONS, _round_decimal,
@@ -344,6 +345,7 @@ class PlatformHTTPServer(ThreadingHTTPServer):
         limits: ClientLimits | None = None,
         trusted_proxies: str = DEFAULT_TRUSTED_PROXIES,
         assistant: Any = None,
+        routable: RoutableTokens | None = None,
     ):
         self.assistant = assistant if assistant is not None else Assistant.from_env(os.environ)
         self.api = api
@@ -353,6 +355,7 @@ class PlatformHTTPServer(ThreadingHTTPServer):
         self.gate = gate
         self.web_root = web_root.resolve()
         self.universe_path = Path(universe_path).resolve()
+        self.routable = routable or RoutableTokens(self.universe_path.parent / ACQUIRE_DIRECTORY / "lifi-tokens.json")
         self.clock = clock or (lambda: datetime.now(UTC))
         self.idempotency = _IdempotencyCache()
         self.acquisition_status_path = acquisition_status_path
@@ -570,6 +573,15 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
         served_instruments = [dict(instrument) for instrument in instruments]
         chains = registry()
         for row in served_instruments:
+            row.setdefault("rate_convention", rate_convention(row))
+            if isinstance(row.get("reward_tokens"), list):
+                symbols = []
+                for address in row["reward_tokens"]:
+                    token = (self.server.routable.token(row.get("chain_id"), address)
+                             if isinstance(address, str) else None)
+                    symbol = token.get("symbol") if token else None
+                    symbols.append(symbol if isinstance(symbol, str) and symbol.strip() else None)
+                row["reward_token_symbols"] = symbols
             try:
                 row["instrument_id"] = instrument_id(row, chains)
             except Exception:
@@ -1262,14 +1274,13 @@ def create_server(
     on_demand = OnDemandPrices()
     transfer_verifier = None
     history_source = None
-    routable = None
+    routable = RoutableTokens(Path(universe_path).parent / ACQUIRE_DIRECTORY / "lifi-tokens.json")
     token_decimals = None
     if wallets:
         from research.par_sources.blockscout_history import BlockscoutWalletHistory, ReceiptTransferVerifier
 
         transfer_verifier = ReceiptTransferVerifier(timeout_seconds=8)
         history_source = BlockscoutWalletHistory(timeout_seconds=8)
-        routable = RoutableTokens(Path(universe_path).parent / ACQUIRE_DIRECTORY / "lifi-tokens.json")
 
         def token_decimals(chain_id: int, address: str) -> int | None:
             token = routable.token(chain_id, address)
@@ -1311,6 +1322,7 @@ def create_server(
         trusted_proxies=trusted_proxies or DEFAULT_TRUSTED_PROXIES,
         limits=limits,
         assistant=assistant,
+        routable=routable,
     )
     if wallets:
         server.wallets = WalletReader(

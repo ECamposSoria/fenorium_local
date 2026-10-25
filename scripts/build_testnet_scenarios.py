@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from deploy.platform.rerating import _rating_assumptions, _rating_point, _rating_json
+from engine.rate_conventions import rate_convention
 from engine.rating import rate_instrument
 from engine.portfolio import (
     AnalyticsScope, AssetKind, BlockReference, CapabilityStatus, DailyReturn,
@@ -113,6 +114,7 @@ def _market(as_of: date) -> list[dict[str, Any]]:
                         if verdict == "NO BID" else "") +
                        "Deterministic synthetic scenario data; not a market quote or offer."),
         }
+        row["rate_convention"] = rate_convention(row)
         if i == 0:
             # Addressless Exactly position with renderer-compatible instrument identity.
             row["position_type"] = "position"

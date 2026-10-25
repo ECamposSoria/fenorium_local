@@ -29,6 +29,13 @@ labelled Base Sepolia demo card for the two exact demo instruments.
   displayed beside those figures; depth and TVL figures disclose `depth_source` and `tvl_source`
   separately, with missing provenance shown as `UNKNOWN · Not measured`. No color is required to read
   the distinction.
+- Market yield columns mean: **Net APY** is annualized base yield minus annualized entry costs;
+  **To maturity** is net return over the remaining maturity (a dash for open-ended rows); **Entry cost**
+  is a one-off cost. Reward APY is separate from base yield and excluded from base and net yield.
+  Market and Compare show rewards with a `+rewards` or `rewards only` chip. Reward labels use local
+  LI.FI catalog symbols on the pool's chain, or fall back to "incentive tokens", without a network
+  request. Rewards-only rows show a dash for Headline and sort with missing rates. The CSV keeps
+  the base rate and adds `reward_apy`.
 - The wallet state machine uses only an injected `window.ethereum`: `eth_accounts` is read silently on
   load, `eth_requestAccounts` runs only after an explicit Connect click, and account/chain events are
   applied without reloading the page. Wrong-chain actions target Base Sepolia (`0x14a34`).
@@ -51,13 +58,13 @@ labelled Base Sepolia demo card for the two exact demo instruments.
   testnet · demo instrument` and are not mainnet price, liquidity, or verdict evidence.
 - Market comparison keeps a visible checkbox column outside the column chooser, retains 2–5 selections
   across pagination, and shows side-by-side deterministic fields without ranking or selecting a winner.
-- The local assistant receives only an `AssistantEnvelope` over the loopback URL after a user supplies
+- Nori, Fenorium's AI assistant, receives only an `AssistantEnvelope` over the loopback URL after a user supplies
   `X-Fenorium-Pairing-Token`; the token is not persisted. It has no portfolio array, execution,
   quoting, signing, routing, or calldata capability. The deterministic browser UI remains complete
   when it is absent.
 
 The existing Base Sepolia issuer and its tests remain isolated in their original files. This terminal
-does not transact on mainnet and does not use the assistant to compute or transact.
+does not transact on mainnet and does not use Nori to compute or transact.
 
 ## Run locally
 

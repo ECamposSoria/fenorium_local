@@ -458,6 +458,26 @@ def _bps_from_percent(value: Any) -> int:
     return int((_decimal(value, "trailing APY") * 100).quantize(Decimal("1"), ROUND_HALF_UP))
 
 
+def _reward_fields(pool: dict[str, Any], base_bps: int | None) -> dict[str, Any]:
+    reward_apy = pool.get("apyReward")
+    # Optional emissions metadata must not make an otherwise verified base-rate row disappear.
+    try:
+        reward_bps = None if reward_apy is None else _bps_from_percent(reward_apy) or None
+    except (ValueError, InvalidOperation, OverflowError):
+        reward_bps = None
+    fields = {
+        "reward_apy_bps": reward_bps,
+        "reward_tokens": pool.get("rewardTokens") or None,
+    }
+    if reward_apy is not None:
+        try:
+            # Judged on the base rate the row publishes, whichever observation it came from.
+            fields["rewards_only"] = _decimal(reward_apy, "reward APY") > 0 and not base_bps
+        except (ValueError, InvalidOperation, OverflowError):
+            fields["rewards_only"] = False
+    return fields
+
+
 def _usd(raw_units: int, token_scale: int, price: int, price_scale: int) -> int:
     if raw_units < 0 or token_scale <= 0 or price <= 0 or price_scale <= 0:
         raise ValueError("USD conversion inputs must be positive")
@@ -466,7 +486,19 @@ def _usd(raw_units: int, token_scale: int, price: int, price_scale: int) -> int:
     return (numerator + denominator // 2) // denominator
 
 
-def _trailing_rate(pool: dict[str, Any]) -> tuple[int, str]:
+def _trailing_rate(pool: dict[str, Any]) -> tuple[int | None, str | None]:
+    try:
+        has_rewards = _decimal(pool.get("apyReward") or 0, "reward APY") > 0
+    except ValueError:
+        has_rewards = False  # Optional malformed emissions metadata is not a measured reward.
+    if has_rewards:
+        # apyMean30d includes incentive tokens. Prefer the trailing base observation,
+        # otherwise retain the current base with its observation basis explicitly labelled.
+        if pool.get("apyBase7d") is not None:
+            return _bps_from_percent(pool["apyBase7d"]), "DefiLlama apyBase7d trailing observation"
+        if pool.get("apyBase") is not None:
+            return _bps_from_percent(pool["apyBase"]), "DefiLlama apyBase current observation"
+        return None, None
     for field, label in (
         ("apyMean30d", "DefiLlama apyMean30d trailing observation"),
         ("apyBase7d", "DefiLlama apyBase7d trailing observation"),
@@ -534,7 +566,8 @@ def map_aave_reserve(
         "decimals": decimals,
         "underlying_address": underlying,
         "rate_bps": rate_bps,
-        "rate_kind": "realized",
+        **_reward_fields(rate_pool, rate_bps),
+        "rate_kind": "realized" if rate_bps is not None else None,
         "rate_source": rate_source,
         "depth_usd": depth_usd,
         "depth_source": "eth_call ERC20(underlying).balanceOf(aToken)",
@@ -597,7 +630,8 @@ def map_compound_market(
         "decimals": decimals,
         "underlying_address": underlying,
         "rate_bps": rate_bps,
-        "rate_kind": "realized",
+        **_reward_fields(rate_pool, rate_bps),
+        "rate_kind": "realized" if rate_bps is not None else None,
         "rate_source": rate_source,
         "depth_usd": depth_usd,
         "depth_source": "eth_call Comet.totalSupply() - Comet.totalBorrow()",
