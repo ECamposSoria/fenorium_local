@@ -96,6 +96,30 @@ contract DecisionPassportV2Test is Test {
         assertEq(s.correctionReason, "source corrected");
     }
 
+    function test_correctionsMustTargetCurrentRecordAndCanChain() public {
+        _record();
+        DecisionPassportV2.SnapshotInput memory input = _input();
+        input.contentSha256 = bytes32(uint256(43));
+        vm.prank(issuer);
+        assertEq(passport.recordCorrection(1, input, "first correction"), 2);
+        input.contentSha256 = bytes32(uint256(44));
+        vm.expectRevert(abi.encodeWithSelector(DecisionPassportV2.NotCurrentRecord.selector, uint256(1), uint256(2)));
+        vm.prank(issuer);
+        passport.recordCorrection(1, input, "stale target");
+        assertEq(passport.total(), 2);
+        assertEq(passport.idByGeneratedAt(input.generatedAt), 2);
+        vm.prank(issuer);
+        assertEq(passport.recordCorrection(2, input, "second correction"), 3);
+        assertEq(passport.total(), 3);
+        assertEq(passport.idByGeneratedAt(input.generatedAt), 3);
+        assertEq(passport.latestGeneratedAt(), 1_799_999_000);
+        assertEq(passport.snapshotOf(1).contentSha256, bytes32(uint256(42)));
+        assertEq(passport.snapshotOf(2).contentSha256, bytes32(uint256(43)));
+        assertEq(passport.snapshotOf(2).supersedes, 1);
+        assertEq(passport.snapshotOf(3).contentSha256, bytes32(uint256(44)));
+        assertEq(passport.snapshotOf(3).supersedes, 2);
+    }
+
     function test_zeroDuplicateAndOlderGeneratedAtRejected() public {
         DecisionPassportV2.SnapshotInput memory input = _input();
         input.generatedAt = 0;

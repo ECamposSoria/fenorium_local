@@ -40,6 +40,7 @@ contract DecisionPassportV2 is AccessControl {
     error EmptyMethodVersion();
     error InvalidCounts();
     error UnknownSnapshot(uint256 id);
+    error NotCurrentRecord(uint256 supersededId, uint256 currentId);
     error CorrectionGeneratedAtMismatch();
     error EmptyCorrectionReason();
     error UnchangedContentSha256();
@@ -79,6 +80,8 @@ contract DecisionPassportV2 is AccessControl {
         _requireSnapshot(supersededId);
         Snapshot storage previous = _snapshots[supersededId];
         if (input.generatedAt != previous.generatedAt) revert CorrectionGeneratedAtMismatch();
+        uint256 currentId = idByGeneratedAt[input.generatedAt];
+        if (supersededId != currentId) revert NotCurrentRecord(supersededId, currentId);
         if (bytes(reason).length == 0) revert EmptyCorrectionReason();
         if (input.contentSha256 == previous.contentSha256) revert UnchangedContentSha256();
         _validate(input);

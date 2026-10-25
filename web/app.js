@@ -2368,8 +2368,11 @@
   function scoreHistoryKey(row) {
     const entries = state.scoreLedger?.entries;
     if (!entries?.length) return null;
-    const latest = Math.max(...entries.map(entry => entry.generated_at_unix));
-    return JSON.stringify([row?.chain_id, instrumentKey(row), row?.maturity || "", latest]);
+    const active = entries.filter(entry => !entry.superseded_by);
+    if (!active.length) return null;
+    const latest = Math.max(...active.map(entry => entry.generated_at_unix));
+    const revision = Math.max(...entries.map(entry => entry.snapshot_id || 0));
+    return JSON.stringify([row?.chain_id, instrumentKey(row), row?.maturity || "", latest, revision]);
   }
 
   async function ensureScoreHistory(row) {

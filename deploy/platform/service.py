@@ -917,7 +917,8 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
         try:
             if path.endswith("/snapshot"):
                 stamp = positive_parameter(params, "generated_at_unix")
-                raw = ledger.snapshot(stamp)
+                snapshot_id = positive_parameter(params, "snapshot_id")
+                raw = ledger.snapshot(stamp, snapshot_id)
                 self.send_response(HTTPStatus.OK)
                 self.send_header("Content-Type", "application/json")
                 self.send_header("Content-Length", str(len(raw)))

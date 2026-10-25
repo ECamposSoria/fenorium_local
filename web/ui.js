@@ -650,7 +650,8 @@
   }
 
   function setScoreLedger(ledger) {
-    scoreLedgerLatest = [...(ledger?.entries || [])].sort((a, b) => b.generated_at_unix - a.generated_at_unix)[0] || null;
+    scoreLedgerLatest = (ledger?.entries || []).filter(entry => !entry.superseded_by)
+      .sort((a, b) => b.generated_at_unix - a.generated_at_unix)[0] || null;
   }
 
   function scoreHistory(history) {
@@ -663,12 +664,13 @@
         const date = new Date(point.generated_at).toISOString().slice(0, 16).replace("T", " ") + " UTC";
         const base = scoreLedgerTxUrl(point);
         const file = Number.isSafeInteger(point.generated_at_unix) && point.generated_at_unix > 0
-          ? `/v1/score-ledger/snapshot?generated_at_unix=${point.generated_at_unix}` : null;
+          && Number.isSafeInteger(point.snapshot_id) && point.snapshot_id > 0
+          ? `/v1/score-ledger/snapshot?generated_at_unix=${point.generated_at_unix}&snapshot_id=${point.snapshot_id}` : null;
         const title = `IPFS CID ${point.cid} · sha256 ${point.sha256}`;
         return `<tr><td>${esc(date)}</td><td>${scoreChip(point)}</td><td>${base ? `<a class="tx-link" href="${esc(base)}" target="_blank" rel="noopener noreferrer">Base ↗</a>` : scoreLedgerTxText(point)} ${file ? `<a class="tx-link" href="${esc(file)}" title="${esc(title)}" target="_blank" rel="noopener noreferrer">File ↗</a>` : ""}</td></tr>`;
       }).join("")}</tbody></table></div>` : '<p class="empty-state">No recorded history yet: scores are recorded on Base each time the universe is published.</p>';
     }
-    return `<section class="panel" aria-label="Score history"><header><h2>Score history</h2></header>${body}</section>`;
+    return `<section class="panel" aria-label="Score history"><header><h2>Score history</h2></header><p class="cell-sub">Published scores, before your amount is applied. A depth cap at your amount can lower the Score shown above.</p>${body}</section>`;
   }
 
   function freshness(metadata, error) {
@@ -706,10 +708,10 @@
     const recordedAt = Date.parse(scoreLedgerLatest?.generated_at);
     const displayedAt = Date.parse(metadata.generated_at);
     if (Number.isFinite(recordedAt) && Number.isFinite(displayedAt) && recordedAt <= displayedAt) {
-      const label = recordedAt === displayedAt ? "Scores recorded on Base"
-        : `Last recorded on Base: ${new Date(recordedAt).toISOString().slice(0, 16).replace("T", " ")} UTC`;
+      const label = recordedAt === displayedAt ? "Published scores recorded on Base"
+        : `Last published scores recorded on Base: ${new Date(recordedAt).toISOString().slice(0, 16).replace("T", " ")} UTC`;
       element.innerHTML += ledgerUrl
-        ? ` <a class="tx-link" href="${esc(ledgerUrl)}" target="_blank" rel="noopener noreferrer"> · ${esc(label)} ↗</a>`
+        ? ` <a class="tx-link" href="${esc(ledgerUrl)}" target="_blank" rel="noopener noreferrer" title="The published universe's scores, before your amount is applied; a depth cap at your amount can lower the Score you see."> · ${esc(label)} ↗</a>`
         : ` · ${esc(label)} · ${scoreLedgerTxText(scoreLedgerLatest)}`;
     }
   }

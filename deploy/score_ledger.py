@@ -41,6 +41,8 @@ def json_bytes(value) -> bytes:
 def build(universe: Path, pending: Path) -> dict:
     payload = build_snapshot(json.loads(universe.read_bytes()))
     summary = snapshot_summary(payload)
+    if not needs_recording(summary, pending.parent, reconcile=True):
+        return summary
     name = str(summary["generated_at_unix"])
     target = pending / f"{name}.json"
     if target.exists() and target.read_bytes() != payload:
@@ -50,7 +52,7 @@ def build(universe: Path, pending: Path) -> dict:
     return summary
 
 
-def index_add(ledger: Path, entry: dict, payload: bytes) -> bool:
+def index_add(ledger: Path, entry: dict, payload: bytes, supersedes: int = 0) -> bool:
     summary = snapshot_summary(payload)
     for key, value in summary.items():
         if key != "bytes" and entry.get(key) != value:
@@ -58,11 +60,14 @@ def index_add(ledger: Path, entry: dict, payload: bytes) -> bool:
     index = ledger / "index.json"
     entries = json.loads(index.read_bytes()) if index.exists() else []
     for old in entries:
-        if old["generated_at_unix"] == entry["generated_at_unix"]:
+        if old["generated_at_unix"] == entry["generated_at_unix"] and not old.get("superseded_by"):
             if old["sha256"] != entry["sha256"]:
-                raise ValueError("timestamp conflict; correction must be recorded by hand")
-            return False
-    target = ledger / f'{entry["generated_at_unix"]}.json'
+                if not supersedes or supersedes != old["snapshot_id"] or entry["snapshot_id"] == supersedes:
+                    raise ValueError("timestamp conflict; correction must be recorded by hand")
+                old["superseded_by"] = entry["snapshot_id"]
+            else:
+                return False
+    target = ledger / f'{entry["generated_at_unix"]}-{entry["snapshot_id"]}.json'
     if target.exists() and target.read_bytes() != payload:
         raise ValueError("snapshot file conflict; correction must be recorded by hand")
     if not target.exists():
@@ -73,23 +78,40 @@ def index_add(ledger: Path, entry: dict, payload: bytes) -> bool:
     return True
 
 
-def needs_recording(summary: dict, ledger: Path) -> bool:
+def needs_recording(summary: dict, ledger: Path, reconcile: bool = False) -> bool:
     index = ledger / "index.json"
     for entry in json.loads(index.read_bytes()) if index.exists() else []:
-        if entry["generated_at_unix"] == summary["generated_at_unix"]:
+        if entry["generated_at_unix"] == summary["generated_at_unix"] and not entry.get("superseded_by"):
             if entry["sha256"] != summary["sha256"]:
+                if reconcile:
+                    return True
                 raise ValueError("timestamp conflict; correction must be recorded by hand")
             return False
     return True
 
 
-def pending_generations(pending: Path, ledger: Path) -> list[int]:
+def pending_generations(pending: Path, ledger: Path, reconcile: bool = False) -> list[int]:
     generations = []
+    conflicts = []
     for path in pending.glob("*.summary.json"):
         summary = json.loads(path.read_bytes())
-        if needs_recording(summary, ledger):
+        try:
+            needed = needs_recording(summary, ledger, reconcile)
+        except ValueError:
+            conflicts.append(summary["generated_at_unix"])
+            needed = True
+        if needed:
             generations.append(summary["generated_at_unix"])
+    if conflicts:
+        raise ValueError(f"pending generations: {sorted(generations)}; timestamp conflicts: {sorted(conflicts)}; "
+                         "correction must be recorded by hand")
     return sorted(generations)
+
+
+def build_new(universe: Path, pending: Path, processed: int) -> bool:
+    summary = build(universe, pending)
+    return (needs_recording(summary, pending.parent, reconcile=True)
+            and summary["generated_at_unix"] > processed)
 
 
 def remove_pending(pending: Path, stamp: int) -> None:
@@ -140,6 +162,15 @@ def snapshot_recorded_at(value) -> int:
     return cast_number(value[7])
 
 
+def snapshot_supersedes(value) -> int:
+    snapshot_hash(value)
+    if isinstance(value, str):
+        return cast_number("0x" + value[2 + 9 * 64:2 + 10 * 64])
+    while isinstance(value, list) and len(value) == 1:
+        value = value[0]
+    return cast_number(value[8])
+
+
 def receipt_record(value: dict, expected_tx: str) -> dict:
     if cast_number(value.get("status")) != 1:
         raise ValueError("snapshot transaction failed")
@@ -175,7 +206,8 @@ def known_transaction(summary_path: Path, ledger: Path) -> str:
             return cast_hash(saved["tx_hash"])
     index = ledger / "index.json"
     for entry in json.loads(index.read_bytes()) if index.exists() else []:
-        if entry["generated_at_unix"] == stamp and entry["sha256"] == summary["sha256"]:
+        if (entry["generated_at_unix"] == stamp and entry["sha256"] == summary["sha256"]
+                and not entry.get("superseded_by")):
             return cast_hash(entry["tx_hash"])
     return ""
 
@@ -186,7 +218,12 @@ def main(argv=None) -> None:
     command = commands.add_parser("build")
     command.add_argument("--universe", type=Path, default=Path("/curve/universe.json"))
     command.add_argument("--pending", type=Path, default=Path("/curve/ledger/pending"))
+    command = commands.add_parser("build-new")
+    command.add_argument("--universe", type=Path, default=Path("/curve/universe.json"))
+    command.add_argument("--pending", type=Path, default=Path("/curve/ledger/pending"))
+    command.add_argument("--processed", type=int, required=True)
     command = commands.add_parser("pending")
+    command.add_argument("--reconcile", action="store_true")
     command.add_argument("--pending", type=Path, default=Path("/curve/ledger/pending"))
     command.add_argument("--ledger", type=Path, default=Path("/curve/ledger"))
     command = commands.add_parser("needs-recording")
@@ -199,6 +236,7 @@ def main(argv=None) -> None:
     command.add_argument("--chain-id", type=int, required=True)
     command.add_argument("--contract", required=True)
     command.add_argument("--snapshot-id", type=int, required=True)
+    command.add_argument("--supersedes", type=int, default=0)
     command = commands.add_parser("field")
     command.add_argument("file", type=Path)
     command.add_argument("key")
@@ -213,6 +251,7 @@ def main(argv=None) -> None:
     commands.add_parser("number")
     commands.add_parser("snapshot-hash")
     commands.add_parser("snapshot-recorded-at")
+    commands.add_parser("snapshot-supersedes")
     command = commands.add_parser("receipt")
     command.add_argument("tx_hash")
     command.add_argument("output", type=Path)
@@ -224,11 +263,13 @@ def main(argv=None) -> None:
     args = parser.parse_args(argv)
     if args.command == "build":
         print(build(args.universe, args.pending)["generated_at_unix"])
+    elif args.command == "build-new":
+        print(int(build_new(args.universe, args.pending, args.processed)))
     elif args.command == "pending":
-        generations = pending_generations(args.pending, args.ledger)
+        generations = pending_generations(args.pending, args.ledger, args.reconcile)
         for path in args.pending.glob("*.summary.json"):
             summary = json.loads(path.read_bytes())
-            if not needs_recording(summary, args.ledger):
+            if not needs_recording(summary, args.ledger, args.reconcile):
                 remove_pending(args.pending, summary["generated_at_unix"])
         for stamp in generations:
             print(stamp)
@@ -244,7 +285,7 @@ def main(argv=None) -> None:
         entry.update(json.loads(args.receipt.read_bytes()), chain_id=args.chain_id,
                      contract=args.contract, snapshot_id=args.snapshot_id)
         pending = args.summary.parent / f'{summary["generated_at_unix"]}.json'
-        index_add(args.ledger, entry, pending.read_bytes())
+        index_add(args.ledger, entry, pending.read_bytes(), args.supersedes)
         remove_pending(args.summary.parent, summary["generated_at_unix"])
     elif args.command == "field":
         print(json.loads(args.file.read_bytes())[args.key])
@@ -266,6 +307,8 @@ def main(argv=None) -> None:
             print(snapshot_hash(value))
         elif args.command == "snapshot-recorded-at":
             print(snapshot_recorded_at(value))
+        elif args.command == "snapshot-supersedes":
+            print(snapshot_supersedes(value))
         elif args.command == "receipt":
             atomic_write(args.output, json_bytes(receipt_record(value, args.tx_hash)))
         elif args.command == "log-tx":

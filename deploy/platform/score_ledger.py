@@ -29,6 +29,7 @@ class ScoreLedger:
     def __init__(self, directory: Path):
         self.directory = directory
         self._cache = {}
+        self._cache_hashes = {}
         self._lock = RLock()
 
     def index(self) -> dict:
@@ -37,27 +38,31 @@ class ScoreLedger:
         except FileNotFoundError:
             entries = []
         entries = sorted(entries, key=lambda entry: entry["generated_at_unix"])
-        latest = entries[-1] if entries else {}
+        active = [entry for entry in entries if not entry.get("superseded_by")]
+        latest = active[-1] if active else {}
         return {"entries": entries, "contract": latest.get("contract"), "chain_id": latest.get("chain_id")}
 
-    def snapshot(self, stamp: int) -> bytes:
-        with self._lock:
-            if stamp not in self._cache:
-                raw = (self.directory / f"{stamp}.json").read_bytes()
-                self._cache[stamp] = (raw, json.loads(raw))
-            return self._cache[stamp][0]
+    def snapshot(self, stamp: int, snapshot_id: int) -> bytes:
+        return (self.directory / f"{stamp}-{snapshot_id}.json").read_bytes()
 
     def history(self, chain_id: int | None, key: str, maturity: str = "") -> list:
         points = []
         for entry in self.index()["entries"]:
+            if entry.get("superseded_by"):
+                continue
             stamp = entry["generated_at_unix"]
-            self.snapshot(stamp)
-            document = self._cache[stamp][1]
-            row = next((row for row in document["instruments"]
-                        if row.get("chain_id") == chain_id
-                        and instrument_identity(row) == (key, maturity)), None)
-            if row is not None:
-                points.append({"generated_at": entry["generated_at"], "fenorium_score": row.get("fenorium_score"),
-                               "verdict": row.get("verdict"), **{name: entry[name] for name in
+            with self._lock:
+                if self._cache_hashes.get(stamp) != entry["sha256"]:
+                    document = json.loads(self.snapshot(stamp, entry["snapshot_id"]))
+                    compact = {}
+                    for row in document["instruments"]:
+                        identity = (row.get("chain_id"), *instrument_identity(row))
+                        compact.setdefault(identity, (row.get("fenorium_score"), row.get("verdict")))
+                    self._cache[stamp] = compact
+                    self._cache_hashes[stamp] = entry["sha256"]
+                score = self._cache[stamp].get((chain_id, key, maturity))
+            if score is not None:
+                points.append({"generated_at": entry["generated_at"], "fenorium_score": score[0],
+                               "verdict": score[1], **{name: entry[name] for name in
                                ("snapshot_id", "tx_hash", "cid", "chain_id", "generated_at_unix", "sha256")}})
         return points
