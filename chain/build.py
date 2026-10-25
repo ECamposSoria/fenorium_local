@@ -109,6 +109,59 @@ def main() -> int:
                 "instruments": rows, "instrument_count": len(rows)}
     (CURVE / "universe.json").write_text(json.dumps(document, ensure_ascii=False, indent=2) + "\n")
     print(f"prepared {len(rows)} rows at {document['generated_at']}", flush=True)
+
+    # 4. Commit the universe to the local passport before the platform starts.
+    from deploy.score_ledger import cast_number, log_transaction, snapshot_hash
+
+    def ledger_command(*args: str, input: str | None = None) -> str:
+        return subprocess.run(
+            [sys.executable, "-m", "deploy.score_ledger", *args], input=input,
+            check=True, cwd=APP, capture_output=True, text=True,
+        ).stdout.strip()
+
+    def cast(*args: str) -> str:
+        return subprocess.run(
+            ["cast", *args, "--rpc-url", RPC], check=True, capture_output=True, text=True,
+        ).stdout.strip()
+
+    deployment = dict(line.split("=", 1) for line in recorded.read_text().splitlines()
+                      if "=" in line)
+    contract = deployment.get("DECISION_PASSPORT")
+    if not contract:
+        raise SystemExit("local-deployment.env has no DECISION_PASSPORT")
+    private_key = os.environ["PRIVATE_KEY"]
+    ledger = CURVE / "ledger"
+    pending = ledger / "pending"
+    stamp = ledger_command("build", "--universe", str(CURVE / "universe.json"),
+                           "--pending", str(pending))
+    summary_path = pending / f"{stamp}.summary.json"
+    summary = json.loads(summary_path.read_text())
+    snapshot_id = cast_number(json.loads(cast("call", contract, "idByGeneratedAt(uint64)(uint256)",
+                                              stamp, "--json")))
+    if snapshot_id == 0:
+        receipt = json.loads(cast(
+            "send", contract, "recordSnapshot((uint64,bytes32,string,string,uint32,uint32,uint32))",
+            ledger_command("tuple", str(summary_path)), "--private-key", private_key, "--json",
+        ))
+        tx_hash = receipt["transactionHash"]
+        snapshot_id = cast_number(json.loads(cast("call", contract, "idByGeneratedAt(uint64)(uint256)",
+                                                  stamp, "--json")))
+        if snapshot_id == 0:
+            raise SystemExit("snapshot transaction did not record a snapshot id")
+    else:
+        logs = json.loads(cast("logs", "--address", contract, "--from-block", "0",
+                               "--to-block", "latest", "--json"))
+        tx_hash = log_transaction(logs, snapshot_id, contract)
+        receipt = json.loads(cast("receipt", tx_hash, "--json"))
+    if snapshot_hash(cast("call", contract, "snapshotOf(uint256)", str(snapshot_id))) != summary["sha256"]:
+        raise SystemExit("on-chain snapshot hash does not match the local universe")
+    receipt_path = pending / f"{stamp}.receipt.json"
+    ledger_command("receipt", tx_hash, str(receipt_path), input=json.dumps(receipt))
+    # index-add publishes the snapshot and removes its pending files.
+    ledger_command("index-add", "--ledger", str(ledger), "--summary", str(summary_path),
+                   "--receipt", str(receipt_path), "--chain-id", "84532", "--contract", contract,
+                   "--snapshot-id", str(snapshot_id))
+    print(f"recorded score snapshot {stamp} as #{snapshot_id} (tx {tx_hash})", flush=True)
     return 0
 
 

@@ -76,6 +76,7 @@ services:
       BASE_SEPOLIA_RPC_URL: http://anvil:8545
       LOCAL_PAGE_RPC_URL: http://127.0.0.1:${LOCAL_CHAIN_PORT:-8545}
       LOCAL_NODE_NAME: Anvil
+      PRIVATE_KEY: ${LOCAL_DEPLOYER_KEY:?set LOCAL_DEPLOYER_KEY in .env}
       OUT_DIR: /out
       CURVE_DIR: /curve
       WEB_DIR: /web

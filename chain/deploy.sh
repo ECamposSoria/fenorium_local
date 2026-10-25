@@ -112,6 +112,11 @@ DEMO_PAYMENT_TOKEN="$PAYMENT_TOKEN" DEMO_GATE_REGISTRY="$GATED" \
 forge script script/DeployDemoCatalog.s.sol:DeployDemoCatalog --rpc-url "$RPC_URL" --broadcast -q
 CATALOG_FACTORY="$(address_of DeployDemoCatalog.s.sol DemoCatalogFactory)"
 
+log "DecisionPassportV2"
+PAR_GOVERNANCE="$DEPLOYER" PAR_ISSUER="$DEPLOYER" \
+forge script script/DeployDecisionPassportV2.s.sol:DeployDecisionPassportV2 --rpc-url "$RPC_URL" --broadcast -q
+DECISION_PASSPORT="$(address_of DeployDecisionPassportV2.s.sol DecisionPassportV2)"
+
 # 4. The demo credential for the development wallets: the trusted attester (the deployer) attests,
 #    and each wallet registers the attestation with mGT, as the owner does on Base Sepolia. The
 #    attestation's id is read back from the chain's own event, because it includes the block time.
@@ -134,7 +139,7 @@ for recipient_key in $(printf '%s' "$LOCAL_RECIPIENT_KEYS" | tr ',' ' '); do
   log "verified $recipient"
 done
 
-for addr in "$GATED" "$PERMISSIONLESS" "$FIXED_TERM" "$VARIABLE_YIELD" "$PAYMENT_TOKEN" "$GATED_DESK" "$PERMISSIONLESS_DESK" "$CATALOG_FACTORY"; do
+for addr in "$GATED" "$PERMISSIONLESS" "$FIXED_TERM" "$VARIABLE_YIELD" "$PAYMENT_TOKEN" "$GATED_DESK" "$PERMISSIONLESS_DESK" "$CATALOG_FACTORY" "$DECISION_PASSPORT"; do
   has_code "$addr" || die "no code at $addr after deployment"
 done
 mkdir -p "$OUT_DIR"
@@ -151,5 +156,6 @@ PERMISSIONLESS_SALE=$PERMISSIONLESS_SALE
 GATED_DESK=$GATED_DESK
 PERMISSIONLESS_DESK=$PERMISSIONLESS_DESK
 CATALOG_FACTORY=$CATALOG_FACTORY
+DECISION_PASSPORT=$DECISION_PASSPORT
 EOF
 log "deployed: mGT $GATED · mPT $PERMISSIONLESS · mUSDC $PAYMENT_TOKEN · catalog factory $CATALOG_FACTORY"

@@ -19,6 +19,7 @@ COPY --chown=fenorium:fenorium schemas ./schemas
 COPY --chown=fenorium:fenorium scripts ./scripts
 COPY --chown=fenorium:fenorium web ./web
 COPY --chown=fenorium:fenorium deploy/platform ./deploy/platform
+COPY --chown=fenorium:fenorium deploy/score_ledger.py ./deploy/score_ledger.py
 COPY --chown=fenorium:fenorium contracts/deployments ./contracts/deployments
 COPY --chown=fenorium:fenorium chain/build.py ./chain/build.py
 
@@ -48,6 +49,7 @@ ENV PYTHONPATH=/app \
 
 
 FROM base AS builder
+COPY --from=ghcr.io/foundry-rs/foundry:v1.7.1 /usr/local/bin/cast /usr/local/bin/cast
 ENTRYPOINT ["python", "-m", "chain.build"]
 
 

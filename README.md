@@ -81,6 +81,16 @@ on-chain credential. Their rates, maturities and depth are declared by a scenari
 every screen says so. On mainnet the same engine rates live markets; here it rates these
 declarations. The eight simulated portfolios are fixtures with no transactions behind them.
 
+## Score history on the local chain
+
+`make up` deploys `DecisionPassportV2` on the local chain and records the universe it builds.
+One transaction holds the snapshot's SHA-256, its IPFS content address and its counts. The file is
+served by the local platform; it is not uploaded to IPFS.
+
+The instrument page's Score history shows the record. There is no block explorer on the local
+chain, so the transaction hash appears as text. On Base, the same contract records a snapshot
+every time the production universe is published.
+
 ## Chat (optional)
 
 **Nori**, Fenorium's AI assistant, is a chat about what the terminal shows: the market as you filtered and
