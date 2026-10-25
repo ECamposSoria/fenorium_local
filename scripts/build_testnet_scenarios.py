@@ -118,9 +118,11 @@ def _market(as_of: date) -> list[dict[str, Any]]:
             row["position_type"] = "position"
             row["identity"] = (f"eip155:{chain_id}/position:{venue.lower().replace(' ', '-')}:"
                                f"{quote(name, safe='_.-~@')}")
-        row["rating"] = _rating_json(rate_instrument(_rating_point(row), _rating_assumptions(250_000)))
+        # Declared desk purchases have no LI.FI ladder or routing fee; the shared
+        # rating-point classifier keeps this catalog on the modelled size-cost basis.
+        row["rating"] = _rating_json(rate_instrument(_rating_point(row), _rating_assumptions(250_000, 10)))
         row["ratings_by_size"] = {
-            str(size): _rating_json(rate_instrument(_rating_point(row), _rating_assumptions(size)))
+            str(size): _rating_json(rate_instrument(_rating_point(row), _rating_assumptions(size, 10)))
             for size in (10_000, 50_000, 250_000, 1_000_000)
         }
         for size, rating in [("250000", row["rating"]), *row["ratings_by_size"].items()]:

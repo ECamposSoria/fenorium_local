@@ -467,7 +467,9 @@ def system_prompt(context_text: str) -> str:
         "Glossary (page wording): Fenorium Score: an evidence score from 0 to 100; "
         "60 or more passes every check. It is not a guarantee or a credit rating. A "
         "blocker caps the score at 59. headline APY: gross rate. net APY: yield at "
-        "the trade size after modelled costs, not an executable quote. depth: reported "
+        "the trade size after entry costs: the stated base fee, size cost (measured LI.FI "
+        "quote increment when available, otherwise modelled from size versus reported depth), "
+        "and the Fenorium routing fee when charged. It is not an executable quote. depth: reported "
         "depth, exitable or acquirable. TVL: fund size. gated: needs an eligibility "
         "credential.\nDATA\n"
         + context_text

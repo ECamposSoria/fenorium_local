@@ -43,6 +43,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from dataclasses import replace
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -55,7 +56,8 @@ CURVE = Path(
     os.environ.get("FENORIUM_CURVE_INPUT", ROOT / "engine" / "data" / "curve.json")
 ).resolve()
 
-from engine.rating import IMPACT_MODEL, RATING_METHOD_VERSION, Assumptions, Rating, rate_instrument
+from engine.rating import NET_AFTER_COSTS, RATING_METHOD_VERSION, Assumptions, Rating, rate_instrument
+from engine.purchase_paths import routed_purchase
 from engine.chain import is_transport_failure
 from engine.registry import registry
 from engine.midnight import MIDNIGHT_VENUES
@@ -81,8 +83,8 @@ from engine.variable_yield import (
 # one. Neither relaxes the depth test.
 SHIPPED_ASSUMPTIONS = Assumptions(
     size_usd=250_000,
-    tier_haircut_bps={"TIER_A": 25, "TIER_B": 100, "TIER_C": 400},
     execution_cost_bps=30,
+    routing_fee_bps=10,
     holding_period_days=90,
     accept_realized=True,
 )
@@ -97,18 +99,22 @@ def rating_json(rating: Rating) -> dict:
         "computable": bool(rating.computable),
         "refusal": rating.refusal,
         "headline_bps": int(rating.headline_bps),
-        "credit_haircut_bps": int(rating.credit_haircut_bps),
         "execution_bps": int(rating.execution_bps),
         "base_fee_bps": int(rating.base_fee_bps),
-        "modelled_impact_bps": optional_int(rating.modelled_impact_bps),
+        "size_cost_bps": optional_int(rating.size_cost_bps),
+        "size_cost_basis": rating.size_cost_basis,
+        "size_cost_rung_usd": rating.size_cost_rung_usd,
+        "size_cost_measured_at": rating.size_cost_measured_at,
+        "routing_fee_bps": int(rating.routing_fee_bps),
         "base_fee_annualized_bps": optional_int(rating.base_fee_annualized_bps),
-        "modelled_impact_annualized_bps": optional_int(rating.modelled_impact_annualized_bps),
+        "size_cost_annualized_bps": optional_int(rating.size_cost_annualized_bps),
+        "routing_fee_annualized_bps": optional_int(rating.routing_fee_annualized_bps),
         "net_bps": int(rating.net_bps),
         "rate_basis": rating.rate_basis,
         "size_usd": rating.size_usd,
         "reported_depth_usd": rating.reported_depth_usd_exact,
         "method_version": rating.method_version,
-        "impact_model": rating.impact_model,
+        "cost_model": rating.cost_model,
         "impact_coefficient_bps": int(rating.impact_coefficient_bps),
         "impact_exponent": rating.impact_exponent,
         "impact_rounding": rating.impact_rounding,
@@ -293,7 +299,6 @@ def native_rows() -> list[dict]:
     curve = json.loads(CURVE.read_text())
     rows = []
     for p in curve["points"]:
-        rating = rate_instrument(p, SHIPPED_ASSUMPTIONS)
         identity = str(p.get("identity") or "")
         tokenised = re.fullmatch(r"0x[0-9a-fA-F]{40}", identity.split(":")[-1]) is not None
         rate = p.get("executable_apy")
@@ -336,9 +341,8 @@ def native_rows() -> list[dict]:
             "maturity": p.get("maturity"),
             "maturity_timestamp": p.get("maturity_timestamp"),
             "days_to_maturity": p.get("days_to_maturity"),
+            "obtainable": p.get("obtainable"),
             "reason": p.get("reason"),
-            "rating": rating_json(rating),
-            "_rating_point": p,
         }
         loan_address = p.get("underlying_address")
         market_id = p.get("market_id")
@@ -359,6 +363,9 @@ def native_rows() -> list[dict]:
                           "so no transfer gate applies",
                 "measured_at": None,
             }
+        point = {**p, "obtainable": row.get("obtainable"), "routed_purchase": routed_purchase(row)}
+        row["rating"] = rating_json(rate_instrument(point, SHIPPED_ASSUMPTIONS))
+        row["_rating_point"] = point
         rows.append(row)
     return rows
 
@@ -1438,10 +1445,18 @@ def rerate_measured_rows(rows: list[dict]) -> None:
         point = row.pop("_rating_point", None)
         observation = row.get("obtainable") or {}
         if observation.get("max_quoted_usd") is None:
+            # Retained venue rows may carry a previous method's arithmetic even when
+            # obtainability did not change. Let rate_open_ended upgrade that contract.
+            previous_rating = row.get("rating")
+            if (point is None and isinstance(previous_rating, dict)
+                    and previous_rating.get("method_version") != RATING_METHOD_VERSION):
+                row.pop("rating", None)
             continue
         if point is not None:
             row["rating"] = rating_json(rate_instrument(
-                {**point, "liquidity_usd": row["depth_usd"]}, SHIPPED_ASSUMPTIONS,
+                {**point, "liquidity_usd": row["depth_usd"],
+                 "obtainable": row.get("obtainable"), "routed_purchase": routed_purchase(row)},
+                SHIPPED_ASSUMPTIONS,
             ))
         else:
             row.pop("rating", None)
@@ -1700,6 +1715,41 @@ def venue_logos(venues: set[str]) -> dict[str, str]:
     return out
 
 
+def row_rating_point(row: dict) -> dict:
+    """Reconstruct arithmetic inputs from a published row without refreshing evidence."""
+    rate = row.get("rate_bps")
+    apy = None if rate is None else rate / 10_000
+    indicative = row.get("rate_kind") == "indicative"
+    return {
+        "instrument": row.get("name"), "venue": row.get("venue"),
+        "status": row.get("status"), "rejection_basis": row.get("rejection"),
+        "tier": row.get("tier"), "rate_kind": row.get("rate_kind"),
+        "executable_apy": None if indicative else apy,
+        "indicative_apy": apy if indicative else None,
+        "days_to_maturity": row.get("days_to_maturity"),
+        "liquidity_usd": row.get("depth_usd"),
+        "obtainable": row.get("obtainable"),
+        "routed_purchase": routed_purchase(row),
+    }
+
+
+def rerate_snapshot(payload: dict) -> None:
+    """Upgrade only rating arithmetic, preserving snapshot timestamps and market evidence."""
+    for row in payload["instruments"]:
+        if (not row.get("rating")
+                and (row.get("is_stablecoin") is True or row.get("category") == "stablecoin")):
+            continue
+        rating = rate_instrument(row_rating_point(row), SHIPPED_ASSUMPTIONS)
+        days = row.get("days_to_maturity")
+        if (row.get("rate_kind") == "declared_demo" and isinstance(row.get("maturity"), str)
+                and type(days) is int and days <= 0):
+            rating = replace(rating, computable=False,
+                             refusal="MATURED: the redemption date has passed, so there is no horizon left to rate")
+        row["rating"] = rating_json(rating)
+    payload["assumptions"] = SHIPPED_ASSUMPTIONS.to_json()
+    payload["rating_method"] = {"method_version": RATING_METHOD_VERSION, "model": NET_AFTER_COSTS}
+
+
 def rate_open_ended(rows: list[dict]) -> int:
     """Attach a rating to vaults and tokenized funds, which have no maturity of their own.
 
@@ -1716,15 +1766,7 @@ def rate_open_ended(rows: list[dict]) -> int:
         # of account a headline rate, and everything else is priced in it.
         if row.get("is_stablecoin") is True or row.get("category") == "stablecoin":
             continue
-        point = {
-            "instrument": row.get("name"), "venue": row.get("venue"),
-            "status": row.get("status"), "rejection_basis": row.get("rejection"),
-            "tier": row.get("tier"), "rate_kind": row.get("rate_kind"),
-            "executable_apy": row["rate_bps"] / 10_000,
-            "indicative_apy": None,
-            "days_to_maturity": row.get("days_to_maturity"),
-            "liquidity_usd": row.get("depth_usd"),
-        }
+        point = row_rating_point(row)
         rating = rate_instrument(point, SHIPPED_ASSUMPTIONS)
         row["rating"] = rating_json(rating)
         if rating.computable:
@@ -1808,12 +1850,20 @@ def _isolated_venue(venue: str) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--rerate-only", action="store_true",
+                      help="update existing snapshot ratings only; no network, new timestamps or market data")
+    mode.add_argument(
         "--venue",
         choices=("morpho", "aave-v3", "compound-v3"),
         help="print one live variable-yield adapter as JSON; never write web/universe.json",
     )
     args = parser.parse_args(argv)
+    if args.rerate_only:
+        payload = json.loads(OUT.read_text())
+        rerate_snapshot(payload)
+        OUT.write_text(json.dumps(payload, indent=2) + "\n")
+        return 0
     if args.venue:
         return _isolated_venue(args.venue)
 
@@ -1883,7 +1933,7 @@ def main(argv: list[str] | None = None) -> int:
         "assumptions": SHIPPED_ASSUMPTIONS.to_json(),
         "rating_method": {
             "method_version": RATING_METHOD_VERSION,
-            "model": IMPACT_MODEL,
+            "model": NET_AFTER_COSTS,
         },
         "notes": {
             "rate_kind": {

@@ -1089,7 +1089,7 @@
     const series = [["Headline", "headline_bps"], ["Net", "net_bps"]].map(([name, key], index) => ({
       name, dashed: index === 0,
       points: points.map((point) => ({x: point.size_usd, y: point.refusal ? null : point[key],
-        tooltip: `${usd(point.size_usd)} · ${name}${toMaturity && index === 0 ? " after credit, to maturity" : ""}: ${point.refusal || (finiteChartValue(point[key]) ? pct(point[key]) : "NOT COMPUTABLE")}${Number(point.fenorium_score) < 60 && point.fenorium_score != null ? ` · Fenorium Score ${point.fenorium_score} below 60 · score cap ${point.score_cap ?? "UNKNOWN"}` : ""}`})),
+        tooltip: `${usd(point.size_usd)} · ${name}${toMaturity && index === 0 ? " to maturity" : ""}: ${point.refusal || (finiteChartValue(point[key]) ? pct(point[key]) : "NOT COMPUTABLE")}${Number(point.fenorium_score) < 60 && point.fenorium_score != null ? ` · Fenorium Score ${point.fenorium_score} below 60 · score cap ${point.score_cap ?? "UNKNOWN"}` : ""}`})),
     }));
     return instrumentLine({label: "Yield at size", xLabel: "Position size USD · logarithmic", yLabel: toMaturity ? "Yield % · to maturity, not annualized" : "Annualized yield %",
       series, logX: true, xFormat: value => usd(value).replace('.0M', 'M'), yFormat: pct,

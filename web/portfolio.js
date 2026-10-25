@@ -790,17 +790,19 @@
   // Within 30 days of maturity the annualized cost is a figure nobody pays: a flat 30 bp entry fee
   // over 2.4 days annualizes to 46%. What a buyer pays is the yield and the cost over the days that
   // remain, so the screens show those (owner 2026-10-20) and keep the annualized ones as the tooltip.
-  // Components are the engine's own: (headline − credit haircut) × days/365 − entry fee − impact.
+  // Components are the engine's own: headline × days/365 − base fee − size cost − routing fee.
   const HOLDING_PERIOD_DAYS = 30;
   function holdingPeriod(row) {
     const days = Number(row?.days_to_maturity), rating = row?.rating;
     if (!Number.isFinite(days) || days <= 0 || days >= HOLDING_PERIOD_DAYS || rating?.computable !== true) return null;
-    const headline = Number(rating.headline_bps ?? row.rate_bps), credit = Number(rating.credit_haircut_bps ?? 0);
-    const baseFee = Number(rating.base_fee_bps), impact = Number(rating.modelled_impact_bps);
-    if (![headline, credit, baseFee, impact].every(Number.isFinite)) return null;
+    if ([rating.headline_bps ?? row.rate_bps, rating.base_fee_bps, rating.size_cost_bps, rating.routing_fee_bps]
+      .some(value => value == null || value === "")) return null;
+    const headline = Number(rating.headline_bps ?? row.rate_bps);
+    const baseFee = Number(rating.base_fee_bps), sizeCost = Number(rating.size_cost_bps), routingFee = Number(rating.routing_fee_bps);
+    if (![headline, baseFee, sizeCost, routingFee].every(Number.isFinite)) return null;
     const fraction = days / 365;
-    const gross = (headline - credit) * fraction;
-    const cost = baseFee + impact;
+    const gross = headline * fraction;
+    const cost = baseFee + sizeCost + routingFee;
     return {days, fraction, gross_bps: gross, cost_bps: cost, net_bps: gross - cost,
       annualized_net_bps: rating.net_bps ?? null, annualized_execution_bps: rating.execution_bps ?? null};
   }

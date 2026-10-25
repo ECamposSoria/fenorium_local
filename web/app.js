@@ -32,9 +32,9 @@
     return `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 14)}`;
   })();
   const FIXED_INCOME_FILTER = "fixed-income";
-  const EXECUTION_COST_MODEL = "STATED_BASE_FEE_PLUS_MODELLED_IMPACT";
-  const RATING_METHOD_VERSION = "par-engine/2026.09.02-size-impact-v1";
-  const IMPACT_MODEL = "MODELLED_SIZE_TO_REPORTED_DEPTH";
+  const EXECUTION_COST_MODEL = "STATED_BASE_FEE_PLUS_SIZE_COST_PLUS_ROUTING_FEE";
+  const RATING_METHOD_VERSION = "par-engine/2026.10.25-net-after-costs-v1";
+  const NET_AFTER_COSTS = "NET_AFTER_COSTS";
   const WALLET_INTENT_KEY = "fenorium.wallet.connect-intent";
   // A finished scan is worth keeping between page loads: without it every reload re-read seven
   // hundred thousand blocks to reach the same answer, which is the half minute of UNKNOWN. It
@@ -467,8 +467,9 @@
     const rating = row.rating;
     const ratedAt = object(rating) ? parseNotional(rating.size_usd) : null;
     if (ratedAt == null || ratedAt === sizeUsd) return row;
-    return {...row, decision_hash: null, rating: {...rating, computable: false, net_bps: null, modelled_impact_bps: null,
-      modelled_impact_annualized_bps: null, base_fee_annualized_bps: null,
+    return {...row, decision_hash: null, rating: {...rating, computable: false, net_bps: null, size_cost_bps: null,
+      size_cost_annualized_bps: null, size_cost_basis: null, size_cost_rung_usd: null,
+      size_cost_measured_at: null, base_fee_annualized_bps: null, routing_fee_annualized_bps: null,
       refusal: `preview fixture rated at ${formatNotional(ratedAt)} only; it is not re-rated at ${formatNotional(sizeUsd)}`}};
   }
 
@@ -1043,21 +1044,24 @@
       if (!object(data.assumptions)
         || data.assumptions.size_usd !== requestedSize
         || data.assumptions.execution_cost_bps !== 30
+        || !Number.isInteger(data.assumptions.routing_fee_bps)
+        || data.assumptions.routing_fee_bps < 0
+        || data.assumptions.cost_model !== NET_AFTER_COSTS
         || data.assumptions.impact_coefficient_bps !== 100
         || data.assumptions.impact_exponent !== "1/2"
         || data.assumptions.execution_cost_model !== EXECUTION_COST_MODEL) {
-        throw Error("universe response did not echo the applied base-fee and MODELLED-impact assumptions");
+        throw Error("universe response did not echo the applied base-fee, size-cost and routing-fee assumptions");
       }
       if (!object(data.rating_method)
         || data.rating_method.method_version !== RATING_METHOD_VERSION
-        || data.rating_method.model !== IMPACT_MODEL
+        || data.rating_method.model !== NET_AFTER_COSTS
         || data.rating_method.mode !== "FULL_RECOMPUTE"
         || !object(data.source_rating_method)) {
         throw Error("sized universe response does not identify one consistent rating method");
       }
       if (!data.instruments.every((row) => object(row.rating)
         && row.rating.method_version === RATING_METHOD_VERSION
-        && row.rating.impact_model === IMPACT_MODEL)) {
+        && row.rating.cost_model === NET_AFTER_COSTS)) {
         throw Error("sized universe response mixed rating methods");
       }
       if (!Number.isInteger(data.priceable_count) || data.priceable_count < 0 || data.priceable_count > data.instruments.length) {
@@ -1988,7 +1992,7 @@
         const hp = typeof P.holdingPeriod === "function" ? P.holdingPeriod(row) : null;
         const shown = hp ? U.pct(key === "net" ? hp.net_bps : hp.cost_bps) : numericCell(row, key);
         const horizon = hp ? `To maturity (${Number(hp.days).toFixed(1)} days remain); annualized ${numericCell(row, key)} · ` : "";
-        return `<span title="${U.esc(`${horizon}Modelled size-impact estimate at the selected notional, not a live executable quote · depth source: ${row.depth_source || "not recorded"}`)}">${U.esc(shown)}${hp ? `<span class="cell-sub"> · ${U.esc(Number(hp.days).toFixed(1))}d</span>` : ""}</span>`;
+        return `<span title="${U.esc(`${horizon}Entry costs · ${U.sizeCostContext?.(row) || "UNKNOWN · Not measured"}, not a live executable quote · depth source: ${row.depth_source || "not recorded"}`)}">${U.esc(shown)}${hp ? `<span class="cell-sub"> · ${U.esc(Number(hp.days).toFixed(1))}d</span>` : ""}</span>`;
       }
       return value;
     }
@@ -8151,7 +8155,7 @@
       const value = numericCell(row, key);
       const source = (candidate) => candidate == null || candidate === "" ? "UNKNOWN · Not measured" : candidate;
       if (key === "net" || key === "execution") {
-        return `${value} | impact_model=${source(row.rating?.impact_model)} | not a live executable quote | depth_source=${source(row.depth_source)}`;
+        return `${value} | cost_model=${source(row.rating?.cost_model)} | not a live executable quote | depth_source=${source(row.depth_source)}`;
       }
       if (key === "depth") return `${value} | depth_source=${source(row.depth_source)}`;
       if (key === "tvl") return `${value} | tvl_source=${source(row.tvl_source)}`;

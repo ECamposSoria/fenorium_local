@@ -1,4 +1,4 @@
-"""Risk-adjusted yield, computed on the caller's stated assumptions.
+"""Net yield after entry costs, computed on the caller's stated assumptions.
 
 This is a calculator, not a rating. The distinction is load-bearing and it is structural, not
 cosmetic:
@@ -12,7 +12,7 @@ cosmetic:
   figure on absent evidence is precisely the failure this project exists to catch, and it would be
   worse coming from us than from a yield table, because ours would look considered.
 
-Nothing here asserts what an instrument is worth. It answers: *given your haircuts and your size,
+Nothing here asserts what an instrument is worth. It answers: *given your costs and your size,
 what does the arithmetic say?*
 """
 
@@ -23,11 +23,12 @@ from fractions import Fraction
 from math import isqrt
 from typing import Any
 
-from .manifest import CURRENT_METHOD_VERSION
-
 BPS = 10_000
-RATING_METHOD_VERSION = CURRENT_METHOD_VERSION
-IMPACT_MODEL = "MODELLED_SIZE_TO_REPORTED_DEPTH"
+RATING_METHOD_VERSION = "par-engine/2026.10.25-net-after-costs-v1"
+NET_AFTER_COSTS = "NET_AFTER_COSTS"
+MEASURED_BASE_RUNG_USD = 10_000  # Smallest research.par_sources.lifi_quotes.DEFAULT_SIZES_USD rung.
+MEASURED_LIFI_LADDER = "MEASURED_LIFI_LADDER"
+MODELLED_SIZE_TO_REPORTED_DEPTH = "MODELLED_SIZE_TO_REPORTED_DEPTH"
 IMPACT_ROUNDING = "CEILING_TO_INTEGER_BPS"
 ANNUALIZATION_ROUNDING = "NEAREST_INTEGER_BPS_HALF_UP"
 
@@ -40,16 +41,16 @@ class RatingError(ValueError):
 class Assumptions:
     """Everything the caller decides. Versioned so a result can be reproduced.
 
-    ``execution_cost_bps`` is the stated base fee paid at every size. The additional impact is
-    explicitly MODELLED, never measured slippage or a quote: ``impact_coefficient_bps`` is the
+    ``execution_cost_bps`` is the stated base fee paid at every size. Without a usable measured
+    ladder, additional size cost is MODELLED: ``impact_coefficient_bps`` is the
     assumed cost at size/depth == 1 and ``impact_exponent`` selects the exact rational curve.
     The square-root default is encoded as ``"1/2"`` rather than a float so the assumptions can
     travel through canonical JSON without weakening the integer-only evidence boundary.
     """
 
     size_usd: int | float | str
-    tier_haircut_bps: dict[str, int]
     execution_cost_bps: int
+    routing_fee_bps: int = 10
     impact_coefficient_bps: int = 100
     impact_exponent: str = "1/2"
     require_full_evidence: bool = True
@@ -58,7 +59,7 @@ class Assumptions:
     # states how long they intend to hold it. Without this a vault and a tokenized fund cannot be
     # compared to a dated instrument at all — not because the arithmetic is unavailable, but
     # because the question "what does this cost me per year" is meaningless until someone says
-    # for how long. It is the caller's assumption, exactly like the haircuts, and it travels with
+    # for how long. It is the caller's assumption, exactly like the costs, and it travels with
     # the result.
     holding_period_days: int | None = None
     # A vault reports what it returned over a trailing window. That is neither a quote you can
@@ -83,18 +84,17 @@ class Assumptions:
             raise RatingError('impact_exponent must be the exact rational string "1/2" or "1"')
         if self.holding_period_days is not None and self.holding_period_days <= 0:
             raise RatingError("holding_period_days must be positive when supplied")
-        for tier, haircut in self.tier_haircut_bps.items():
-            if not isinstance(haircut, int) or isinstance(haircut, bool) or haircut < 0:
-                raise RatingError(f"haircut for {tier} must be a non-negative integer")
+        if type(self.routing_fee_bps) is not int or self.routing_fee_bps < 0:
+            raise RatingError("routing_fee_bps must be a non-negative integer")
 
     def to_json(self) -> dict[str, Any]:
         return {
             "size_usd": _fraction_text(self.size_usd, "size_usd"),
-            "tier_haircut_bps": dict(sorted(self.tier_haircut_bps.items())),
             "execution_cost_bps": int(self.execution_cost_bps),
+            "routing_fee_bps": self.routing_fee_bps,
             "impact_coefficient_bps": int(self.impact_coefficient_bps),
             "impact_exponent": self.impact_exponent,
-            "impact_model": IMPACT_MODEL,
+            "cost_model": NET_AFTER_COSTS,
             "impact_rounding": IMPACT_ROUNDING,
             "annualization_rounding": ANNUALIZATION_ROUNDING,
             "require_full_evidence": bool(self.require_full_evidence),
@@ -111,12 +111,16 @@ class Rating:
     computable: bool
     refusal: str | None = None
     headline_bps: int = 0
-    credit_haircut_bps: int = 0
     execution_bps: int = 0
     base_fee_bps: int = 0
-    modelled_impact_bps: int | None = None
+    size_cost_bps: int | None = None
+    size_cost_basis: str | None = None
+    size_cost_rung_usd: int | None = None
+    size_cost_measured_at: str | None = None
+    routing_fee_bps: int = 0
     base_fee_annualized_bps: int | None = None
-    modelled_impact_annualized_bps: int | None = None
+    size_cost_annualized_bps: int | None = None
+    routing_fee_annualized_bps: int | None = None
     net_bps: int = 0
     days_to_maturity: float | None = None
     tier: str | None = None
@@ -125,7 +129,7 @@ class Rating:
     size_usd: str = ""
     reported_depth_usd_exact: str | None = None
     method_version: str = RATING_METHOD_VERSION
-    impact_model: str = IMPACT_MODEL
+    cost_model: str = NET_AFTER_COSTS
     impact_coefficient_bps: int = 100
     impact_exponent: str = "1/2"
     impact_rounding: str = IMPACT_ROUNDING
@@ -162,7 +166,7 @@ def _round_fraction_nearest(value: Fraction) -> int:
     return quotient + int(remainder * 2 >= value.denominator)
 
 
-def modelled_impact_bps(
+def modelled_size_cost_bps(
     *,
     size_usd: int | float | str,
     depth_usd: int | float | str,
@@ -214,6 +218,41 @@ def annualized_execution_bps(cost_bps: int, days_to_maturity: float) -> int:
     )
 
 
+def _measured_size_cost(ladder: Any, size: Fraction) -> tuple[int, int, str | None] | None:
+    """Select the next quoted rung; malformed or missing evidence uses the stated model."""
+    if not isinstance(ladder, dict) or ladder.get("measured") is not True:
+        return None
+    impacts = ladder.get("impact_bps_at")
+    maximum = ladder.get("max_quoted_usd")
+    if not isinstance(impacts, dict) or maximum is None:
+        return None
+    try:
+        maximum = _fraction(maximum, "max_quoted_usd")
+    except RatingError:
+        return None
+    rungs = {}
+    for key, value in impacts.items():
+        if type(key) not in (int, str):
+            continue
+        try:
+            rung = int(key)
+        except ValueError:
+            continue
+        if rung >= MEASURED_BASE_RUNG_USD and value is not None:
+            rungs[rung] = value
+    base = rungs.get(MEASURED_BASE_RUNG_USD)
+    eligible = [rung for rung in rungs if max(size, MEASURED_BASE_RUNG_USD) <= rung <= maximum]
+    if type(base) is not int or not eligible:
+        return None
+    chosen = min(eligible)
+    if type(rungs[chosen]) is not int:
+        return None
+    # The absolute ladder level depends on LI.FI's USD valuation of the destination token,
+    # which is biased for principal tokens. Two rungs share that valuation and the same moment,
+    # so their difference isolates the measured extra cost of size.
+    return max(0, rungs[chosen] - base), chosen, ladder.get("measured_at")
+
+
 def rate_instrument(point: dict[str, Any], assumptions: Assumptions) -> Rating:
     """Rate one curve point. Returns a refusal rather than a guess when evidence is absent."""
     instrument = str(point.get("instrument") or point.get("identity") or "unknown")
@@ -231,6 +270,8 @@ def rate_instrument(point: dict[str, Any], assumptions: Assumptions) -> Rating:
                 None if depth is None else _fraction_text(depth, "depth_usd")
             ),
             base_fee_bps=assumptions.execution_cost_bps,
+            routing_fee_bps=(assumptions.routing_fee_bps
+                             if point.get("routed_purchase") is True else 0),
             impact_coefficient_bps=assumptions.impact_coefficient_bps,
             impact_exponent=assumptions.impact_exponent,
         )
@@ -283,7 +324,7 @@ def rate_instrument(point: dict[str, Any], assumptions: Assumptions) -> Rating:
         # applies even when other evidence requirements are relaxed: missing impact is UNKNOWN,
         # never silently represented by the flat base fee or a zero component.
         return refuse(
-            "no reported depth: MODELLED impact is UNKNOWN, so execution cost and net yield "
+            "no reported depth: size cost is UNKNOWN, so execution cost and net yield "
             "cannot be computed at this size"
         )
     elif _fraction(depth, "depth_usd") < _fraction(assumptions.size_usd, "size_usd"):
@@ -292,40 +333,71 @@ def rate_instrument(point: dict[str, Any], assumptions: Assumptions) -> Rating:
             f"${float(assumptions.size_usd):,.0f}"
         )
 
+    ladder = point.get("obtainable")
+    if isinstance(ladder, dict) and ladder.get("measured") is True:
+        try:
+            maximum = _fraction(ladder.get("max_quoted_usd"), "max_quoted_usd")
+        except RatingError:
+            maximum = None
+        if maximum is not None and maximum < _fraction(assumptions.size_usd, "size_usd"):
+            return refuse(
+                f"reported depth ${float(maximum):,.0f} is below the intended "
+                f"${float(assumptions.size_usd):,.0f}"
+            )
+
     headline = _round_fraction_nearest(_fraction(rate, "rate") * BPS)
-    haircut = int(assumptions.tier_haircut_bps.get(tier or "", 0))
-    impact = modelled_impact_bps(
-        size_usd=assumptions.size_usd,
-        depth_usd=depth,
-        coefficient_bps=assumptions.impact_coefficient_bps,
-        exponent=assumptions.impact_exponent,
-    )
+    measured = _measured_size_cost(ladder, _fraction(assumptions.size_usd, "size_usd"))
+    if measured is not None:
+        size_cost, rung, measured_at = measured
+        basis = MEASURED_LIFI_LADDER
+    else:
+        size_cost = modelled_size_cost_bps(
+            size_usd=assumptions.size_usd, depth_usd=depth,
+            coefficient_bps=assumptions.impact_coefficient_bps,
+            exponent=assumptions.impact_exponent,
+        )
+        rung, measured_at = None, None
+        basis = MODELLED_SIZE_TO_REPORTED_DEPTH
+    routing_fee = assumptions.routing_fee_bps if point.get("routed_purchase") is True else 0
     base_annualized = annualized_execution_bps(assumptions.execution_cost_bps, float(days))
-    impact_annualized = annualized_execution_bps(impact, float(days))
-    execution = base_annualized + impact_annualized
-    net = headline - haircut - execution
+    size_annualized = annualized_execution_bps(size_cost, float(days))
+    routing_annualized = annualized_execution_bps(routing_fee, float(days))
+    execution = base_annualized + size_annualized + routing_annualized
+    net = headline - execution
+    suffix = " (your stated horizon)" if horizon_is_assumed else ""
+    size_label = (
+        f"size cost {size_cost}bp at ${float(assumptions.size_usd):,.0f} "
+        f"(measured LI.FI quotes $10k→${rung:,})"
+        if measured is not None else
+        f"MODELLED size cost {size_cost}bp at ${float(assumptions.size_usd):,.0f}"
+    )
+    components = [
+        ("headline", headline),
+        (f"entry fee {assumptions.execution_cost_bps}bp over {float(days):.0f}d" + suffix,
+         -base_annualized),
+        (size_label + suffix, -size_annualized),
+    ]
+    if routing_fee:
+        components.append((f"Fenorium routing fee {routing_fee}bp over {float(days):.0f}d" + suffix,
+                           -routing_annualized))
+    components.append(("net", net))
 
     return Rating(
         instrument=instrument, venue=venue, computable=True,
-        headline_bps=headline, credit_haircut_bps=haircut, execution_bps=execution,
+        headline_bps=headline, execution_bps=execution,
         base_fee_bps=assumptions.execution_cost_bps,
-        modelled_impact_bps=impact,
+        size_cost_bps=size_cost, size_cost_basis=basis,
+        size_cost_rung_usd=rung, size_cost_measured_at=measured_at,
+        routing_fee_bps=routing_fee,
         base_fee_annualized_bps=base_annualized,
-        modelled_impact_annualized_bps=impact_annualized,
+        size_cost_annualized_bps=size_annualized,
+        routing_fee_annualized_bps=routing_annualized,
         net_bps=net, days_to_maturity=float(days), tier=tier, reported_depth_usd=depth,
         size_usd=_fraction_text(assumptions.size_usd, "size_usd"),
         reported_depth_usd_exact=_fraction_text(depth, "depth_usd"),
         rate_basis=kind, impact_coefficient_bps=assumptions.impact_coefficient_bps,
         impact_exponent=assumptions.impact_exponent,
-        components=(
-            ("headline", headline),
-            (f"credit haircut ({tier or 'untiered'})", -haircut),
-            (f"base fee {assumptions.execution_cost_bps}bp over {float(days):.0f}d"
-             + (" (your stated horizon)" if horizon_is_assumed else ""), -base_annualized),
-            (f"MODELLED impact {impact}bp at this size over {float(days):.0f}d"
-             + (" (your stated horizon)" if horizon_is_assumed else ""), -impact_annualized),
-            ("net", net),
-        ),
+        components=tuple(components),
     )
 
 

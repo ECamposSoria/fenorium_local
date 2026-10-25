@@ -39,7 +39,7 @@ from .wallets import RoutableTokens, WalletBusy, WalletReader
 from .api import APIError, PlatformAPI, json_bytes
 from engine.onchain import ChainReader
 from engine.registry import parse_asset_id, registry, registry_document
-from engine.rating import IMPACT_MODEL, RATING_METHOD_VERSION
+from engine.rating import NET_AFTER_COSTS, RATING_METHOD_VERSION
 from engine.registry.instruments import fixed_income_terms, instrument_id
 from engine.portfolio.analytics import (
     DAILY_RETURN_PLACES, MIN_ES_OBSERVATIONS, _round_decimal,
@@ -51,12 +51,12 @@ from .rerating import (  # noqa: F401 - re-exported: tests and callers read them
     HOLDING_PERIOD_DAYS,
     IMPACT_COEFFICIENT_BPS,
     IMPACT_EXPONENT,
-    TIER_HAIRCUT_BPS,
     _is_size_depth_refusal,
     _rating_assumptions,
     _rating_json,
     _rating_point,
     _rerated_rows,
+    _routing_fee_bps,
     restate_declared_days,
 )
 
@@ -599,9 +599,11 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
             # Only rows rated here get today's day count: an unsized read keeps the snapshot's
             # days beside the snapshot's ratings.
             restate_declared_days(served_instruments, self.server.clock().astimezone(UTC).date())
-            rerated, priceable_count = _rerated_rows(served_instruments, size_usd)
-            _, reference_priceable_count = _rerated_rows(served_instruments, PRICEABILITY_REFERENCE_SIZE_USD)
-            assumptions = _rating_assumptions(size_usd).to_json()
+            routing_fee_bps = _routing_fee_bps(self.server.api._configured_fee())
+            rerated, priceable_count = _rerated_rows(served_instruments, size_usd, routing_fee_bps)
+            _, reference_priceable_count = _rerated_rows(
+                served_instruments, PRICEABILITY_REFERENCE_SIZE_USD, routing_fee_bps)
+            assumptions = _rating_assumptions(size_usd, routing_fee_bps).to_json()
             assumptions.update(
                 {
                     "size_usd": size_usd,
@@ -624,7 +626,7 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
                     "assumptions": assumptions,
                     "rating_method": {
                         "method_version": RATING_METHOD_VERSION,
-                        "model": IMPACT_MODEL,
+                        "model": NET_AFTER_COSTS,
                         "mode": "FULL_RECOMPUTE",
                     },
                     "source_rating_method": (
@@ -799,8 +801,9 @@ class PlatformRequestHandler(SimpleHTTPRequestHandler):
             row = dict(matches[0])
             now = self.server.clock()
             restate_declared_days([row], now.astimezone(UTC).date())
+            routing_fee_bps = _routing_fee_bps(self.server.api._configured_fee())
             def rated_at(size: int) -> dict[str, Any]:
-                rated = _rerated_rows([row], size)[0][0]
+                rated = _rerated_rows([row], size, routing_fee_bps)[0][0]
                 return {"size_usd": size, **{key: rated.get(key) for key in (
                     "rating", "verdict", "fenorium_score", "score_cap")}}
 

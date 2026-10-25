@@ -197,7 +197,8 @@
     "CONFIRMED \u00b7 READ REFRESH FAILED": ["Approval confirmed · reads need refresh", "Refresh on-chain reads before continuing."],
     "NOT CURRENT \u00b7 refresh failed": ["Eligibility UNKNOWN · reads need refresh", "Refresh on-chain reads to check eligibility."],
     "UNKNOWN \u00b7 NOT READ": ["UNKNOWN · Not read", "Refresh on-chain reads to check wallet eligibility."],
-    "MODELLED_SIZE_TO_REPORTED_DEPTH": ["Modelled size-impact estimate", "This estimate uses selected size and reported depth — what was shown exitable or acquirable; it is not measured or a live executable quote."],
+    "MODELLED_SIZE_TO_REPORTED_DEPTH": ["Modelled size-cost estimate", "This estimate uses selected size and reported depth — what was shown exitable or acquirable; it is not measured or a live executable quote."],
+    "MEASURED_LIFI_LADDER": ["Measured size cost", "This is the extra cost LI.FI quoted for buying at this size against a $10k quote, measured with the market data; it is not a live executable quote."],
     "TIER_A": ["Tier A", "This is a classification, not a guarantee of repayment."],
     "TIER_B": ["Tier B", "This is a classification, not a guarantee of repayment."],
     "TIER_C": ["Tier C", "This is a classification, not a guarantee of repayment."],
@@ -675,8 +676,8 @@
     if (kind === "net") return computable && row.rating.net_bps != null ? pct(row.rating.net_bps) : NOT_COMPUTABLE;
     if (kind === "execution") return computable && row.rating.execution_bps != null ? pct(row.rating.execution_bps) : NOT_COMPUTABLE;
     if (kind === "base_fee") return computable && row.rating.base_fee_annualized_bps != null ? pct(row.rating.base_fee_annualized_bps) : NOT_COMPUTABLE;
-    if (kind === "modelled_impact") return computable && row.rating.modelled_impact_annualized_bps != null ? pct(row.rating.modelled_impact_annualized_bps) : NOT_COMPUTABLE;
-    if (kind === "credit") return computable && row.rating.credit_haircut_bps != null ? pct(row.rating.credit_haircut_bps) : NOT_COMPUTABLE;
+    if (kind === "size_cost") return computable && row.rating.size_cost_annualized_bps != null ? pct(row.rating.size_cost_annualized_bps) : NOT_COMPUTABLE;
+    if (kind === "routing_fee") return computable && row.rating.routing_fee_annualized_bps != null ? pct(row.rating.routing_fee_annualized_bps) : NOT_COMPUTABLE;
     if (kind === "depth") return row?.depth_usd == null ? NOT_COMPUTABLE : usdN(row.depth_usd);
     if (kind === "days") return P.rowMatured(row) ? "Matured" : row?.days_to_maturity == null ? NOT_COMPUTABLE : Number(row.days_to_maturity).toFixed(1);
     return NOT_COMPUTABLE;
@@ -694,8 +695,22 @@
     return typeof P.holdingPeriod === "function" ? P.holdingPeriod(row) : null;
   }
 
+  function sizeCostContext(row) {
+    const rating = row?.rating;
+    if (rating?.computable !== true || !rating.size_cost_basis) return "UNKNOWN · Not measured";
+    const rung = Number(rating.size_cost_rung_usd);
+    return rating?.size_cost_basis === "MEASURED_LIFI_LADDER"
+      ? `measured · LI.FI quotes $10k→$${rung >= 1_000_000 ? `${rung / 1_000_000}M` : `${rung / 1000}k`}`
+      : "modelled · size vs reported depth";
+  }
+
+  function routingFeeCaption(row, suffix = "") {
+    const bps = row?.rating?.routing_fee_bps;
+    return bps ? `${pct(bps)} routing fee${suffix}` : "none";
+  }
+
   function costFigureContext(row) {
-    const model = recordedSource(row?.rating?.impact_model);
+    const model = sizeCostContext(row);
     return `<small class="cell-sub">${esc(model)} · not a live executable quote<br>Depth source · ${esc(recordedSource(row?.depth_source))}</small>`;
   }
 
@@ -754,7 +769,7 @@
     ${sourceContext("Days source", row.days_to_maturity_source)}
     ${meta("Permission", textOr(row.gate?.status))}
     ${meta("Execution", executionMode(row))}
-    <p class="cell-sub">Execution cost includes a stated flat 30 bp base fee plus <b>${esc(recordedSource(row.rating?.impact_model))}</b> impact. It is not measured slippage or a live executable quote.<br>Depth source · ${esc(recordedSource(row.depth_source))}</p>
+    <p class="cell-sub">Entry costs include a stated flat 30 bp base fee, size cost (${esc(sizeCostContext(row))}), and ${row.rating?.routing_fee_bps === 0 ? "no Fenorium routing fee" : `a ${esc(pct(row.rating?.routing_fee_bps))} Fenorium routing fee`}. This is not a live executable quote.<br>Depth source · ${esc(recordedSource(row.depth_source))}</p>
     <h2 class="section-label">Why this score</h2>
     <p class="full-reason">${esc(explainReason(reason, row))}</p>
     ${row?.rating?.computable === false && row.rating.refusal ? `<p class="cell-sub rating-refusal">Rating refusal: ${esc(ratingRefusal(row.rating.refusal))}</p>` : ""}
@@ -983,16 +998,16 @@
     const daysLabel = hp ? `${Number(hp.days).toFixed(1)} days` : "";
     const net = hp ? pct(hp.net_bps) : numericMetric(row, "net");
     const size = notionalLabel(sizeUsd);
-    const model = recordedSource(row.rating?.impact_model);
+    const model = sizeCostContext(row);
     const modelNote = `${model} · not a live executable quote`;
     const depthSource = recordedSource(row.depth_source);
     const tier = String(textOr(row.tier));
     const metrics = [
       ["Fenorium Score", scoreChip(row), "", ""],
       ["Headline Yield", numericMetric(row, "headline"), "gross rate", ""],
-      [`Net Yield @ ${size}`, net, hp ? `to maturity · ${daysLabel}` : "after modelled cost",
+      [`Net Yield @ ${size}`, net, hp ? `to maturity · ${daysLabel}` : "after entry costs",
         hp ? `Annualized ${numericMetric(row, "net")} · ${modelNote}` : modelNote],
-      ["Execution Cost", hp ? pct(hp.cost_bps) : numericMetric(row, "execution"), hp ? "to maturity · entry cost + impact" : "modelled · annualized",
+      ["Execution Cost", hp ? pct(hp.cost_bps) : numericMetric(row, "execution"), hp ? "to maturity · entry costs" : "entry costs · annualized",
         hp ? `Annualized ${numericMetric(row, "execution")} · ${modelNote}` : modelNote],
       ["Reported depth", numericMetric(row, "depth"), "exitable or acquirable", `Depth source · ${depthSource}`],
       ["Tier", tier === NOT_COMPUTABLE ? NOT_COMPUTABLE : esc(stateLabel(tier)), "classification, not a guarantee", stateText(tier)],
@@ -1003,32 +1018,34 @@
       const tooltip = missing ? stateText(NOT_COMPUTABLE) : title;
       return `<div class="metric-card"${tooltip ? ` title="${esc(tooltip)}"` : ""}><div class="label">${esc(label)}</div><div class="value${missing ? " value-unavailable" : ""}">${missing ? "Not available" : value}</div>${note ? `<div class="detail">${esc(note)}</div>` : ""}</div>`;
     }).join("");
-    const parameters = computable ? `<details class="impact-parameters"><summary>Model parameters</summary><p>${esc(row.rating.impact_coefficient_bps)} bp × (size / reported depth)<sup>${esc(row.rating.impact_exponent)}</sup> at ${esc(size)} · impact ${esc(row.rating.impact_rounding)} · annualization ${esc(row.rating.annualization_rounding)} · not measured slippage or a live executable quote</p></details>` : "";
+    const parameters = computable && row.rating.size_cost_basis !== "MEASURED_LIFI_LADDER" ? `<details class="impact-parameters"><summary>Model parameters</summary><p>${esc(row.rating.impact_coefficient_bps)} bp × (size / reported depth)<sup>${esc(row.rating.impact_exponent)}</sup> at ${esc(size)} · size cost ${esc(row.rating.impact_rounding)} · annualization ${esc(row.rating.annualization_rounding)} · not measured slippage or a live executable quote</p></details>` : "";
     const thesis = computable && hp
       ? `<div class="thesis">
-          <div class="thesis-box"><span>YIELD TO MATURITY</span><b>${esc(pct(hp.gross_bps))}</b><small>${esc(pct(row.rating.headline_bps))} − ${esc(numericMetric(row, "credit"))} credit · ${esc(daysLabel)}</small></div>
+          <div class="thesis-box"><span>YIELD TO MATURITY</span><b>${esc(pct(hp.gross_bps))}</b><small>${esc(pct(row.rating.headline_bps))} headline · ${esc(daysLabel)}</small></div>
           <span class="operator" aria-hidden="true">−</span>
           <div class="thesis-box"><span>BASE FEE</span><b>${esc(pct(row.rating.base_fee_bps))}</b><small>${esc(row.rating.base_fee_bps)} bp entry cost</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>MODELLED IMPACT</span><b>${esc(pct(row.rating.modelled_impact_bps))}</b><small>${esc(row.rating.modelled_impact_bps)} bp at this size</small></div>
+          <div class="thesis-box"><span>SIZE COST</span><b>${esc(pct(row.rating.size_cost_bps))}</b><small>${esc(model)}</small></div>
+          <span class="operator" aria-hidden="true">−</span>
+          <div class="thesis-box"><span>FENORIUM FEE</span><b>${esc(pct(row.rating.routing_fee_bps))}</b><small>${esc(routingFeeCaption(row))}</small></div>
           <span class="operator" aria-hidden="true">=</span>
           <div class="thesis-box"><span>NET TO MATURITY</span><b>${esc(net)}</b><small>annualized ${esc(numericMetric(row, "net"))}</small></div>
         </div>
-        <div class="cell-sub thesis-note"><p>Within ${esc(P.HOLDING_PERIOD_DAYS)} days of maturity the figures are for the ${esc(daysLabel)} that remain, not annualized: a flat entry cost annualized over days is a rate nobody pays. ${esc(model)} Depth source · ${esc(depthSource)}.</p>${parameters}</div>`
+        <div class="cell-sub thesis-note"><p>Within ${esc(P.HOLDING_PERIOD_DAYS)} days of maturity the figures are for the ${esc(daysLabel)} that remain, not annualized: a flat entry cost annualized over days is a rate nobody pays. ${esc(recordedSource(row.rating?.size_cost_basis))} Depth source · ${esc(depthSource)}.</p>${parameters}</div>`
       : computable
       ? `<div class="thesis">
           <div class="thesis-box"><span>HEADLINE YIELD</span><b>${esc(pct(row.rating.headline_bps))}</b><small>gross rate at maturity</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>CREDIT HAIRCUT</span><b>${esc(numericMetric(row, "credit"))}</b><small>protocol and credit adjustments</small></div>
-          <span class="operator" aria-hidden="true">−</span>
           <div class="thesis-box"><span>BASE FEE</span><b>${esc(numericMetric(row, "base_fee"))}</b><small>${esc(row.rating.base_fee_bps)} bp entry cost · annualized</small></div>
           <span class="operator" aria-hidden="true">−</span>
-          <div class="thesis-box"><span>MODELLED IMPACT</span><b>${esc(numericMetric(row, "modelled_impact"))}</b><small>${esc(row.rating.modelled_impact_bps)} bp at this size · annualized</small></div>
+          <div class="thesis-box"><span>SIZE COST</span><b>${esc(numericMetric(row, "size_cost"))}</b><small>${esc(model)} · annualized</small></div>
+          <span class="operator" aria-hidden="true">−</span>
+          <div class="thesis-box"><span>FENORIUM FEE</span><b>${esc(numericMetric(row, "routing_fee"))}</b><small>${esc(routingFeeCaption(row, " · annualized"))}</small></div>
           <span class="operator" aria-hidden="true">=</span>
-          <div class="thesis-box"><span>NET YIELD @ ${esc(size)}</span><b>${esc(net)}</b><small>modelled · not a live quote</small></div>
+          <div class="thesis-box"><span>NET YIELD @ ${esc(size)}</span><b>${esc(net)}</b><small>after entry costs · not a live quote</small></div>
         </div>
-        <div class="cell-sub thesis-note"><p>${esc(model)} Depth source · ${esc(depthSource)}.</p>${parameters}</div>`
-      : `<div class="empty"><b>NET YIELD NOT COMPUTABLE</b><p>${esc(ratingRefusal(row.rating?.refusal || net))}</p><small>A refusal never becomes a number; missing impact is UNKNOWN, not 0.</small></div>`;
+        <div class="cell-sub thesis-note"><p>${esc(recordedSource(row.rating?.size_cost_basis))} Depth source · ${esc(depthSource)}.</p>${parameters}</div>`
+      : `<div class="empty"><b>NET YIELD NOT COMPUTABLE</b><p>${esc(ratingRefusal(row.rating?.refusal || net))}</p><small>A refusal never becomes a number; missing size cost is UNKNOWN, not 0.</small></div>`;
     const purchaseMarkup = row.simulation === true ? simulatedInstrumentNotice(row)
       : row.is_demo === true ? demoPurchaseCard(row, purchase) : readOnlyExecutionNotice(row);
     const chainLabel = row.chain && row.chain_id != null ? `${row.chain} · ${row.chain_id}` : row.chain ?? row.chain_id;
@@ -1062,7 +1079,7 @@
       : !row.maturity && P.marketFieldApplies?.(row, "maturity") === false ? ["Duration", "N/A", "Not applicable: open-ended, no maturity date"]
       : ["Duration", "UNSUPPORTED", "APY cannot create duration."];
     return `<section class="panel"><header><div><p class="eyebrow">Evidence coverage</p><h2>Risk Coverage / Support Matrix</h2></div></header>${support([
-      ["Credit", "PARTIAL", row.rating?.computable === true ? "Credit haircut available; no issuer analytics." : "Rating refused."],
+      ["Credit", "PARTIAL", "Tier and Fenorium Score describe risk; no issuer analytics."],
       ["Liquidity", row.depth_usd == null ? "MISSING" : "PARTIAL", row.depth_usd == null ? "Reported depth is UNKNOWN. Review the depth evidence." : "Reported depth only — what was shown exitable or acquirable, never fund size."],
       hasRisk ? ["Market", "COMPUTED", `Volatility ${(measured.volatility_bps / 100).toFixed(2)}% annualized · maximum drawdown ${(measured.max_drawdown_bps / 100).toFixed(2)}% over ${measured.observations} daily observations${source}`]
         : ["Market", NOT_COMPUTABLE, "Not enough price history. Review the history requirements."],
@@ -1132,12 +1149,12 @@
     const contribution = (value, factor = 1) => value == null || value === "" || !Number.isFinite(Number(value)) ? null : Number(value) * factor;
     const waterfall = rating.computable === true ? [
       {label: "Headline", value_bps: contribution(rating.headline_bps, hp ? hp.fraction : 1)},
-      {label: "Credit haircut", value_bps: contribution(rating.credit_haircut_bps, hp ? -hp.fraction : -1)},
       {label: "Entry fee", value_bps: contribution(hp ? rating.base_fee_bps : rating.base_fee_annualized_bps, -1)},
-      {label: "Modelled impact", value_bps: contribution(hp ? rating.modelled_impact_bps : rating.modelled_impact_annualized_bps, -1)},
+      {label: `Size cost (${sizeCostContext({rating})})`, value_bps: contribution(hp ? rating.size_cost_bps : rating.size_cost_annualized_bps, -1)},
+      ...(rating.routing_fee_bps > 0 ? [{label: "Fenorium routing fee", value_bps: contribution(hp ? rating.routing_fee_bps : rating.routing_fee_annualized_bps, -1)}] : []),
       {label: "Net", value_bps: hp ? hp.net_bps : rating.net_bps, total: true},
     ] : [];
-    return `<section class="panel"><header><h2>Yield at size</h2><span>${toMaturity ? "to maturity, not annualized" : "Annualized yield"}</span></header><p class="cell-sub">Platform size curve · ${esc(data.source_sha256?.slice(0, 12))} · ${esc(utcStamp(data.generated_at))} · modelled costs, not an executable quote</p><div class="grid-2">${charts.instrumentSizeCurve?.(points, {sizeUsd, depthUsd: curve.reported_depth_usd, toMaturity}) || ""}<div><h3>Yield waterfall at ${esc(notionalLabel(sizeUsd))}</h3>${waterfall.length ? charts.instrumentWaterfall?.(waterfall, toMaturity ? "Yield to maturity" : "Annualized yield") || "" : `<p>${esc(ratingRefusal(rating.refusal || NOT_COMPUTABLE))}</p>`}</div></div>${analyticsTable("Yield at size data", ["Position size", "Headline", "Net", "Refusal", "Fenorium Score"], points.map(point => [usdN(point.size_usd), pct(point.headline_bps), pct(point.net_bps), point.refusal || "—", `${point.fenorium_score ?? NOT_COMPUTABLE}${Number(point.fenorium_score) < 60 && point.fenorium_score != null ? ` · below 60 · score cap ${point.score_cap ?? NOT_COMPUTABLE}` : ""}`]))}${analyticsTable("Waterfall data", ["Component", "Yield contribution"], waterfall.map(item => [item.label, pct(item.value_bps)]))}</section>`;
+    return `<section class="panel"><header><h2>Yield at size</h2><span>${toMaturity ? "to maturity, not annualized" : "Annualized yield"}</span></header><p class="cell-sub">Platform size curve · ${esc(data.source_sha256?.slice(0, 12))} · ${esc(utcStamp(data.generated_at))} · entry costs, not an executable quote</p><div class="grid-2">${charts.instrumentSizeCurve?.(points, {sizeUsd, depthUsd: curve.reported_depth_usd, toMaturity}) || ""}<div><h3>Yield waterfall at ${esc(notionalLabel(sizeUsd))}</h3>${waterfall.length ? charts.instrumentWaterfall?.(waterfall, toMaturity ? "Yield to maturity" : "Annualized yield") || "" : `<p>${esc(ratingRefusal(rating.refusal || NOT_COMPUTABLE))}</p>`}</div></div>${analyticsTable("Yield at size data", ["Position size", "Headline", "Net", "Refusal", "Fenorium Score"], points.map(point => [usdN(point.size_usd), pct(point.headline_bps), pct(point.net_bps), point.refusal || "—", `${point.fenorium_score ?? NOT_COMPUTABLE}${Number(point.fenorium_score) < 60 && point.fenorium_score != null ? ` · below 60 · score cap ${point.score_cap ?? NOT_COMPUTABLE}` : ""}`]))}${analyticsTable("Waterfall data", ["Component", "Yield contribution"], waterfall.map(item => [item.label, pct(item.value_bps)]))}</section>`;
   }
 
   function instrumentHistory(row, data, charts) {
@@ -1309,7 +1326,8 @@
       ["Headline Yield", "headline"],
       [`Net @ ${notionalLabel(sizeUsd)}`, "net"],
       ["Execution Cost", "execution"],
-      ["Credit Haircut", "credit"],
+      ["Size Cost", "size_cost"],
+      ["Fenorium Fee", "routing_fee"],
       ["Reported depth · exitable or acquirable", "depth"],
       ["Tier", "tier"],
       ["Maturity", "maturity"],
@@ -1327,7 +1345,11 @@
       const hp = holdingOf(row);
       return hp ? pct(field === "net" ? hp.net_bps : hp.cost_bps) : numericMetric(row, field);
     }
-    if (["headline", "credit", "depth", "days"].includes(field)) return numericMetric(row, field);
+    if (["size_cost", "routing_fee"].includes(field)) {
+      const hp = holdingOf(row);
+      return hp ? pct(row.rating[`${field}_bps`]) : numericMetric(row, field);
+    }
+    if (["headline", "depth", "days"].includes(field)) return numericMetric(row, field);
     if (field === "maturity") return textOr(row.maturity);
     if (field === "tier") return textOr(row.tier);
     if (field === "venue") return textOr(row.venue);
@@ -1345,6 +1367,14 @@
       return rendered + basis + costFigureContext(row);
     }
     if (field === "depth") return rendered + sourceContext("Depth source", row.depth_source);
+    if (field === "size_cost" || field === "routing_fee") {
+      // A one-off cost within the holding window sits beside annualized ones; each cell names its horizon.
+      const hp = holdingOf(row);
+      const horizon = hp ? `to maturity · ${Number(hp.days).toFixed(1)} days` : "annualized";
+      const context = field === "size_cost" ? `${sizeCostContext(row)} · ${horizon}`
+        : row.rating?.routing_fee_bps ? routingFeeCaption(row, ` · ${horizon}`) : "none";
+      return rendered + `<small class="cell-sub">${esc(context)}</small>`;
+    }
     return rendered;
   }
 
@@ -1356,7 +1386,7 @@
       return;
     }
     const rows = result.rows;
-    element.innerHTML = `<p class="compare-note">Selection order is neutral and not ranked. Execution cost uses a stated flat 30 bp base fee plus <b>MODELLED</b> size/depth impact; it is not measured slippage or a live executable quote.</p><div class="comparison-scroll"><table class="comparison-table"><thead><tr><th scope="col">Field</th>${rows.map((row) => `<th scope="col"><span class="compare-instrument">${esc(row.name)}</span><small>${esc(row.chain || NOT_COMPUTABLE)} · ${esc(executionMode(row))}</small></th>`).join("")}</tr></thead><tbody>${compareFields(sizeUsd).map((field) => `<tr><th scope="row">${esc(field[0])}</th>${rows.map((row) => {
+    element.innerHTML = `<p class="compare-note">Selection order is neutral and not ranked. Entry costs include a stated flat 30 bp base fee, measured LI.FI size cost or MODELLED size versus reported depth, and the Fenorium routing fee where charged; this is not a live executable quote.</p><div class="comparison-scroll"><table class="comparison-table"><thead><tr><th scope="col">Field</th>${rows.map((row) => `<th scope="col"><span class="compare-instrument">${esc(row.name)}</span><small>${esc(row.chain || NOT_COMPUTABLE)} · ${esc(executionMode(row))}</small></th>`).join("")}</tr></thead><tbody>${compareFields(sizeUsd).map((field) => `<tr><th scope="row">${esc(field[0])}</th>${rows.map((row) => {
       const value = comparisonValue(row, field[1]);
       return `<td class="${value === NOT_COMPUTABLE ? "not-computable" : ""}">${field[1] === "verdict" ? scoreChip(row) : comparisonMarkup(row, field[1], value)}</td>`;
     }).join("")}</tr>`).join("")}</tbody></table></div>`;
@@ -2487,6 +2517,7 @@
     availability,
     sourceContext,
     costFigureContext,
+    sizeCostContext,
     reasonBasis,
     explainReason,
     typeIndicator,

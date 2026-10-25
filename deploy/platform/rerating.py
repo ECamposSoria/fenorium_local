@@ -9,17 +9,19 @@ from __future__ import annotations
 
 from dataclasses import replace
 from datetime import date
+from fractions import Fraction
+from math import ceil
 from typing import Any
 
 from engine.rating import Assumptions, Rating, rate_instrument
+from engine.purchase_paths import routed_purchase
 
 
-TIER_HAIRCUT_BPS = {"TIER_A": 25, "TIER_B": 100, "TIER_C": 400}
 EXECUTION_COST_BPS = 30
 IMPACT_COEFFICIENT_BPS = 100
 IMPACT_EXPONENT = "1/2"
 HOLDING_PERIOD_DAYS = 90
-EXECUTION_COST_MODEL = "STATED_BASE_FEE_PLUS_MODELLED_IMPACT"
+EXECUTION_COST_MODEL = "STATED_BASE_FEE_PLUS_SIZE_COST_PLUS_ROUTING_FEE"
 MATURED_REFUSAL = "MATURED: the redemption date has passed, so there is no horizon left to rate"
 
 
@@ -46,11 +48,16 @@ def _declared_matured(row: dict[str, Any]) -> bool:
             and type(days) is int and days <= 0)
 
 
-def _rating_assumptions(size_usd: int) -> Assumptions:
+def _routing_fee_bps(configured_fee: Fraction | None) -> int:
+    """Convert the configured fee fraction to integer bps, rounding up; unset means zero."""
+    return 0 if configured_fee is None else ceil(configured_fee * 10_000)
+
+
+def _rating_assumptions(size_usd: int, routing_fee_bps: int) -> Assumptions:
     return Assumptions(
         size_usd=size_usd,
-        tier_haircut_bps=TIER_HAIRCUT_BPS,
         execution_cost_bps=EXECUTION_COST_BPS,
+        routing_fee_bps=routing_fee_bps,
         impact_coefficient_bps=IMPACT_COEFFICIENT_BPS,
         impact_exponent=IMPACT_EXPONENT,
         holding_period_days=HOLDING_PERIOD_DAYS,
@@ -73,6 +80,8 @@ def _rating_point(row: dict[str, Any]) -> dict[str, Any]:
         "indicative_apy": apy if indicative else None,
         "days_to_maturity": row.get("days_to_maturity"),
         "liquidity_usd": row.get("depth_usd"),
+        "obtainable": row.get("obtainable"),
+        "routed_purchase": routed_purchase(row),
     }
 
 
@@ -84,18 +93,22 @@ def _rating_json(rating: Rating) -> dict[str, Any]:
         "computable": bool(rating.computable),
         "refusal": rating.refusal,
         "headline_bps": int(rating.headline_bps),
-        "credit_haircut_bps": int(rating.credit_haircut_bps),
         "execution_bps": int(rating.execution_bps),
         "base_fee_bps": int(rating.base_fee_bps),
-        "modelled_impact_bps": optional_int(rating.modelled_impact_bps),
+        "size_cost_bps": optional_int(rating.size_cost_bps),
+        "size_cost_basis": rating.size_cost_basis,
+        "size_cost_rung_usd": rating.size_cost_rung_usd,
+        "size_cost_measured_at": rating.size_cost_measured_at,
+        "routing_fee_bps": int(rating.routing_fee_bps),
         "base_fee_annualized_bps": optional_int(rating.base_fee_annualized_bps),
-        "modelled_impact_annualized_bps": optional_int(rating.modelled_impact_annualized_bps),
+        "size_cost_annualized_bps": optional_int(rating.size_cost_annualized_bps),
+        "routing_fee_annualized_bps": optional_int(rating.routing_fee_annualized_bps),
         "net_bps": int(rating.net_bps),
         "rate_basis": rating.rate_basis,
         "size_usd": rating.size_usd,
         "reported_depth_usd": rating.reported_depth_usd_exact,
         "method_version": rating.method_version,
-        "impact_model": rating.impact_model,
+        "cost_model": rating.cost_model,
         "impact_coefficient_bps": int(rating.impact_coefficient_bps),
         "impact_exponent": rating.impact_exponent,
         "impact_rounding": rating.impact_rounding,
@@ -108,8 +121,8 @@ def _is_size_depth_refusal(refusal: Any) -> bool:
     return isinstance(refusal, str) and refusal.startswith("reported depth $") and " below the intended $" in refusal
 
 
-def _rerated_rows(rows: list[dict[str, Any]], size_usd: int) -> tuple[list[dict[str, Any]], int]:
-    assumptions = _rating_assumptions(size_usd)
+def _rerated_rows(rows: list[dict[str, Any]], size_usd: int, routing_fee_bps: int) -> tuple[list[dict[str, Any]], int]:
+    assumptions = _rating_assumptions(size_usd, routing_fee_bps)
     rerated = []
     priceable_count = 0
     for source_row in rows:

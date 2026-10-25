@@ -55,11 +55,13 @@ then classifies and values the recorded observations. It never contacts an RPC i
 `price_observations` remain missing evidence rather than a stablecoin peg assumption.
 
 The sized universe response preserves the standard disabled-execution envelope, freshness fields, source
-hash, and each row's independent `depth_source` / `tvl_source` fields. It also echoes `size_usd`, the tier
-haircuts, 90-day open-ended holding period, realized-rate opt-in, the 30 bp stated base fee, and the exact
-size-impact assumptions. Each rerated row carries `rating.impact_model` and
-`rating.modelled_impact_bps`; protocol-native depth therefore never implies that the derived cost is a
-live executable quote. Invalid syntax returns `INVALID_SIZE_USD`; zero or values above the maximum return
+hash, and each row's independent `depth_source` / `tvl_source` fields. It also echoes `size_usd`, the
+90-day open-ended holding period, realized-rate opt-in, the 30 bp stated base fee, the 10 bp routing
+fee assumption, and the exact fallback size-model assumptions. Each rerated row carries
+`rating.cost_model`, `rating.size_cost_bps` and its measured or modelled basis. The routing fee applies
+to LI.FI token purchases; position deposits, lending orders, declared demos and stablecoins are exempt.
+Net yield deducts entry costs only; risk remains in the Score and verdict. Neither a measured ladder
+increment nor a modelled size cost is a live executable quote. Invalid syntax returns `INVALID_SIZE_USD`; zero or values above the maximum return
 `SIZE_USD_OUT_OF_RANGE` in the platform error envelope's `reason_code`.
 
 ## Routing (`/v1/execution-routes`)

@@ -22,8 +22,10 @@ labelled Base Sepolia demo card for the two exact demo instruments.
   amount. `NO BID` and `NO QUOTE` stay hard gates; missing route-cost fields are `ANALYTICAL_ONLY`.
 - Evidence previews are structured and `UNANCHORED`. Execute is visibly disabled with legal, quote, and
   destination-failure blockers; `execution_enabled` and `fees_enabled` remain false.
-- Market, inspector, asset-summary, comparison, and CSV cost/net figures show the exact existing
-  `rating.impact_model` and say they are not live executable quotes. The independent `depth_source` is
+- Market, inspector, asset-summary and comparison cost/net figures identify measured LI.FI ladder
+  size costs or the modelled size/depth fallback; CSV records `rating.cost_model`. Entry costs also
+  include the stated base fee and applicable Fenorium routing fee. These are not live executable
+  quotes. The independent `depth_source` is
   displayed beside those figures; depth and TVL figures disclose `depth_source` and `tvl_source`
   separately, with missing provenance shown as `UNKNOWN · Not measured`. No color is required to read
   the distinction.

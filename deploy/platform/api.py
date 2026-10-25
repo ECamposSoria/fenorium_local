@@ -36,7 +36,7 @@ from engine.midnight import ADDRESSES, MIDNIGHT_VENUES, MAX_TICK
 from engine.registry import DEPOSIT_VENUES, asset_id, assets as registry_assets, purchase_refusals, registry
 from .current_prices import MAX_AGE_SECONDS as CURRENT_PRICE_MAX_AGE_SECONDS
 from .performance import wallet_performance
-from .rerating import _is_size_depth_refusal, _rating_assumptions, _rating_point
+from .rerating import _is_size_depth_refusal, _rating_assumptions, _rating_point, _routing_fee_bps
 from .order_store import OrderStoreError
 from .position_exits import ExitError, MorphoExits, MorphoPublicBook, build_exit, parse_market, calldata, _words
 from .route_store import RouteStateError
@@ -2178,7 +2178,7 @@ class PlatformAPI:
                 depth = None
             if depth is not None and depth < size_usd:
                 reasons.append("SIZE_EXCEEDS_DEPTH")
-            rating = rate_instrument(point, _rating_assumptions(size_usd))
+            rating = rate_instrument(point, _rating_assumptions(size_usd, _routing_fee_bps(self._configured_fee())))
             rated = {"size_usd": size_usd, "computable": bool(rating.computable), "refusal": rating.refusal,
                      "execution_bps": int(rating.execution_bps), "net_bps": int(rating.net_bps)}
             if (not rating.computable and _is_size_depth_refusal(rating.refusal)
