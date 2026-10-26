@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 import sys
 import tempfile
+import time
 
 from engine.score_ledger import build_snapshot, snapshot_summary
 from engine.keccak import keccak256
@@ -180,6 +181,32 @@ def receipt_record(value: dict, expected_tx: str) -> dict:
     return {"tx_hash": tx_hash, "block_number": cast_number(value.get("blockNumber"))}
 
 
+def tx_action(receipt_json: str, snapshot_id: int) -> str:
+    snapshot_id = cast_number(snapshot_id)
+    receipt = json.loads(receipt_json) if receipt_json.strip() else None
+    if receipt is None:
+        # Base already holds the record, so our saved hash was replaced (e.g. a sped-up tx):
+        # the recording transaction is found from the event instead.
+        return "recover" if snapshot_id else "wait"
+    status = cast_number(receipt.get("status"))
+    if status not in (0, 1):
+        raise ValueError("invalid receipt status")
+    cast_number(receipt.get("blockNumber"))
+    if status == 0:
+        return "recover" if snapshot_id else "resend"
+    return "use"
+
+
+def fail_transaction(summary_path: Path) -> None:
+    summary = json.loads(summary_path.read_bytes())
+    stamp = summary["generated_at_unix"]
+    source = summary_path.parent / f"{stamp}.tx.json"
+    target = summary_path.parent / f"{stamp}.tx.failed-{int(time.time())}.json"
+    # Never overwrite evidence, including two failures within the same second.
+    os.link(source, target)
+    source.unlink()
+
+
 def log_transaction(logs: list, snapshot_id: int, contract: str) -> str:
     matches = [log for log in logs if not log.get("removed", False)
                and log.get("address", "").lower() == contract.lower()
@@ -221,7 +248,7 @@ def main(argv=None) -> None:
     command = commands.add_parser("build-new")
     command.add_argument("--universe", type=Path, default=Path("/curve/universe.json"))
     command.add_argument("--pending", type=Path, default=Path("/curve/ledger/pending"))
-    command.add_argument("--processed", type=int, required=True)
+    command.add_argument("--processed", type=int, default=0)
     command = commands.add_parser("pending")
     command.add_argument("--reconcile", action="store_true")
     command.add_argument("--pending", type=Path, default=Path("/curve/ledger/pending"))
@@ -248,6 +275,11 @@ def main(argv=None) -> None:
     command = commands.add_parser("known-tx")
     command.add_argument("summary", type=Path)
     command.add_argument("--ledger", type=Path, default=Path("/curve/ledger"))
+    command = commands.add_parser("tx-action")
+    command.add_argument("receipt_json")
+    command.add_argument("snapshot_id", type=int)
+    command = commands.add_parser("fail-tx")
+    command.add_argument("summary", type=Path)
     commands.add_parser("number")
     commands.add_parser("snapshot-hash")
     commands.add_parser("snapshot-recorded-at")
@@ -297,6 +329,10 @@ def main(argv=None) -> None:
                      json_bytes({"sha256": summary["sha256"], "tx_hash": cast_hash(args.tx_hash)}))
     elif args.command == "known-tx":
         print(known_transaction(args.summary, args.ledger))
+    elif args.command == "tx-action":
+        print(tx_action(args.receipt_json, args.snapshot_id))
+    elif args.command == "fail-tx":
+        fail_transaction(args.summary)
     else:
         raw = sys.stdin.read().strip()
         # Decimal cast output can exceed JSON's floating-point range in other runtimes.
