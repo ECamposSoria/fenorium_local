@@ -132,6 +132,18 @@ def main() -> int:
     private_key = os.environ["PRIVATE_KEY"]
     ledger = CURVE / "ledger"
     pending = ledger / "pending"
+    # The curve volume outlives the chain: after a fresh chain, a kept index would show records whose
+    # transactions are gone. Keep it only if every indexed record still holds the same hash on chain.
+    index = ledger / "index.json"
+    if index.is_file():
+        entries = json.loads(index.read_text())
+        total = cast_number(json.loads(cast("call", contract, "total()(uint256)", "--json")))
+        stale = any(entry.get("contract", "").lower() != contract.lower() or entry["snapshot_id"] > total
+                    or snapshot_hash(cast("call", contract, "snapshotOf(uint256)", str(entry["snapshot_id"])))
+                    != entry["sha256"] for entry in entries)
+        if stale:
+            shutil.move(str(ledger), str(CURVE / f"ledger.stale-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}"))
+            print("previous score ledger belonged to an earlier chain; moved aside", flush=True)
     stamp = ledger_command("build", "--universe", str(CURVE / "universe.json"),
                            "--pending", str(pending))
     summary_path = pending / f"{stamp}.summary.json"
